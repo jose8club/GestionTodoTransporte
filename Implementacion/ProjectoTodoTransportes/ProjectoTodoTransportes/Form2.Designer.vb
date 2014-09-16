@@ -61,7 +61,7 @@ Partial Class Form2
         Me.DateTimePicker1.Location = New System.Drawing.Point(173, 195)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(258, 20)
-        Me.DateTimePicker1.TabIndex = 9
+        Me.DateTimePicker1.TabIndex = 5
         '
         'Label2
         '
@@ -77,7 +77,7 @@ Partial Class Form2
         Me.TextBox1.Location = New System.Drawing.Point(173, 51)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(258, 20)
-        Me.TextBox1.TabIndex = 6
+        Me.TextBox1.TabIndex = 1
         '
         'Label1
         '
@@ -93,7 +93,7 @@ Partial Class Form2
         Me.TextBox3.Location = New System.Drawing.Point(173, 102)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(258, 20)
-        Me.TextBox3.TabIndex = 11
+        Me.TextBox3.TabIndex = 2
         '
         'Label3
         '
@@ -109,7 +109,7 @@ Partial Class Form2
         Me.TextBox4.Location = New System.Drawing.Point(173, 149)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(204, 20)
-        Me.TextBox4.TabIndex = 13
+        Me.TextBox4.TabIndex = 3
         '
         'Label4
         '
@@ -125,7 +125,7 @@ Partial Class Form2
         Me.TextBox5.Location = New System.Drawing.Point(383, 149)
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(48, 20)
-        Me.TextBox5.TabIndex = 14
+        Me.TextBox5.TabIndex = 4
         '
         'GroupBox1
         '
@@ -147,7 +147,7 @@ Partial Class Form2
         Me.Button2.Location = New System.Drawing.Point(305, 77)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 5
+        Me.Button2.TabIndex = 11
         Me.Button2.Text = "Ver Disp"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -157,7 +157,7 @@ Partial Class Form2
         Me.ComboBox2.Location = New System.Drawing.Point(131, 77)
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(155, 21)
-        Me.ComboBox2.TabIndex = 4
+        Me.ComboBox2.TabIndex = 10
         '
         'Label6
         '
@@ -173,7 +173,7 @@ Partial Class Form2
         Me.Button1.Location = New System.Drawing.Point(305, 33)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 2
+        Me.Button1.TabIndex = 9
         Me.Button1.Text = "Ver Disp"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -183,7 +183,7 @@ Partial Class Form2
         Me.ComboBox1.Location = New System.Drawing.Point(131, 33)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(155, 21)
-        Me.ComboBox1.TabIndex = 1
+        Me.ComboBox1.TabIndex = 8
         '
         'Label5
         '
@@ -212,7 +212,7 @@ Partial Class Form2
         Me.CheckBox3.Location = New System.Drawing.Point(11, 99)
         Me.CheckBox3.Name = "CheckBox3"
         Me.CheckBox3.Size = New System.Drawing.Size(152, 17)
-        Me.CheckBox3.TabIndex = 2
+        Me.CheckBox3.TabIndex = 14
         Me.CheckBox3.Text = "Antecedentes académicos"
         Me.CheckBox3.UseVisualStyleBackColor = True
         '
@@ -222,7 +222,7 @@ Partial Class Form2
         Me.CheckBox2.Location = New System.Drawing.Point(11, 65)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(133, 17)
-        Me.CheckBox2.TabIndex = 1
+        Me.CheckBox2.TabIndex = 13
         Me.CheckBox2.Text = "Situación oftamológica"
         Me.CheckBox2.UseVisualStyleBackColor = True
         '
@@ -232,7 +232,7 @@ Partial Class Form2
         Me.CheckBox1.Location = New System.Drawing.Point(11, 33)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox1.TabIndex = 0
+        Me.CheckBox1.TabIndex = 12
         Me.CheckBox1.Text = "Foto Carnet"
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
@@ -254,7 +254,7 @@ Partial Class Form2
         Me.CheckBox4.Location = New System.Drawing.Point(9, 81)
         Me.CheckBox4.Name = "CheckBox4"
         Me.CheckBox4.Size = New System.Drawing.Size(101, 17)
-        Me.CheckBox4.TabIndex = 2
+        Me.CheckBox4.TabIndex = 15
         Me.CheckBox4.Text = "Pago Realizado"
         Me.CheckBox4.UseVisualStyleBackColor = True
         '
@@ -281,7 +281,7 @@ Partial Class Form2
         Me.Button3.Location = New System.Drawing.Point(356, 644)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 18
+        Me.Button3.TabIndex = 16
         Me.Button3.Text = "Guardar"
         Me.Button3.UseVisualStyleBackColor = True
         '
@@ -300,14 +300,14 @@ Partial Class Form2
         Me.ComboBox3.Location = New System.Drawing.Point(173, 242)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(258, 21)
-        Me.ComboBox3.TabIndex = 20
+        Me.ComboBox3.TabIndex = 6
         '
         'TextBox6
         '
         Me.TextBox6.Location = New System.Drawing.Point(173, 290)
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(258, 20)
-        Me.TextBox6.TabIndex = 22
+        Me.TextBox6.TabIndex = 7
         '
         'Label10
         '

@@ -63,7 +63,7 @@ Partial Class Form1
         Me.DateTimePicker1.Location = New System.Drawing.Point(160, 85)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(278, 20)
-        Me.DateTimePicker1.TabIndex = 4
+        Me.DateTimePicker1.TabIndex = 2
         '
         'Label3
         '
@@ -80,7 +80,7 @@ Partial Class Form1
         Me.ComboBox1.Location = New System.Drawing.Point(160, 136)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(278, 21)
-        Me.ComboBox1.TabIndex = 6
+        Me.ComboBox1.TabIndex = 3
         '
         'Label4
         '
@@ -96,15 +96,15 @@ Partial Class Form1
         Me.RichTextBox1.Location = New System.Drawing.Point(160, 194)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.Size = New System.Drawing.Size(278, 153)
-        Me.RichTextBox1.TabIndex = 8
+        Me.RichTextBox1.TabIndex = 4
         Me.RichTextBox1.Text = ""
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(363, 382)
+        Me.Button1.Location = New System.Drawing.Point(363, 366)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 9
+        Me.Button1.TabIndex = 5
         Me.Button1.Text = "Guardar"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -113,7 +113,7 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
-        Me.ClientSize = New System.Drawing.Size(462, 430)
+        Me.ClientSize = New System.Drawing.Size(462, 404)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.Label4)
