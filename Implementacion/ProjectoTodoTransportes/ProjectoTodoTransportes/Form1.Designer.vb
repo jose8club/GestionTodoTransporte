@@ -23,14 +23,15 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.NomCliTxt = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.FechAt = New System.Windows.Forms.DateTimePicker()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.CursoCbx = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.OtrosTbx = New System.Windows.Forms.RichTextBox()
+        Me.GuardarBtn = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -42,12 +43,12 @@ Partial Class Form1
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Nombre Cliente" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'TextBox1
+        'NomCliTxt
         '
-        Me.TextBox1.Location = New System.Drawing.Point(160, 38)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(278, 20)
-        Me.TextBox1.TabIndex = 1
+        Me.NomCliTxt.Location = New System.Drawing.Point(160, 38)
+        Me.NomCliTxt.Name = "NomCliTxt"
+        Me.NomCliTxt.Size = New System.Drawing.Size(278, 20)
+        Me.NomCliTxt.TabIndex = 1
         '
         'Label2
         '
@@ -58,12 +59,12 @@ Partial Class Form1
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Fecha de Atención"
         '
-        'DateTimePicker1
+        'FechAt
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(160, 85)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(278, 20)
-        Me.DateTimePicker1.TabIndex = 2
+        Me.FechAt.Location = New System.Drawing.Point(160, 85)
+        Me.FechAt.Name = "FechAt"
+        Me.FechAt.Size = New System.Drawing.Size(278, 20)
+        Me.FechAt.TabIndex = 2
         '
         'Label3
         '
@@ -74,13 +75,14 @@ Partial Class Form1
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Curso de Interes"
         '
-        'ComboBox1
+        'CursoCbx
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(160, 136)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(278, 21)
-        Me.ComboBox1.TabIndex = 3
+        Me.CursoCbx.FormattingEnabled = True
+        Me.CursoCbx.Items.AddRange(New Object() {"B2"})
+        Me.CursoCbx.Location = New System.Drawing.Point(160, 136)
+        Me.CursoCbx.Name = "CursoCbx"
+        Me.CursoCbx.Size = New System.Drawing.Size(278, 21)
+        Me.CursoCbx.TabIndex = 3
         '
         'Label4
         '
@@ -91,22 +93,31 @@ Partial Class Form1
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "Datos Adicionales"
         '
-        'RichTextBox1
+        'OtrosTbx
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(160, 194)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(278, 153)
-        Me.RichTextBox1.TabIndex = 4
-        Me.RichTextBox1.Text = ""
+        Me.OtrosTbx.Location = New System.Drawing.Point(160, 194)
+        Me.OtrosTbx.Name = "OtrosTbx"
+        Me.OtrosTbx.Size = New System.Drawing.Size(278, 153)
+        Me.OtrosTbx.TabIndex = 4
+        Me.OtrosTbx.Text = ""
         '
-        'Button1
+        'GuardarBtn
         '
-        Me.Button1.Location = New System.Drawing.Point(363, 366)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 5
-        Me.Button1.Text = "Guardar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.GuardarBtn.Location = New System.Drawing.Point(363, 366)
+        Me.GuardarBtn.Name = "GuardarBtn"
+        Me.GuardarBtn.Size = New System.Drawing.Size(75, 23)
+        Me.GuardarBtn.TabIndex = 5
+        Me.GuardarBtn.Text = "Guardar"
+        Me.GuardarBtn.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(59, 264)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 8
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -114,14 +125,15 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.ClientSize = New System.Drawing.Size(462, 404)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.RichTextBox1)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.GuardarBtn)
+        Me.Controls.Add(Me.OtrosTbx)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.CursoCbx)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.FechAt)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.NomCliTxt)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
@@ -132,13 +144,14 @@ Partial Class Form1
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents NomCliTxt As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents FechAt As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents CursoCbx As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents OtrosTbx As System.Windows.Forms.RichTextBox
+    Friend WithEvents GuardarBtn As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 
 End Class
