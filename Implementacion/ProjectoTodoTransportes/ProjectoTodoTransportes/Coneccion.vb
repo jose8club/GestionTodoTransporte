@@ -38,7 +38,18 @@ Public Class Coneccion
     End Sub
 
     Sub RegistrarCliente(ByVal Nombre As String, ByVal Fecha As String, ByVal Curso As String, ByVal Otros As String)
+        Try
+            comando.Connection = conn
+            comando.CommandText = "INSERT INTO CLIENTE (Nombre, Fecha, Curso, Extra) VALUES(@Nombre, @Fecha, @Curso, @Extra)"
+            comando.Prepare()
+            comando.Parameters.AddWithValue("@Nombre", Nombre)
+            comando.Parameters.AddWithValue("@Fecha", Fecha)
+            comando.Parameters.AddWithValue("@Curso", Curso)
+            comando.Parameters.AddWithValue("@Extra", Otros)
+            comando.ExecuteNonQuery()
+        Catch ex As Exception
 
+        End Try
     End Sub
 
 End Class
