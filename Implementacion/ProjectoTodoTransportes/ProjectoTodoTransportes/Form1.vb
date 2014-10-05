@@ -18,7 +18,7 @@
     End Sub
 
     Private Sub GuardarBtn_Click(sender As System.Object, e As System.EventArgs) Handles GuardarBtn.Click
-
+        'conexion.RegistrarCliente()
     End Sub
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load

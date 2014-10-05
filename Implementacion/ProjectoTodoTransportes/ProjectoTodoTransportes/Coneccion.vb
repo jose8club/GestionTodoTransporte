@@ -48,7 +48,7 @@ Public Class Coneccion
             comando.Parameters.AddWithValue("@Extra", Otros)
             comando.ExecuteNonQuery()
         Catch ex As Exception
-
+            MsgBox("Error: " & ex.ToString(), MsgBoxStyle.Critical, "ERROR")
         End Try
     End Sub
 
