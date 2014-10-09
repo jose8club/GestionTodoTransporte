@@ -44,7 +44,7 @@ Public Class Conexion
     End Sub
 
     Function registrosEnCURSO() As String
-        Dim cant As String        'cantidad'
+        Dim cant As String = ""       'cantidad'
         Using comando As New MySqlCommand()
             With comando
                 .CommandText = "SELECT COUNT(*) FROM CURSO"
