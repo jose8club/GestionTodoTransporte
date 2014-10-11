@@ -42,6 +42,30 @@ Public Class Conexion
     Sub LeerCursos()
 
     End Sub
+    Function iniciarSesion(ByVal usuario As String, ByVal contra As String) As Boolean
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT Contraseña FROM USUARIO WHERE Nombre = '" & usuario & "'"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+            End With
+            Try
+                conn.Open()
+                comando.ExecuteNonQuery()
+                Dim pass As String = Convert.ToString(comando.ExecuteScalar)
+                If pass.Equals(contra) Then Return True Else Return False
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+
+        End Using
+        Return False
+    End Function
+
 
     Function registrosEnCURSO() As String
         Dim cant As String = ""       'cantidad'
