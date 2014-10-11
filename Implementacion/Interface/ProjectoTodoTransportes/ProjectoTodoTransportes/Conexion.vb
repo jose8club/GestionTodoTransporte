@@ -13,17 +13,42 @@ Public Class Conexion
 
     End Sub
 
-    Sub RegistrarCliente(ByVal Nombre As String, ByVal Fecha As String, ByVal Curso As String, ByVal Otros As String)
+    Sub registrarAtencion(ByVal nombre As String, ByVal idcliente As String)
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO CLIENTE (Nombre, Fecha, Curso, Extra) VALUES(@Nombre, @Fecha, @Curso, @Extra)"
+                .CommandText = "INSERT INTO ATENCION_CLIENTE (Usuario,Cliente) VALUES(@Usuario,@Cliente)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Usuario", nombre)
+                .Parameters.AddWithValue("@Cliente", idcliente)
+
+            End With
+            Try
+                conn.Open()
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+
+        End Using
+    End Sub
+
+    Sub registrarCliente(ByVal Nombre As String, ByVal Telefono As Integer, ByVal Curso As String, ByVal Fecha As String, ByVal Otros As String, ByVal USER As String)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO CLIENTE (Nombre, Telefono, Curso, Fecha, Extra, Atención) VALUES(@Nombre, @Telefono, @Curso, @Fecha, @Extra, @Atencion)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
                 .Parameters.AddWithValue("@Nombre", Nombre)
-                .Parameters.AddWithValue("@Fecha", Fecha)
+                .Parameters.AddWithValue("@Telefono", Telefono)
                 .Parameters.AddWithValue("@Curso", Curso)
+                .Parameters.AddWithValue("@Fecha", Fecha)
                 .Parameters.AddWithValue("@Extra", Otros)
+                .Parameters.AddWithValue("@Atencion", USER)
             End With
             Try
                 conn.Open()
@@ -38,10 +63,6 @@ Public Class Conexion
 
     End Sub
 
-
-    Sub LeerCursos()
-
-    End Sub
     Function iniciarSesion(ByVal usuario As String, ByVal contra As String) As Boolean
         Using comando As New MySqlCommand()
             With comando
@@ -65,7 +86,6 @@ Public Class Conexion
         End Using
         Return False
     End Function
-
 
     Function registrosEnCURSO() As String
         Dim cant As String = ""       'cantidad'

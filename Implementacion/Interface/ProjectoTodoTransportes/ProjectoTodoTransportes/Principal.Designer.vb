@@ -24,18 +24,18 @@ Partial Class Principal
     Private Sub InitializeComponent()
         Me.TabControl = New System.Windows.Forms.TabControl()
         Me.RegistrarCliente = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.tbox_Telefono1 = New System.Windows.Forms.TextBox()
+        Me.lbl_Telefono1 = New System.Windows.Forms.Label()
+        Me.date_Fecha1 = New System.Windows.Forms.DateTimePicker()
         Me.btn_Guardar1 = New System.Windows.Forms.Button()
+        Me.lbl_Nombre1 = New System.Windows.Forms.Label()
         Me.tbox_Observaciones1 = New System.Windows.Forms.RichTextBox()
+        Me.tbox_Nombre1 = New System.Windows.Forms.TextBox()
         Me.lbl_Observaciones1 = New System.Windows.Forms.Label()
+        Me.lbl_Fecha1 = New System.Windows.Forms.Label()
         Me.cbox_CursoInteres1 = New System.Windows.Forms.ComboBox()
         Me.lbl_CursoInteres1 = New System.Windows.Forms.Label()
-        Me.date_Fecha1 = New System.Windows.Forms.DateTimePicker()
-        Me.lbl_Fecha1 = New System.Windows.Forms.Label()
-        Me.tbox_Nombre1 = New System.Windows.Forms.TextBox()
-        Me.lbl_Nombre1 = New System.Windows.Forms.Label()
-        Me.lbl_Telefono1 = New System.Windows.Forms.Label()
-        Me.tbox_Telefono1 = New System.Windows.Forms.TextBox()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabControl.SuspendLayout()
         Me.RegistrarCliente.SuspendLayout()
         Me.SuspendLayout()
@@ -71,15 +71,28 @@ Partial Class Principal
         Me.RegistrarCliente.Text = "Registrar Cliente"
         Me.RegistrarCliente.UseVisualStyleBackColor = True
         '
-        'TabPage2
+        'tbox_Telefono1
         '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(443, 268)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "TabPage2"
-        Me.TabPage2.UseVisualStyleBackColor = True
+        Me.tbox_Telefono1.Location = New System.Drawing.Point(145, 37)
+        Me.tbox_Telefono1.Name = "tbox_Telefono1"
+        Me.tbox_Telefono1.Size = New System.Drawing.Size(278, 20)
+        Me.tbox_Telefono1.TabIndex = 20
+        '
+        'lbl_Telefono1
+        '
+        Me.lbl_Telefono1.AutoSize = True
+        Me.lbl_Telefono1.Location = New System.Drawing.Point(16, 40)
+        Me.lbl_Telefono1.Name = "lbl_Telefono1"
+        Me.lbl_Telefono1.Size = New System.Drawing.Size(52, 13)
+        Me.lbl_Telefono1.TabIndex = 19
+        Me.lbl_Telefono1.Text = "Telefono:"
+        '
+        'date_Fecha1
+        '
+        Me.date_Fecha1.Location = New System.Drawing.Point(145, 96)
+        Me.date_Fecha1.Name = "date_Fecha1"
+        Me.date_Fecha1.Size = New System.Drawing.Size(278, 20)
+        Me.date_Fecha1.TabIndex = 11
         '
         'btn_Guardar1
         '
@@ -90,6 +103,15 @@ Partial Class Principal
         Me.btn_Guardar1.Text = "Guardar"
         Me.btn_Guardar1.UseVisualStyleBackColor = True
         '
+        'lbl_Nombre1
+        '
+        Me.lbl_Nombre1.AutoSize = True
+        Me.lbl_Nombre1.Location = New System.Drawing.Point(16, 12)
+        Me.lbl_Nombre1.Name = "lbl_Nombre1"
+        Me.lbl_Nombre1.Size = New System.Drawing.Size(47, 13)
+        Me.lbl_Nombre1.TabIndex = 9
+        Me.lbl_Nombre1.Text = "Nombre:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
         'tbox_Observaciones1
         '
         Me.tbox_Observaciones1.Location = New System.Drawing.Point(145, 128)
@@ -97,6 +119,13 @@ Partial Class Principal
         Me.tbox_Observaciones1.Size = New System.Drawing.Size(278, 103)
         Me.tbox_Observaciones1.TabIndex = 14
         Me.tbox_Observaciones1.Text = ""
+        '
+        'tbox_Nombre1
+        '
+        Me.tbox_Nombre1.Location = New System.Drawing.Point(145, 9)
+        Me.tbox_Nombre1.Name = "tbox_Nombre1"
+        Me.tbox_Nombre1.Size = New System.Drawing.Size(278, 20)
+        Me.tbox_Nombre1.TabIndex = 10
         '
         'lbl_Observaciones1
         '
@@ -106,6 +135,15 @@ Partial Class Principal
         Me.lbl_Observaciones1.Size = New System.Drawing.Size(81, 13)
         Me.lbl_Observaciones1.TabIndex = 17
         Me.lbl_Observaciones1.Text = "Observaciones:"
+        '
+        'lbl_Fecha1
+        '
+        Me.lbl_Fecha1.AutoSize = True
+        Me.lbl_Fecha1.Location = New System.Drawing.Point(16, 99)
+        Me.lbl_Fecha1.Name = "lbl_Fecha1"
+        Me.lbl_Fecha1.Size = New System.Drawing.Size(100, 13)
+        Me.lbl_Fecha1.TabIndex = 12
+        Me.lbl_Fecha1.Text = "Fecha de Atención:"
         '
         'cbox_CursoInteres1
         '
@@ -124,53 +162,15 @@ Partial Class Principal
         Me.lbl_CursoInteres1.TabIndex = 16
         Me.lbl_CursoInteres1.Text = "Curso de Interés:"
         '
-        'date_Fecha1
+        'TabPage2
         '
-        Me.date_Fecha1.Location = New System.Drawing.Point(145, 96)
-        Me.date_Fecha1.Name = "date_Fecha1"
-        Me.date_Fecha1.Size = New System.Drawing.Size(278, 20)
-        Me.date_Fecha1.TabIndex = 11
-        '
-        'lbl_Fecha1
-        '
-        Me.lbl_Fecha1.AutoSize = True
-        Me.lbl_Fecha1.Location = New System.Drawing.Point(16, 99)
-        Me.lbl_Fecha1.Name = "lbl_Fecha1"
-        Me.lbl_Fecha1.Size = New System.Drawing.Size(100, 13)
-        Me.lbl_Fecha1.TabIndex = 12
-        Me.lbl_Fecha1.Text = "Fecha de Atención:"
-        '
-        'tbox_Nombre1
-        '
-        Me.tbox_Nombre1.Location = New System.Drawing.Point(145, 9)
-        Me.tbox_Nombre1.Name = "tbox_Nombre1"
-        Me.tbox_Nombre1.Size = New System.Drawing.Size(278, 20)
-        Me.tbox_Nombre1.TabIndex = 10
-        '
-        'lbl_Nombre1
-        '
-        Me.lbl_Nombre1.AutoSize = True
-        Me.lbl_Nombre1.Location = New System.Drawing.Point(16, 12)
-        Me.lbl_Nombre1.Name = "lbl_Nombre1"
-        Me.lbl_Nombre1.Size = New System.Drawing.Size(47, 13)
-        Me.lbl_Nombre1.TabIndex = 9
-        Me.lbl_Nombre1.Text = "Nombre:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'lbl_Telefono1
-        '
-        Me.lbl_Telefono1.AutoSize = True
-        Me.lbl_Telefono1.Location = New System.Drawing.Point(16, 40)
-        Me.lbl_Telefono1.Name = "lbl_Telefono1"
-        Me.lbl_Telefono1.Size = New System.Drawing.Size(52, 13)
-        Me.lbl_Telefono1.TabIndex = 19
-        Me.lbl_Telefono1.Text = "Telefono:"
-        '
-        'tbox_Telefono1
-        '
-        Me.tbox_Telefono1.Location = New System.Drawing.Point(145, 37)
-        Me.tbox_Telefono1.Name = "tbox_Telefono1"
-        Me.tbox_Telefono1.Size = New System.Drawing.Size(278, 20)
-        Me.tbox_Telefono1.TabIndex = 20
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(443, 268)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "TabPage2"
+        Me.TabPage2.UseVisualStyleBackColor = True
         '
         'Principal
         '

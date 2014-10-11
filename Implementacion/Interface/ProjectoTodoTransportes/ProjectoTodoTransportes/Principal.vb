@@ -41,4 +41,14 @@
         End If
     End Sub
 
+    Private Sub btn_Guardar1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Guardar1.Click
+
+        con.registrarCliente(tbox_Nombre1.Text,
+                             CInt(tbox_Telefono1.Text),
+                             cbox_CursoInteres1.Text,
+                           Format(date_Fecha1.Value, "yyyy-MM-dd"),
+                          tbox_Observaciones1.Text,
+                          USER)
+
+    End Sub
 End Class
