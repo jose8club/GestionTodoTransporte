@@ -36,6 +36,7 @@ Partial Class Principal
         Me.cbox_CursoInteres1 = New System.Windows.Forms.ComboBox()
         Me.lbl_CursoInteres1 = New System.Windows.Forms.Label()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.lbl_Mensaje1 = New System.Windows.Forms.Label()
         Me.TabControl.SuspendLayout()
         Me.RegistrarCliente.SuspendLayout()
         Me.SuspendLayout()
@@ -52,6 +53,7 @@ Partial Class Principal
         '
         'RegistrarCliente
         '
+        Me.RegistrarCliente.Controls.Add(Me.lbl_Mensaje1)
         Me.RegistrarCliente.Controls.Add(Me.tbox_Telefono1)
         Me.RegistrarCliente.Controls.Add(Me.lbl_Telefono1)
         Me.RegistrarCliente.Controls.Add(Me.date_Fecha1)
@@ -147,6 +149,7 @@ Partial Class Principal
         '
         'cbox_CursoInteres1
         '
+        Me.cbox_CursoInteres1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_CursoInteres1.FormattingEnabled = True
         Me.cbox_CursoInteres1.Location = New System.Drawing.Point(145, 66)
         Me.cbox_CursoInteres1.Name = "cbox_CursoInteres1"
@@ -171,6 +174,15 @@ Partial Class Principal
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "TabPage2"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'lbl_Mensaje1
+        '
+        Me.lbl_Mensaje1.AutoSize = True
+        Me.lbl_Mensaje1.ForeColor = System.Drawing.Color.DimGray
+        Me.lbl_Mensaje1.Location = New System.Drawing.Point(145, 242)
+        Me.lbl_Mensaje1.Name = "lbl_Mensaje1"
+        Me.lbl_Mensaje1.Size = New System.Drawing.Size(0, 13)
+        Me.lbl_Mensaje1.TabIndex = 21
         '
         'Principal
         '
@@ -200,4 +212,5 @@ Partial Class Principal
     Friend WithEvents lbl_Fecha1 As System.Windows.Forms.Label
     Friend WithEvents cbox_CursoInteres1 As System.Windows.Forms.ComboBox
     Friend WithEvents lbl_CursoInteres1 As System.Windows.Forms.Label
+    Friend WithEvents lbl_Mensaje1 As System.Windows.Forms.Label
 End Class
