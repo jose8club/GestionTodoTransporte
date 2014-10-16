@@ -192,5 +192,134 @@ Public Class Conexion
 
         Return cursos
     End Function
+    'Horarios estudiante practico caso de uso registar estudiante'
+    
+    Function registrosPractico() As String
 
+        'Retorna el numero de clases practica
+        'Usado para crear el combobox
+
+        Dim cant As String = ""
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT COUNT(HoraPractica) FROM MATRICULA"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                conn.Open()
+                comando.ExecuteNonQuery()
+                cant = comando.ExecuteScalar()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+
+        Return cant
+    End Function
+
+    Function practicoToArray(ByVal n As Integer) As String()
+
+        'Retorna un Array con los practicoss impartidos por la empresa
+
+        Dim pract(n) As String
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT HoraPractica FROM MATRICULA"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                conn.Open()
+                Dim i As Integer
+                i = 0
+                Using lector As MySqlDataReader = comando.ExecuteReader()
+                    While lector.Read()
+                        pract(i) = lector.GetString(0)
+                        i = i + 1
+                    End While
+                End Using
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+
+        Return pract
+    End Function
+    'Horarios estudiante teorico caso de uso registar estudiante'
+
+    Function registrosTeorico() As String
+
+        'Retorna el numero de clases practica
+        'Usado para crear el combobox
+
+        Dim cant As String = ""
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT COUNT(HoraTeoria) FROM MATRICULA"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                conn.Open()
+                comando.ExecuteNonQuery()
+                cant = comando.ExecuteScalar()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+
+        Return cant
+    End Function
+
+    Function teoricoToArray(ByVal n As Integer) As String()
+
+        'Retorna un Array con los practicoss impartidos por la empresa
+
+        Dim teo(n) As String
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT HoraTeoria FROM MATRICULA"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                conn.Open()
+                Dim i As Integer
+                i = 0
+                Using lector As MySqlDataReader = comando.ExecuteReader()
+                    While lector.Read()
+                        teo(i) = lector.GetString(0)
+                        i = i + 1
+                    End While
+                End Using
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+
+        Return teo
+    End Function
+
+    Sub RegistrarMatricula()
+        'Registra Matricula'
+    End Sub
+
+    Sub RegistrarEstudiante()
+        'Registra Estudiante'
+    End Sub
 End Class

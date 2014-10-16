@@ -22,46 +22,53 @@ Partial Class Form2
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.datetp_atencion = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.tbox_nombre = New System.Windows.Forms.TextBox()
+        Me.lbl_nombre = New System.Windows.Forms.Label()
+        Me.tbox_apellido = New System.Windows.Forms.TextBox()
+        Me.lbl_apellido = New System.Windows.Forms.Label()
+        Me.tbox_rut1 = New System.Windows.Forms.TextBox()
+        Me.lbl_rut = New System.Windows.Forms.Label()
+        Me.tbox_rut2 = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
+        Me.btn_practicodisp = New System.Windows.Forms.Button()
+        Me.cbox_practico = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.btn_dispteorico = New System.Windows.Forms.Button()
+        Me.cbox_teorico = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.chbox_academicos = New System.Windows.Forms.CheckBox()
+        Me.chbox_oft = New System.Windows.Forms.CheckBox()
+        Me.check_foto = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.chbox_pago = New System.Windows.Forms.CheckBox()
+        Me.lbl_nmatricula = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btn_estudiante = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
+        Me.cbox_curso = New System.Windows.Forms.ComboBox()
+        Me.tbox_telefono = New System.Windows.Forms.TextBox()
+        Me.lbl_telefono = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.lbl_valor_curso = New System.Windows.Forms.Label()
+        Me.lbl_mensaje_conf = New System.Windows.Forms.Label()
+        Me.lbl_codigo_curso = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.tbx_mediopago = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
-        'DateTimePicker1
+        'datetp_atencion
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(173, 195)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(258, 20)
-        Me.DateTimePicker1.TabIndex = 5
+        Me.datetp_atencion.Location = New System.Drawing.Point(173, 195)
+        Me.datetp_atencion.Name = "datetp_atencion"
+        Me.datetp_atencion.Size = New System.Drawing.Size(285, 20)
+        Me.datetp_atencion.TabIndex = 5
         '
         'Label2
         '
@@ -72,92 +79,92 @@ Partial Class Form2
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "Fecha de Atención"
         '
-        'TextBox1
+        'tbox_nombre
         '
-        Me.TextBox1.Location = New System.Drawing.Point(173, 51)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(258, 20)
-        Me.TextBox1.TabIndex = 1
+        Me.tbox_nombre.Location = New System.Drawing.Point(173, 51)
+        Me.tbox_nombre.Name = "tbox_nombre"
+        Me.tbox_nombre.Size = New System.Drawing.Size(286, 20)
+        Me.tbox_nombre.TabIndex = 1
         '
-        'Label1
+        'lbl_nombre
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(44, 54)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(49, 13)
-        Me.Label1.TabIndex = 5
-        Me.Label1.Text = "Nombres" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.lbl_nombre.AutoSize = True
+        Me.lbl_nombre.Location = New System.Drawing.Point(44, 54)
+        Me.lbl_nombre.Name = "lbl_nombre"
+        Me.lbl_nombre.Size = New System.Drawing.Size(49, 13)
+        Me.lbl_nombre.TabIndex = 5
+        Me.lbl_nombre.Text = "Nombres" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'TextBox3
+        'tbox_apellido
         '
-        Me.TextBox3.Location = New System.Drawing.Point(173, 102)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(258, 20)
-        Me.TextBox3.TabIndex = 2
+        Me.tbox_apellido.Location = New System.Drawing.Point(173, 102)
+        Me.tbox_apellido.Name = "tbox_apellido"
+        Me.tbox_apellido.Size = New System.Drawing.Size(285, 20)
+        Me.tbox_apellido.TabIndex = 2
         '
-        'Label3
+        'lbl_apellido
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(44, 105)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(49, 13)
-        Me.Label3.TabIndex = 10
-        Me.Label3.Text = "Apellidos"
+        Me.lbl_apellido.AutoSize = True
+        Me.lbl_apellido.Location = New System.Drawing.Point(44, 105)
+        Me.lbl_apellido.Name = "lbl_apellido"
+        Me.lbl_apellido.Size = New System.Drawing.Size(49, 13)
+        Me.lbl_apellido.TabIndex = 10
+        Me.lbl_apellido.Text = "Apellidos"
         '
-        'TextBox4
+        'tbox_rut1
         '
-        Me.TextBox4.Location = New System.Drawing.Point(173, 149)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(204, 20)
-        Me.TextBox4.TabIndex = 3
+        Me.tbox_rut1.Location = New System.Drawing.Point(173, 149)
+        Me.tbox_rut1.Name = "tbox_rut1"
+        Me.tbox_rut1.Size = New System.Drawing.Size(217, 20)
+        Me.tbox_rut1.TabIndex = 3
         '
-        'Label4
+        'lbl_rut
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(44, 151)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(36, 13)
-        Me.Label4.TabIndex = 12
-        Me.Label4.Text = "R.U.T"
+        Me.lbl_rut.AutoSize = True
+        Me.lbl_rut.Location = New System.Drawing.Point(44, 151)
+        Me.lbl_rut.Name = "lbl_rut"
+        Me.lbl_rut.Size = New System.Drawing.Size(36, 13)
+        Me.lbl_rut.TabIndex = 12
+        Me.lbl_rut.Text = "R.U.T"
         '
-        'TextBox5
+        'tbox_rut2
         '
-        Me.TextBox5.Location = New System.Drawing.Point(383, 149)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(48, 20)
-        Me.TextBox5.TabIndex = 4
+        Me.tbox_rut2.Location = New System.Drawing.Point(411, 148)
+        Me.tbox_rut2.Name = "tbox_rut2"
+        Me.tbox_rut2.Size = New System.Drawing.Size(48, 20)
+        Me.tbox_rut2.TabIndex = 4
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.ComboBox2)
+        Me.GroupBox1.Controls.Add(Me.btn_practicodisp)
+        Me.GroupBox1.Controls.Add(Me.cbox_practico)
         Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
+        Me.GroupBox1.Controls.Add(Me.btn_dispteorico)
+        Me.GroupBox1.Controls.Add(Me.cbox_teorico)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Location = New System.Drawing.Point(40, 336)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(391, 128)
+        Me.GroupBox1.Size = New System.Drawing.Size(418, 128)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Horarios"
         '
-        'Button2
+        'btn_practicodisp
         '
-        Me.Button2.Location = New System.Drawing.Point(305, 77)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 11
-        Me.Button2.Text = "Ver Disp"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btn_practicodisp.Location = New System.Drawing.Point(327, 77)
+        Me.btn_practicodisp.Name = "btn_practicodisp"
+        Me.btn_practicodisp.Size = New System.Drawing.Size(75, 23)
+        Me.btn_practicodisp.TabIndex = 11
+        Me.btn_practicodisp.Text = "Ver Disp"
+        Me.btn_practicodisp.UseVisualStyleBackColor = True
         '
-        'ComboBox2
+        'cbox_practico
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(131, 77)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(155, 21)
-        Me.ComboBox2.TabIndex = 10
+        Me.cbox_practico.FormattingEnabled = True
+        Me.cbox_practico.Location = New System.Drawing.Point(131, 77)
+        Me.cbox_practico.Name = "cbox_practico"
+        Me.cbox_practico.Size = New System.Drawing.Size(155, 21)
+        Me.cbox_practico.TabIndex = 10
         '
         'Label6
         '
@@ -168,22 +175,22 @@ Partial Class Form2
         Me.Label6.TabIndex = 3
         Me.Label6.Text = "Practico"
         '
-        'Button1
+        'btn_dispteorico
         '
-        Me.Button1.Location = New System.Drawing.Point(305, 33)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 9
-        Me.Button1.Text = "Ver Disp"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btn_dispteorico.Location = New System.Drawing.Point(327, 31)
+        Me.btn_dispteorico.Name = "btn_dispteorico"
+        Me.btn_dispteorico.Size = New System.Drawing.Size(75, 23)
+        Me.btn_dispteorico.TabIndex = 9
+        Me.btn_dispteorico.Text = "Ver Disp"
+        Me.btn_dispteorico.UseVisualStyleBackColor = True
         '
-        'ComboBox1
+        'cbox_teorico
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(131, 33)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(155, 21)
-        Me.ComboBox1.TabIndex = 8
+        Me.cbox_teorico.FormattingEnabled = True
+        Me.cbox_teorico.Location = New System.Drawing.Point(131, 33)
+        Me.cbox_teorico.Name = "cbox_teorico"
+        Me.cbox_teorico.Size = New System.Drawing.Size(155, 21)
+        Me.cbox_teorico.TabIndex = 8
         '
         'Label5
         '
@@ -196,76 +203,82 @@ Partial Class Form2
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.CheckBox3)
-        Me.GroupBox2.Controls.Add(Me.CheckBox2)
         Me.GroupBox2.Controls.Add(Me.CheckBox1)
+        Me.GroupBox2.Controls.Add(Me.chbox_academicos)
+        Me.GroupBox2.Controls.Add(Me.chbox_oft)
+        Me.GroupBox2.Controls.Add(Me.check_foto)
         Me.GroupBox2.Location = New System.Drawing.Point(40, 487)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(205, 138)
+        Me.GroupBox2.Size = New System.Drawing.Size(205, 175)
         Me.GroupBox2.TabIndex = 16
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Estado de Documentos"
         '
-        'CheckBox3
+        'chbox_academicos
         '
-        Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Location = New System.Drawing.Point(11, 99)
-        Me.CheckBox3.Name = "CheckBox3"
-        Me.CheckBox3.Size = New System.Drawing.Size(152, 17)
-        Me.CheckBox3.TabIndex = 14
-        Me.CheckBox3.Text = "Antecedentes académicos"
-        Me.CheckBox3.UseVisualStyleBackColor = True
+        Me.chbox_academicos.AutoSize = True
+        Me.chbox_academicos.Location = New System.Drawing.Point(11, 99)
+        Me.chbox_academicos.Name = "chbox_academicos"
+        Me.chbox_academicos.Size = New System.Drawing.Size(152, 17)
+        Me.chbox_academicos.TabIndex = 14
+        Me.chbox_academicos.Text = "Antecedentes académicos"
+        Me.chbox_academicos.UseVisualStyleBackColor = True
         '
-        'CheckBox2
+        'chbox_oft
         '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(11, 65)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(133, 17)
-        Me.CheckBox2.TabIndex = 13
-        Me.CheckBox2.Text = "Situación oftamológica"
-        Me.CheckBox2.UseVisualStyleBackColor = True
+        Me.chbox_oft.AutoSize = True
+        Me.chbox_oft.Location = New System.Drawing.Point(11, 65)
+        Me.chbox_oft.Name = "chbox_oft"
+        Me.chbox_oft.Size = New System.Drawing.Size(133, 17)
+        Me.chbox_oft.TabIndex = 13
+        Me.chbox_oft.Text = "Situación oftamológica"
+        Me.chbox_oft.UseVisualStyleBackColor = True
         '
-        'CheckBox1
+        'check_foto
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(11, 33)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(81, 17)
-        Me.CheckBox1.TabIndex = 12
-        Me.CheckBox1.Text = "Foto Carnet"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.check_foto.AutoSize = True
+        Me.check_foto.Location = New System.Drawing.Point(11, 33)
+        Me.check_foto.Name = "check_foto"
+        Me.check_foto.Size = New System.Drawing.Size(81, 17)
+        Me.check_foto.TabIndex = 12
+        Me.check_foto.Text = "Foto Carnet"
+        Me.check_foto.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.CheckBox4)
+        Me.GroupBox3.Controls.Add(Me.tbx_mediopago)
+        Me.GroupBox3.Controls.Add(Me.Label1)
+        Me.GroupBox3.Controls.Add(Me.lbl_codigo_curso)
+        Me.GroupBox3.Controls.Add(Me.lbl_valor_curso)
         Me.GroupBox3.Controls.Add(Me.Label8)
+        Me.GroupBox3.Controls.Add(Me.chbox_pago)
+        Me.GroupBox3.Controls.Add(Me.lbl_nmatricula)
         Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Location = New System.Drawing.Point(251, 487)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(180, 138)
+        Me.GroupBox3.Size = New System.Drawing.Size(208, 175)
         Me.GroupBox3.TabIndex = 17
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Matricula"
         '
-        'CheckBox4
+        'chbox_pago
         '
-        Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Location = New System.Drawing.Point(9, 81)
-        Me.CheckBox4.Name = "CheckBox4"
-        Me.CheckBox4.Size = New System.Drawing.Size(101, 17)
-        Me.CheckBox4.TabIndex = 15
-        Me.CheckBox4.Text = "Pago Realizado"
-        Me.CheckBox4.UseVisualStyleBackColor = True
+        Me.chbox_pago.AutoSize = True
+        Me.chbox_pago.Location = New System.Drawing.Point(9, 65)
+        Me.chbox_pago.Name = "chbox_pago"
+        Me.chbox_pago.Size = New System.Drawing.Size(101, 17)
+        Me.chbox_pago.TabIndex = 15
+        Me.chbox_pago.Text = "Pago Realizado"
+        Me.chbox_pago.UseVisualStyleBackColor = True
         '
-        'Label8
+        'lbl_nmatricula
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(102, 33)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(49, 13)
-        Me.Label8.TabIndex = 1
-        Me.Label8.Text = "0000000"
+        Me.lbl_nmatricula.AutoSize = True
+        Me.lbl_nmatricula.Location = New System.Drawing.Point(112, 33)
+        Me.lbl_nmatricula.Name = "lbl_nmatricula"
+        Me.lbl_nmatricula.Size = New System.Drawing.Size(49, 13)
+        Me.lbl_nmatricula.TabIndex = 1
+        Me.lbl_nmatricula.Text = "0000000"
         '
         'Label7
         '
@@ -276,14 +289,14 @@ Partial Class Form2
         Me.Label7.TabIndex = 0
         Me.Label7.Text = "Número"
         '
-        'Button3
+        'btn_estudiante
         '
-        Me.Button3.Location = New System.Drawing.Point(356, 644)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 23)
-        Me.Button3.TabIndex = 16
-        Me.Button3.Text = "Guardar"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.btn_estudiante.Location = New System.Drawing.Point(383, 672)
+        Me.btn_estudiante.Name = "btn_estudiante"
+        Me.btn_estudiante.Size = New System.Drawing.Size(75, 23)
+        Me.btn_estudiante.TabIndex = 16
+        Me.btn_estudiante.Text = "Guardar"
+        Me.btn_estudiante.UseVisualStyleBackColor = True
         '
         'Label9
         '
@@ -294,52 +307,114 @@ Partial Class Form2
         Me.Label9.TabIndex = 19
         Me.Label9.Text = "Curso a rendir"
         '
-        'ComboBox3
+        'cbox_curso
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Location = New System.Drawing.Point(173, 242)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(258, 21)
-        Me.ComboBox3.TabIndex = 6
+        Me.cbox_curso.FormattingEnabled = True
+        Me.cbox_curso.Location = New System.Drawing.Point(173, 242)
+        Me.cbox_curso.Name = "cbox_curso"
+        Me.cbox_curso.Size = New System.Drawing.Size(285, 21)
+        Me.cbox_curso.TabIndex = 6
         '
-        'TextBox6
+        'tbox_telefono
         '
-        Me.TextBox6.Location = New System.Drawing.Point(173, 290)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(258, 20)
-        Me.TextBox6.TabIndex = 7
+        Me.tbox_telefono.Location = New System.Drawing.Point(173, 290)
+        Me.tbox_telefono.Name = "tbox_telefono"
+        Me.tbox_telefono.Size = New System.Drawing.Size(285, 20)
+        Me.tbox_telefono.TabIndex = 7
         '
-        'Label10
+        'lbl_telefono
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(44, 293)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(86, 13)
-        Me.Label10.TabIndex = 21
-        Me.Label10.Text = "Telefono/Celular"
+        Me.lbl_telefono.AutoSize = True
+        Me.lbl_telefono.Location = New System.Drawing.Point(44, 293)
+        Me.lbl_telefono.Name = "lbl_telefono"
+        Me.lbl_telefono.Size = New System.Drawing.Size(86, 13)
+        Me.lbl_telefono.TabIndex = 21
+        Me.lbl_telefono.Text = "Telefono/Celular"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(6, 100)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(63, 13)
+        Me.Label8.TabIndex = 16
+        Me.Label8.Text = "Valor curso:"
+        '
+        'lbl_valor_curso
+        '
+        Me.lbl_valor_curso.AutoSize = True
+        Me.lbl_valor_curso.Location = New System.Drawing.Point(112, 100)
+        Me.lbl_valor_curso.Name = "lbl_valor_curso"
+        Me.lbl_valor_curso.Size = New System.Drawing.Size(49, 13)
+        Me.lbl_valor_curso.TabIndex = 17
+        Me.lbl_valor_curso.Text = "0000000"
+        '
+        'lbl_mensaje_conf
+        '
+        Me.lbl_mensaje_conf.AutoSize = True
+        Me.lbl_mensaje_conf.Location = New System.Drawing.Point(170, 649)
+        Me.lbl_mensaje_conf.Name = "lbl_mensaje_conf"
+        Me.lbl_mensaje_conf.Size = New System.Drawing.Size(0, 13)
+        Me.lbl_mensaje_conf.TabIndex = 22
+        '
+        'lbl_codigo_curso
+        '
+        Me.lbl_codigo_curso.AutoSize = True
+        Me.lbl_codigo_curso.Location = New System.Drawing.Point(112, 66)
+        Me.lbl_codigo_curso.Name = "lbl_codigo_curso"
+        Me.lbl_codigo_curso.Size = New System.Drawing.Size(49, 13)
+        Me.lbl_codigo_curso.TabIndex = 18
+        Me.lbl_codigo_curso.Text = "0000000"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(11, 135)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(142, 17)
+        Me.CheckBox1.TabIndex = 15
+        Me.CheckBox1.Text = "Antecedentes Notariales"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 136)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(82, 13)
+        Me.Label1.TabIndex = 19
+        Me.Label1.Text = "Medio de Pago:"
+        '
+        'tbx_mediopago
+        '
+        Me.tbx_mediopago.Location = New System.Drawing.Point(116, 133)
+        Me.tbx_mediopago.Name = "tbx_mediopago"
+        Me.tbx_mediopago.Size = New System.Drawing.Size(87, 20)
+        Me.tbx_mediopago.TabIndex = 20
         '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(453, 694)
-        Me.Controls.Add(Me.TextBox6)
-        Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.ComboBox3)
+        Me.ClientSize = New System.Drawing.Size(488, 728)
+        Me.Controls.Add(Me.lbl_mensaje_conf)
+        Me.Controls.Add(Me.tbox_telefono)
+        Me.Controls.Add(Me.lbl_telefono)
+        Me.Controls.Add(Me.cbox_curso)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.btn_estudiante)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.TextBox5)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBox3)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.tbox_rut2)
+        Me.Controls.Add(Me.tbox_rut1)
+        Me.Controls.Add(Me.lbl_rut)
+        Me.Controls.Add(Me.tbox_apellido)
+        Me.Controls.Add(Me.lbl_apellido)
+        Me.Controls.Add(Me.datetp_atencion)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.tbox_nombre)
+        Me.Controls.Add(Me.lbl_nombre)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "Form2"
@@ -354,33 +429,40 @@ Partial Class Form2
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents datetp_atencion As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
+    Friend WithEvents tbox_nombre As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_nombre As System.Windows.Forms.Label
+    Friend WithEvents tbox_apellido As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_apellido As System.Windows.Forms.Label
+    Friend WithEvents tbox_rut1 As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_rut As System.Windows.Forms.Label
+    Friend WithEvents tbox_rut2 As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
+    Friend WithEvents btn_practicodisp As System.Windows.Forms.Button
+    Friend WithEvents cbox_practico As System.Windows.Forms.ComboBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents btn_dispteorico As System.Windows.Forms.Button
+    Friend WithEvents cbox_teorico As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents CheckBox3 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents chbox_academicos As System.Windows.Forms.CheckBox
+    Friend WithEvents chbox_oft As System.Windows.Forms.CheckBox
+    Friend WithEvents check_foto As System.Windows.Forms.CheckBox
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents lbl_nmatricula As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents CheckBox4 As System.Windows.Forms.CheckBox
-    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents chbox_pago As System.Windows.Forms.CheckBox
+    Friend WithEvents btn_estudiante As System.Windows.Forms.Button
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
-    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
-    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents cbox_curso As System.Windows.Forms.ComboBox
+    Friend WithEvents tbox_telefono As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_telefono As System.Windows.Forms.Label
+    Friend WithEvents lbl_valor_curso As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents lbl_mensaje_conf As System.Windows.Forms.Label
+    Friend WithEvents lbl_codigo_curso As System.Windows.Forms.Label
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents tbx_mediopago As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class
