@@ -64,10 +64,10 @@ Partial Class Form3
         Me.TabControl1.Controls.Add(Me.examenes)
         Me.TabControl1.Controls.Add(Me.asistencia)
         Me.TabControl1.Controls.Add(Me.calificaciones)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 81)
+        Me.TabControl1.Location = New System.Drawing.Point(16, 81)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(570, 293)
+        Me.TabControl1.Size = New System.Drawing.Size(566, 293)
         Me.TabControl1.TabIndex = 2
         '
         'resumen
@@ -75,7 +75,7 @@ Partial Class Form3
         Me.resumen.Location = New System.Drawing.Point(4, 22)
         Me.resumen.Name = "resumen"
         Me.resumen.Padding = New System.Windows.Forms.Padding(3)
-        Me.resumen.Size = New System.Drawing.Size(562, 267)
+        Me.resumen.Size = New System.Drawing.Size(558, 267)
         Me.resumen.TabIndex = 0
         Me.resumen.Text = "Resumen"
         Me.resumen.UseVisualStyleBackColor = True
@@ -88,7 +88,7 @@ Partial Class Form3
         Me.examenes.Location = New System.Drawing.Point(4, 22)
         Me.examenes.Name = "examenes"
         Me.examenes.Padding = New System.Windows.Forms.Padding(3)
-        Me.examenes.Size = New System.Drawing.Size(562, 267)
+        Me.examenes.Size = New System.Drawing.Size(558, 267)
         Me.examenes.TabIndex = 1
         Me.examenes.Text = "Examenes"
         Me.examenes.UseVisualStyleBackColor = True
@@ -164,7 +164,7 @@ Partial Class Form3
         '
         Me.asistencia.Location = New System.Drawing.Point(4, 22)
         Me.asistencia.Name = "asistencia"
-        Me.asistencia.Size = New System.Drawing.Size(562, 267)
+        Me.asistencia.Size = New System.Drawing.Size(558, 267)
         Me.asistencia.TabIndex = 2
         Me.asistencia.Text = "Asistencia"
         Me.asistencia.UseVisualStyleBackColor = True
@@ -173,7 +173,7 @@ Partial Class Form3
         '
         Me.calificaciones.Location = New System.Drawing.Point(4, 22)
         Me.calificaciones.Name = "calificaciones"
-        Me.calificaciones.Size = New System.Drawing.Size(562, 267)
+        Me.calificaciones.Size = New System.Drawing.Size(558, 267)
         Me.calificaciones.TabIndex = 3
         Me.calificaciones.Text = "Calificaciones"
         Me.calificaciones.UseVisualStyleBackColor = True

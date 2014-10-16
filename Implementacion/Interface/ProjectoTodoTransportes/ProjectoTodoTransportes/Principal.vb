@@ -15,6 +15,10 @@
         Next
         cbox_CursoInteres1.SelectedIndex = 0
 
+        'Carga el tamaño de la primera pestaña que se muestra
+        TabControl.Size = New System.Drawing.Size(451, 294)
+        Me.Size = New System.Drawing.Size(485, 351)
+
     End Sub
 
     Sub New(ByVal Usuario As String)
@@ -37,8 +41,11 @@
             TabControl.Size = New System.Drawing.Size(451, 294)
             Me.Size = New System.Drawing.Size(485, 351)
         ElseIf tab = 1 Then
-            TabControl.Size = New System.Drawing.Size(600, 600)
-            Me.Size = New System.Drawing.Size(600, 600)
+            TabControl.Size = New System.Drawing.Size(426, 417)
+            Me.Size = New System.Drawing.Size(459, 472)
+        ElseIf tab = 2 Then
+            TabControl.Size = New System.Drawing.Size(416, 485)
+            Me.Size = New System.Drawing.Size(449, 541)
         End If
     End Sub
 
@@ -79,4 +86,27 @@
 
     End Sub
 
+    Private Sub Label1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+
+    End Sub
+
+    Private Sub Label1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.Click
+
+    End Sub
+
+    Private Sub ComboBox5_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox5.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Label12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label12.Click
+
+    End Sub
+
+    Private Sub Label2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
 End Class
