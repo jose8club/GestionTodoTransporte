@@ -320,7 +320,7 @@ Public Class Conexion
         'Registra Matricula'
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO MATRICULA (Codigo, Nombre, RUT, Edad, Fecha, Telefono, CodigoPago, Curso, HoraTeorica, HoraPractica) VALUES(@codMatricula, @Nombre, @rut, @edad, @fecha, @telefono, @codPago, @curso, @horaT, @horaP)"
+                .CommandText = "INSERT INTO MATRICULA (Codigo, Nombre, RUT, Edad, Fecha, Telefono, CodigoPago, Curso, HoraTeorica, HoraPractica) VALUES(@Codigo, @Nombre, @RUT, @Edad, @Fecha, @Telefono, @CodigoPago, @Curso, @HoraTeorica, @HoraPractica)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
