@@ -109,4 +109,10 @@
     Private Sub Label2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
     End Sub
+
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+        'MOMENTANEO PROBANDO RUT
+        Dim real As Boolean = Herramientas.isRut(TextBox4.Text, TextBox5.Text)
+        If real Then MsgBox("REAL") Else MsgBox("FALSE")
+    End Sub
 End Class
