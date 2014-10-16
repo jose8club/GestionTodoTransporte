@@ -203,7 +203,7 @@ Public Class Conexion
         Dim cant As String = ""
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "SELECT COUNT(HoraPractica) FROM MATRICULA"
+                .CommandText = "SELECT COUNT(*) FROM PRACTICA"
                 .CommandType = CommandType.Text
                 .Connection = conn
             End With
@@ -229,7 +229,7 @@ Public Class Conexion
         Dim pract(n) As String
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "SELECT HoraPractica FROM MATRICULA"
+                .CommandText = "SELECT Horario FROM PRACTICA"
                 .CommandType = CommandType.Text
                 .Connection = conn
             End With
@@ -264,7 +264,7 @@ Public Class Conexion
         Dim cant As String = ""
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "SELECT COUNT(HoraTeoria) FROM MATRICULA"
+                .CommandText = "SELECT COUNT(*) FROM TEORIA"
                 .CommandType = CommandType.Text
                 .Connection = conn
             End With
@@ -290,7 +290,7 @@ Public Class Conexion
         Dim teo(n) As String
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "SELECT HoraTeoria FROM MATRICULA"
+                .CommandText = "SELECT Horario FROM TEORIA"
                 .CommandType = CommandType.Text
                 .Connection = conn
             End With
@@ -316,20 +316,25 @@ Public Class Conexion
         Return teo
     End Function
 
-    Sub RegistrarMatricula(ByVal codMatricula, ByVal nombre, ByVal rut, ByVal edad, ByVal fecha, ByVal telefono, ByVal codPago, ByVal curso, ByVal horaT, ByVal horaP)
+    Sub RegistrarMatricula(ByVal codMatricula As String, ByVal nombre As String, ByVal rut As String, ByVal edad As Integer, ByVal fecha As String, ByVal telefono As Integer, ByVal codPago As Integer, ByVal curso As String, ByVal horaT As String, ByVal horaP As String)
         'Registra Matricula'
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO CLIENTE (codMatricula, Telefono, Curso, Fecha, Extra, Atención) VALUES(@Nombre, @Telefono, @Curso, @Fecha, @Extra, @Atencion)"
+                .CommandText = "INSERT INTO MATRICULA (Codigo, Nombre, RUT, Edad, Fecha, Telefono, CodigoPago, Curso, HoraTeorica, HoraPractica) VALUES(@codMatricula, @Nombre, @rut, @edad, @fecha, @telefono, @codPago, @curso, @horaT, @horaP)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
+                .Parameters.AddWithValue("@Codigo", codMatricula)
                 .Parameters.AddWithValue("@Nombre", nombre)
-                .Parameters.AddWithValue("@Telefono", telefono)
-                .Parameters.AddWithValue("@Curso", curso)
+                .Parameters.AddWithValue("@RUT", rut)
+                .Parameters.AddWithValue("@Edad", edad)
                 .Parameters.AddWithValue("@Fecha", fecha)
-                .Parameters.AddWithValue("@Extra", Otros)
-                .Parameters.AddWithValue("@Atencion", "Tipo1") 'MOMENTANEO
+                .Parameters.AddWithValue("@Telefono", telefono)
+                .Parameters.AddWithValue("@CodigoPago", codPago)
+                .Parameters.AddWithValue("@Curso", curso)
+                .Parameters.AddWithValue("@HoraTeorica", horaT)
+                .Parameters.AddWithValue("@HoraPractica", horaP)
+
             End With
             Try
                 conn.Open()
@@ -342,19 +347,33 @@ Public Class Conexion
 
         End Using
 
-        Dim idcliente As Integer = CInt(Me.obtenerIDCliente(nombre))
-
-        'Se hace porque las KEYS de CLIENTE usan AUTOINCREMENT
-        'El procedimiento es:
-        '  Se crea cliente
-        '  Se busca su llave
-        '  Se utiliza la llave en registrarAtencion
-
-        Me.registrarAtencion(USER, idcliente)
-
     End Sub
 
-    Sub RegistrarEstudiante()
+    Sub RegistrarEstudiante(ByVal Matricula As String, ByVal FotosCarnet As Integer, ByVal CertEstudios As Boolean, ByVal CertAlumnRegular As Boolean, ByVal AutNotarial As Boolean)
         'Registra Estudiante'
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO ESTUDIANTE (Matricula, FotosCarnet, CertEstudios, CertAlumnRegular, AutNotarial) VALUES()"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Matricula", Matricula)
+                .Parameters.AddWithValue("@FotosCarnet", FotosCarnet)
+                .Parameters.AddWithValue("@CertEstudios", CertEstudios)
+                .Parameters.AddWithValue("@CertAlumnRegular", CertAlumnRegular)
+                .Parameters.AddWithValue("@AutNotarial", AutNotarial)
+            End With
+            Try
+                conn.Open()
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+
+        End Using
+
     End Sub
+
 End Class

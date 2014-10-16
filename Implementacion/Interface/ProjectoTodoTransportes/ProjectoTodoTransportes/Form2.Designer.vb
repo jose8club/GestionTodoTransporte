@@ -39,10 +39,15 @@ Partial Class Form2
         Me.cbox_teorico = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.chbox_academicos = New System.Windows.Forms.CheckBox()
-        Me.chbox_oft = New System.Windows.Forms.CheckBox()
-        Me.check_foto = New System.Windows.Forms.CheckBox()
+        Me.chbox_notarial = New System.Windows.Forms.CheckBox()
+        Me.chbox_regular = New System.Windows.Forms.CheckBox()
+        Me.chbox_estudios = New System.Windows.Forms.CheckBox()
+        Me.chbox_foto = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lbl_codigo_pago = New System.Windows.Forms.Label()
+        Me.lbl_valor_curso = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.chbox_pago = New System.Windows.Forms.CheckBox()
         Me.lbl_nmatricula = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -51,13 +56,10 @@ Partial Class Form2
         Me.cbox_curso = New System.Windows.Forms.ComboBox()
         Me.tbox_telefono = New System.Windows.Forms.TextBox()
         Me.lbl_telefono = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.lbl_valor_curso = New System.Windows.Forms.Label()
         Me.lbl_mensaje_conf = New System.Windows.Forms.Label()
-        Me.lbl_codigo_curso = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.tbx_mediopago = New System.Windows.Forms.TextBox()
+        Me.lbl_edad = New System.Windows.Forms.Label()
+        Me.tbox_edad = New System.Windows.Forms.TextBox()
+        Me.cbox_medio = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -65,7 +67,7 @@ Partial Class Form2
         '
         'datetp_atencion
         '
-        Me.datetp_atencion.Location = New System.Drawing.Point(173, 195)
+        Me.datetp_atencion.Location = New System.Drawing.Point(173, 223)
         Me.datetp_atencion.Name = "datetp_atencion"
         Me.datetp_atencion.Size = New System.Drawing.Size(285, 20)
         Me.datetp_atencion.TabIndex = 5
@@ -73,7 +75,7 @@ Partial Class Form2
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(44, 198)
+        Me.Label2.Location = New System.Drawing.Point(44, 226)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(97, 13)
         Me.Label2.TabIndex = 7
@@ -142,7 +144,7 @@ Partial Class Form2
         Me.GroupBox1.Controls.Add(Me.btn_dispteorico)
         Me.GroupBox1.Controls.Add(Me.cbox_teorico)
         Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Location = New System.Drawing.Point(40, 336)
+        Me.GroupBox1.Location = New System.Drawing.Point(40, 365)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(418, 128)
         Me.GroupBox1.TabIndex = 15
@@ -203,63 +205,109 @@ Partial Class Form2
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.CheckBox1)
-        Me.GroupBox2.Controls.Add(Me.chbox_academicos)
-        Me.GroupBox2.Controls.Add(Me.chbox_oft)
-        Me.GroupBox2.Controls.Add(Me.check_foto)
-        Me.GroupBox2.Location = New System.Drawing.Point(40, 487)
+        Me.GroupBox2.Controls.Add(Me.chbox_notarial)
+        Me.GroupBox2.Controls.Add(Me.chbox_regular)
+        Me.GroupBox2.Controls.Add(Me.chbox_estudios)
+        Me.GroupBox2.Controls.Add(Me.chbox_foto)
+        Me.GroupBox2.Location = New System.Drawing.Point(40, 522)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(205, 175)
         Me.GroupBox2.TabIndex = 16
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Estado de Documentos"
         '
-        'chbox_academicos
+        'chbox_notarial
         '
-        Me.chbox_academicos.AutoSize = True
-        Me.chbox_academicos.Location = New System.Drawing.Point(11, 99)
-        Me.chbox_academicos.Name = "chbox_academicos"
-        Me.chbox_academicos.Size = New System.Drawing.Size(152, 17)
-        Me.chbox_academicos.TabIndex = 14
-        Me.chbox_academicos.Text = "Antecedentes académicos"
-        Me.chbox_academicos.UseVisualStyleBackColor = True
+        Me.chbox_notarial.AutoSize = True
+        Me.chbox_notarial.Location = New System.Drawing.Point(11, 135)
+        Me.chbox_notarial.Name = "chbox_notarial"
+        Me.chbox_notarial.Size = New System.Drawing.Size(142, 17)
+        Me.chbox_notarial.TabIndex = 15
+        Me.chbox_notarial.Text = "Antecedentes Notariales"
+        Me.chbox_notarial.UseVisualStyleBackColor = True
         '
-        'chbox_oft
+        'chbox_regular
         '
-        Me.chbox_oft.AutoSize = True
-        Me.chbox_oft.Location = New System.Drawing.Point(11, 65)
-        Me.chbox_oft.Name = "chbox_oft"
-        Me.chbox_oft.Size = New System.Drawing.Size(133, 17)
-        Me.chbox_oft.TabIndex = 13
-        Me.chbox_oft.Text = "Situación oftamológica"
-        Me.chbox_oft.UseVisualStyleBackColor = True
+        Me.chbox_regular.AutoSize = True
+        Me.chbox_regular.Location = New System.Drawing.Point(11, 99)
+        Me.chbox_regular.Name = "chbox_regular"
+        Me.chbox_regular.Size = New System.Drawing.Size(154, 17)
+        Me.chbox_regular.TabIndex = 14
+        Me.chbox_regular.Text = "Certificado Alumno Regular"
+        Me.chbox_regular.UseVisualStyleBackColor = True
         '
-        'check_foto
+        'chbox_estudios
         '
-        Me.check_foto.AutoSize = True
-        Me.check_foto.Location = New System.Drawing.Point(11, 33)
-        Me.check_foto.Name = "check_foto"
-        Me.check_foto.Size = New System.Drawing.Size(81, 17)
-        Me.check_foto.TabIndex = 12
-        Me.check_foto.Text = "Foto Carnet"
-        Me.check_foto.UseVisualStyleBackColor = True
+        Me.chbox_estudios.AutoSize = True
+        Me.chbox_estudios.Location = New System.Drawing.Point(11, 65)
+        Me.chbox_estudios.Name = "chbox_estudios"
+        Me.chbox_estudios.Size = New System.Drawing.Size(134, 17)
+        Me.chbox_estudios.TabIndex = 13
+        Me.chbox_estudios.Text = "Certificado de Esutdios"
+        Me.chbox_estudios.UseVisualStyleBackColor = True
+        '
+        'chbox_foto
+        '
+        Me.chbox_foto.AutoSize = True
+        Me.chbox_foto.Location = New System.Drawing.Point(11, 33)
+        Me.chbox_foto.Name = "chbox_foto"
+        Me.chbox_foto.Size = New System.Drawing.Size(81, 17)
+        Me.chbox_foto.TabIndex = 12
+        Me.chbox_foto.Text = "Foto Carnet"
+        Me.chbox_foto.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.tbx_mediopago)
+        Me.GroupBox3.Controls.Add(Me.cbox_medio)
         Me.GroupBox3.Controls.Add(Me.Label1)
-        Me.GroupBox3.Controls.Add(Me.lbl_codigo_curso)
+        Me.GroupBox3.Controls.Add(Me.lbl_codigo_pago)
         Me.GroupBox3.Controls.Add(Me.lbl_valor_curso)
         Me.GroupBox3.Controls.Add(Me.Label8)
         Me.GroupBox3.Controls.Add(Me.chbox_pago)
         Me.GroupBox3.Controls.Add(Me.lbl_nmatricula)
         Me.GroupBox3.Controls.Add(Me.Label7)
-        Me.GroupBox3.Location = New System.Drawing.Point(251, 487)
+        Me.GroupBox3.Location = New System.Drawing.Point(250, 522)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(208, 175)
         Me.GroupBox3.TabIndex = 17
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Matricula"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 136)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(82, 13)
+        Me.Label1.TabIndex = 19
+        Me.Label1.Text = "Medio de Pago:"
+        '
+        'lbl_codigo_pago
+        '
+        Me.lbl_codigo_pago.AutoSize = True
+        Me.lbl_codigo_pago.Location = New System.Drawing.Point(112, 66)
+        Me.lbl_codigo_pago.Name = "lbl_codigo_pago"
+        Me.lbl_codigo_pago.Size = New System.Drawing.Size(49, 13)
+        Me.lbl_codigo_pago.TabIndex = 18
+        Me.lbl_codigo_pago.Text = "0000000"
+        '
+        'lbl_valor_curso
+        '
+        Me.lbl_valor_curso.AutoSize = True
+        Me.lbl_valor_curso.Location = New System.Drawing.Point(112, 100)
+        Me.lbl_valor_curso.Name = "lbl_valor_curso"
+        Me.lbl_valor_curso.Size = New System.Drawing.Size(49, 13)
+        Me.lbl_valor_curso.TabIndex = 17
+        Me.lbl_valor_curso.Text = "0000000"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(6, 100)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(63, 13)
+        Me.Label8.TabIndex = 16
+        Me.Label8.Text = "Valor curso:"
         '
         'chbox_pago
         '
@@ -291,7 +339,7 @@ Partial Class Form2
         '
         'btn_estudiante
         '
-        Me.btn_estudiante.Location = New System.Drawing.Point(383, 672)
+        Me.btn_estudiante.Location = New System.Drawing.Point(384, 716)
         Me.btn_estudiante.Name = "btn_estudiante"
         Me.btn_estudiante.Size = New System.Drawing.Size(75, 23)
         Me.btn_estudiante.TabIndex = 16
@@ -301,7 +349,7 @@ Partial Class Form2
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(44, 245)
+        Me.Label9.Location = New System.Drawing.Point(44, 275)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(72, 13)
         Me.Label9.TabIndex = 19
@@ -310,14 +358,14 @@ Partial Class Form2
         'cbox_curso
         '
         Me.cbox_curso.FormattingEnabled = True
-        Me.cbox_curso.Location = New System.Drawing.Point(173, 242)
+        Me.cbox_curso.Location = New System.Drawing.Point(173, 272)
         Me.cbox_curso.Name = "cbox_curso"
         Me.cbox_curso.Size = New System.Drawing.Size(285, 21)
         Me.cbox_curso.TabIndex = 6
         '
         'tbox_telefono
         '
-        Me.tbox_telefono.Location = New System.Drawing.Point(173, 290)
+        Me.tbox_telefono.Location = New System.Drawing.Point(173, 320)
         Me.tbox_telefono.Name = "tbox_telefono"
         Me.tbox_telefono.Size = New System.Drawing.Size(285, 20)
         Me.tbox_telefono.TabIndex = 7
@@ -325,78 +373,51 @@ Partial Class Form2
         'lbl_telefono
         '
         Me.lbl_telefono.AutoSize = True
-        Me.lbl_telefono.Location = New System.Drawing.Point(44, 293)
+        Me.lbl_telefono.Location = New System.Drawing.Point(44, 323)
         Me.lbl_telefono.Name = "lbl_telefono"
         Me.lbl_telefono.Size = New System.Drawing.Size(86, 13)
         Me.lbl_telefono.TabIndex = 21
         Me.lbl_telefono.Text = "Telefono/Celular"
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(6, 100)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(63, 13)
-        Me.Label8.TabIndex = 16
-        Me.Label8.Text = "Valor curso:"
-        '
-        'lbl_valor_curso
-        '
-        Me.lbl_valor_curso.AutoSize = True
-        Me.lbl_valor_curso.Location = New System.Drawing.Point(112, 100)
-        Me.lbl_valor_curso.Name = "lbl_valor_curso"
-        Me.lbl_valor_curso.Size = New System.Drawing.Size(49, 13)
-        Me.lbl_valor_curso.TabIndex = 17
-        Me.lbl_valor_curso.Text = "0000000"
-        '
         'lbl_mensaje_conf
         '
         Me.lbl_mensaje_conf.AutoSize = True
-        Me.lbl_mensaje_conf.Location = New System.Drawing.Point(170, 649)
+        Me.lbl_mensaje_conf.Location = New System.Drawing.Point(25, 721)
         Me.lbl_mensaje_conf.Name = "lbl_mensaje_conf"
         Me.lbl_mensaje_conf.Size = New System.Drawing.Size(0, 13)
         Me.lbl_mensaje_conf.TabIndex = 22
         '
-        'lbl_codigo_curso
+        'lbl_edad
         '
-        Me.lbl_codigo_curso.AutoSize = True
-        Me.lbl_codigo_curso.Location = New System.Drawing.Point(112, 66)
-        Me.lbl_codigo_curso.Name = "lbl_codigo_curso"
-        Me.lbl_codigo_curso.Size = New System.Drawing.Size(49, 13)
-        Me.lbl_codigo_curso.TabIndex = 18
-        Me.lbl_codigo_curso.Text = "0000000"
+        Me.lbl_edad.AutoSize = True
+        Me.lbl_edad.Location = New System.Drawing.Point(44, 187)
+        Me.lbl_edad.Name = "lbl_edad"
+        Me.lbl_edad.Size = New System.Drawing.Size(32, 13)
+        Me.lbl_edad.TabIndex = 23
+        Me.lbl_edad.Text = "Edad"
         '
-        'CheckBox1
+        'tbox_edad
         '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(11, 135)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(142, 17)
-        Me.CheckBox1.TabIndex = 15
-        Me.CheckBox1.Text = "Antecedentes Notariales"
-        Me.CheckBox1.UseVisualStyleBackColor = True
+        Me.tbox_edad.Location = New System.Drawing.Point(173, 184)
+        Me.tbox_edad.Name = "tbox_edad"
+        Me.tbox_edad.Size = New System.Drawing.Size(100, 20)
+        Me.tbox_edad.TabIndex = 24
         '
-        'Label1
+        'cbox_medio
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 136)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(82, 13)
-        Me.Label1.TabIndex = 19
-        Me.Label1.Text = "Medio de Pago:"
-        '
-        'tbx_mediopago
-        '
-        Me.tbx_mediopago.Location = New System.Drawing.Point(116, 133)
-        Me.tbx_mediopago.Name = "tbx_mediopago"
-        Me.tbx_mediopago.Size = New System.Drawing.Size(87, 20)
-        Me.tbx_mediopago.TabIndex = 20
+        Me.cbox_medio.FormattingEnabled = True
+        Me.cbox_medio.Location = New System.Drawing.Point(115, 128)
+        Me.cbox_medio.Name = "cbox_medio"
+        Me.cbox_medio.Size = New System.Drawing.Size(77, 21)
+        Me.cbox_medio.TabIndex = 20
         '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(488, 728)
+        Me.ClientSize = New System.Drawing.Size(488, 751)
+        Me.Controls.Add(Me.tbox_edad)
+        Me.Controls.Add(Me.lbl_edad)
         Me.Controls.Add(Me.lbl_mensaje_conf)
         Me.Controls.Add(Me.tbox_telefono)
         Me.Controls.Add(Me.lbl_telefono)
@@ -446,9 +467,9 @@ Partial Class Form2
     Friend WithEvents cbox_teorico As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents chbox_academicos As System.Windows.Forms.CheckBox
-    Friend WithEvents chbox_oft As System.Windows.Forms.CheckBox
-    Friend WithEvents check_foto As System.Windows.Forms.CheckBox
+    Friend WithEvents chbox_regular As System.Windows.Forms.CheckBox
+    Friend WithEvents chbox_estudios As System.Windows.Forms.CheckBox
+    Friend WithEvents chbox_foto As System.Windows.Forms.CheckBox
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents lbl_nmatricula As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
@@ -461,8 +482,10 @@ Partial Class Form2
     Friend WithEvents lbl_valor_curso As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents lbl_mensaje_conf As System.Windows.Forms.Label
-    Friend WithEvents lbl_codigo_curso As System.Windows.Forms.Label
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
-    Friend WithEvents tbx_mediopago As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_codigo_pago As System.Windows.Forms.Label
+    Friend WithEvents chbox_notarial As System.Windows.Forms.CheckBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lbl_edad As System.Windows.Forms.Label
+    Friend WithEvents tbox_edad As System.Windows.Forms.TextBox
+    Friend WithEvents cbox_medio As System.Windows.Forms.ComboBox
 End Class
