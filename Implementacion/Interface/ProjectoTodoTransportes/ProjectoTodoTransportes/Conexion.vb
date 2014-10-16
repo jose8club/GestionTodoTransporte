@@ -192,6 +192,7 @@ Public Class Conexion
 
         Return cursos
     End Function
+    'AQUI EMPIEZAN LOS METODOS DEL CASO DE USO REGISTRAR CLIENTE'
     'Horarios estudiante practico caso de uso registar estudiante'
     
     Function registrosPractico() As String
@@ -315,8 +316,42 @@ Public Class Conexion
         Return teo
     End Function
 
-    Sub RegistrarMatricula()
+    Sub RegistrarMatricula(ByVal codMatricula, ByVal nombre, ByVal rut, ByVal edad, ByVal fecha, ByVal telefono, ByVal codPago, ByVal curso, ByVal horaT, ByVal horaP)
         'Registra Matricula'
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO CLIENTE (codMatricula, Telefono, Curso, Fecha, Extra, Atención) VALUES(@Nombre, @Telefono, @Curso, @Fecha, @Extra, @Atencion)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Nombre", nombre)
+                .Parameters.AddWithValue("@Telefono", telefono)
+                .Parameters.AddWithValue("@Curso", curso)
+                .Parameters.AddWithValue("@Fecha", fecha)
+                .Parameters.AddWithValue("@Extra", Otros)
+                .Parameters.AddWithValue("@Atencion", "Tipo1") 'MOMENTANEO
+            End With
+            Try
+                conn.Open()
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+
+        End Using
+
+        Dim idcliente As Integer = CInt(Me.obtenerIDCliente(nombre))
+
+        'Se hace porque las KEYS de CLIENTE usan AUTOINCREMENT
+        'El procedimiento es:
+        '  Se crea cliente
+        '  Se busca su llave
+        '  Se utiliza la llave en registrarAtencion
+
+        Me.registrarAtencion(USER, idcliente)
+
     End Sub
 
     Sub RegistrarEstudiante()

@@ -49,9 +49,8 @@
             lbl_apellido.ForeColor = Color.DimGray
             lbl_rut.ForeColor = Color.DimGray
             Try
-
-                
-
+                con.RegistrarMatricula()
+                con.RegistrarEstudiante()
             Catch ex As Exception
 
                 'MOMENTANEO

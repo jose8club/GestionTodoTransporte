@@ -780,7 +780,7 @@ Partial Class Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(439, 509)
+        Me.ClientSize = New System.Drawing.Size(434, 509)
         Me.Controls.Add(Me.TabControl)
         Me.Name = "Principal"
         Me.Text = "Sistema de Gestión TodoTransporte"
