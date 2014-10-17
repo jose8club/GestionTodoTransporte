@@ -21,7 +21,7 @@
         For i As Integer = 0 To m
             cbox_teorico.Items.Add(teo(i))
         Next
-        cbox_teorico.SelectedIndex = 0
+        'cbox_teorico.SelectedIndex = 0'
 
         'CARGAR COMBOBOX practica'
         Dim k As Integer
@@ -31,7 +31,7 @@
         For i As Integer = 0 To k
             cbox_practico.Items.Add(pract(i))
         Next
-        cbox_practico.SelectedIndex = 0
+        'cbox_practico.SelectedIndex = 0'
 
     End Sub
 

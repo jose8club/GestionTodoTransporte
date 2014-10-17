@@ -92,6 +92,17 @@ Partial Class Principal
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Tab4 = New System.Windows.Forms.TabPage()
         Me.Tab5 = New System.Windows.Forms.TabPage()
+        Me.guardarPsico = New System.Windows.Forms.Button()
+        Me.estadoPsico = New System.Windows.Forms.ComboBox()
+        Me.horarioPsico = New System.Windows.Forms.TextBox()
+        Me.fechaPsico = New System.Windows.Forms.DateTimePicker()
+        Me.rutPsico = New System.Windows.Forms.ComboBox()
+        Me.nombrePsico = New System.Windows.Forms.ComboBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
         Me.TabControl.SuspendLayout()
         Me.Tab1.SuspendLayout()
         Me.Tab2.SuspendLayout()
@@ -102,6 +113,7 @@ Partial Class Principal
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.examengroup.SuspendLayout()
+        Me.Tab4.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl
@@ -114,7 +126,7 @@ Partial Class Principal
         Me.TabControl.Location = New System.Drawing.Point(12, 12)
         Me.TabControl.Name = "TabControl"
         Me.TabControl.SelectedIndex = 0
-        Me.TabControl.Size = New System.Drawing.Size(416, 485)
+        Me.TabControl.Size = New System.Drawing.Size(448, 485)
         Me.TabControl.TabIndex = 0
         '
         'Tab1
@@ -134,7 +146,7 @@ Partial Class Principal
         Me.Tab1.Location = New System.Drawing.Point(4, 22)
         Me.Tab1.Name = "Tab1"
         Me.Tab1.Padding = New System.Windows.Forms.Padding(3)
-        Me.Tab1.Size = New System.Drawing.Size(408, 459)
+        Me.Tab1.Size = New System.Drawing.Size(440, 459)
         Me.Tab1.TabIndex = 0
         Me.Tab1.Text = "Registrar Cliente"
         Me.Tab1.UseVisualStyleBackColor = True
@@ -262,7 +274,7 @@ Partial Class Principal
         Me.Tab2.Location = New System.Drawing.Point(4, 22)
         Me.Tab2.Name = "Tab2"
         Me.Tab2.Padding = New System.Windows.Forms.Padding(3)
-        Me.Tab2.Size = New System.Drawing.Size(408, 459)
+        Me.Tab2.Size = New System.Drawing.Size(423, 459)
         Me.Tab2.TabIndex = 1
         Me.Tab2.Text = "Matrícula"
         Me.Tab2.UseVisualStyleBackColor = True
@@ -540,7 +552,7 @@ Partial Class Principal
         Me.Tab3.Controls.Add(Me.Label11)
         Me.Tab3.Location = New System.Drawing.Point(4, 22)
         Me.Tab3.Name = "Tab3"
-        Me.Tab3.Size = New System.Drawing.Size(408, 459)
+        Me.Tab3.Size = New System.Drawing.Size(419, 459)
         Me.Tab3.TabIndex = 2
         Me.Tab3.Text = "Exámen Oftalmológico"
         Me.Tab3.UseVisualStyleBackColor = True
@@ -760,27 +772,130 @@ Partial Class Principal
         '
         'Tab4
         '
+        Me.Tab4.Controls.Add(Me.guardarPsico)
+        Me.Tab4.Controls.Add(Me.estadoPsico)
+        Me.Tab4.Controls.Add(Me.horarioPsico)
+        Me.Tab4.Controls.Add(Me.fechaPsico)
+        Me.Tab4.Controls.Add(Me.rutPsico)
+        Me.Tab4.Controls.Add(Me.nombrePsico)
+        Me.Tab4.Controls.Add(Me.Label21)
+        Me.Tab4.Controls.Add(Me.Label22)
+        Me.Tab4.Controls.Add(Me.Label23)
+        Me.Tab4.Controls.Add(Me.Label24)
+        Me.Tab4.Controls.Add(Me.Label25)
         Me.Tab4.Location = New System.Drawing.Point(4, 22)
         Me.Tab4.Name = "Tab4"
-        Me.Tab4.Size = New System.Drawing.Size(408, 459)
+        Me.Tab4.Size = New System.Drawing.Size(440, 459)
         Me.Tab4.TabIndex = 3
-        Me.Tab4.Text = "TabPage2"
+        Me.Tab4.Text = "Practica Psicótecnico"
         Me.Tab4.UseVisualStyleBackColor = True
         '
         'Tab5
         '
         Me.Tab5.Location = New System.Drawing.Point(4, 22)
         Me.Tab5.Name = "Tab5"
-        Me.Tab5.Size = New System.Drawing.Size(408, 459)
+        Me.Tab5.Size = New System.Drawing.Size(440, 459)
         Me.Tab5.TabIndex = 4
         Me.Tab5.Text = "TabPage3"
         Me.Tab5.UseVisualStyleBackColor = True
+        '
+        'guardarPsico
+        '
+        Me.guardarPsico.Location = New System.Drawing.Point(316, 237)
+        Me.guardarPsico.Name = "guardarPsico"
+        Me.guardarPsico.Size = New System.Drawing.Size(101, 28)
+        Me.guardarPsico.TabIndex = 21
+        Me.guardarPsico.Text = "Guardar"
+        Me.guardarPsico.UseVisualStyleBackColor = True
+        '
+        'estadoPsico
+        '
+        Me.estadoPsico.FormattingEnabled = True
+        Me.estadoPsico.Location = New System.Drawing.Point(87, 198)
+        Me.estadoPsico.Name = "estadoPsico"
+        Me.estadoPsico.Size = New System.Drawing.Size(330, 21)
+        Me.estadoPsico.TabIndex = 20
+        '
+        'horarioPsico
+        '
+        Me.horarioPsico.Location = New System.Drawing.Point(86, 153)
+        Me.horarioPsico.Name = "horarioPsico"
+        Me.horarioPsico.Size = New System.Drawing.Size(331, 20)
+        Me.horarioPsico.TabIndex = 19
+        '
+        'fechaPsico
+        '
+        Me.fechaPsico.Location = New System.Drawing.Point(83, 109)
+        Me.fechaPsico.Name = "fechaPsico"
+        Me.fechaPsico.Size = New System.Drawing.Size(334, 20)
+        Me.fechaPsico.TabIndex = 18
+        '
+        'rutPsico
+        '
+        Me.rutPsico.FormattingEnabled = True
+        Me.rutPsico.Location = New System.Drawing.Point(82, 65)
+        Me.rutPsico.Name = "rutPsico"
+        Me.rutPsico.Size = New System.Drawing.Size(334, 21)
+        Me.rutPsico.TabIndex = 17
+        '
+        'nombrePsico
+        '
+        Me.nombrePsico.FormattingEnabled = True
+        Me.nombrePsico.Location = New System.Drawing.Point(82, 27)
+        Me.nombrePsico.Name = "nombrePsico"
+        Me.nombrePsico.Size = New System.Drawing.Size(334, 21)
+        Me.nombrePsico.TabIndex = 16
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(11, 201)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(40, 13)
+        Me.Label21.TabIndex = 15
+        Me.Label21.Text = "Estado"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(11, 156)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(41, 13)
+        Me.Label22.TabIndex = 14
+        Me.Label22.Text = "Horario"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(11, 115)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(37, 13)
+        Me.Label23.TabIndex = 13
+        Me.Label23.Text = "Fecha"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(11, 68)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(39, 13)
+        Me.Label24.TabIndex = 12
+        Me.Label24.Text = "R.U.T."
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(11, 30)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(44, 13)
+        Me.Label25.TabIndex = 11
+        Me.Label25.Text = "Nombre"
         '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(434, 509)
+        Me.ClientSize = New System.Drawing.Size(472, 509)
         Me.Controls.Add(Me.TabControl)
         Me.Name = "Principal"
         Me.Text = "Sistema de Gestión TodoTransporte"
@@ -803,6 +918,8 @@ Partial Class Principal
         Me.GroupBox4.PerformLayout()
         Me.examengroup.ResumeLayout(False)
         Me.examengroup.PerformLayout()
+        Me.Tab4.ResumeLayout(False)
+        Me.Tab4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -876,4 +993,15 @@ Partial Class Principal
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents doctor As System.Windows.Forms.TextBox
     Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents guardarPsico As System.Windows.Forms.Button
+    Friend WithEvents estadoPsico As System.Windows.Forms.ComboBox
+    Friend WithEvents horarioPsico As System.Windows.Forms.TextBox
+    Friend WithEvents fechaPsico As System.Windows.Forms.DateTimePicker
+    Friend WithEvents rutPsico As System.Windows.Forms.ComboBox
+    Friend WithEvents nombrePsico As System.Windows.Forms.ComboBox
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents Label24 As System.Windows.Forms.Label
+    Friend WithEvents Label25 As System.Windows.Forms.Label
 End Class

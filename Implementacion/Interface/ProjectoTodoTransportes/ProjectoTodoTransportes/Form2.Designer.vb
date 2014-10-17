@@ -44,6 +44,7 @@ Partial Class Form2
         Me.chbox_estudios = New System.Windows.Forms.CheckBox()
         Me.chbox_foto = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.cbox_medio = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbl_codigo_pago = New System.Windows.Forms.Label()
         Me.lbl_valor_curso = New System.Windows.Forms.Label()
@@ -59,7 +60,6 @@ Partial Class Form2
         Me.lbl_mensaje_conf = New System.Windows.Forms.Label()
         Me.lbl_edad = New System.Windows.Forms.Label()
         Me.tbox_edad = New System.Windows.Forms.TextBox()
-        Me.cbox_medio = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -67,7 +67,7 @@ Partial Class Form2
         '
         'datetp_atencion
         '
-        Me.datetp_atencion.Location = New System.Drawing.Point(173, 223)
+        Me.datetp_atencion.Location = New System.Drawing.Point(172, 195)
         Me.datetp_atencion.Name = "datetp_atencion"
         Me.datetp_atencion.Size = New System.Drawing.Size(285, 20)
         Me.datetp_atencion.TabIndex = 5
@@ -75,7 +75,7 @@ Partial Class Form2
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(44, 226)
+        Me.Label2.Location = New System.Drawing.Point(43, 198)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(97, 13)
         Me.Label2.TabIndex = 7
@@ -83,7 +83,7 @@ Partial Class Form2
         '
         'tbox_nombre
         '
-        Me.tbox_nombre.Location = New System.Drawing.Point(173, 51)
+        Me.tbox_nombre.Location = New System.Drawing.Point(172, 23)
         Me.tbox_nombre.Name = "tbox_nombre"
         Me.tbox_nombre.Size = New System.Drawing.Size(286, 20)
         Me.tbox_nombre.TabIndex = 1
@@ -91,7 +91,7 @@ Partial Class Form2
         'lbl_nombre
         '
         Me.lbl_nombre.AutoSize = True
-        Me.lbl_nombre.Location = New System.Drawing.Point(44, 54)
+        Me.lbl_nombre.Location = New System.Drawing.Point(43, 26)
         Me.lbl_nombre.Name = "lbl_nombre"
         Me.lbl_nombre.Size = New System.Drawing.Size(49, 13)
         Me.lbl_nombre.TabIndex = 5
@@ -99,7 +99,7 @@ Partial Class Form2
         '
         'tbox_apellido
         '
-        Me.tbox_apellido.Location = New System.Drawing.Point(173, 102)
+        Me.tbox_apellido.Location = New System.Drawing.Point(172, 74)
         Me.tbox_apellido.Name = "tbox_apellido"
         Me.tbox_apellido.Size = New System.Drawing.Size(285, 20)
         Me.tbox_apellido.TabIndex = 2
@@ -107,7 +107,7 @@ Partial Class Form2
         'lbl_apellido
         '
         Me.lbl_apellido.AutoSize = True
-        Me.lbl_apellido.Location = New System.Drawing.Point(44, 105)
+        Me.lbl_apellido.Location = New System.Drawing.Point(43, 77)
         Me.lbl_apellido.Name = "lbl_apellido"
         Me.lbl_apellido.Size = New System.Drawing.Size(49, 13)
         Me.lbl_apellido.TabIndex = 10
@@ -115,7 +115,7 @@ Partial Class Form2
         '
         'tbox_rut1
         '
-        Me.tbox_rut1.Location = New System.Drawing.Point(173, 149)
+        Me.tbox_rut1.Location = New System.Drawing.Point(172, 121)
         Me.tbox_rut1.Name = "tbox_rut1"
         Me.tbox_rut1.Size = New System.Drawing.Size(217, 20)
         Me.tbox_rut1.TabIndex = 3
@@ -123,7 +123,7 @@ Partial Class Form2
         'lbl_rut
         '
         Me.lbl_rut.AutoSize = True
-        Me.lbl_rut.Location = New System.Drawing.Point(44, 151)
+        Me.lbl_rut.Location = New System.Drawing.Point(43, 123)
         Me.lbl_rut.Name = "lbl_rut"
         Me.lbl_rut.Size = New System.Drawing.Size(36, 13)
         Me.lbl_rut.TabIndex = 12
@@ -131,7 +131,7 @@ Partial Class Form2
         '
         'tbox_rut2
         '
-        Me.tbox_rut2.Location = New System.Drawing.Point(411, 148)
+        Me.tbox_rut2.Location = New System.Drawing.Point(410, 120)
         Me.tbox_rut2.Name = "tbox_rut2"
         Me.tbox_rut2.Size = New System.Drawing.Size(48, 20)
         Me.tbox_rut2.TabIndex = 4
@@ -144,7 +144,7 @@ Partial Class Form2
         Me.GroupBox1.Controls.Add(Me.btn_dispteorico)
         Me.GroupBox1.Controls.Add(Me.cbox_teorico)
         Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Location = New System.Drawing.Point(40, 365)
+        Me.GroupBox1.Location = New System.Drawing.Point(39, 337)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(418, 128)
         Me.GroupBox1.TabIndex = 15
@@ -209,7 +209,7 @@ Partial Class Form2
         Me.GroupBox2.Controls.Add(Me.chbox_regular)
         Me.GroupBox2.Controls.Add(Me.chbox_estudios)
         Me.GroupBox2.Controls.Add(Me.chbox_foto)
-        Me.GroupBox2.Location = New System.Drawing.Point(40, 522)
+        Me.GroupBox2.Location = New System.Drawing.Point(39, 494)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(205, 175)
         Me.GroupBox2.TabIndex = 16
@@ -266,12 +266,20 @@ Partial Class Form2
         Me.GroupBox3.Controls.Add(Me.chbox_pago)
         Me.GroupBox3.Controls.Add(Me.lbl_nmatricula)
         Me.GroupBox3.Controls.Add(Me.Label7)
-        Me.GroupBox3.Location = New System.Drawing.Point(250, 522)
+        Me.GroupBox3.Location = New System.Drawing.Point(249, 494)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(208, 175)
         Me.GroupBox3.TabIndex = 17
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Matricula"
+        '
+        'cbox_medio
+        '
+        Me.cbox_medio.FormattingEnabled = True
+        Me.cbox_medio.Location = New System.Drawing.Point(115, 128)
+        Me.cbox_medio.Name = "cbox_medio"
+        Me.cbox_medio.Size = New System.Drawing.Size(77, 21)
+        Me.cbox_medio.TabIndex = 20
         '
         'Label1
         '
@@ -339,7 +347,7 @@ Partial Class Form2
         '
         'btn_estudiante
         '
-        Me.btn_estudiante.Location = New System.Drawing.Point(384, 716)
+        Me.btn_estudiante.Location = New System.Drawing.Point(382, 690)
         Me.btn_estudiante.Name = "btn_estudiante"
         Me.btn_estudiante.Size = New System.Drawing.Size(75, 23)
         Me.btn_estudiante.TabIndex = 16
@@ -349,7 +357,7 @@ Partial Class Form2
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(44, 275)
+        Me.Label9.Location = New System.Drawing.Point(43, 247)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(72, 13)
         Me.Label9.TabIndex = 19
@@ -358,14 +366,14 @@ Partial Class Form2
         'cbox_curso
         '
         Me.cbox_curso.FormattingEnabled = True
-        Me.cbox_curso.Location = New System.Drawing.Point(173, 272)
+        Me.cbox_curso.Location = New System.Drawing.Point(172, 244)
         Me.cbox_curso.Name = "cbox_curso"
         Me.cbox_curso.Size = New System.Drawing.Size(285, 21)
         Me.cbox_curso.TabIndex = 6
         '
         'tbox_telefono
         '
-        Me.tbox_telefono.Location = New System.Drawing.Point(173, 320)
+        Me.tbox_telefono.Location = New System.Drawing.Point(172, 292)
         Me.tbox_telefono.Name = "tbox_telefono"
         Me.tbox_telefono.Size = New System.Drawing.Size(285, 20)
         Me.tbox_telefono.TabIndex = 7
@@ -373,7 +381,7 @@ Partial Class Form2
         'lbl_telefono
         '
         Me.lbl_telefono.AutoSize = True
-        Me.lbl_telefono.Location = New System.Drawing.Point(44, 323)
+        Me.lbl_telefono.Location = New System.Drawing.Point(43, 295)
         Me.lbl_telefono.Name = "lbl_telefono"
         Me.lbl_telefono.Size = New System.Drawing.Size(86, 13)
         Me.lbl_telefono.TabIndex = 21
@@ -390,7 +398,7 @@ Partial Class Form2
         'lbl_edad
         '
         Me.lbl_edad.AutoSize = True
-        Me.lbl_edad.Location = New System.Drawing.Point(44, 187)
+        Me.lbl_edad.Location = New System.Drawing.Point(43, 159)
         Me.lbl_edad.Name = "lbl_edad"
         Me.lbl_edad.Size = New System.Drawing.Size(32, 13)
         Me.lbl_edad.TabIndex = 23
@@ -398,24 +406,17 @@ Partial Class Form2
         '
         'tbox_edad
         '
-        Me.tbox_edad.Location = New System.Drawing.Point(173, 184)
+        Me.tbox_edad.Location = New System.Drawing.Point(172, 156)
         Me.tbox_edad.Name = "tbox_edad"
         Me.tbox_edad.Size = New System.Drawing.Size(100, 20)
         Me.tbox_edad.TabIndex = 24
-        '
-        'cbox_medio
-        '
-        Me.cbox_medio.FormattingEnabled = True
-        Me.cbox_medio.Location = New System.Drawing.Point(115, 128)
-        Me.cbox_medio.Name = "cbox_medio"
-        Me.cbox_medio.Size = New System.Drawing.Size(77, 21)
-        Me.cbox_medio.TabIndex = 20
         '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(488, 751)
+        Me.AutoScroll = True
+        Me.ClientSize = New System.Drawing.Size(506, 481)
         Me.Controls.Add(Me.tbox_edad)
         Me.Controls.Add(Me.lbl_edad)
         Me.Controls.Add(Me.lbl_mensaje_conf)

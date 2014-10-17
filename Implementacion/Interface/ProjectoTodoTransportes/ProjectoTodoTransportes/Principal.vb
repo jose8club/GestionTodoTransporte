@@ -46,6 +46,9 @@
         ElseIf tab = 2 Then
             TabControl.Size = New System.Drawing.Size(416, 485)
             Me.Size = New System.Drawing.Size(449, 541)
+        ElseIf tab = 4 Then
+            TabControl.Size = New System.Drawing.Size(416, 495)
+            Me.Size = New System.Drawing.Size(455, 555)
         End If
     End Sub
 
