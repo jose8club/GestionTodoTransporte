@@ -353,7 +353,7 @@ Public Class Conexion
         'Registra Estudiante'
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO ESTUDIANTE (Matricula, FotosCarnet, CertEstudios, CertAlumnRegular, AutNotarial) VALUES()"
+                .CommandText = "INSERT INTO ESTUDIANTE (Matricula, FotosCarnet, CertEstudios, CertAlumnRegular, AutNotarial) VALUES(@Matricula, @FotosCarnet, @CertEstudios, @CertAlumnRegular, @AutNotarial)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
@@ -376,4 +376,202 @@ Public Class Conexion
 
     End Sub
 
+    'Caso de uso 03: examen visual: se necesitan estas clases debido a que no se han llenado ninguna'
+
+    Function registrosMatricula() As String
+
+        'Retorna el numero de estudiantes
+        'Usado para crear el combobox
+
+        Dim cant As String = ""
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT COUNT(*) FROM MATRICULA"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                conn.Open()
+                comando.ExecuteNonQuery()
+                cant = comando.ExecuteScalar()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+
+        Return cant
+    End Function
+
+    Function estudiantesToArray(ByVal n As Integer) As String()
+
+        'Retorna un Array con los nombres de los estudiantes registrados por la empresa
+
+        Dim est(n) As String
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT Nombre FROM MATRICULA"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                conn.Open()
+                Dim i As Integer
+                i = 0
+                Using lector As MySqlDataReader = comando.ExecuteReader()
+                    While lector.Read()
+                        est(i) = lector.GetString(0)
+                        i = i + 1
+                    End While
+                End Using
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+
+        Return est
+    End Function
+
+    Function rutToArray(ByVal n As Integer) As String()
+
+        'Retorna un Array con los rut de los estudiantes registrados por la empresa
+
+        Dim r(n) As String
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT Rut FROM MATRICULA"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                conn.Open()
+                Dim i As Integer
+                i = 0
+                Using lector As MySqlDataReader = comando.ExecuteReader()
+                    While lector.Read()
+                        r(i) = lector.GetString(0)
+                        i = i + 1
+                    End While
+                End Using
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+
+        Return r
+    End Function
+
+    'Crear clase'
+    Sub RegistrarClase(ByVal Codigo As String, ByVal Curso As String, ByVal FechaInicio As String, ByVal FechaTermino As String)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO CLASE (Codigo, Curso, FechaInicio, FechaTermino) VALUES(@Codigo, @Curso, @FechaInicio, @FechaTermino)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Codigo", Codigo)
+                .Parameters.AddWithValue("@Curso", Curso)
+                .Parameters.AddWithValue("@FechaInicio", FechaInicio)
+                .Parameters.AddWithValue("@FechaTermino", FechaTermino)
+
+            End With
+            Try
+                conn.Open()
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+
+        End Using
+
+    End Sub
+    'Crear clase-estudiante'
+    Sub RegistrarClaseEstudiante(ByVal Clase As String, ByVal Estudiante As String, ByVal ExamenVisual As Integer, ByVal Psicotecnico As Integer, ByVal ClaseCambioRueda As Integer)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO CLASE_ESTUDIANTE (Clase, Estudiante, ExamenVisual, Psicotecnico, ClaseCambioRueda) VALUES(@Clase, @Estudiante, @ExamenVisual, @Psicotecnico, @ClaseCambioRueda)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Clase", Clase)
+                .Parameters.AddWithValue("@Estudiante", Estudiante)
+                .Parameters.AddWithValue("@ExamenVisual", ExamenVisual)
+                .Parameters.AddWithValue("@Psicotecnico", Psicotecnico)
+                .Parameters.AddWithValue("@ClaseCambioRueda", ClaseCambioRueda)
+            End With
+            Try
+                conn.Open()
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+
+        End Using
+
+    End Sub
+    'Crear examen visual'
+    Sub RegistrarExamenVisual(ByVal Examinador As String, ByVal Estado As String, ByVal Certificado As Boolean, ByVal Fecha As String)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO EXAMEN_VISUAL (Examinador, Estado, Certificado, Fecha) VALUES(@Examinador, @Estado, @Certificado, @Fecha)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Examinador", Examinador)
+                .Parameters.AddWithValue("@Estado", Estado)
+                .Parameters.AddWithValue("@Certificado", Certificado)
+                .Parameters.AddWithValue("@Fecha", Fecha)
+
+            End With
+            Try
+                conn.Open()
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+
+        End Using
+
+    End Sub
+    'Crear examen psicotecnico'
+    Sub RegistrarExamenPsico(ByVal Fecha As String, ByVal Examinador As String, ByVal Estado As String)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO EXAMEN_PSICOTECNICO (Fecha, Examinador, Estado) VALUES(@Fecha, @Examinador, @Estado)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Fecha", Fecha)
+                .Parameters.AddWithValue("@Examinador", Examinador)
+                .Parameters.AddWithValue("@Estado", Estado)
+
+            End With
+            Try
+                conn.Open()
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+
+        End Using
+
+    End Sub
 End Class

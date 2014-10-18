@@ -101,7 +101,7 @@
 
     End Sub
 
-    Private Sub ComboBox5_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox5.SelectedIndexChanged
+    Private Sub ComboBox5_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_rutvisual.SelectedIndexChanged
 
     End Sub
 
@@ -117,5 +117,29 @@
         'MOMENTANEO PROBANDO RUT
         Dim real As Boolean = Herramientas.isRut(TextBox4.Text, TextBox5.Text)
         If real Then MsgBox("REAL") Else MsgBox("FALSE")
+    End Sub
+
+    
+    Private Sub Tab3_Click(sender As System.Object, e As System.EventArgs) Handles Tab3.Click
+        
+        'Cargar combobox estudiantes'
+        Dim n As Integer
+        n = con.registrosMatricula - 1
+        Dim est(n) As String
+        est = con.estudiantesToArray(n)
+        For i As Integer = 0 To n
+            cbox_estvisual.Items.Add(est(i))
+        Next
+        cbox_estvisual.SelectedIndex = 0
+
+        'Cargar combobox rut'
+        Dim m As Integer
+        m = con.registrosMatricula - 1
+        Dim r(m) As String
+        r = con.estudiantesToArray(m)
+        For i As Integer = 0 To m
+            cbox_estvisual.Items.Add(r(i))
+        Next
+        cbox_estvisual.SelectedIndex = 0
     End Sub
 End Class

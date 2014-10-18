@@ -68,11 +68,11 @@ Partial Class Principal
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Tab3 = New System.Windows.Forms.TabPage()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Guardar = New System.Windows.Forms.Button()
         Me.doctor = New System.Windows.Forms.TextBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.folio = New System.Windows.Forms.TextBox()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -86,12 +86,11 @@ Partial Class Principal
         Me.Label14 = New System.Windows.Forms.Label()
         Me.situacion = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
+        Me.cbox_rutvisual = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
+        Me.cbox_estvisual = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Tab4 = New System.Windows.Forms.TabPage()
-        Me.Tab5 = New System.Windows.Forms.TabPage()
         Me.guardarPsico = New System.Windows.Forms.Button()
         Me.estadoPsico = New System.Windows.Forms.ComboBox()
         Me.horarioPsico = New System.Windows.Forms.TextBox()
@@ -103,6 +102,7 @@ Partial Class Principal
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
+        Me.Tab5 = New System.Windows.Forms.TabPage()
         Me.TabControl.SuspendLayout()
         Me.Tab1.SuspendLayout()
         Me.Tab2.SuspendLayout()
@@ -274,7 +274,7 @@ Partial Class Principal
         Me.Tab2.Location = New System.Drawing.Point(4, 22)
         Me.Tab2.Name = "Tab2"
         Me.Tab2.Padding = New System.Windows.Forms.Padding(3)
-        Me.Tab2.Size = New System.Drawing.Size(423, 459)
+        Me.Tab2.Size = New System.Drawing.Size(440, 459)
         Me.Tab2.TabIndex = 1
         Me.Tab2.Text = "Matrícula"
         Me.Tab2.UseVisualStyleBackColor = True
@@ -546,32 +546,41 @@ Partial Class Principal
         Me.Tab3.Controls.Add(Me.GroupBox5)
         Me.Tab3.Controls.Add(Me.GroupBox4)
         Me.Tab3.Controls.Add(Me.examengroup)
-        Me.Tab3.Controls.Add(Me.ComboBox5)
+        Me.Tab3.Controls.Add(Me.cbox_rutvisual)
         Me.Tab3.Controls.Add(Me.Label12)
-        Me.Tab3.Controls.Add(Me.ComboBox4)
+        Me.Tab3.Controls.Add(Me.cbox_estvisual)
         Me.Tab3.Controls.Add(Me.Label11)
         Me.Tab3.Location = New System.Drawing.Point(4, 22)
         Me.Tab3.Name = "Tab3"
-        Me.Tab3.Size = New System.Drawing.Size(419, 459)
+        Me.Tab3.Size = New System.Drawing.Size(440, 459)
         Me.Tab3.TabIndex = 2
         Me.Tab3.Text = "Exámen Oftalmológico"
         Me.Tab3.UseVisualStyleBackColor = True
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.Guardar)
         Me.GroupBox5.Controls.Add(Me.doctor)
         Me.GroupBox5.Controls.Add(Me.Label20)
         Me.GroupBox5.Controls.Add(Me.folio)
         Me.GroupBox5.Controls.Add(Me.Label18)
-        Me.GroupBox5.Controls.Add(Me.Button5)
         Me.GroupBox5.Controls.Add(Me.DateTimePicker2)
         Me.GroupBox5.Controls.Add(Me.Label19)
         Me.GroupBox5.Location = New System.Drawing.Point(19, 299)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(375, 145)
+        Me.GroupBox5.Size = New System.Drawing.Size(375, 139)
         Me.GroupBox5.TabIndex = 17
         Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "GroupBox5"
+        Me.GroupBox5.Text = "Ingresar Autorización"
+        '
+        'Guardar
+        '
+        Me.Guardar.Location = New System.Drawing.Point(281, 100)
+        Me.Guardar.Name = "Guardar"
+        Me.Guardar.Size = New System.Drawing.Size(75, 23)
+        Me.Guardar.TabIndex = 21
+        Me.Guardar.Text = "Guardar"
+        Me.Guardar.UseVisualStyleBackColor = True
         '
         'doctor
         '
@@ -605,15 +614,6 @@ Partial Class Principal
         Me.Label18.TabIndex = 17
         Me.Label18.Text = "N° Folio"
         '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(281, 105)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(75, 23)
-        Me.Button5.TabIndex = 16
-        Me.Button5.Text = "Button5"
-        Me.Button5.UseVisualStyleBackColor = True
-        '
         'DateTimePicker2
         '
         Me.DateTimePicker2.Location = New System.Drawing.Point(99, 22)
@@ -642,7 +642,7 @@ Partial Class Principal
         Me.GroupBox4.Size = New System.Drawing.Size(375, 114)
         Me.GroupBox4.TabIndex = 15
         Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "GroupBox4"
+        Me.GroupBox4.Text = "Nuevo Exámen"
         '
         'Button4
         '
@@ -650,7 +650,7 @@ Partial Class Principal
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(75, 23)
         Me.Button4.TabIndex = 16
-        Me.Button4.Text = "Button4"
+        Me.Button4.Text = "Guardar"
         Me.Button4.UseVisualStyleBackColor = True
         '
         'sitEx
@@ -736,13 +736,13 @@ Partial Class Principal
         Me.Label15.TabIndex = 0
         Me.Label15.Text = "Situación:"
         '
-        'ComboBox5
+        'cbox_rutvisual
         '
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Location = New System.Drawing.Point(118, 36)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(276, 21)
-        Me.ComboBox5.TabIndex = 13
+        Me.cbox_rutvisual.FormattingEnabled = True
+        Me.cbox_rutvisual.Location = New System.Drawing.Point(118, 36)
+        Me.cbox_rutvisual.Name = "cbox_rutvisual"
+        Me.cbox_rutvisual.Size = New System.Drawing.Size(276, 21)
+        Me.cbox_rutvisual.TabIndex = 13
         '
         'Label12
         '
@@ -753,13 +753,13 @@ Partial Class Principal
         Me.Label12.TabIndex = 12
         Me.Label12.Text = "R.U.T.:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'ComboBox4
+        'cbox_estvisual
         '
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Location = New System.Drawing.Point(118, 9)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(276, 21)
-        Me.ComboBox4.TabIndex = 11
+        Me.cbox_estvisual.FormattingEnabled = True
+        Me.cbox_estvisual.Location = New System.Drawing.Point(118, 9)
+        Me.cbox_estvisual.Name = "cbox_estvisual"
+        Me.cbox_estvisual.Size = New System.Drawing.Size(276, 21)
+        Me.cbox_estvisual.TabIndex = 11
         '
         'Label11
         '
@@ -789,15 +789,6 @@ Partial Class Principal
         Me.Tab4.TabIndex = 3
         Me.Tab4.Text = "Practica Psicótecnico"
         Me.Tab4.UseVisualStyleBackColor = True
-        '
-        'Tab5
-        '
-        Me.Tab5.Location = New System.Drawing.Point(4, 22)
-        Me.Tab5.Name = "Tab5"
-        Me.Tab5.Size = New System.Drawing.Size(440, 459)
-        Me.Tab5.TabIndex = 4
-        Me.Tab5.Text = "TabPage3"
-        Me.Tab5.UseVisualStyleBackColor = True
         '
         'guardarPsico
         '
@@ -891,6 +882,15 @@ Partial Class Principal
         Me.Label25.TabIndex = 11
         Me.Label25.Text = "Nombre"
         '
+        'Tab5
+        '
+        Me.Tab5.Location = New System.Drawing.Point(4, 22)
+        Me.Tab5.Name = "Tab5"
+        Me.Tab5.Size = New System.Drawing.Size(440, 459)
+        Me.Tab5.TabIndex = 4
+        Me.Tab5.Text = "TabPage3"
+        Me.Tab5.UseVisualStyleBackColor = True
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -971,9 +971,9 @@ Partial Class Principal
     Friend WithEvents Tab4 As System.Windows.Forms.TabPage
     Friend WithEvents Tab5 As System.Windows.Forms.TabPage
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox5 As System.Windows.Forms.ComboBox
+    Friend WithEvents cbox_rutvisual As System.Windows.Forms.ComboBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox4 As System.Windows.Forms.ComboBox
+    Friend WithEvents cbox_estvisual As System.Windows.Forms.ComboBox
     Friend WithEvents examengroup As System.Windows.Forms.GroupBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
@@ -983,7 +983,6 @@ Partial Class Principal
     Friend WithEvents fex As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label16 As System.Windows.Forms.Label
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
-    Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents DateTimePicker2 As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label19 As System.Windows.Forms.Label
     Friend WithEvents Button4 As System.Windows.Forms.Button
@@ -1004,4 +1003,5 @@ Partial Class Principal
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents Label24 As System.Windows.Forms.Label
     Friend WithEvents Label25 As System.Windows.Forms.Label
+    Friend WithEvents Guardar As System.Windows.Forms.Button
 End Class
