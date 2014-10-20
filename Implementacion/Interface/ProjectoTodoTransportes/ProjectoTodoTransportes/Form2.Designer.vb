@@ -46,20 +46,20 @@ Partial Class Form2
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.cbox_medio = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.lbl_codigo_pago = New System.Windows.Forms.Label()
         Me.lbl_valor_curso = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.chbox_pago = New System.Windows.Forms.CheckBox()
-        Me.lbl_nmatricula = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btn_estudiante = New System.Windows.Forms.Button()
-        Me.Label9 = New System.Windows.Forms.Label()
+        Me.lbl_curso = New System.Windows.Forms.Label()
         Me.cbox_curso = New System.Windows.Forms.ComboBox()
         Me.tbox_telefono = New System.Windows.Forms.TextBox()
         Me.lbl_telefono = New System.Windows.Forms.Label()
         Me.lbl_mensaje_conf = New System.Windows.Forms.Label()
         Me.lbl_edad = New System.Windows.Forms.Label()
         Me.tbox_edad = New System.Windows.Forms.TextBox()
+        Me.tbox_nmatricula = New System.Windows.Forms.TextBox()
+        Me.tbox_codigo_pago = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -258,13 +258,13 @@ Partial Class Form2
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.tbox_codigo_pago)
+        Me.GroupBox3.Controls.Add(Me.tbox_nmatricula)
         Me.GroupBox3.Controls.Add(Me.cbox_medio)
         Me.GroupBox3.Controls.Add(Me.Label1)
-        Me.GroupBox3.Controls.Add(Me.lbl_codigo_pago)
         Me.GroupBox3.Controls.Add(Me.lbl_valor_curso)
         Me.GroupBox3.Controls.Add(Me.Label8)
         Me.GroupBox3.Controls.Add(Me.chbox_pago)
-        Me.GroupBox3.Controls.Add(Me.lbl_nmatricula)
         Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Location = New System.Drawing.Point(249, 494)
         Me.GroupBox3.Name = "GroupBox3"
@@ -289,15 +289,6 @@ Partial Class Form2
         Me.Label1.Size = New System.Drawing.Size(82, 13)
         Me.Label1.TabIndex = 19
         Me.Label1.Text = "Medio de Pago:"
-        '
-        'lbl_codigo_pago
-        '
-        Me.lbl_codigo_pago.AutoSize = True
-        Me.lbl_codigo_pago.Location = New System.Drawing.Point(112, 66)
-        Me.lbl_codigo_pago.Name = "lbl_codigo_pago"
-        Me.lbl_codigo_pago.Size = New System.Drawing.Size(49, 13)
-        Me.lbl_codigo_pago.TabIndex = 18
-        Me.lbl_codigo_pago.Text = "0000000"
         '
         'lbl_valor_curso
         '
@@ -327,15 +318,6 @@ Partial Class Form2
         Me.chbox_pago.Text = "Pago Realizado"
         Me.chbox_pago.UseVisualStyleBackColor = True
         '
-        'lbl_nmatricula
-        '
-        Me.lbl_nmatricula.AutoSize = True
-        Me.lbl_nmatricula.Location = New System.Drawing.Point(112, 33)
-        Me.lbl_nmatricula.Name = "lbl_nmatricula"
-        Me.lbl_nmatricula.Size = New System.Drawing.Size(49, 13)
-        Me.lbl_nmatricula.TabIndex = 1
-        Me.lbl_nmatricula.Text = "0000000"
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -354,14 +336,14 @@ Partial Class Form2
         Me.btn_estudiante.Text = "Guardar"
         Me.btn_estudiante.UseVisualStyleBackColor = True
         '
-        'Label9
+        'lbl_curso
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(43, 247)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(72, 13)
-        Me.Label9.TabIndex = 19
-        Me.Label9.Text = "Curso a rendir"
+        Me.lbl_curso.AutoSize = True
+        Me.lbl_curso.Location = New System.Drawing.Point(43, 247)
+        Me.lbl_curso.Name = "lbl_curso"
+        Me.lbl_curso.Size = New System.Drawing.Size(72, 13)
+        Me.lbl_curso.TabIndex = 19
+        Me.lbl_curso.Text = "Curso a rendir"
         '
         'cbox_curso
         '
@@ -411,6 +393,20 @@ Partial Class Form2
         Me.tbox_edad.Size = New System.Drawing.Size(100, 20)
         Me.tbox_edad.TabIndex = 24
         '
+        'tbox_nmatricula
+        '
+        Me.tbox_nmatricula.Location = New System.Drawing.Point(115, 30)
+        Me.tbox_nmatricula.Name = "tbox_nmatricula"
+        Me.tbox_nmatricula.Size = New System.Drawing.Size(75, 20)
+        Me.tbox_nmatricula.TabIndex = 21
+        '
+        'tbox_codigo_pago
+        '
+        Me.tbox_codigo_pago.Location = New System.Drawing.Point(117, 65)
+        Me.tbox_codigo_pago.Name = "tbox_codigo_pago"
+        Me.tbox_codigo_pago.Size = New System.Drawing.Size(73, 20)
+        Me.tbox_codigo_pago.TabIndex = 22
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -423,7 +419,7 @@ Partial Class Form2
         Me.Controls.Add(Me.tbox_telefono)
         Me.Controls.Add(Me.lbl_telefono)
         Me.Controls.Add(Me.cbox_curso)
-        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.lbl_curso)
         Me.Controls.Add(Me.btn_estudiante)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -472,21 +468,21 @@ Partial Class Form2
     Friend WithEvents chbox_estudios As System.Windows.Forms.CheckBox
     Friend WithEvents chbox_foto As System.Windows.Forms.CheckBox
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-    Friend WithEvents lbl_nmatricula As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents chbox_pago As System.Windows.Forms.CheckBox
     Friend WithEvents btn_estudiante As System.Windows.Forms.Button
-    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents lbl_curso As System.Windows.Forms.Label
     Friend WithEvents cbox_curso As System.Windows.Forms.ComboBox
     Friend WithEvents tbox_telefono As System.Windows.Forms.TextBox
     Friend WithEvents lbl_telefono As System.Windows.Forms.Label
     Friend WithEvents lbl_valor_curso As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents lbl_mensaje_conf As System.Windows.Forms.Label
-    Friend WithEvents lbl_codigo_pago As System.Windows.Forms.Label
     Friend WithEvents chbox_notarial As System.Windows.Forms.CheckBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents lbl_edad As System.Windows.Forms.Label
     Friend WithEvents tbox_edad As System.Windows.Forms.TextBox
     Friend WithEvents cbox_medio As System.Windows.Forms.ComboBox
+    Friend WithEvents tbox_nmatricula As System.Windows.Forms.TextBox
+    Friend WithEvents tbox_codigo_pago As System.Windows.Forms.TextBox
 End Class

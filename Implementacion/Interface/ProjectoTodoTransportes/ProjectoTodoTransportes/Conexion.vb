@@ -316,6 +316,120 @@ Public Class Conexion
         Return teo
     End Function
 
+    Function registrosMedio() As String
+
+        'Retorna el numero de clases practica
+        'Usado para crear el combobox
+
+        Dim cant As String = ""
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT COUNT(*) FROM MEDIO_PAGO"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                conn.Open()
+                comando.ExecuteNonQuery()
+                cant = comando.ExecuteScalar()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+
+        Return cant
+    End Function
+
+    Function MedioToArray(ByVal n As Integer) As String()
+
+        'Retorna un Array con los practicoss impartidos por la empresa
+
+        Dim medio(n) As String
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT medio FROM MEDIO_PAGO"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                conn.Open()
+                Dim i As Integer
+                i = 0
+                Using lector As MySqlDataReader = comando.ExecuteReader()
+                    While lector.Read()
+                        medio(i) = lector.GetString(0)
+                        i = i + 1
+                    End While
+                End Using
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+
+        Return medio
+    End Function
+
+    Function buscarPago(ByVal edad As Integer, ByVal Codigo As Integer) As Integer
+        Using comando As New MySqlCommand()
+            With comando
+                If edad > 17 Then
+                    .CommandText = "SELECT PrecioAdulto FROM PAGO WHERE Codigo = '" & Codigo & "'"
+                    .CommandType = CommandType.Text
+                    .Connection = conn
+                ElseIf edad <= 17 Then
+                    .CommandText = "SELECT PrecioEstudiante FROM PAGO WHERE Codigo = '" & Codigo & "'"
+                    .CommandType = CommandType.Text
+                    .Connection = conn
+                End If
+            End With
+            Try
+                conn.Open()
+                comando.ExecuteNonQuery()
+                Dim pago As String = Convert.ToString(comando.ExecuteScalar)
+                Return pago
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+
+        End Using
+
+    End Function
+
+    Sub RegistrarPago(ByVal Codigo As Integer, ByVal Monto As Integer, ByVal Medio As String)
+        'Registra Pago'
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO PAGO (Codigo, Monto, Medio) VALUES(@Codigo, @Monto, @Medio)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Codigo", Codigo)
+                .Parameters.AddWithValue("@Monto", Monto)
+                .Parameters.AddWithValue("@Medio", Medio)
+
+            End With
+            Try
+                conn.Open()
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            Finally
+                conn.Close()
+            End Try
+
+        End Using
+    End Sub
+
     Sub RegistrarMatricula(ByVal codMatricula As String, ByVal nombre As String, ByVal rut As String, ByVal edad As Integer, ByVal fecha As String, ByVal telefono As Integer, ByVal codPago As Integer, ByVal curso As String, ByVal horaT As String, ByVal horaP As String)
         'Registra Matricula'
         Using comando As New MySqlCommand()

@@ -17,21 +17,40 @@
         Dim m As Integer
         m = con.registrosTeorico - 1
         Dim teo(m) As String
-        cursos = con.teoricoToArray(m)
+        teo = con.teoricoToArray(m)
         For i As Integer = 0 To m
             cbox_teorico.Items.Add(teo(i))
         Next
-        'cbox_teorico.SelectedIndex = 0'
+        'cbox_teorico.SelectedIndex = 0' 'Se descomentará cuando se haya llenado'
 
         'CARGAR COMBOBOX practica'
         Dim k As Integer
         k = con.registrosPractico - 1
         Dim pract(k) As String
-        cursos = con.teoricoToArray(k)
+        pract = con.practicoToArray(k)
         For i As Integer = 0 To k
             cbox_practico.Items.Add(pract(i))
         Next
-        'cbox_practico.SelectedIndex = 0'
+        'cbox_practico.SelectedIndex = 0' 'Se descomentará cuando se haya llenado'
+
+        'CARGAR COMBOBOX medio pago'
+        Dim f As Integer '
+        f = con.registrosMedio - 1 '
+        Dim medio(k) As String '
+        medio = con.MedioToArray(f) '
+        For i As Integer = 0 To f
+            cbox_medio.Items.Add(medio(i))
+        Next
+        cbox_medio.SelectedIndex = 0
+
+        If cbox_curso.SelectedIndex <> 0 Then
+            'Cargar en label valor curso'
+            Dim precio As Integer
+            precio = con.buscarPago(tbox_edad.Text, cbox_curso.Text)
+            lbl_valor_curso.Text = CStr(precio)
+        Else
+            lbl_curso.ForeColor = Color.Red
+        End If
 
     End Sub
 
@@ -75,14 +94,14 @@
             lbl_rut.ForeColor = Color.DimGray
             lbl_edad.ForeColor = Color.DimGray
             Try
-                con.RegistrarMatricula(lbl_nmatricula.Text, tbox_nombre.Text, rut, tbox_edad.Text,
+                con.RegistrarPago(tbox_codigo_pago.Text, lbl_valor_curso.Text, cbox_medio.Text)
+                con.RegistrarMatricula(tbox_nmatricula.Text, tbox_nombre.Text, rut, tbox_edad.Text,
                                 Format(datetp_atencion.Value, "yyyy-MM-dd"), tbox_telefono.Text,
-                                lbl_codigo_pago.Text, cbox_curso.Text, cbox_teorico.Text, cbox_practico.Text)
+                                tbox_codigo_pago.Text, cbox_curso.Text, cbox_teorico.Text, cbox_practico.Text)
 
-                con.RegistrarEstudiante(lbl_nmatricula.Text, carnet, cert, certAl, notario)
+                con.RegistrarEstudiante(tbox_nmatricula.Text, carnet, cert, certAl, notario)
             Catch ex As Exception
 
-                'MOMENTANEO
                 lbl_mensaje_conf.ForeColor = Color.Red
                 lbl_mensaje_conf.Text = "ERROR!"
 
@@ -101,13 +120,14 @@
                 cbox_curso.SelectedIndex = 0
                 cbox_teorico.SelectedIndex = 0
                 cbox_practico.SelectedIndex = 0
+                cbox_medio.SelectedIndex = 0
                 chbox_foto.Checked = False
                 chbox_estudios.Checked = False
                 chbox_regular.Checked = False
                 chbox_notarial.Checked = False
-                lbl_nmatricula.Text = ""
+                tbox_nmatricula.Text = ""
                 lbl_valor_curso.Text = ""
-                lbl_codigo_pago.Text = ""
+                tbox_codigo_pago.Text = ""
             End Try
         End If
     End Sub
