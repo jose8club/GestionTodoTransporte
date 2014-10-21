@@ -41,7 +41,7 @@
         For i As Integer = 0 To f
             cbox_medio.Items.Add(medio(i))
         Next
-        cbox_medio.SelectedIndex = 0
+        'cbox_medio.SelectedIndex = 0'
 
         If cbox_curso.SelectedIndex <> 0 Then
             'Cargar en label valor curso'

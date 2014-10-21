@@ -380,11 +380,11 @@ Public Class Conexion
         Using comando As New MySqlCommand()
             With comando
                 If edad > 17 Then
-                    .CommandText = "SELECT PrecioAdulto FROM PAGO WHERE Codigo = '" & Codigo & "'"
+                    .CommandText = "SELECT PrecioAdulto FROM CURSO WHERE Codigo = '" & Codigo & "'"
                     .CommandType = CommandType.Text
                     .Connection = conn
                 ElseIf edad <= 17 Then
-                    .CommandText = "SELECT PrecioEstudiante FROM PAGO WHERE Codigo = '" & Codigo & "'"
+                    .CommandText = "SELECT PrecioEstudiante FROM CURSO WHERE Codigo = '" & Codigo & "'"
                     .CommandType = CommandType.Text
                     .Connection = conn
                 End If
