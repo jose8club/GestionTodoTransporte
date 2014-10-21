@@ -377,6 +377,7 @@ Public Class Conexion
     End Function
 
     Function buscarPago(ByVal edad As Integer, ByVal Codigo As Integer) As Integer
+        Dim pago As Integer
         Using comando As New MySqlCommand()
             With comando
                 If edad > 17 Then
@@ -392,8 +393,8 @@ Public Class Conexion
             Try
                 conn.Open()
                 comando.ExecuteNonQuery()
-                Dim pago As String = Convert.ToString(comando.ExecuteScalar)
-                Return pago
+                pago = Convert.ToDecimal(comando.ExecuteScalar)
+
 
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
@@ -402,7 +403,7 @@ Public Class Conexion
             End Try
 
         End Using
-
+        Return pago
     End Function
 
     Sub RegistrarPago(ByVal Codigo As Integer, ByVal Monto As Integer, ByVal Medio As String)

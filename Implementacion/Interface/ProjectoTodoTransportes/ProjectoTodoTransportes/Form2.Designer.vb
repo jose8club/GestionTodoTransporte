@@ -44,6 +44,8 @@ Partial Class Form2
         Me.chbox_estudios = New System.Windows.Forms.CheckBox()
         Me.chbox_foto = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.tbox_codigo_pago = New System.Windows.Forms.TextBox()
+        Me.tbox_nmatricula = New System.Windows.Forms.TextBox()
         Me.cbox_medio = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbl_valor_curso = New System.Windows.Forms.Label()
@@ -58,8 +60,6 @@ Partial Class Form2
         Me.lbl_mensaje_conf = New System.Windows.Forms.Label()
         Me.lbl_edad = New System.Windows.Forms.Label()
         Me.tbox_edad = New System.Windows.Forms.TextBox()
-        Me.tbox_nmatricula = New System.Windows.Forms.TextBox()
-        Me.tbox_codigo_pago = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -273,6 +273,20 @@ Partial Class Form2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Matricula"
         '
+        'tbox_codigo_pago
+        '
+        Me.tbox_codigo_pago.Location = New System.Drawing.Point(117, 65)
+        Me.tbox_codigo_pago.Name = "tbox_codigo_pago"
+        Me.tbox_codigo_pago.Size = New System.Drawing.Size(73, 20)
+        Me.tbox_codigo_pago.TabIndex = 22
+        '
+        'tbox_nmatricula
+        '
+        Me.tbox_nmatricula.Location = New System.Drawing.Point(115, 30)
+        Me.tbox_nmatricula.Name = "tbox_nmatricula"
+        Me.tbox_nmatricula.Size = New System.Drawing.Size(75, 20)
+        Me.tbox_nmatricula.TabIndex = 21
+        '
         'cbox_medio
         '
         Me.cbox_medio.FormattingEnabled = True
@@ -392,20 +406,6 @@ Partial Class Form2
         Me.tbox_edad.Name = "tbox_edad"
         Me.tbox_edad.Size = New System.Drawing.Size(100, 20)
         Me.tbox_edad.TabIndex = 24
-        '
-        'tbox_nmatricula
-        '
-        Me.tbox_nmatricula.Location = New System.Drawing.Point(115, 30)
-        Me.tbox_nmatricula.Name = "tbox_nmatricula"
-        Me.tbox_nmatricula.Size = New System.Drawing.Size(75, 20)
-        Me.tbox_nmatricula.TabIndex = 21
-        '
-        'tbox_codigo_pago
-        '
-        Me.tbox_codigo_pago.Location = New System.Drawing.Point(117, 65)
-        Me.tbox_codigo_pago.Name = "tbox_codigo_pago"
-        Me.tbox_codigo_pago.Size = New System.Drawing.Size(73, 20)
-        Me.tbox_codigo_pago.TabIndex = 22
         '
         'Form2
         '

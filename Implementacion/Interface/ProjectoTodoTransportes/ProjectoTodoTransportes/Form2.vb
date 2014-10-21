@@ -41,16 +41,9 @@
         For i As Integer = 0 To f
             cbox_medio.Items.Add(medio(i))
         Next
-        'cbox_medio.SelectedIndex = 0'
+        cbox_medio.SelectedIndex = 0
 
-        If cbox_curso.SelectedIndex <> 0 Then
-            'Cargar en label valor curso'
-            Dim precio As Integer
-            precio = con.buscarPago(tbox_edad.Text, cbox_curso.Text)
-            lbl_valor_curso.Text = CStr(precio)
-        Else
-            lbl_curso.ForeColor = Color.Red
-        End If
+        Me.verificar(cbox_curso.SelectedIndex)
 
     End Sub
 
@@ -129,6 +122,18 @@
                 lbl_valor_curso.Text = ""
                 tbox_codigo_pago.Text = ""
             End Try
+        End If
+    End Sub
+
+    Private Sub verificar(p1 As Integer)
+        If p1 <> 0 Then
+            'Cargar en label valor curso'
+            Dim precio As Integer
+            precio = con.buscarPago(tbox_edad.Text, cbox_curso.Text)
+            lbl_valor_curso.Text = CStr(precio)
+        Else
+            lbl_mensaje_conf.ForeColor = Color.Red
+            lbl_mensaje_conf.Text = "ERROR!"
         End If
     End Sub
 
