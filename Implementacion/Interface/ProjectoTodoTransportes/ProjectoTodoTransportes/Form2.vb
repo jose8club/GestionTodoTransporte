@@ -57,7 +57,7 @@
             lbl_mensaje_conf.Text = "RUT no concuerda"
         End If
 
-        'Covertir checkbox en booleano para colocarlas en la busqueda'
+        'Covertir checkbox en booleano e integer para colocarlas en la busqueda'
         'foto'
         Dim carnet As Integer
         carnet = chbox_foto.Checked
@@ -70,6 +70,11 @@
         'autorizacion notarial'
         Dim notario As Boolean
         notario = chbox_regular.Checked
+
+        Dim t As Date
+        t = TimeValue("4:00:00 PM") 'Reemplaza a lo teorico'
+        Dim p As Date
+        p = TimeValue("5:00:00 PM") 'reemmplaza a lo practico'
 
         If tbox_telefono.Text.Trim.Equals("") Then
             tbox_telefono.Text = "0"
@@ -87,10 +92,10 @@
             lbl_rut.ForeColor = Color.DimGray
             lbl_edad.ForeColor = Color.DimGray
             Try
-                con.RegistrarPago(tbox_codigo_pago.Text, lbl_valor_curso.Text, cbox_medio.Text)
-                con.RegistrarMatricula(tbox_nmatricula.Text, tbox_nombre.Text, rut, tbox_edad.Text,
-                                Format(datetp_atencion.Value, "yyyy-MM-dd"), tbox_telefono.Text,
-                                tbox_codigo_pago.Text, cbox_curso.Text, cbox_teorico.Text, cbox_practico.Text)
+                con.RegistrarPago(CInt(tbox_codigo_pago.Text), CInt("25000"), cbox_medio.Text)
+                con.RegistrarMatricula(tbox_nmatricula.Text, tbox_nombre.Text, rut, CInt(tbox_edad.Text),
+                                Format(datetp_atencion.Value, "yyyy-MM-dd"), CInt(tbox_telefono.Text),
+                                CInt(tbox_codigo_pago.Text), cbox_curso.Text, t, p)
 
                 con.RegistrarEstudiante(tbox_nmatricula.Text, carnet, cert, certAl, notario)
             Catch ex As Exception
@@ -111,8 +116,8 @@
                 tbox_edad.Text = ""
                 tbox_telefono.Text = ""
                 cbox_curso.SelectedIndex = 0
-                cbox_teorico.SelectedIndex = 0
-                cbox_practico.SelectedIndex = 0
+                'cbox_teorico.SelectedIndex = 0
+                'cbox_practico.SelectedIndex = 0
                 cbox_medio.SelectedIndex = 0
                 chbox_foto.Checked = False
                 chbox_estudios.Checked = False

@@ -142,4 +142,8 @@
         Next
         cbox_estvisual.SelectedIndex = 0
     End Sub
+
+    Private Sub Tab1_Click(sender As System.Object, e As System.EventArgs) Handles Tab1.Click
+
+    End Sub
 End Class

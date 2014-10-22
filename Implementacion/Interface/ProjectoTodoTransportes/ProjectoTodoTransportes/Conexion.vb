@@ -431,7 +431,7 @@ Public Class Conexion
         End Using
     End Sub
 
-    Sub RegistrarMatricula(ByVal codMatricula As String, ByVal nombre As String, ByVal rut As String, ByVal edad As Integer, ByVal fecha As String, ByVal telefono As Integer, ByVal codPago As Integer, ByVal curso As String, ByVal horaT As String, ByVal horaP As String)
+    Sub RegistrarMatricula(ByVal Codigo As String, ByVal Nombre As String, ByVal RUT As String, ByVal Edad As Integer, ByVal Fecha As String, ByVal Telefono As Integer, ByVal CodigoPago As Integer, ByVal Curso As String, ByVal HoraTeorica As Date, ByVal HoraPractica As Date)
         'Registra Matricula'
         Using comando As New MySqlCommand()
             With comando
@@ -439,16 +439,16 @@ Public Class Conexion
                 .CommandType = CommandType.Text
                 .Connection = conn
 
-                .Parameters.AddWithValue("@Codigo", codMatricula)
-                .Parameters.AddWithValue("@Nombre", nombre)
-                .Parameters.AddWithValue("@RUT", rut)
-                .Parameters.AddWithValue("@Edad", edad)
-                .Parameters.AddWithValue("@Fecha", fecha)
-                .Parameters.AddWithValue("@Telefono", telefono)
-                .Parameters.AddWithValue("@CodigoPago", codPago)
-                .Parameters.AddWithValue("@Curso", curso)
-                .Parameters.AddWithValue("@HoraTeorica", horaT)
-                .Parameters.AddWithValue("@HoraPractica", horaP)
+                .Parameters.AddWithValue("@Codigo", Codigo)
+                .Parameters.AddWithValue("@Nombre", Nombre)
+                .Parameters.AddWithValue("@RUT", RUT)
+                .Parameters.AddWithValue("@Edad", Edad)
+                .Parameters.AddWithValue("@Fecha", Fecha)
+                .Parameters.AddWithValue("@Telefono", Telefono)
+                .Parameters.AddWithValue("@CodigoPago", CodigoPago)
+                .Parameters.AddWithValue("@Curso", Curso)
+                .Parameters.AddWithValue("@HoraTeorica", HoraTeorica)
+                .Parameters.AddWithValue("@HoraPractica", HoraPractica)
 
             End With
             Try
