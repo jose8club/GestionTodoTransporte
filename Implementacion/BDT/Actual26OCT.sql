@@ -60,7 +60,7 @@ CREATE TABLE `asistencia_practica` (
   KEY `fk_ASISTENCIA_PRACTICA-PRACTICA_ESTUDIANTE_idx` (`Estudiante`,`Practica`),
   KEY `fk_ASISTENCIA_PRACTICA-AUTO-ESCUELA_idx` (`Auto`),
   CONSTRAINT `fk_ASISTENCIA_PRACTICA-ASISTENCIA` FOREIGN KEY (`Asistencia`) REFERENCES `asistencia` (`idASISTENCIA`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_ASISTENCIA_PRACTICA-AUTO-ESCUELA` FOREIGN KEY (`Auto`) REFERENCES `auto-escuela` (`Matricula`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_ASISTENCIA_PRACTICA-AUTO-ESCUELA` FOREIGN KEY (`Auto`) REFERENCES `auto_escuela` (`Matricula`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ASISTENCIA_PRACTICA-PRACTICA_ESTUDIANTE` FOREIGN KEY (`Estudiante`, `Practica`) REFERENCES `practica_estudiante` (`Estudiante`, `Practica`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -132,7 +132,7 @@ DROP TABLE IF EXISTS `atencion_cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `atencion_cliente` (
-  `idATENCION_CLIENTE` int(11) NOT NULL AUTO_INCREMENT,
+  `idATENCION_CLIENTE` int(11) NOT NULL,
   `Usuario` varchar(45) NOT NULL,
   `Cliente` int(11) NOT NULL,
   PRIMARY KEY (`idATENCION_CLIENTE`),
@@ -140,7 +140,7 @@ CREATE TABLE `atencion_cliente` (
   KEY `fk_ATENCION-CLIENTE_idx` (`Cliente`),
   CONSTRAINT `fk_ATENCION-CLIENTE` FOREIGN KEY (`Cliente`) REFERENCES `cliente` (`idCLIENTE`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_ATENCION-USUARIO` FOREIGN KEY (`Usuario`) REFERENCES `usuario` (`Nombre`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -154,13 +154,13 @@ INSERT INTO `atencion_cliente` VALUES (8,'luzhow',10),(9,'luzhow',11),(10,'luzho
 UNLOCK TABLES;
 
 --
--- Table structure for table `auto-escuela`
+-- Table structure for table `auto_escuela`
 --
 
-DROP TABLE IF EXISTS `auto-escuela`;
+DROP TABLE IF EXISTS `auto_escuela`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `auto-escuela` (
+CREATE TABLE `auto_escuela` (
   `Matricula` varchar(6) NOT NULL,
   `Modelo` varchar(45) DEFAULT NULL,
   `Estado` varchar(45) NOT NULL,
@@ -171,12 +171,13 @@ CREATE TABLE `auto-escuela` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `auto-escuela`
+-- Dumping data for table `auto_escuela`
 --
 
-LOCK TABLES `auto-escuela` WRITE;
-/*!40000 ALTER TABLE `auto-escuela` DISABLE KEYS */;
-/*!40000 ALTER TABLE `auto-escuela` ENABLE KEYS */;
+LOCK TABLES `auto_escuela` WRITE;
+/*!40000 ALTER TABLE `auto_escuela` DISABLE KEYS */;
+INSERT INTO `auto_escuela` VALUES ('zzxx22','Chevrolet','Mantencion'),('zzyy00','Nissan','Activo');
+/*!40000 ALTER TABLE `auto_escuela` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -230,6 +231,7 @@ CREATE TABLE `clase` (
 
 LOCK TABLES `clase` WRITE;
 /*!40000 ALTER TABLE `clase` DISABLE KEYS */;
+INSERT INTO `clase` VALUES ('0','A','2013-01-12','2013-02-12'),('1','B','2013-01-12','2013-02-12'),('2','C','2013-01-12','2013-02-12'),('3','A','2013-01-13','2013-02-13');
 /*!40000 ALTER TABLE `clase` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -276,7 +278,7 @@ DROP TABLE IF EXISTS `cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cliente` (
-  `idCLIENTE` int(11) NOT NULL AUTO_INCREMENT,
+  `idCLIENTE` int(11) NOT NULL,
   `Nombre` varchar(255) NOT NULL,
   `Fecha` date NOT NULL,
   `Telefono` decimal(10,0) DEFAULT NULL,
@@ -288,7 +290,7 @@ CREATE TABLE `cliente` (
   KEY `fk_CLIENTE-CURSO_idx` (`Curso`),
   CONSTRAINT `fk_CLIENTE-ATENCION` FOREIGN KEY (`Atención`) REFERENCES `atencion` (`Nombre`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_CLIENTE-CURSO` FOREIGN KEY (`Curso`) REFERENCES `curso` (`Codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -338,7 +340,7 @@ CREATE TABLE `docente` (
   `Nombre` varchar(45) NOT NULL,
   `Telefono` varchar(45) NOT NULL,
   PRIMARY KEY (`idDOCENTE`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -347,6 +349,7 @@ CREATE TABLE `docente` (
 
 LOCK TABLES `docente` WRITE;
 /*!40000 ALTER TABLE `docente` DISABLE KEYS */;
+INSERT INTO `docente` VALUES (2,'Jose','87654321'),(4,'Luis ','12344321'),(33,'Kurt ','12345678');
 /*!40000 ALTER TABLE `docente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -369,6 +372,7 @@ CREATE TABLE `estado_auto` (
 
 LOCK TABLES `estado_auto` WRITE;
 /*!40000 ALTER TABLE `estado_auto` DISABLE KEYS */;
+INSERT INTO `estado_auto` VALUES ('Activo'),('Mantención');
 /*!40000 ALTER TABLE `estado_auto` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -380,12 +384,12 @@ DROP TABLE IF EXISTS `estudiante`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `estudiante` (
-  `idESTUDIANTE` int(11) NOT NULL,
+  `idESTUDIANTE` int(11) NOT NULL DEFAULT '0',
   `Matricula` varchar(6) NOT NULL,
-  `FotosCarnet` int(11) NOT NULL DEFAULT '0',
-  `CertEstudios` tinyint(1) NOT NULL DEFAULT '0',
-  `CertAlumnRegular` tinyint(1) NOT NULL DEFAULT '0',
-  `AutNotarial` tinyint(1) NOT NULL DEFAULT '0',
+  `FotosCarnet` int(11) NOT NULL,
+  `CertEstudios` tinyint(1) NOT NULL,
+  `CertAlumnRegular` tinyint(1) NOT NULL,
+  `AutNotarial` tinyint(1) NOT NULL,
   PRIMARY KEY (`idESTUDIANTE`),
   KEY `fk_ESTUDIANTE-MATRICULA_idx` (`Matricula`),
   CONSTRAINT `fk_ESTUDIANTE-MATRICULA` FOREIGN KEY (`Matricula`) REFERENCES `matricula` (`Codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -398,6 +402,7 @@ CREATE TABLE `estudiante` (
 
 LOCK TABLES `estudiante` WRITE;
 /*!40000 ALTER TABLE `estudiante` DISABLE KEYS */;
+INSERT INTO `estudiante` VALUES (0,'11',0,1,1,0);
 /*!40000 ALTER TABLE `estudiante` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -464,7 +469,7 @@ CREATE TABLE `examen_visual` (
   `idEXAMEN_VISUAL` int(11) NOT NULL AUTO_INCREMENT,
   `Examinador` varchar(255) NOT NULL,
   `Estado` varchar(45) NOT NULL,
-  `Certificado` tinyint(1) NOT NULL DEFAULT '0',
+  `Certificado` tinyint(1) NOT NULL,
   `Fecha` date NOT NULL,
   PRIMARY KEY (`idEXAMEN_VISUAL`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -491,7 +496,7 @@ CREATE TABLE `instructor` (
   `Auto` varchar(6) NOT NULL,
   PRIMARY KEY (`idINSTRUCTOR`),
   KEY `fk_INSTRUCTOR-AUTO-ESCUELA_idx` (`Auto`),
-  CONSTRAINT `fk_INSTRUCTOR-AUTO-ESCUELA` FOREIGN KEY (`Auto`) REFERENCES `auto-escuela` (`Matricula`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_INSTRUCTOR-AUTO-ESCUELA` FOREIGN KEY (`Auto`) REFERENCES `auto_escuela` (`Matricula`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_INSTRUCTOR-DOCENTE` FOREIGN KEY (`idINSTRUCTOR`) REFERENCES `docente` (`idDOCENTE`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -502,6 +507,7 @@ CREATE TABLE `instructor` (
 
 LOCK TABLES `instructor` WRITE;
 /*!40000 ALTER TABLE `instructor` DISABLE KEYS */;
+INSERT INTO `instructor` VALUES (4,'zzxx22'),(33,'zzyy00');
 /*!40000 ALTER TABLE `instructor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -537,7 +543,31 @@ CREATE TABLE `matricula` (
 
 LOCK TABLES `matricula` WRITE;
 /*!40000 ALTER TABLE `matricula` DISABLE KEYS */;
+INSERT INTO `matricula` VALUES ('11','luis','181312866',25,'2014-10-16',123534,22,'A','19:00:00','13:00:00');
 /*!40000 ALTER TABLE `matricula` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `medio_pago`
+--
+
+DROP TABLE IF EXISTS `medio_pago`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `medio_pago` (
+  `Medio` varchar(255) NOT NULL,
+  PRIMARY KEY (`Medio`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `medio_pago`
+--
+
+LOCK TABLES `medio_pago` WRITE;
+/*!40000 ALTER TABLE `medio_pago` DISABLE KEYS */;
+INSERT INTO `medio_pago` VALUES ('Convenio'),('Efectivo'),('Tarjeta');
+/*!40000 ALTER TABLE `medio_pago` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -551,8 +581,10 @@ CREATE TABLE `pago` (
   `Codigo` int(11) NOT NULL AUTO_INCREMENT,
   `Monto` decimal(10,0) NOT NULL,
   `Medio` varchar(255) NOT NULL,
-  PRIMARY KEY (`Codigo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`Codigo`),
+  KEY `fk_PAGO-MEDIO_PAGO_idx` (`Medio`),
+  CONSTRAINT `fk_PAGO-MEDIO_PAGO` FOREIGN KEY (`Medio`) REFERENCES `medio_pago` (`Medio`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=89 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -561,6 +593,7 @@ CREATE TABLE `pago` (
 
 LOCK TABLES `pago` WRITE;
 /*!40000 ALTER TABLE `pago` DISABLE KEYS */;
+INSERT INTO `pago` VALUES (1,0,'Convenio'),(22,1,'Convenio');
 /*!40000 ALTER TABLE `pago` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -590,6 +623,7 @@ CREATE TABLE `practica` (
 
 LOCK TABLES `practica` WRITE;
 /*!40000 ALTER TABLE `practica` DISABLE KEYS */;
+INSERT INTO `practica` VALUES (0,'1',33,'12:00:00'),(1,'3',4,'13:00:00');
 /*!40000 ALTER TABLE `practica` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -642,6 +676,7 @@ CREATE TABLE `profesor` (
 
 LOCK TABLES `profesor` WRITE;
 /*!40000 ALTER TABLE `profesor` DISABLE KEYS */;
+INSERT INTO `profesor` VALUES (2),(4);
 /*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -697,6 +732,7 @@ CREATE TABLE `teoria` (
 
 LOCK TABLES `teoria` WRITE;
 /*!40000 ALTER TABLE `teoria` DISABLE KEYS */;
+INSERT INTO `teoria` VALUES (0,'0','19:00:00',45,2),(1,'1','19:00:00',45,4);
 /*!40000 ALTER TABLE `teoria` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -788,4 +824,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-13 14:38:01
+-- Dump completed on 2014-10-23  4:04:13
