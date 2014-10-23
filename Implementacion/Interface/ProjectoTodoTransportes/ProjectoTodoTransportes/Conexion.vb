@@ -433,11 +433,8 @@ Public Class Conexion
 
     Sub RegistrarMatricula(ByVal Codigo As String, ByVal Nombre As String, ByVal RUT As String, ByVal Edad As Integer, ByVal Fecha As String, ByVal Telefono As Integer, ByVal CodigoPago As Integer, ByVal Curso As String, ByVal HoraTeorica As Date, ByVal HoraPractica As Date)
         'Registra Matricula'
-
         Using comando As New MySqlCommand()
             With comando
-                HoraTeorica = "SELECT TIME (HoraTeorica) WHERE HoraTeorica = '" & HoraTeorica & "'"
-                HoraPractica = "SELECT TIME (HoraPractica) WHERE HoraPractica = '" & HoraPractica & "'"
                 .CommandText = "INSERT INTO MATRICULA (Codigo, Nombre, RUT, Edad, Fecha, Telefono, CodigoPago, Curso, HoraTeorica, HoraPractica) VALUES(@Codigo, @Nombre, @RUT, @Edad, @Fecha, @Telefono, @CodigoPago, @Curso, @HoraTeorica, @HoraPractica)"
                 .CommandType = CommandType.Text
                 .Connection = conn
