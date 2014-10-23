@@ -46,7 +46,11 @@
         ElseIf tab = 2 Then
             TabControl.Size = New System.Drawing.Size(416, 485)
             Me.Size = New System.Drawing.Size(449, 541)
+        ElseIf tab = 3 Then
+            TabControl.Size = New System.Drawing.Size(419, 220)
+            Me.Size = New System.Drawing.Size(449, 275)
         End If
+
     End Sub
 
     Private Sub btn_Guardar1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Guardar1.Click
@@ -114,5 +118,13 @@
         'MOMENTANEO PROBANDO RUT
         Dim real As Boolean = Herramientas.isRut(TextBox4.Text, TextBox5.Text)
         If real Then MsgBox("REAL") Else MsgBox("FALSE")
+    End Sub
+
+    Private Sub Label24_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label24.Click
+
+    End Sub
+
+    Private Sub horarioPsico_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles horarioPsico.TextChanged
+
     End Sub
 End Class
