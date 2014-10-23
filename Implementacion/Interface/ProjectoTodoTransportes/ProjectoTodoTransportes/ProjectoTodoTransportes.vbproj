@@ -95,12 +95,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Conexion.vb" />
-    <Compile Include="Form6.Designer.vb">
-      <DependentUpon>Form6.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form6.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Form7.Designer.vb">
       <DependentUpon>Form7.vb</DependentUpon>
     </Compile>
@@ -133,9 +127,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Bienvenido.resx">
       <DependentUpon>Bienvenido.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form6.resx">
-      <DependentUpon>Form6.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form7.resx">
       <DependentUpon>Form7.vb</DependentUpon>
