@@ -78,9 +78,9 @@
         ElseIf tab = 2 Then
             TabControl.Size = New System.Drawing.Size(416, 485)
             Me.Size = New System.Drawing.Size(449, 541)
-        ElseIf tab = 4 Then
-            TabControl.Size = New System.Drawing.Size(416, 495)
-            Me.Size = New System.Drawing.Size(455, 555)
+        ElseIf tab = 3 Then
+            TabControl.Size = New System.Drawing.Size(420, 213)
+            Me.Size = New System.Drawing.Size(455, 270)
         End If
     End Sub
 
@@ -217,5 +217,9 @@
         Dim precio As Integer
         precio = con.buscarPago("25", cbox_CursoRendir2.Text)
         lbl_ValorCurso2.Text = CStr(precio)
+    End Sub
+
+    Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
+
     End Sub
 End Class
