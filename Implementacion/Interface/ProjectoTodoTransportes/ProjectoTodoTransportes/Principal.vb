@@ -46,10 +46,17 @@
         ElseIf tab = 2 Then
             TabControl.Size = New System.Drawing.Size(416, 485)
             Me.Size = New System.Drawing.Size(449, 541)
+<<<<<<< HEAD
         ElseIf tab = 4 Then
             TabControl.Size = New System.Drawing.Size(416, 495)
             Me.Size = New System.Drawing.Size(455, 555)
+=======
+        ElseIf tab = 3 Then
+            TabControl.Size = New System.Drawing.Size(419, 220)
+            Me.Size = New System.Drawing.Size(449, 275)
+>>>>>>> origin/Navegacion_ventanas
         End If
+
     End Sub
 
     Private Sub btn_Guardar1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Guardar1.Click
@@ -119,6 +126,7 @@
         If real Then MsgBox("REAL") Else MsgBox("FALSE")
     End Sub
 
+<<<<<<< HEAD
     
     Private Sub Tab3_Click(sender As System.Object, e As System.EventArgs) Handles Tab3.Click
         
@@ -144,6 +152,13 @@
     End Sub
 
     Private Sub Tab1_Click(sender As System.Object, e As System.EventArgs) Handles Tab1.Click
+=======
+    Private Sub Label24_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label24.Click
+
+    End Sub
+
+    Private Sub horarioPsico_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles horarioPsico.TextChanged
+>>>>>>> origin/Navegacion_ventanas
 
     End Sub
 End Class

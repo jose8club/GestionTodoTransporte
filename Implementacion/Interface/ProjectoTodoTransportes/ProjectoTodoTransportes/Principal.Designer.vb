@@ -103,6 +103,17 @@ Partial Class Principal
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Tab5 = New System.Windows.Forms.TabPage()
+        Me.nombrePsico = New System.Windows.Forms.ComboBox()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.fechaPsico = New System.Windows.Forms.DateTimePicker()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.horarioPsico = New System.Windows.Forms.TextBox()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.ComboBox7 = New System.Windows.Forms.ComboBox()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.TabControl.SuspendLayout()
         Me.Tab1.SuspendLayout()
         Me.Tab2.SuspendLayout()
@@ -126,7 +137,11 @@ Partial Class Principal
         Me.TabControl.Location = New System.Drawing.Point(12, 12)
         Me.TabControl.Name = "TabControl"
         Me.TabControl.SelectedIndex = 0
+<<<<<<< HEAD
         Me.TabControl.Size = New System.Drawing.Size(448, 485)
+=======
+        Me.TabControl.Size = New System.Drawing.Size(416, 451)
+>>>>>>> origin/Navegacion_ventanas
         Me.TabControl.TabIndex = 0
         '
         'Tab1
@@ -146,7 +161,11 @@ Partial Class Principal
         Me.Tab1.Location = New System.Drawing.Point(4, 22)
         Me.Tab1.Name = "Tab1"
         Me.Tab1.Padding = New System.Windows.Forms.Padding(3)
+<<<<<<< HEAD
         Me.Tab1.Size = New System.Drawing.Size(440, 459)
+=======
+        Me.Tab1.Size = New System.Drawing.Size(408, 194)
+>>>>>>> origin/Navegacion_ventanas
         Me.Tab1.TabIndex = 0
         Me.Tab1.Text = "Registrar Cliente"
         Me.Tab1.UseVisualStyleBackColor = True
@@ -274,7 +293,11 @@ Partial Class Principal
         Me.Tab2.Location = New System.Drawing.Point(4, 22)
         Me.Tab2.Name = "Tab2"
         Me.Tab2.Padding = New System.Windows.Forms.Padding(3)
+<<<<<<< HEAD
         Me.Tab2.Size = New System.Drawing.Size(440, 459)
+=======
+        Me.Tab2.Size = New System.Drawing.Size(408, 194)
+>>>>>>> origin/Navegacion_ventanas
         Me.Tab2.TabIndex = 1
         Me.Tab2.Text = "Matrícula"
         Me.Tab2.UseVisualStyleBackColor = True
@@ -552,7 +575,11 @@ Partial Class Principal
         Me.Tab3.Controls.Add(Me.Label11)
         Me.Tab3.Location = New System.Drawing.Point(4, 22)
         Me.Tab3.Name = "Tab3"
+<<<<<<< HEAD
         Me.Tab3.Size = New System.Drawing.Size(440, 459)
+=======
+        Me.Tab3.Size = New System.Drawing.Size(408, 194)
+>>>>>>> origin/Navegacion_ventanas
         Me.Tab3.TabIndex = 2
         Me.Tab3.Text = "Exámen Oftalmológico"
         Me.Tab3.UseVisualStyleBackColor = True
@@ -772,6 +799,7 @@ Partial Class Principal
         '
         'Tab4
         '
+<<<<<<< HEAD
         Me.Tab4.Controls.Add(Me.guardarPsico)
         Me.Tab4.Controls.Add(Me.estadoPsico)
         Me.Tab4.Controls.Add(Me.horarioPsico)
@@ -788,6 +816,24 @@ Partial Class Principal
         Me.Tab4.Size = New System.Drawing.Size(440, 459)
         Me.Tab4.TabIndex = 3
         Me.Tab4.Text = "Practica Psicótecnico"
+=======
+        Me.Tab4.Controls.Add(Me.Button6)
+        Me.Tab4.Controls.Add(Me.ComboBox7)
+        Me.Tab4.Controls.Add(Me.Label25)
+        Me.Tab4.Controls.Add(Me.horarioPsico)
+        Me.Tab4.Controls.Add(Me.Label24)
+        Me.Tab4.Controls.Add(Me.fechaPsico)
+        Me.Tab4.Controls.Add(Me.Label23)
+        Me.Tab4.Controls.Add(Me.ComboBox6)
+        Me.Tab4.Controls.Add(Me.Label22)
+        Me.Tab4.Controls.Add(Me.nombrePsico)
+        Me.Tab4.Controls.Add(Me.Label21)
+        Me.Tab4.Location = New System.Drawing.Point(4, 22)
+        Me.Tab4.Name = "Tab4"
+        Me.Tab4.Size = New System.Drawing.Size(408, 194)
+        Me.Tab4.TabIndex = 3
+        Me.Tab4.Text = "Práctica Psicotécnico"
+>>>>>>> origin/Navegacion_ventanas
         Me.Tab4.UseVisualStyleBackColor = True
         '
         'guardarPsico
@@ -886,16 +932,116 @@ Partial Class Principal
         '
         Me.Tab5.Location = New System.Drawing.Point(4, 22)
         Me.Tab5.Name = "Tab5"
+<<<<<<< HEAD
         Me.Tab5.Size = New System.Drawing.Size(440, 459)
+=======
+        Me.Tab5.Size = New System.Drawing.Size(408, 425)
+>>>>>>> origin/Navegacion_ventanas
         Me.Tab5.TabIndex = 4
-        Me.Tab5.Text = "TabPage3"
+        Me.Tab5.Text = "Encuesta Calidad"
         Me.Tab5.UseVisualStyleBackColor = True
+        '
+        'nombrePsico
+        '
+        Me.nombrePsico.FormattingEnabled = True
+        Me.nombrePsico.Location = New System.Drawing.Point(95, 21)
+        Me.nombrePsico.Name = "nombrePsico"
+        Me.nombrePsico.Size = New System.Drawing.Size(294, 21)
+        Me.nombrePsico.TabIndex = 7
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(16, 24)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(44, 13)
+        Me.Label21.TabIndex = 6
+        Me.Label21.Text = "Nombre"
+        '
+        'ComboBox6
+        '
+        Me.ComboBox6.FormattingEnabled = True
+        Me.ComboBox6.Location = New System.Drawing.Point(95, 48)
+        Me.ComboBox6.Name = "ComboBox6"
+        Me.ComboBox6.Size = New System.Drawing.Size(294, 21)
+        Me.ComboBox6.TabIndex = 12
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(16, 51)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(39, 13)
+        Me.Label22.TabIndex = 11
+        Me.Label22.Text = "R.U.T."
+        '
+        'fechaPsico
+        '
+        Me.fechaPsico.Location = New System.Drawing.Point(95, 75)
+        Me.fechaPsico.Name = "fechaPsico"
+        Me.fechaPsico.Size = New System.Drawing.Size(294, 20)
+        Me.fechaPsico.TabIndex = 14
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(16, 78)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(37, 13)
+        Me.Label23.TabIndex = 13
+        Me.Label23.Text = "Fecha"
+        '
+        'horarioPsico
+        '
+        Me.horarioPsico.Location = New System.Drawing.Point(95, 101)
+        Me.horarioPsico.Name = "horarioPsico"
+        Me.horarioPsico.Size = New System.Drawing.Size(294, 20)
+        Me.horarioPsico.TabIndex = 16
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(16, 104)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(41, 13)
+        Me.Label24.TabIndex = 15
+        Me.Label24.Text = "Horario"
+        '
+        'ComboBox7
+        '
+        Me.ComboBox7.FormattingEnabled = True
+        Me.ComboBox7.Location = New System.Drawing.Point(95, 127)
+        Me.ComboBox7.Name = "ComboBox7"
+        Me.ComboBox7.Size = New System.Drawing.Size(294, 21)
+        Me.ComboBox7.TabIndex = 12
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(16, 130)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(40, 13)
+        Me.Label25.TabIndex = 11
+        Me.Label25.Text = "Estado"
+        '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(288, 154)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(101, 28)
+        Me.Button6.TabIndex = 11
+        Me.Button6.Text = "Guardar"
+        Me.Button6.UseVisualStyleBackColor = True
         '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+<<<<<<< HEAD
         Me.ClientSize = New System.Drawing.Size(472, 509)
+=======
+        Me.ClientSize = New System.Drawing.Size(439, 475)
+>>>>>>> origin/Navegacion_ventanas
         Me.Controls.Add(Me.TabControl)
         Me.Name = "Principal"
         Me.Text = "Sistema de Gestión TodoTransporte"
@@ -992,6 +1138,7 @@ Partial Class Principal
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents doctor As System.Windows.Forms.TextBox
     Friend WithEvents Label20 As System.Windows.Forms.Label
+<<<<<<< HEAD
     Friend WithEvents guardarPsico As System.Windows.Forms.Button
     Friend WithEvents estadoPsico As System.Windows.Forms.ComboBox
     Friend WithEvents horarioPsico As System.Windows.Forms.TextBox
@@ -1004,4 +1151,17 @@ Partial Class Principal
     Friend WithEvents Label24 As System.Windows.Forms.Label
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents Guardar As System.Windows.Forms.Button
+=======
+    Friend WithEvents nombrePsico As System.Windows.Forms.ComboBox
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox6 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents fechaPsico As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents horarioPsico As System.Windows.Forms.TextBox
+    Friend WithEvents Label24 As System.Windows.Forms.Label
+    Friend WithEvents ComboBox7 As System.Windows.Forms.ComboBox
+    Friend WithEvents Label25 As System.Windows.Forms.Label
+    Friend WithEvents Button6 As System.Windows.Forms.Button
+>>>>>>> origin/Navegacion_ventanas
 End Class
