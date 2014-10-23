@@ -194,7 +194,7 @@ Public Class Conexion
     End Function
     'AQUI EMPIEZAN LOS METODOS DEL CASO DE USO REGISTRAR CLIENTE'
     'Horarios estudiante practico caso de uso registar estudiante'
-    
+
     Function registrosPractico() As String
 
         'Retorna el numero de clases practica
@@ -224,7 +224,7 @@ Public Class Conexion
 
     Function practicoToArray(ByVal n As Integer) As String()
 
-        'Retorna un Array con los practicoss impartidos por la empresa
+        'Retorna un Array con los practicos impartidos por la empresa
 
         Dim pract(n) As String
         Using comando As New MySqlCommand()
@@ -376,7 +376,7 @@ Public Class Conexion
         Return medio
     End Function
 
-    Function buscarPago(ByVal edad As Integer, ByVal Codigo As Integer) As Integer
+    Function buscarPago(ByVal edad As Integer, ByVal Codigo As String) As Integer
         Dim pago As Integer
         Using comando As New MySqlCommand()
             With comando
@@ -394,8 +394,6 @@ Public Class Conexion
                 conn.Open()
                 comando.ExecuteNonQuery()
                 pago = Convert.ToDecimal(comando.ExecuteScalar)
-
-
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
             Finally
@@ -431,11 +429,15 @@ Public Class Conexion
         End Using
     End Sub
 
-    Sub RegistrarMatricula(ByVal Codigo As String, ByVal Nombre As String, ByVal RUT As String, ByVal Edad As Integer, ByVal Fecha As String, ByVal Telefono As Integer, ByVal CodigoPago As Integer, ByVal Curso As String, ByVal HoraTeorica As Date, ByVal HoraPractica As Date)
+    Sub RegistrarMatricula(ByVal Codigo As String, ByVal Nombre As String, ByVal RUT As String, ByVal Edad As Integer, ByVal Fecha As String, ByVal Telefono As Integer, ByVal CodigoPago As Integer, ByVal Curso As String, ByVal HoraTeorica As String, ByVal HoraPractica As String)
         'Registra Matricula'
         Using comando As New MySqlCommand()
             With comando
+<<<<<<< HEAD
                 .CommandText = "INSERT INTO MATRICULA (Codigo, Nombre, RUT, Edad, Fecha, Telefono, CodigoPago, Curso, HoraTeorica, HoraPractica) VALUES(@Codigo, @Nombre, @RUT, @Edad, @Fecha, @Telefono, @CodigoPago, @Curso, @HoraTeorica, @HoraPractica)"
+=======
+                .CommandText = "INSERT INTO MATRICULA (Codigo, Nombre, RUT, Edad, Fecha, Telefono, CodigoPago, Curso, HoraTeoria, HoraPractica) VALUES(@Codigo, @Nombre, @RUT, @Edad, @Fecha, @Telefono, @CodigoPago, @Curso, @HoraTeorica, @HoraPractica)"
+>>>>>>> origin/Registar-estudiante
                 .CommandType = CommandType.Text
                 .Connection = conn
 
@@ -689,4 +691,5 @@ Public Class Conexion
         End Using
 
     End Sub
+
 End Class
