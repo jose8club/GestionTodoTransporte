@@ -34,16 +34,16 @@
         'cbox_practico.SelectedIndex = 0' 'Se descomentará cuando se haya llenado'
 
         'CARGAR COMBOBOX medio pago'
-        Dim f As Integer '
-        f = con.registrosMedio - 1 '
-        Dim medio(k) As String '
-        medio = con.MedioToArray(f) '
-        For i As Integer = 0 To f
-            cbox_medio.Items.Add(medio(i))
-        Next
-        cbox_medio.SelectedIndex = 0
+        'Dim f As Integer '
+        'f = con.registrosMedio - 1 '
+        ' Dim medio(k) As String '
+        'medio = con.MedioToArray(f) '
+        ' For i As Integer = 0 To f
+        'cbox_medio.Items.Add(medio(i))
+        'Next
+        'cbox_medio.SelectedIndex = 0
 
-        Me.verificar(cbox_curso.SelectedIndex)
+        'Me.verificar(cbox_curso.SelectedIndex)
 
     End Sub
 
@@ -131,8 +131,7 @@
             End Try
         End If
     End Sub
-
-    Private Sub verificar(p1 As Integer)
+    Function valorCurso(ByVal p1 As Integer) As Integer
         If p1 <> 0 Then
             'Cargar en label valor curso'
             Dim precio As Integer
@@ -142,6 +141,12 @@
             lbl_mensaje_conf.ForeColor = Color.Red
             lbl_mensaje_conf.Text = "ERROR!"
         End If
+    End Function
+    Private Sub lbl_nombre_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lbl_nombre.Click
+
     End Sub
 
+    Private Sub cbox_teorico_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_teorico.SelectedIndexChanged
+
+    End Sub
 End Class
