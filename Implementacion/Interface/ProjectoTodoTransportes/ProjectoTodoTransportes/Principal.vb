@@ -47,6 +47,7 @@
             TabControl.Size = New System.Drawing.Size(416, 485)
             Me.Size = New System.Drawing.Size(449, 541)
 <<<<<<< HEAD
+<<<<<<< HEAD
         ElseIf tab = 4 Then
             TabControl.Size = New System.Drawing.Size(416, 495)
             Me.Size = New System.Drawing.Size(455, 555)
@@ -55,8 +56,9 @@
             TabControl.Size = New System.Drawing.Size(419, 220)
             Me.Size = New System.Drawing.Size(449, 275)
 >>>>>>> origin/Navegacion_ventanas
+=======
+>>>>>>> parent of ec48c76... Más navegación entre pestañas
         End If
-
     End Sub
 
     Private Sub btn_Guardar1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Guardar1.Click
@@ -125,6 +127,7 @@
         Dim real As Boolean = Herramientas.isRut(TextBox4.Text, TextBox5.Text)
         If real Then MsgBox("REAL") Else MsgBox("FALSE")
     End Sub
+<<<<<<< HEAD
 
 <<<<<<< HEAD
     
@@ -161,4 +164,6 @@
 >>>>>>> origin/Navegacion_ventanas
 
     End Sub
+=======
+>>>>>>> parent of ec48c76... Más navegación entre pestañas
 End Class
