@@ -222,4 +222,8 @@
     Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
 
     End Sub
+
+    Private Sub cbox_CursoRendir2_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cbox_CursoRendir2.SelectedIndexChanged
+
+    End Sub
 End Class

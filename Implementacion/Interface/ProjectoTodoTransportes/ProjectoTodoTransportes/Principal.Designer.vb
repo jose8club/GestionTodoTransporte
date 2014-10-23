@@ -97,7 +97,6 @@ Partial Class Principal
         Me.cbox_estvisual = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Tab4 = New System.Windows.Forms.TabPage()
-        Me.Tab5 = New System.Windows.Forms.TabPage()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.ComboBox7 = New System.Windows.Forms.ComboBox()
         Me.Label25 = New System.Windows.Forms.Label()
@@ -109,6 +108,7 @@ Partial Class Principal
         Me.Label22 = New System.Windows.Forms.Label()
         Me.nombrePsico = New System.Windows.Forms.ComboBox()
         Me.Label21 = New System.Windows.Forms.Label()
+        Me.Tab5 = New System.Windows.Forms.TabPage()
         Me.TabControl.SuspendLayout()
         Me.Tab1.SuspendLayout()
         Me.Tab2.SuspendLayout()
@@ -132,7 +132,7 @@ Partial Class Principal
         Me.TabControl.Location = New System.Drawing.Point(12, 12)
         Me.TabControl.Name = "TabControl"
         Me.TabControl.SelectedIndex = 0
-        Me.TabControl.Size = New System.Drawing.Size(420, 213)
+        Me.TabControl.Size = New System.Drawing.Size(589, 481)
         Me.TabControl.TabIndex = 0
         '
         'Tab1
@@ -152,7 +152,7 @@ Partial Class Principal
         Me.Tab1.Location = New System.Drawing.Point(4, 22)
         Me.Tab1.Name = "Tab1"
         Me.Tab1.Padding = New System.Windows.Forms.Padding(3)
-        Me.Tab1.Size = New System.Drawing.Size(474, 418)
+        Me.Tab1.Size = New System.Drawing.Size(581, 455)
         Me.Tab1.TabIndex = 0
         Me.Tab1.Text = "Registrar Cliente"
         Me.Tab1.UseVisualStyleBackColor = True
@@ -280,7 +280,7 @@ Partial Class Principal
         Me.Tab2.Location = New System.Drawing.Point(4, 22)
         Me.Tab2.Name = "Tab2"
         Me.Tab2.Padding = New System.Windows.Forms.Padding(3)
-        Me.Tab2.Size = New System.Drawing.Size(474, 418)
+        Me.Tab2.Size = New System.Drawing.Size(581, 455)
         Me.Tab2.TabIndex = 1
         Me.Tab2.Text = "Matrícula"
         Me.Tab2.UseVisualStyleBackColor = True
@@ -618,7 +618,7 @@ Partial Class Principal
         Me.Tab3.Controls.Add(Me.Label11)
         Me.Tab3.Location = New System.Drawing.Point(4, 22)
         Me.Tab3.Name = "Tab3"
-        Me.Tab3.Size = New System.Drawing.Size(474, 418)
+        Me.Tab3.Size = New System.Drawing.Size(581, 455)
         Me.Tab3.TabIndex = 2
         Me.Tab3.Text = "Exámen Oftalmológico"
         Me.Tab3.UseVisualStyleBackColor = True
@@ -851,19 +851,10 @@ Partial Class Principal
         Me.Tab4.Controls.Add(Me.Label21)
         Me.Tab4.Location = New System.Drawing.Point(4, 22)
         Me.Tab4.Name = "Tab4"
-        Me.Tab4.Size = New System.Drawing.Size(412, 187)
+        Me.Tab4.Size = New System.Drawing.Size(581, 455)
         Me.Tab4.TabIndex = 3
         Me.Tab4.Text = "Practica Psicótecnico"
         Me.Tab4.UseVisualStyleBackColor = True
-        '
-        'Tab5
-        '
-        Me.Tab5.Location = New System.Drawing.Point(4, 22)
-        Me.Tab5.Name = "Tab5"
-        Me.Tab5.Size = New System.Drawing.Size(474, 418)
-        Me.Tab5.TabIndex = 4
-        Me.Tab5.Text = "TabPage3"
-        Me.Tab5.UseVisualStyleBackColor = True
         '
         'Button6
         '
@@ -957,11 +948,20 @@ Partial Class Principal
         Me.Label21.TabIndex = 17
         Me.Label21.Text = "Nombre"
         '
+        'Tab5
+        '
+        Me.Tab5.Location = New System.Drawing.Point(4, 22)
+        Me.Tab5.Name = "Tab5"
+        Me.Tab5.Size = New System.Drawing.Size(581, 455)
+        Me.Tab5.TabIndex = 4
+        Me.Tab5.Text = "TabPage3"
+        Me.Tab5.UseVisualStyleBackColor = True
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(447, 239)
+        Me.ClientSize = New System.Drawing.Size(643, 505)
         Me.Controls.Add(Me.TabControl)
         Me.Name = "Principal"
         Me.Text = "Sistema de Gestión TodoTransporte"
