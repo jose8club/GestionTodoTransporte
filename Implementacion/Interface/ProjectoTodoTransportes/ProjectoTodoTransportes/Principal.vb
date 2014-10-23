@@ -78,18 +78,9 @@
         ElseIf tab = 2 Then
             TabControl.Size = New System.Drawing.Size(416, 485)
             Me.Size = New System.Drawing.Size(449, 541)
-<<<<<<< HEAD
-<<<<<<< HEAD
         ElseIf tab = 4 Then
             TabControl.Size = New System.Drawing.Size(416, 495)
             Me.Size = New System.Drawing.Size(455, 555)
-=======
-        ElseIf tab = 3 Then
-            TabControl.Size = New System.Drawing.Size(419, 220)
-            Me.Size = New System.Drawing.Size(449, 275)
->>>>>>> origin/Navegacion_ventanas
-=======
->>>>>>> parent of ec48c76... Más navegación entre pestañas
         End If
     End Sub
 
@@ -129,42 +120,6 @@
         End If
 
     End Sub
-<<<<<<< HEAD
-
-    Private Sub Label1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-
-    End Sub
-
-    Private Sub Label1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.Click
-
-    End Sub
-
-    Private Sub ComboBox5_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_rutvisual.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub Label12_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label12.Click
-
-    End Sub
-
-    Private Sub Label2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    End Sub
-
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        'MOMENTANEO PROBANDO RUT
-        Dim real As Boolean = Herramientas.isRut(TextBox4.Text, TextBox5.Text)
-        If real Then MsgBox("REAL") Else MsgBox("FALSE")
-    End Sub
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-=======
->>>>>>> origin/Registar-estudiante
     
     Private Sub Tab3_Click(sender As System.Object, e As System.EventArgs) Handles Tab3.Click
         
@@ -189,11 +144,6 @@
         cbox_estvisual.SelectedIndex = 0
     End Sub
 
-<<<<<<< HEAD
-    Private Sub Tab1_Click(sender As System.Object, e As System.EventArgs) Handles Tab1.Click
-=======
-    Private Sub Label24_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label24.Click
-=======
     Private Sub btn_Guardar2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Guardar2.Click
 
         Dim FotoCarnet As Boolean = check_Foto2.Checked()
@@ -262,18 +212,10 @@
             End Try
         End If
     End Sub
->>>>>>> origin/Registar-estudiante
 
     Private Sub date_FechaAtencion2_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles date_FechaAtencion2.ValueChanged
         Dim precio As Integer
         precio = con.buscarPago("25", cbox_CursoRendir2.Text)
         lbl_ValorCurso2.Text = CStr(precio)
     End Sub
-
-    Private Sub horarioPsico_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles horarioPsico.TextChanged
->>>>>>> origin/Navegacion_ventanas
-
-    End Sub
-=======
->>>>>>> parent of ec48c76... Más navegación entre pestañas
 End Class

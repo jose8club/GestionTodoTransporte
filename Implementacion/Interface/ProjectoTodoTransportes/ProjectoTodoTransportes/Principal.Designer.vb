@@ -119,6 +119,7 @@ Partial Class Principal
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.examengroup.SuspendLayout()
+        Me.Tab4.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl
@@ -131,19 +132,7 @@ Partial Class Principal
         Me.TabControl.Location = New System.Drawing.Point(12, 12)
         Me.TabControl.Name = "TabControl"
         Me.TabControl.SelectedIndex = 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Me.TabControl.Size = New System.Drawing.Size(448, 485)
-=======
-        Me.TabControl.Size = New System.Drawing.Size(416, 451)
->>>>>>> origin/Navegacion_ventanas
-=======
-        Me.TabControl.Size = New System.Drawing.Size(416, 485)
->>>>>>> parent of ec48c76... Más navegación entre pestañas
-=======
         Me.TabControl.Size = New System.Drawing.Size(482, 444)
->>>>>>> origin/Registar-estudiante
         Me.TabControl.TabIndex = 0
         '
         'Tab1
@@ -163,19 +152,7 @@ Partial Class Principal
         Me.Tab1.Location = New System.Drawing.Point(4, 22)
         Me.Tab1.Name = "Tab1"
         Me.Tab1.Padding = New System.Windows.Forms.Padding(3)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Me.Tab1.Size = New System.Drawing.Size(440, 459)
-=======
-        Me.Tab1.Size = New System.Drawing.Size(408, 194)
->>>>>>> origin/Navegacion_ventanas
-=======
-        Me.Tab1.Size = New System.Drawing.Size(408, 459)
->>>>>>> parent of ec48c76... Más navegación entre pestañas
-=======
         Me.Tab1.Size = New System.Drawing.Size(474, 418)
->>>>>>> origin/Registar-estudiante
         Me.Tab1.TabIndex = 0
         Me.Tab1.Text = "Registrar Cliente"
         Me.Tab1.UseVisualStyleBackColor = True
@@ -303,19 +280,7 @@ Partial Class Principal
         Me.Tab2.Location = New System.Drawing.Point(4, 22)
         Me.Tab2.Name = "Tab2"
         Me.Tab2.Padding = New System.Windows.Forms.Padding(3)
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Me.Tab2.Size = New System.Drawing.Size(440, 459)
-=======
-        Me.Tab2.Size = New System.Drawing.Size(408, 194)
->>>>>>> origin/Navegacion_ventanas
-=======
-        Me.Tab2.Size = New System.Drawing.Size(408, 459)
->>>>>>> parent of ec48c76... Más navegación entre pestañas
-=======
         Me.Tab2.Size = New System.Drawing.Size(474, 418)
->>>>>>> origin/Registar-estudiante
         Me.Tab2.TabIndex = 1
         Me.Tab2.Text = "Matrícula"
         Me.Tab2.UseVisualStyleBackColor = True
@@ -653,19 +618,7 @@ Partial Class Principal
         Me.Tab3.Controls.Add(Me.Label11)
         Me.Tab3.Location = New System.Drawing.Point(4, 22)
         Me.Tab3.Name = "Tab3"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Me.Tab3.Size = New System.Drawing.Size(440, 459)
-=======
-        Me.Tab3.Size = New System.Drawing.Size(408, 194)
->>>>>>> origin/Navegacion_ventanas
-=======
-        Me.Tab3.Size = New System.Drawing.Size(408, 459)
->>>>>>> parent of ec48c76... Más navegación entre pestañas
-=======
         Me.Tab3.Size = New System.Drawing.Size(474, 418)
->>>>>>> origin/Registar-estudiante
         Me.Tab3.TabIndex = 2
         Me.Tab3.Text = "Exámen Oftalmológico"
         Me.Tab3.UseVisualStyleBackColor = True
@@ -885,8 +838,6 @@ Partial Class Principal
         '
         'Tab4
         '
-<<<<<<< HEAD
-<<<<<<< HEAD
         Me.Tab4.Controls.Add(Me.guardarPsico)
         Me.Tab4.Controls.Add(Me.estadoPsico)
         Me.Tab4.Controls.Add(Me.horarioPsico)
@@ -903,30 +854,6 @@ Partial Class Principal
         Me.Tab4.Size = New System.Drawing.Size(474, 418)
         Me.Tab4.TabIndex = 3
         Me.Tab4.Text = "Practica Psicótecnico"
-=======
-        Me.Tab4.Controls.Add(Me.Button6)
-        Me.Tab4.Controls.Add(Me.ComboBox7)
-        Me.Tab4.Controls.Add(Me.Label25)
-        Me.Tab4.Controls.Add(Me.horarioPsico)
-        Me.Tab4.Controls.Add(Me.Label24)
-        Me.Tab4.Controls.Add(Me.fechaPsico)
-        Me.Tab4.Controls.Add(Me.Label23)
-        Me.Tab4.Controls.Add(Me.ComboBox6)
-        Me.Tab4.Controls.Add(Me.Label22)
-        Me.Tab4.Controls.Add(Me.nombrePsico)
-        Me.Tab4.Controls.Add(Me.Label21)
-=======
->>>>>>> parent of ec48c76... Más navegación entre pestañas
-        Me.Tab4.Location = New System.Drawing.Point(4, 22)
-        Me.Tab4.Name = "Tab4"
-        Me.Tab4.Size = New System.Drawing.Size(408, 459)
-        Me.Tab4.TabIndex = 3
-<<<<<<< HEAD
-        Me.Tab4.Text = "Práctica Psicotécnico"
->>>>>>> origin/Navegacion_ventanas
-=======
-        Me.Tab4.Text = "TabPage2"
->>>>>>> parent of ec48c76... Más navegación entre pestañas
         Me.Tab4.UseVisualStyleBackColor = True
         '
         'guardarPsico
@@ -1025,19 +952,7 @@ Partial Class Principal
         '
         Me.Tab5.Location = New System.Drawing.Point(4, 22)
         Me.Tab5.Name = "Tab5"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Me.Tab5.Size = New System.Drawing.Size(440, 459)
-=======
-        Me.Tab5.Size = New System.Drawing.Size(408, 425)
->>>>>>> origin/Navegacion_ventanas
-=======
-        Me.Tab5.Size = New System.Drawing.Size(408, 459)
->>>>>>> parent of ec48c76... Más navegación entre pestañas
-=======
         Me.Tab5.Size = New System.Drawing.Size(474, 418)
->>>>>>> origin/Registar-estudiante
         Me.Tab5.TabIndex = 4
         Me.Tab5.Text = "TabPage3"
         Me.Tab5.UseVisualStyleBackColor = True
@@ -1046,19 +961,7 @@ Partial Class Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Me.ClientSize = New System.Drawing.Size(472, 509)
-=======
-        Me.ClientSize = New System.Drawing.Size(439, 475)
->>>>>>> origin/Navegacion_ventanas
-=======
-        Me.ClientSize = New System.Drawing.Size(439, 509)
->>>>>>> parent of ec48c76... Más navegación entre pestañas
-=======
         Me.ClientSize = New System.Drawing.Size(506, 469)
->>>>>>> origin/Registar-estudiante
         Me.Controls.Add(Me.TabControl)
         Me.Name = "Principal"
         Me.Text = "Sistema de Gestión TodoTransporte"
@@ -1081,6 +984,8 @@ Partial Class Principal
         Me.GroupBox4.PerformLayout()
         Me.examengroup.ResumeLayout(False)
         Me.examengroup.PerformLayout()
+        Me.Tab4.ResumeLayout(False)
+        Me.Tab4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1150,8 +1055,6 @@ Partial Class Principal
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents doctor As System.Windows.Forms.TextBox
     Friend WithEvents Label20 As System.Windows.Forms.Label
-<<<<<<< HEAD
-<<<<<<< HEAD
     Friend WithEvents guardarPsico As System.Windows.Forms.Button
     Friend WithEvents estadoPsico As System.Windows.Forms.ComboBox
     Friend WithEvents horarioPsico As System.Windows.Forms.TextBox
@@ -1164,23 +1067,6 @@ Partial Class Principal
     Friend WithEvents Label24 As System.Windows.Forms.Label
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents Guardar As System.Windows.Forms.Button
-<<<<<<< HEAD
-=======
-    Friend WithEvents nombrePsico As System.Windows.Forms.ComboBox
-    Friend WithEvents Label21 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox6 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label22 As System.Windows.Forms.Label
-    Friend WithEvents fechaPsico As System.Windows.Forms.DateTimePicker
-    Friend WithEvents Label23 As System.Windows.Forms.Label
-    Friend WithEvents horarioPsico As System.Windows.Forms.TextBox
-    Friend WithEvents Label24 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox7 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label25 As System.Windows.Forms.Label
-    Friend WithEvents Button6 As System.Windows.Forms.Button
->>>>>>> origin/Navegacion_ventanas
-=======
->>>>>>> parent of ec48c76... Más navegación entre pestañas
-=======
     Friend WithEvents check_AntecedentesNot2 As System.Windows.Forms.CheckBox
     Friend WithEvents check_AlumnoReg2 As System.Windows.Forms.CheckBox
     Friend WithEvents check_CertEstudios2 As System.Windows.Forms.CheckBox
@@ -1190,5 +1076,4 @@ Partial Class Principal
     Friend WithEvents lbl_ValorCurso2 As System.Windows.Forms.Label
     Friend WithEvents lbl_MedioPago As System.Windows.Forms.Label
     Friend WithEvents lbl_ValorCurso As System.Windows.Forms.Label
->>>>>>> origin/Registar-estudiante
 End Class
