@@ -36,5 +36,66 @@
 
     End Function
 
-    
+    Sub soloNumeros(ByVal e As System.Windows.Forms.KeyPressEventArgs)
+
+        'Valida la entrada de solo números
+
+        If Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Sub soloTexto(ByVal e As System.Windows.Forms.KeyPressEventArgs)
+
+        'Valida la entrada de solo texto
+
+        If Not Char.IsDigit(e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Sub textoDeseado(ByVal e As System.Windows.Forms.KeyPressEventArgs, ByVal cadena As String)
+
+        'Valida la entrada de caracteres deseados
+
+        If InStr(cadena, e.KeyChar) Then
+            e.Handled = False
+        ElseIf Char.IsControl(e.KeyChar) Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Function edadPorNacimiento(ByVal fecha As String) As String
+
+        'Devuelve la edad a partir de la fecha de nacimiento
+        'Formato fecha = yyyy-MM-dd
+
+        Dim edad As Integer = 0
+        Dim dia_n As Integer = Right(fecha, 2)
+        Dim mes_n As Integer = Left(Right(fecha, 5), 2)
+        Dim ano_n As Integer = Left(fecha, 4)
+
+        Dim fechaActual As String = Format(Date.Now, "yyyy-MM-dd")
+
+        Dim dia_a As Integer = Right(fechaActual, 2)
+        Dim mes_a As Integer = Left(Right(fechaActual, 5), 2)
+        Dim ano_a As Integer = Left(fechaActual, 4)
+
+        edad = ano_a - ano_n
+        If mes_a < mes_n Then edad = edad - 1
+        If mes_a = mes_n Then
+            If dia_a < dia_n Then edad = edad - 1
+        End If
+        Return edad
+    End Function
 End Module

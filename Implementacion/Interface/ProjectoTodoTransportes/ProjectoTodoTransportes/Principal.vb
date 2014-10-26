@@ -97,8 +97,7 @@
             Try
 
                 con.registrarCliente(tbox_Nombre1.Text, CInt(tbox_Telefono1.Text), cbox_CursoInteres1.Text,
-                                 Format(date_Fecha1.Value, "yyyy-MM-dd"), tbox_Observaciones1.Text, USER)
-
+                                Format(date_Fecha1.Value, "yyyy-MM-dd"), tbox_Observaciones1.Text, USER)
             Catch ex As Exception
 
                 'MOMENTANEO
@@ -220,16 +219,14 @@
         lbl_ValorCurso2.Text = CStr(precio)
     End Sub
 
-    Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
-
-    End Sub
-
-    Private Sub cbox_CursoRendir2_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cbox_CursoRendir2.SelectedIndexChanged
-
-    End Sub
 
     Protected Overrides Sub Finalize()
         con.Close()
         MyBase.Finalize()
     End Sub
+
+    Private Sub tbox_Telefono1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_Telefono1.KeyPress
+        Herramientas.SoloNumeros(e)
+    End Sub
+
 End Class
