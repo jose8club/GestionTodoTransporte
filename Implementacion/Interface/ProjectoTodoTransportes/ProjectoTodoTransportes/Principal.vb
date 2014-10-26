@@ -157,8 +157,6 @@
 
         If tbox_Nombres2.Text.Trim.Equals("") Then
             lbl_Nombres2.ForeColor = Color.Red
-        ElseIf tbox_Apellidos2.Text.Trim.Equals("") Then
-            lbl_Apellidos2.ForeColor = Color.Red
         ElseIf tbox_RUT2.Text.Trim.Equals("") Or tbox_VerificadorRut2.Text.Trim.Equals("") Then
             lbl_RUT2.ForeColor = Color.Red
         Else
@@ -171,7 +169,6 @@
             End If
 
             lbl_Nombres2.ForeColor = Color.DimGray
-            lbl_Apellidos2.ForeColor = Color.DimGray
             lbl_RUT2.ForeColor = Color.DimGray
 
             Try
@@ -194,7 +191,6 @@
 
                 'Resetea valores
                 tbox_Nombres2.Text = ""
-                tbox_Apellidos2.Text = ""
                 tbox_RUT2.Text = ""
                 tbox_VerificadorRut2.Text = ""
                 tbox_Fono2.Text = ""
@@ -225,8 +221,26 @@
         MyBase.Finalize()
     End Sub
 
+    'VALIDACIONES PARA TEXTBOX (SOLO NUMEROS, TEXTO, ETC)
+
     Private Sub tbox_Telefono1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_Telefono1.KeyPress
         Herramientas.SoloNumeros(e)
+    End Sub
+
+    Private Sub tbox_RUT2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_RUT2.KeyPress
+        Herramientas.soloNumeros(e)
+    End Sub
+
+    Private Sub tbox_VerificadorRut2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_VerificadorRut2.KeyPress
+        Herramientas.textoDeseado(e, "0123456789Kk")
+    End Sub
+
+    Private Sub tbox_Fono2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_Fono2.KeyPress
+        Herramientas.soloNumeros(e)
+    End Sub
+
+    Private Sub tbox_PagoRealizado_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_PagoRealizado.KeyPress
+        Herramientas.soloNumeros(e)
     End Sub
 
 End Class

@@ -41,7 +41,7 @@ Partial Class Bienvenido
         Me.tbox_Bienvenido.Name = "tbox_Bienvenido"
         Me.tbox_Bienvenido.ReadOnly = True
         Me.tbox_Bienvenido.Size = New System.Drawing.Size(326, 48)
-        Me.tbox_Bienvenido.TabIndex = 3
+        Me.tbox_Bienvenido.TabIndex = 4
         Me.tbox_Bienvenido.Text = "Bienvenido al Sistema de Gestión TodoTransportes. Para comenzar ingrese su nombre" & _
             " de usuario y contraseña."
         Me.tbox_Bienvenido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -49,6 +49,7 @@ Partial Class Bienvenido
         'tbox_Usuario
         '
         Me.tbox_Usuario.Location = New System.Drawing.Point(135, 66)
+        Me.tbox_Usuario.MaxLength = 45
         Me.tbox_Usuario.Name = "tbox_Usuario"
         Me.tbox_Usuario.Size = New System.Drawing.Size(151, 20)
         Me.tbox_Usuario.TabIndex = 1
@@ -75,6 +76,7 @@ Partial Class Bienvenido
         'tbox_Contra
         '
         Me.tbox_Contra.Location = New System.Drawing.Point(135, 92)
+        Me.tbox_Contra.MaxLength = 45
         Me.tbox_Contra.Name = "tbox_Contra"
         Me.tbox_Contra.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.tbox_Contra.Size = New System.Drawing.Size(151, 20)
@@ -86,7 +88,7 @@ Partial Class Bienvenido
         Me.btn_Login.Location = New System.Drawing.Point(124, 157)
         Me.btn_Login.Name = "btn_Login"
         Me.btn_Login.Size = New System.Drawing.Size(102, 23)
-        Me.btn_Login.TabIndex = 6
+        Me.btn_Login.TabIndex = 3
         Me.btn_Login.Text = "Iniciar Sesión"
         Me.btn_Login.UseVisualStyleBackColor = True
         '

@@ -68,8 +68,6 @@ Partial Class Principal
         Me.tbox_VerificadorRut2 = New System.Windows.Forms.TextBox()
         Me.tbox_RUT2 = New System.Windows.Forms.TextBox()
         Me.lbl_RUT2 = New System.Windows.Forms.Label()
-        Me.tbox_Apellidos2 = New System.Windows.Forms.TextBox()
-        Me.lbl_Apellidos2 = New System.Windows.Forms.Label()
         Me.tbox_Nombres2 = New System.Windows.Forms.TextBox()
         Me.lbl_Nombres2 = New System.Windows.Forms.Label()
         Me.Tab3 = New System.Windows.Forms.TabPage()
@@ -169,9 +167,10 @@ Partial Class Principal
         'tbox_Telefono1
         '
         Me.tbox_Telefono1.Location = New System.Drawing.Point(145, 37)
+        Me.tbox_Telefono1.MaxLength = 20
         Me.tbox_Telefono1.Name = "tbox_Telefono1"
         Me.tbox_Telefono1.Size = New System.Drawing.Size(278, 20)
-        Me.tbox_Telefono1.TabIndex = 20
+        Me.tbox_Telefono1.TabIndex = 1
         '
         'lbl_Telefono1
         '
@@ -187,14 +186,14 @@ Partial Class Principal
         Me.date_Fecha1.Location = New System.Drawing.Point(145, 96)
         Me.date_Fecha1.Name = "date_Fecha1"
         Me.date_Fecha1.Size = New System.Drawing.Size(278, 20)
-        Me.date_Fecha1.TabIndex = 11
+        Me.date_Fecha1.TabIndex = 3
         '
         'btn_Guardar1
         '
         Me.btn_Guardar1.Location = New System.Drawing.Point(348, 237)
         Me.btn_Guardar1.Name = "btn_Guardar1"
         Me.btn_Guardar1.Size = New System.Drawing.Size(75, 23)
-        Me.btn_Guardar1.TabIndex = 15
+        Me.btn_Guardar1.TabIndex = 5
         Me.btn_Guardar1.Text = "Guardar"
         Me.btn_Guardar1.UseVisualStyleBackColor = True
         '
@@ -210,17 +209,19 @@ Partial Class Principal
         'tbox_Observaciones1
         '
         Me.tbox_Observaciones1.Location = New System.Drawing.Point(145, 128)
+        Me.tbox_Observaciones1.MaxLength = 2000
         Me.tbox_Observaciones1.Name = "tbox_Observaciones1"
         Me.tbox_Observaciones1.Size = New System.Drawing.Size(278, 103)
-        Me.tbox_Observaciones1.TabIndex = 14
+        Me.tbox_Observaciones1.TabIndex = 4
         Me.tbox_Observaciones1.Text = ""
         '
         'tbox_Nombre1
         '
         Me.tbox_Nombre1.Location = New System.Drawing.Point(145, 9)
+        Me.tbox_Nombre1.MaxLength = 255
         Me.tbox_Nombre1.Name = "tbox_Nombre1"
         Me.tbox_Nombre1.Size = New System.Drawing.Size(278, 20)
-        Me.tbox_Nombre1.TabIndex = 10
+        Me.tbox_Nombre1.TabIndex = 0
         '
         'lbl_Observaciones1
         '
@@ -247,7 +248,7 @@ Partial Class Principal
         Me.cbox_CursoInteres1.Location = New System.Drawing.Point(145, 66)
         Me.cbox_CursoInteres1.Name = "cbox_CursoInteres1"
         Me.cbox_CursoInteres1.Size = New System.Drawing.Size(278, 21)
-        Me.cbox_CursoInteres1.TabIndex = 13
+        Me.cbox_CursoInteres1.TabIndex = 2
         '
         'lbl_CursoInteres1
         '
@@ -273,8 +274,6 @@ Partial Class Principal
         Me.Tab2.Controls.Add(Me.tbox_VerificadorRut2)
         Me.Tab2.Controls.Add(Me.tbox_RUT2)
         Me.Tab2.Controls.Add(Me.lbl_RUT2)
-        Me.Tab2.Controls.Add(Me.tbox_Apellidos2)
-        Me.Tab2.Controls.Add(Me.lbl_Apellidos2)
         Me.Tab2.Controls.Add(Me.tbox_Nombres2)
         Me.Tab2.Controls.Add(Me.lbl_Nombres2)
         Me.Tab2.Location = New System.Drawing.Point(4, 22)
@@ -287,10 +286,10 @@ Partial Class Principal
         '
         'btn_Guardar2
         '
-        Me.btn_Guardar2.Location = New System.Drawing.Point(374, 376)
+        Me.btn_Guardar2.Location = New System.Drawing.Point(374, 352)
         Me.btn_Guardar2.Name = "btn_Guardar2"
         Me.btn_Guardar2.Size = New System.Drawing.Size(75, 23)
-        Me.btn_Guardar2.TabIndex = 26
+        Me.btn_Guardar2.TabIndex = 19
         Me.btn_Guardar2.Text = "Guardar"
         Me.btn_Guardar2.UseVisualStyleBackColor = True
         '
@@ -304,7 +303,7 @@ Partial Class Principal
         Me.gbox_Matricula2.Controls.Add(Me.lbl_ValorCurso2)
         Me.gbox_Matricula2.Controls.Add(Me.check_PagoRealizado2)
         Me.gbox_Matricula2.Controls.Add(Me.lbl_numero)
-        Me.gbox_Matricula2.Location = New System.Drawing.Point(232, 251)
+        Me.gbox_Matricula2.Location = New System.Drawing.Point(232, 227)
         Me.gbox_Matricula2.Name = "gbox_Matricula2"
         Me.gbox_Matricula2.Size = New System.Drawing.Size(217, 119)
         Me.gbox_Matricula2.TabIndex = 27
@@ -332,16 +331,18 @@ Partial Class Principal
         'tbox_PagoRealizado
         '
         Me.tbox_PagoRealizado.Location = New System.Drawing.Point(136, 40)
+        Me.tbox_PagoRealizado.MaxLength = 10
         Me.tbox_PagoRealizado.Name = "tbox_PagoRealizado"
         Me.tbox_PagoRealizado.Size = New System.Drawing.Size(75, 20)
-        Me.tbox_PagoRealizado.TabIndex = 26
+        Me.tbox_PagoRealizado.TabIndex = 17
         '
         'tbox_Numero2
         '
         Me.tbox_Numero2.Location = New System.Drawing.Point(136, 17)
+        Me.tbox_Numero2.MaxLength = 6
         Me.tbox_Numero2.Name = "tbox_Numero2"
         Me.tbox_Numero2.Size = New System.Drawing.Size(75, 20)
-        Me.tbox_Numero2.TabIndex = 25
+        Me.tbox_Numero2.TabIndex = 15
         '
         'cbox_MedioPago2
         '
@@ -350,7 +351,7 @@ Partial Class Principal
         Me.cbox_MedioPago2.Location = New System.Drawing.Point(134, 86)
         Me.cbox_MedioPago2.Name = "cbox_MedioPago2"
         Me.cbox_MedioPago2.Size = New System.Drawing.Size(77, 21)
-        Me.cbox_MedioPago2.TabIndex = 24
+        Me.cbox_MedioPago2.TabIndex = 18
         '
         'lbl_ValorCurso2
         '
@@ -367,7 +368,7 @@ Partial Class Principal
         Me.check_PagoRealizado2.Location = New System.Drawing.Point(9, 42)
         Me.check_PagoRealizado2.Name = "check_PagoRealizado2"
         Me.check_PagoRealizado2.Size = New System.Drawing.Size(101, 17)
-        Me.check_PagoRealizado2.TabIndex = 15
+        Me.check_PagoRealizado2.TabIndex = 16
         Me.check_PagoRealizado2.Text = "Pago Realizado"
         Me.check_PagoRealizado2.UseVisualStyleBackColor = True
         '
@@ -376,9 +377,9 @@ Partial Class Principal
         Me.lbl_numero.AutoSize = True
         Me.lbl_numero.Location = New System.Drawing.Point(6, 23)
         Me.lbl_numero.Name = "lbl_numero"
-        Me.lbl_numero.Size = New System.Drawing.Size(44, 13)
+        Me.lbl_numero.Size = New System.Drawing.Size(43, 13)
         Me.lbl_numero.TabIndex = 0
-        Me.lbl_numero.Text = "Número"
+        Me.lbl_numero.Text = "Código:"
         '
         'gbox_EstadoDocs2
         '
@@ -386,7 +387,7 @@ Partial Class Principal
         Me.gbox_EstadoDocs2.Controls.Add(Me.check_AlumnoReg2)
         Me.gbox_EstadoDocs2.Controls.Add(Me.check_CertEstudios2)
         Me.gbox_EstadoDocs2.Controls.Add(Me.check_Foto2)
-        Me.gbox_EstadoDocs2.Location = New System.Drawing.Point(20, 251)
+        Me.gbox_EstadoDocs2.Location = New System.Drawing.Point(20, 227)
         Me.gbox_EstadoDocs2.Name = "gbox_EstadoDocs2"
         Me.gbox_EstadoDocs2.Size = New System.Drawing.Size(205, 119)
         Me.gbox_EstadoDocs2.TabIndex = 25
@@ -399,7 +400,7 @@ Partial Class Principal
         Me.check_AntecedentesNot2.Location = New System.Drawing.Point(11, 88)
         Me.check_AntecedentesNot2.Name = "check_AntecedentesNot2"
         Me.check_AntecedentesNot2.Size = New System.Drawing.Size(142, 17)
-        Me.check_AntecedentesNot2.TabIndex = 18
+        Me.check_AntecedentesNot2.TabIndex = 14
         Me.check_AntecedentesNot2.Text = "Antecedentes Notariales"
         Me.check_AntecedentesNot2.UseVisualStyleBackColor = True
         '
@@ -409,7 +410,7 @@ Partial Class Principal
         Me.check_AlumnoReg2.Location = New System.Drawing.Point(11, 65)
         Me.check_AlumnoReg2.Name = "check_AlumnoReg2"
         Me.check_AlumnoReg2.Size = New System.Drawing.Size(154, 17)
-        Me.check_AlumnoReg2.TabIndex = 17
+        Me.check_AlumnoReg2.TabIndex = 13
         Me.check_AlumnoReg2.Text = "Certificado Alumno Regular"
         Me.check_AlumnoReg2.UseVisualStyleBackColor = True
         '
@@ -419,7 +420,7 @@ Partial Class Principal
         Me.check_CertEstudios2.Location = New System.Drawing.Point(11, 42)
         Me.check_CertEstudios2.Name = "check_CertEstudios2"
         Me.check_CertEstudios2.Size = New System.Drawing.Size(134, 17)
-        Me.check_CertEstudios2.TabIndex = 16
+        Me.check_CertEstudios2.TabIndex = 12
         Me.check_CertEstudios2.Text = "Certificado de Estudios"
         Me.check_CertEstudios2.UseVisualStyleBackColor = True
         '
@@ -429,7 +430,7 @@ Partial Class Principal
         Me.check_Foto2.Location = New System.Drawing.Point(11, 19)
         Me.check_Foto2.Name = "check_Foto2"
         Me.check_Foto2.Size = New System.Drawing.Size(81, 17)
-        Me.check_Foto2.TabIndex = 12
+        Me.check_Foto2.TabIndex = 11
         Me.check_Foto2.Text = "Foto Carnet"
         Me.check_Foto2.UseVisualStyleBackColor = True
         '
@@ -441,7 +442,7 @@ Partial Class Principal
         Me.gbox_Horarios2.Controls.Add(Me.Btn_verDispTeorico2)
         Me.gbox_Horarios2.Controls.Add(Me.cbox_Teorico2)
         Me.gbox_Horarios2.Controls.Add(Me.lbl_Teorico2)
-        Me.gbox_Horarios2.Location = New System.Drawing.Point(21, 164)
+        Me.gbox_Horarios2.Location = New System.Drawing.Point(21, 140)
         Me.gbox_Horarios2.Name = "gbox_Horarios2"
         Me.gbox_Horarios2.Size = New System.Drawing.Size(428, 81)
         Me.gbox_Horarios2.TabIndex = 24
@@ -453,7 +454,7 @@ Partial Class Principal
         Me.btn_verDispPractico.Location = New System.Drawing.Point(347, 46)
         Me.btn_verDispPractico.Name = "btn_verDispPractico"
         Me.btn_verDispPractico.Size = New System.Drawing.Size(75, 21)
-        Me.btn_verDispPractico.TabIndex = 11
+        Me.btn_verDispPractico.TabIndex = 10
         Me.btn_verDispPractico.Text = "Ver Disp"
         Me.btn_verDispPractico.UseVisualStyleBackColor = True
         '
@@ -464,7 +465,7 @@ Partial Class Principal
         Me.cbox_Practico2.Location = New System.Drawing.Point(131, 46)
         Me.cbox_Practico2.Name = "cbox_Practico2"
         Me.cbox_Practico2.Size = New System.Drawing.Size(210, 21)
-        Me.cbox_Practico2.TabIndex = 10
+        Me.cbox_Practico2.TabIndex = 9
         '
         'lbl_Practico
         '
@@ -473,14 +474,14 @@ Partial Class Principal
         Me.lbl_Practico.Name = "lbl_Practico"
         Me.lbl_Practico.Size = New System.Drawing.Size(46, 13)
         Me.lbl_Practico.TabIndex = 3
-        Me.lbl_Practico.Text = "Practico"
+        Me.lbl_Practico.Text = "Práctico"
         '
         'Btn_verDispTeorico2
         '
         Me.Btn_verDispTeorico2.Location = New System.Drawing.Point(347, 19)
         Me.Btn_verDispTeorico2.Name = "Btn_verDispTeorico2"
         Me.Btn_verDispTeorico2.Size = New System.Drawing.Size(75, 21)
-        Me.Btn_verDispTeorico2.TabIndex = 9
+        Me.Btn_verDispTeorico2.TabIndex = 8
         Me.Btn_verDispTeorico2.Text = "Ver Disp"
         Me.Btn_verDispTeorico2.UseVisualStyleBackColor = True
         '
@@ -491,7 +492,7 @@ Partial Class Principal
         Me.cbox_Teorico2.Location = New System.Drawing.Point(131, 19)
         Me.cbox_Teorico2.Name = "cbox_Teorico2"
         Me.cbox_Teorico2.Size = New System.Drawing.Size(210, 21)
-        Me.cbox_Teorico2.TabIndex = 8
+        Me.cbox_Teorico2.TabIndex = 7
         '
         'lbl_Teorico2
         '
@@ -500,37 +501,38 @@ Partial Class Principal
         Me.lbl_Teorico2.Name = "lbl_Teorico2"
         Me.lbl_Teorico2.Size = New System.Drawing.Size(43, 13)
         Me.lbl_Teorico2.TabIndex = 0
-        Me.lbl_Teorico2.Text = "Teorico"
+        Me.lbl_Teorico2.Text = "Teórico"
         '
         'tbox_Fono2
         '
-        Me.tbox_Fono2.Location = New System.Drawing.Point(147, 138)
+        Me.tbox_Fono2.Location = New System.Drawing.Point(147, 114)
+        Me.tbox_Fono2.MaxLength = 20
         Me.tbox_Fono2.Name = "tbox_Fono2"
         Me.tbox_Fono2.Size = New System.Drawing.Size(302, 20)
-        Me.tbox_Fono2.TabIndex = 22
+        Me.tbox_Fono2.TabIndex = 6
         '
         'lbl_Fono2
         '
         Me.lbl_Fono2.AutoSize = True
-        Me.lbl_Fono2.Location = New System.Drawing.Point(16, 141)
+        Me.lbl_Fono2.Location = New System.Drawing.Point(16, 117)
         Me.lbl_Fono2.Name = "lbl_Fono2"
         Me.lbl_Fono2.Size = New System.Drawing.Size(89, 13)
         Me.lbl_Fono2.TabIndex = 23
-        Me.lbl_Fono2.Text = "Telefono/Celular:"
+        Me.lbl_Fono2.Text = "Teléfono/Celular:"
         '
         'cbox_CursoRendir2
         '
         Me.cbox_CursoRendir2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_CursoRendir2.FormattingEnabled = True
-        Me.cbox_CursoRendir2.Location = New System.Drawing.Point(145, 111)
+        Me.cbox_CursoRendir2.Location = New System.Drawing.Point(145, 87)
         Me.cbox_CursoRendir2.Name = "cbox_CursoRendir2"
         Me.cbox_CursoRendir2.Size = New System.Drawing.Size(304, 21)
-        Me.cbox_CursoRendir2.TabIndex = 20
+        Me.cbox_CursoRendir2.TabIndex = 5
         '
         'lbl_CursoRendir2
         '
         Me.lbl_CursoRendir2.AutoSize = True
-        Me.lbl_CursoRendir2.Location = New System.Drawing.Point(16, 114)
+        Me.lbl_CursoRendir2.Location = New System.Drawing.Point(16, 90)
         Me.lbl_CursoRendir2.Name = "lbl_CursoRendir2"
         Me.lbl_CursoRendir2.Size = New System.Drawing.Size(75, 13)
         Me.lbl_CursoRendir2.TabIndex = 21
@@ -538,65 +540,52 @@ Partial Class Principal
         '
         'date_FechaAtencion2
         '
-        Me.date_FechaAtencion2.Location = New System.Drawing.Point(147, 85)
+        Me.date_FechaAtencion2.Location = New System.Drawing.Point(147, 61)
         Me.date_FechaAtencion2.Name = "date_FechaAtencion2"
         Me.date_FechaAtencion2.Size = New System.Drawing.Size(302, 20)
-        Me.date_FechaAtencion2.TabIndex = 16
+        Me.date_FechaAtencion2.TabIndex = 4
         '
         'lbl_FechaAtencion2
         '
         Me.lbl_FechaAtencion2.AutoSize = True
-        Me.lbl_FechaAtencion2.Location = New System.Drawing.Point(16, 89)
+        Me.lbl_FechaAtencion2.Location = New System.Drawing.Point(16, 65)
         Me.lbl_FechaAtencion2.Name = "lbl_FechaAtencion2"
-        Me.lbl_FechaAtencion2.Size = New System.Drawing.Size(100, 13)
+        Me.lbl_FechaAtencion2.Size = New System.Drawing.Size(111, 13)
         Me.lbl_FechaAtencion2.TabIndex = 17
-        Me.lbl_FechaAtencion2.Text = "Fecha de Atención:"
+        Me.lbl_FechaAtencion2.Text = "Fecha de Nacimiento:"
         '
         'tbox_VerificadorRut2
         '
-        Me.tbox_VerificadorRut2.Location = New System.Drawing.Point(401, 59)
+        Me.tbox_VerificadorRut2.Location = New System.Drawing.Point(401, 35)
+        Me.tbox_VerificadorRut2.MaxLength = 1
         Me.tbox_VerificadorRut2.Name = "tbox_VerificadorRut2"
         Me.tbox_VerificadorRut2.Size = New System.Drawing.Size(48, 20)
-        Me.tbox_VerificadorRut2.TabIndex = 14
+        Me.tbox_VerificadorRut2.TabIndex = 3
         '
         'tbox_RUT2
         '
-        Me.tbox_RUT2.Location = New System.Drawing.Point(145, 59)
+        Me.tbox_RUT2.Location = New System.Drawing.Point(145, 35)
+        Me.tbox_RUT2.MaxLength = 8
         Me.tbox_RUT2.Name = "tbox_RUT2"
         Me.tbox_RUT2.Size = New System.Drawing.Size(247, 20)
-        Me.tbox_RUT2.TabIndex = 13
+        Me.tbox_RUT2.TabIndex = 2
         '
         'lbl_RUT2
         '
         Me.lbl_RUT2.AutoSize = True
-        Me.lbl_RUT2.Location = New System.Drawing.Point(18, 62)
+        Me.lbl_RUT2.Location = New System.Drawing.Point(18, 38)
         Me.lbl_RUT2.Name = "lbl_RUT2"
         Me.lbl_RUT2.Size = New System.Drawing.Size(42, 13)
         Me.lbl_RUT2.TabIndex = 15
         Me.lbl_RUT2.Text = "R.U.T.:"
         '
-        'tbox_Apellidos2
-        '
-        Me.tbox_Apellidos2.Location = New System.Drawing.Point(145, 35)
-        Me.tbox_Apellidos2.Name = "tbox_Apellidos2"
-        Me.tbox_Apellidos2.Size = New System.Drawing.Size(304, 20)
-        Me.tbox_Apellidos2.TabIndex = 11
-        '
-        'lbl_Apellidos2
-        '
-        Me.lbl_Apellidos2.AutoSize = True
-        Me.lbl_Apellidos2.Location = New System.Drawing.Point(17, 38)
-        Me.lbl_Apellidos2.Name = "lbl_Apellidos2"
-        Me.lbl_Apellidos2.Size = New System.Drawing.Size(52, 13)
-        Me.lbl_Apellidos2.TabIndex = 12
-        Me.lbl_Apellidos2.Text = "Apellidos:"
-        '
         'tbox_Nombres2
         '
         Me.tbox_Nombres2.Location = New System.Drawing.Point(145, 9)
+        Me.tbox_Nombres2.MaxLength = 255
         Me.tbox_Nombres2.Name = "tbox_Nombres2"
         Me.tbox_Nombres2.Size = New System.Drawing.Size(304, 20)
-        Me.tbox_Nombres2.TabIndex = 6
+        Me.tbox_Nombres2.TabIndex = 1
         '
         'lbl_Nombres2
         '
@@ -1006,8 +995,6 @@ Partial Class Principal
     Friend WithEvents lbl_Mensaje1 As System.Windows.Forms.Label
     Friend WithEvents tbox_Nombres2 As System.Windows.Forms.TextBox
     Friend WithEvents lbl_Nombres2 As System.Windows.Forms.Label
-    Friend WithEvents tbox_Apellidos2 As System.Windows.Forms.TextBox
-    Friend WithEvents lbl_Apellidos2 As System.Windows.Forms.Label
     Friend WithEvents tbox_VerificadorRut2 As System.Windows.Forms.TextBox
     Friend WithEvents tbox_RUT2 As System.Windows.Forms.TextBox
     Friend WithEvents lbl_RUT2 As System.Windows.Forms.Label
