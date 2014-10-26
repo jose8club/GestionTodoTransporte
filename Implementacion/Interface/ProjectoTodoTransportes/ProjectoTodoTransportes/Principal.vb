@@ -4,53 +4,8 @@
     Dim USER As String = ""
 
     Private Sub Principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
-        'CARGAR COMBOBOX cursos
-        Dim n As Integer
-        n = con.registrosEnCURSO - 1
-        Dim cursos(n) As String
-        cursos = con.cursosToArray(n)
-        For i As Integer = 0 To n
-            cbox_CursoInteres1.Items.Add(cursos(i))
-            cbox_CursoRendir2.Items.Add(cursos(i))
-        Next
-        cbox_CursoInteres1.SelectedIndex = 0
-        cbox_CursoRendir2.SelectedIndex = 0
-
-        'Carga el tamaño de la primera pestaña que se muestra
-        TabControl.Size = New System.Drawing.Size(451, 294)
-        Me.Size = New System.Drawing.Size(485, 351)
-
-        'CARGAR COMBOBOX teoria'
-        Dim m As Integer
-        m = con.registrosTeorico - 1
-        Dim teo(m) As String
-        teo = con.teoricoToArray(m)
-        For i As Integer = 0 To m
-            cbox_Teorico2.Items.Add(teo(i))
-        Next
-        cbox_Teorico2.SelectedIndex = 0
-
-        'CARGAR COMBOBOX practica'
-        Dim k As Integer
-        k = con.registrosPractico - 1
-        Dim pract(k) As String
-        pract = con.practicoToArray(k)
-        For i As Integer = 0 To k
-            cbox_Practico2.Items.Add(pract(i))
-        Next
-        cbox_Practico2.SelectedIndex = 0
-
-        'CARGAR COMBOBOX medio pago
-        Dim f As Integer
-        f = con.registrosMedio - 1
-        Dim medio(k) As String
-        medio = con.MedioToArray(f)
-        For i As Integer = 0 To f
-            cbox_MedioPago2.Items.Add(medio(i))
-        Next
-        cbox_MedioPago2.SelectedIndex = 0
-
+        Me.CargaContenidos(0)
+        Me.CambiaTamaño(0)
     End Sub
 
     Sub New(ByVal Usuario As String, ByVal conexion As Conexion)
@@ -63,7 +18,72 @@
 
         Dim tab As Integer = TabControl.SelectedIndex
         Me.CambiaTamaño(tab)    
+        Me.CargaContenidos(tab)
+    End Sub
 
+    Sub CargaContenidos(ByVal tab)
+
+        'CARGAR COMBOBOX cursos
+        If tab = 0 Then
+            cbox_CursoInteres1.Items.Clear()
+            Dim n As Integer
+            n = con.registrosEnCURSO - 1
+            Dim cursos(n) As String
+            cursos = con.cursosToArray(n)
+            For i As Integer = 0 To n
+                cbox_CursoInteres1.Items.Add(cursos(i))
+            Next
+            cbox_CursoInteres1.SelectedIndex = 0
+
+        ElseIf tab = 1 Then
+
+            cbox_CursoRendir2.Items.Clear()
+            cbox_Teorico2.Items.Clear()
+            cbox_Practico2.Items.Clear()
+            cbox_MedioPago2.Items.Clear()
+
+            'CARGAR COMBOXO cursointeres
+            Dim n As Integer
+            n = con.registrosEnCURSO - 1
+            Dim cursos(n) As String
+            cursos = con.cursosToArray(n)
+            For i As Integer = 0 To n
+                cbox_CursoRendir2.Items.Add(cursos(i))
+            Next
+            cbox_CursoRendir2.SelectedIndex = 0
+
+            'CARGAR COMBOBOX teoria
+            Dim m As Integer
+            m = con.registrosTeorico - 1
+            Dim teo(m) As String
+            teo = con.teoricoToArray(m)
+            For i As Integer = 0 To m
+                cbox_Teorico2.Items.Add(teo(i))
+            Next
+            cbox_Teorico2.SelectedIndex = 0
+
+            'CARGAR COMBOBOX practica
+            Dim k As Integer
+            k = con.registrosPractico - 1
+            Dim pract(k) As String
+            pract = con.practicoToArray(k)
+            For i As Integer = 0 To k
+                cbox_Practico2.Items.Add(pract(i))
+            Next
+            cbox_Practico2.SelectedIndex = 0
+
+            'CARGAR COMBOBOX medio pago
+            Dim f As Integer
+            f = con.registrosMedio - 1
+            Dim medio(k) As String
+            medio = con.MedioToArray(f)
+            For i As Integer = 0 To f
+                cbox_MedioPago2.Items.Add(medio(i))
+            Next
+            cbox_MedioPago2.SelectedIndex = 0
+
+
+        End If
     End Sub
 
     Sub CambiaTamaño(ByVal tab)
@@ -98,16 +118,9 @@
 
                 con.registrarCliente(tbox_Nombre1.Text, CInt(tbox_Telefono1.Text), cbox_CursoInteres1.Text,
                                 Format(date_Fecha1.Value, "yyyy-MM-dd"), tbox_Observaciones1.Text, USER)
-            Catch ex As Exception
-
-                'MOMENTANEO
-                lbl_Mensaje1.ForeColor = Color.Red
-                lbl_Mensaje1.Text = "ERROR!"
-
-            Finally
 
                 lbl_Mensaje1.ForeColor = Color.Blue
-                lbl_Mensaje1.Text = "Operación realizada con éxito"
+                lbl_Mensaje1.Text = "Cliente " & tbox_Nombre1.Text & " fue agregado con éxito."
 
                 'Resetea valores
                 tbox_Nombre1.Text = ""
@@ -115,6 +128,11 @@
                 tbox_Telefono1.Text = ""
                 cbox_CursoInteres1.SelectedIndex = 0
 
+            Catch ex As Exception
+
+                'MOMENTANEO
+                lbl_Mensaje1.ForeColor = Color.Red
+                lbl_Mensaje1.Text = ex.Message.ToString
             End Try
 
         End If
@@ -181,12 +199,6 @@
 
                 con.RegistrarEstudiante(tbox_Numero2.Text, FotoCarnet, CertificadoEstudios, CertificadoAlumnoRegular, AntecedentesNotariales)
 
-            Catch ex As Exception
-
-                MsgBox(ex.ToString)
-
-            Finally
-
                 MsgBox("Operación realizada con éxito")
 
                 'Resetea valores
@@ -205,13 +217,15 @@
                 tbox_Numero2.Text = ""
                 lbl_ValorCurso2.Text = ""
                 tbox_PagoRealizado.Text = ""
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
             End Try
         End If
     End Sub
 
     Private Sub date_FechaAtencion2_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles date_FechaAtencion2.ValueChanged
         Dim precio As Integer
-        precio = con.buscarPago("25", cbox_CursoRendir2.Text)
+        precio = con.buscarPago(Herramientas.edadPorNacimiento(Format(date_FechaAtencion2.Value, "yyyy-MM-dd")), cbox_CursoRendir2.Text)
         lbl_ValorCurso2.Text = CStr(precio)
     End Sub
 
