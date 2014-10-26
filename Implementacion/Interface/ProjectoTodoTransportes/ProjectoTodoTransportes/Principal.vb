@@ -1,6 +1,6 @@
 ﻿Public Class Principal
 
-    Dim con As Conexion = New Conexion
+    Dim con As Conexion
     Dim USER As String = ""
 
     Private Sub Principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -53,8 +53,9 @@
 
     End Sub
 
-    Sub New(ByVal Usuario As String)
+    Sub New(ByVal Usuario As String, ByVal conexion As Conexion)
         USER = Usuario
+        con = conexion
         InitializeComponent()
     End Sub
 
@@ -225,5 +226,10 @@
 
     Private Sub cbox_CursoRendir2_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cbox_CursoRendir2.SelectedIndexChanged
 
+    End Sub
+
+    Protected Overrides Sub Finalize()
+        con.Close()
+        MyBase.Finalize()
     End Sub
 End Class

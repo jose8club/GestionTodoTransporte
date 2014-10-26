@@ -13,6 +13,18 @@ Public Class Conexion
 
     End Sub
 
+    Sub Close()
+        Using comando As New MySqlCommand()
+            comando.Connection = conn
+        End Using
+        Try
+            If conn.State = ConnectionState.Open Then conn.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString)
+        End Try
+
+    End Sub
+
     Sub registrarAtencion(ByVal usuario As String, ByVal idcliente As Integer)
 
         'Realiza el registro en la tabla ATENCION_CLIENTE
@@ -28,12 +40,9 @@ Public Class Conexion
 
             End With
             Try
-                conn.Open()
                 comando.ExecuteNonQuery()
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
 
         End Using
@@ -44,22 +53,19 @@ Public Class Conexion
         'Funcion que retorna idCliente de la tabla CLIENTE
 
         Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "SELECT idCLIENTE FROM CLIENTE WHERE Nombre = '" & Nombre & "'"
-                .CommandType = CommandType.Text
-                .Connection = conn
 
-            End With
+            comando.CommandText = "SELECT idCLIENTE FROM CLIENTE WHERE Nombre = '" & Nombre & "'"
+            comando.CommandType = CommandType.Text
+            comando.Connection = conn
+
             Try
-                conn.Open()
                 comando.ExecuteNonQuery()
+
                 Dim name As String = Convert.ToString(comando.ExecuteScalar)
                 Return name
 
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
 
         End Using
@@ -84,12 +90,9 @@ Public Class Conexion
                 .Parameters.AddWithValue("@Atencion", "Tipo1") 'MOMENTANEO
             End With
             Try
-                conn.Open()
                 comando.ExecuteNonQuery()
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
 
         End Using
@@ -109,6 +112,7 @@ Public Class Conexion
     Function iniciarSesion(ByVal usuario As String, ByVal contra As String) As Boolean
 
         'Verifica USUARIO/CONTRASEÑA y permite el ingreso al sistema
+        'Abre la conexión
 
         Using comando As New MySqlCommand()
             With comando
@@ -125,8 +129,6 @@ Public Class Conexion
 
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
 
         End Using
@@ -147,13 +149,10 @@ Public Class Conexion
             End With
 
             Try
-                conn.Open()
                 comando.ExecuteNonQuery()
                 cant = comando.ExecuteScalar()
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
         End Using
 
@@ -173,9 +172,7 @@ Public Class Conexion
             End With
 
             Try
-                conn.Open()
-                Dim i As Integer
-                i = 0
+                Dim i As Integer = 0
                 Using lector As MySqlDataReader = comando.ExecuteReader()
                     While lector.Read()
                         cursos(i) = lector.GetString(0)
@@ -185,15 +182,14 @@ Public Class Conexion
 
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
         End Using
 
         Return cursos
     End Function
-    'AQUI EMPIEZAN LOS METODOS DEL CASO DE USO REGISTRAR CLIENTE'
-    'Horarios estudiante practico caso de uso registar estudiante'
+
+    'AQUI EMPIEZAN LOS METODOS DEL CASO DE USO REGISTRAR CLIENTE
+    'Horarios estudiante practico caso de uso registar estudiante
 
     Function registrosPractico() As String
 
@@ -209,13 +205,10 @@ Public Class Conexion
             End With
 
             Try
-                conn.Open()
                 comando.ExecuteNonQuery()
                 cant = comando.ExecuteScalar()
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
         End Using
 
@@ -235,9 +228,7 @@ Public Class Conexion
             End With
 
             Try
-                conn.Open()
-                Dim i As Integer
-                i = 0
+                Dim i As Integer = 0
                 Using lector As MySqlDataReader = comando.ExecuteReader()
                     While lector.Read()
                         pract(i) = lector.GetString(0)
@@ -247,8 +238,6 @@ Public Class Conexion
 
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
         End Using
 
@@ -270,13 +259,10 @@ Public Class Conexion
             End With
 
             Try
-                conn.Open()
                 comando.ExecuteNonQuery()
                 cant = comando.ExecuteScalar()
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
         End Using
 
@@ -296,9 +282,7 @@ Public Class Conexion
             End With
 
             Try
-                conn.Open()
-                Dim i As Integer
-                i = 0
+                Dim i As Integer = 0
                 Using lector As MySqlDataReader = comando.ExecuteReader()
                     While lector.Read()
                         teo(i) = lector.GetString(0)
@@ -308,8 +292,6 @@ Public Class Conexion
 
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
         End Using
 
@@ -330,13 +312,10 @@ Public Class Conexion
             End With
 
             Try
-                conn.Open()
                 comando.ExecuteNonQuery()
                 cant = comando.ExecuteScalar()
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
         End Using
 
@@ -356,7 +335,6 @@ Public Class Conexion
             End With
 
             Try
-                conn.Open()
                 Dim i As Integer
                 i = 0
                 Using lector As MySqlDataReader = comando.ExecuteReader()
@@ -368,8 +346,6 @@ Public Class Conexion
 
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
         End Using
 
@@ -391,13 +367,10 @@ Public Class Conexion
                 End If
             End With
             Try
-                conn.Open()
                 comando.ExecuteNonQuery()
                 pago = Convert.ToDecimal(comando.ExecuteScalar)
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
 
         End Using
@@ -418,12 +391,9 @@ Public Class Conexion
 
             End With
             Try
-                conn.Open()
                 comando.ExecuteNonQuery()
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
 
         End Using
@@ -451,12 +421,9 @@ Public Class Conexion
 
             End With
             Try
-                conn.Open()
                 comando.ExecuteNonQuery()
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
 
         End Using
@@ -478,12 +445,9 @@ Public Class Conexion
                 .Parameters.AddWithValue("@AutNotarial", AutNotarial)
             End With
             Try
-                conn.Open()
                 comando.ExecuteNonQuery()
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
 
         End Using
@@ -506,13 +470,10 @@ Public Class Conexion
             End With
 
             Try
-                conn.Open()
                 comando.ExecuteNonQuery()
                 cant = comando.ExecuteScalar()
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
         End Using
 
@@ -532,7 +493,6 @@ Public Class Conexion
             End With
 
             Try
-                conn.Open()
                 Dim i As Integer
                 i = 0
                 Using lector As MySqlDataReader = comando.ExecuteReader()
@@ -544,8 +504,6 @@ Public Class Conexion
 
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
         End Using
 
@@ -565,7 +523,6 @@ Public Class Conexion
             End With
 
             Try
-                conn.Open()
                 Dim i As Integer
                 i = 0
                 Using lector As MySqlDataReader = comando.ExecuteReader()
@@ -577,8 +534,6 @@ Public Class Conexion
 
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
         End Using
 
@@ -600,12 +555,9 @@ Public Class Conexion
 
             End With
             Try
-                conn.Open()
                 comando.ExecuteNonQuery()
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
 
         End Using
@@ -626,12 +578,9 @@ Public Class Conexion
                 .Parameters.AddWithValue("@ClaseCambioRueda", ClaseCambioRueda)
             End With
             Try
-                conn.Open()
                 comando.ExecuteNonQuery()
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
 
         End Using
@@ -652,12 +601,9 @@ Public Class Conexion
 
             End With
             Try
-                conn.Open()
                 comando.ExecuteNonQuery()
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
 
         End Using
@@ -677,12 +623,9 @@ Public Class Conexion
 
             End With
             Try
-                conn.Open()
                 comando.ExecuteNonQuery()
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
-            Finally
-                conn.Close()
             End Try
 
         End Using

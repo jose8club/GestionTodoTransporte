@@ -9,7 +9,7 @@
         Else
             Dim login As Boolean = con.iniciarSesion(tbox_Usuario.Text, tbox_Contra.Text)
             If login Then
-                Dim principal As Principal = New Principal(tbox_Usuario.Text)
+                Dim principal As Principal = New Principal(tbox_Usuario.Text, con)
                 principal.Show()
                 Me.Close()
 
