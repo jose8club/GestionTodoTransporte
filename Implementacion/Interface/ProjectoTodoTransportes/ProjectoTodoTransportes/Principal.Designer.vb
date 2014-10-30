@@ -23,19 +23,6 @@ Partial Class Principal
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.TabControl = New System.Windows.Forms.TabControl()
-        Me.Tab1 = New System.Windows.Forms.TabPage()
-        Me.lbl_Mensaje1 = New System.Windows.Forms.Label()
-        Me.tbox_Telefono1 = New System.Windows.Forms.TextBox()
-        Me.lbl_Telefono1 = New System.Windows.Forms.Label()
-        Me.date_Fecha1 = New System.Windows.Forms.DateTimePicker()
-        Me.btn_Guardar1 = New System.Windows.Forms.Button()
-        Me.lbl_Nombre1 = New System.Windows.Forms.Label()
-        Me.tbox_Observaciones1 = New System.Windows.Forms.RichTextBox()
-        Me.tbox_Nombre1 = New System.Windows.Forms.TextBox()
-        Me.lbl_Observaciones1 = New System.Windows.Forms.Label()
-        Me.lbl_Fecha1 = New System.Windows.Forms.Label()
-        Me.cbox_CursoInteres1 = New System.Windows.Forms.ComboBox()
-        Me.lbl_CursoInteres1 = New System.Windows.Forms.Label()
         Me.Tab2 = New System.Windows.Forms.TabPage()
         Me.btn_Guardar2 = New System.Windows.Forms.Button()
         Me.gbox_Matricula2 = New System.Windows.Forms.GroupBox()
@@ -107,8 +94,20 @@ Partial Class Principal
         Me.nombrePsico = New System.Windows.Forms.ComboBox()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Tab5 = New System.Windows.Forms.TabPage()
+        Me.Tab1 = New System.Windows.Forms.TabPage()
+        Me.lbl_CursoInteres1 = New System.Windows.Forms.Label()
+        Me.cbox_CursoInteres1 = New System.Windows.Forms.ComboBox()
+        Me.lbl_Fecha1 = New System.Windows.Forms.Label()
+        Me.lbl_Observaciones1 = New System.Windows.Forms.Label()
+        Me.tbox_Nombre1 = New System.Windows.Forms.TextBox()
+        Me.tbox_Observaciones1 = New System.Windows.Forms.RichTextBox()
+        Me.lbl_Nombre1 = New System.Windows.Forms.Label()
+        Me.btn_Guardar1 = New System.Windows.Forms.Button()
+        Me.date_Fecha1 = New System.Windows.Forms.DateTimePicker()
+        Me.lbl_Telefono1 = New System.Windows.Forms.Label()
+        Me.tbox_Telefono1 = New System.Windows.Forms.TextBox()
+        Me.lbl_Mensaje1 = New System.Windows.Forms.Label()
         Me.TabControl.SuspendLayout()
-        Me.Tab1.SuspendLayout()
         Me.Tab2.SuspendLayout()
         Me.gbox_Matricula2.SuspendLayout()
         Me.gbox_EstadoDocs2.SuspendLayout()
@@ -118,6 +117,7 @@ Partial Class Principal
         Me.GroupBox4.SuspendLayout()
         Me.examengroup.SuspendLayout()
         Me.Tab4.SuspendLayout()
+        Me.Tab1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl
@@ -127,137 +127,11 @@ Partial Class Principal
         Me.TabControl.Controls.Add(Me.Tab3)
         Me.TabControl.Controls.Add(Me.Tab4)
         Me.TabControl.Controls.Add(Me.Tab5)
-        Me.TabControl.Location = New System.Drawing.Point(12, 12)
+        Me.TabControl.Location = New System.Drawing.Point(85, 12)
         Me.TabControl.Name = "TabControl"
         Me.TabControl.SelectedIndex = 0
-        Me.TabControl.Size = New System.Drawing.Size(589, 481)
+        Me.TabControl.Size = New System.Drawing.Size(516, 481)
         Me.TabControl.TabIndex = 0
-        '
-        'Tab1
-        '
-        Me.Tab1.Controls.Add(Me.lbl_Mensaje1)
-        Me.Tab1.Controls.Add(Me.tbox_Telefono1)
-        Me.Tab1.Controls.Add(Me.lbl_Telefono1)
-        Me.Tab1.Controls.Add(Me.date_Fecha1)
-        Me.Tab1.Controls.Add(Me.btn_Guardar1)
-        Me.Tab1.Controls.Add(Me.lbl_Nombre1)
-        Me.Tab1.Controls.Add(Me.tbox_Observaciones1)
-        Me.Tab1.Controls.Add(Me.tbox_Nombre1)
-        Me.Tab1.Controls.Add(Me.lbl_Observaciones1)
-        Me.Tab1.Controls.Add(Me.lbl_Fecha1)
-        Me.Tab1.Controls.Add(Me.cbox_CursoInteres1)
-        Me.Tab1.Controls.Add(Me.lbl_CursoInteres1)
-        Me.Tab1.Location = New System.Drawing.Point(4, 22)
-        Me.Tab1.Name = "Tab1"
-        Me.Tab1.Padding = New System.Windows.Forms.Padding(3)
-        Me.Tab1.Size = New System.Drawing.Size(581, 455)
-        Me.Tab1.TabIndex = 0
-        Me.Tab1.Text = "Registrar Cliente"
-        Me.Tab1.UseVisualStyleBackColor = True
-        '
-        'lbl_Mensaje1
-        '
-        Me.lbl_Mensaje1.AutoSize = True
-        Me.lbl_Mensaje1.ForeColor = System.Drawing.Color.DimGray
-        Me.lbl_Mensaje1.Location = New System.Drawing.Point(145, 242)
-        Me.lbl_Mensaje1.Name = "lbl_Mensaje1"
-        Me.lbl_Mensaje1.Size = New System.Drawing.Size(0, 13)
-        Me.lbl_Mensaje1.TabIndex = 21
-        '
-        'tbox_Telefono1
-        '
-        Me.tbox_Telefono1.Location = New System.Drawing.Point(145, 37)
-        Me.tbox_Telefono1.MaxLength = 20
-        Me.tbox_Telefono1.Name = "tbox_Telefono1"
-        Me.tbox_Telefono1.Size = New System.Drawing.Size(278, 20)
-        Me.tbox_Telefono1.TabIndex = 1
-        '
-        'lbl_Telefono1
-        '
-        Me.lbl_Telefono1.AutoSize = True
-        Me.lbl_Telefono1.Location = New System.Drawing.Point(16, 40)
-        Me.lbl_Telefono1.Name = "lbl_Telefono1"
-        Me.lbl_Telefono1.Size = New System.Drawing.Size(52, 13)
-        Me.lbl_Telefono1.TabIndex = 19
-        Me.lbl_Telefono1.Text = "Telefono:"
-        '
-        'date_Fecha1
-        '
-        Me.date_Fecha1.Location = New System.Drawing.Point(145, 96)
-        Me.date_Fecha1.Name = "date_Fecha1"
-        Me.date_Fecha1.Size = New System.Drawing.Size(278, 20)
-        Me.date_Fecha1.TabIndex = 3
-        '
-        'btn_Guardar1
-        '
-        Me.btn_Guardar1.Location = New System.Drawing.Point(348, 237)
-        Me.btn_Guardar1.Name = "btn_Guardar1"
-        Me.btn_Guardar1.Size = New System.Drawing.Size(75, 23)
-        Me.btn_Guardar1.TabIndex = 5
-        Me.btn_Guardar1.Text = "Guardar"
-        Me.btn_Guardar1.UseVisualStyleBackColor = True
-        '
-        'lbl_Nombre1
-        '
-        Me.lbl_Nombre1.AutoSize = True
-        Me.lbl_Nombre1.Location = New System.Drawing.Point(16, 12)
-        Me.lbl_Nombre1.Name = "lbl_Nombre1"
-        Me.lbl_Nombre1.Size = New System.Drawing.Size(47, 13)
-        Me.lbl_Nombre1.TabIndex = 9
-        Me.lbl_Nombre1.Text = "Nombre:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        '
-        'tbox_Observaciones1
-        '
-        Me.tbox_Observaciones1.Location = New System.Drawing.Point(145, 128)
-        Me.tbox_Observaciones1.MaxLength = 2000
-        Me.tbox_Observaciones1.Name = "tbox_Observaciones1"
-        Me.tbox_Observaciones1.Size = New System.Drawing.Size(278, 103)
-        Me.tbox_Observaciones1.TabIndex = 4
-        Me.tbox_Observaciones1.Text = ""
-        '
-        'tbox_Nombre1
-        '
-        Me.tbox_Nombre1.Location = New System.Drawing.Point(145, 9)
-        Me.tbox_Nombre1.MaxLength = 255
-        Me.tbox_Nombre1.Name = "tbox_Nombre1"
-        Me.tbox_Nombre1.Size = New System.Drawing.Size(278, 20)
-        Me.tbox_Nombre1.TabIndex = 0
-        '
-        'lbl_Observaciones1
-        '
-        Me.lbl_Observaciones1.AutoSize = True
-        Me.lbl_Observaciones1.Location = New System.Drawing.Point(16, 131)
-        Me.lbl_Observaciones1.Name = "lbl_Observaciones1"
-        Me.lbl_Observaciones1.Size = New System.Drawing.Size(81, 13)
-        Me.lbl_Observaciones1.TabIndex = 17
-        Me.lbl_Observaciones1.Text = "Observaciones:"
-        '
-        'lbl_Fecha1
-        '
-        Me.lbl_Fecha1.AutoSize = True
-        Me.lbl_Fecha1.Location = New System.Drawing.Point(16, 99)
-        Me.lbl_Fecha1.Name = "lbl_Fecha1"
-        Me.lbl_Fecha1.Size = New System.Drawing.Size(100, 13)
-        Me.lbl_Fecha1.TabIndex = 12
-        Me.lbl_Fecha1.Text = "Fecha de Atención:"
-        '
-        'cbox_CursoInteres1
-        '
-        Me.cbox_CursoInteres1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbox_CursoInteres1.FormattingEnabled = True
-        Me.cbox_CursoInteres1.Location = New System.Drawing.Point(145, 66)
-        Me.cbox_CursoInteres1.Name = "cbox_CursoInteres1"
-        Me.cbox_CursoInteres1.Size = New System.Drawing.Size(278, 21)
-        Me.cbox_CursoInteres1.TabIndex = 2
-        '
-        'lbl_CursoInteres1
-        '
-        Me.lbl_CursoInteres1.AutoSize = True
-        Me.lbl_CursoInteres1.Location = New System.Drawing.Point(16, 69)
-        Me.lbl_CursoInteres1.Name = "lbl_CursoInteres1"
-        Me.lbl_CursoInteres1.Size = New System.Drawing.Size(87, 13)
-        Me.lbl_CursoInteres1.TabIndex = 16
-        Me.lbl_CursoInteres1.Text = "Curso de Interés:"
         '
         'Tab2
         '
@@ -279,7 +153,7 @@ Partial Class Principal
         Me.Tab2.Location = New System.Drawing.Point(4, 22)
         Me.Tab2.Name = "Tab2"
         Me.Tab2.Padding = New System.Windows.Forms.Padding(3)
-        Me.Tab2.Size = New System.Drawing.Size(581, 455)
+        Me.Tab2.Size = New System.Drawing.Size(346, 455)
         Me.Tab2.TabIndex = 1
         Me.Tab2.Text = "Matrícula"
         Me.Tab2.UseVisualStyleBackColor = True
@@ -607,7 +481,7 @@ Partial Class Principal
         Me.Tab3.Controls.Add(Me.Label11)
         Me.Tab3.Location = New System.Drawing.Point(4, 22)
         Me.Tab3.Name = "Tab3"
-        Me.Tab3.Size = New System.Drawing.Size(581, 455)
+        Me.Tab3.Size = New System.Drawing.Size(346, 455)
         Me.Tab3.TabIndex = 2
         Me.Tab3.Text = "Exámen Oftalmológico"
         Me.Tab3.UseVisualStyleBackColor = True
@@ -840,7 +714,7 @@ Partial Class Principal
         Me.Tab4.Controls.Add(Me.Label21)
         Me.Tab4.Location = New System.Drawing.Point(4, 22)
         Me.Tab4.Name = "Tab4"
-        Me.Tab4.Size = New System.Drawing.Size(581, 455)
+        Me.Tab4.Size = New System.Drawing.Size(346, 455)
         Me.Tab4.TabIndex = 3
         Me.Tab4.Text = "Practica Psicótecnico"
         Me.Tab4.UseVisualStyleBackColor = True
@@ -941,10 +815,136 @@ Partial Class Principal
         '
         Me.Tab5.Location = New System.Drawing.Point(4, 22)
         Me.Tab5.Name = "Tab5"
-        Me.Tab5.Size = New System.Drawing.Size(581, 455)
+        Me.Tab5.Size = New System.Drawing.Size(346, 455)
         Me.Tab5.TabIndex = 4
         Me.Tab5.Text = "TabPage3"
         Me.Tab5.UseVisualStyleBackColor = True
+        '
+        'Tab1
+        '
+        Me.Tab1.Controls.Add(Me.lbl_Mensaje1)
+        Me.Tab1.Controls.Add(Me.tbox_Telefono1)
+        Me.Tab1.Controls.Add(Me.lbl_Telefono1)
+        Me.Tab1.Controls.Add(Me.date_Fecha1)
+        Me.Tab1.Controls.Add(Me.btn_Guardar1)
+        Me.Tab1.Controls.Add(Me.lbl_Nombre1)
+        Me.Tab1.Controls.Add(Me.tbox_Observaciones1)
+        Me.Tab1.Controls.Add(Me.tbox_Nombre1)
+        Me.Tab1.Controls.Add(Me.lbl_Observaciones1)
+        Me.Tab1.Controls.Add(Me.lbl_Fecha1)
+        Me.Tab1.Controls.Add(Me.cbox_CursoInteres1)
+        Me.Tab1.Controls.Add(Me.lbl_CursoInteres1)
+        Me.Tab1.Location = New System.Drawing.Point(4, 22)
+        Me.Tab1.Name = "Tab1"
+        Me.Tab1.Padding = New System.Windows.Forms.Padding(3)
+        Me.Tab1.Size = New System.Drawing.Size(508, 455)
+        Me.Tab1.TabIndex = 0
+        Me.Tab1.Text = "Registrar Cliente"
+        Me.Tab1.UseVisualStyleBackColor = True
+        '
+        'lbl_CursoInteres1
+        '
+        Me.lbl_CursoInteres1.AutoSize = True
+        Me.lbl_CursoInteres1.Location = New System.Drawing.Point(16, 69)
+        Me.lbl_CursoInteres1.Name = "lbl_CursoInteres1"
+        Me.lbl_CursoInteres1.Size = New System.Drawing.Size(87, 13)
+        Me.lbl_CursoInteres1.TabIndex = 16
+        Me.lbl_CursoInteres1.Text = "Curso de Interés:"
+        '
+        'cbox_CursoInteres1
+        '
+        Me.cbox_CursoInteres1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbox_CursoInteres1.FormattingEnabled = True
+        Me.cbox_CursoInteres1.Location = New System.Drawing.Point(145, 66)
+        Me.cbox_CursoInteres1.Name = "cbox_CursoInteres1"
+        Me.cbox_CursoInteres1.Size = New System.Drawing.Size(278, 21)
+        Me.cbox_CursoInteres1.TabIndex = 2
+        '
+        'lbl_Fecha1
+        '
+        Me.lbl_Fecha1.AutoSize = True
+        Me.lbl_Fecha1.Location = New System.Drawing.Point(16, 99)
+        Me.lbl_Fecha1.Name = "lbl_Fecha1"
+        Me.lbl_Fecha1.Size = New System.Drawing.Size(100, 13)
+        Me.lbl_Fecha1.TabIndex = 12
+        Me.lbl_Fecha1.Text = "Fecha de Atención:"
+        '
+        'lbl_Observaciones1
+        '
+        Me.lbl_Observaciones1.AutoSize = True
+        Me.lbl_Observaciones1.Location = New System.Drawing.Point(16, 131)
+        Me.lbl_Observaciones1.Name = "lbl_Observaciones1"
+        Me.lbl_Observaciones1.Size = New System.Drawing.Size(81, 13)
+        Me.lbl_Observaciones1.TabIndex = 17
+        Me.lbl_Observaciones1.Text = "Observaciones:"
+        '
+        'tbox_Nombre1
+        '
+        Me.tbox_Nombre1.Location = New System.Drawing.Point(145, 9)
+        Me.tbox_Nombre1.MaxLength = 255
+        Me.tbox_Nombre1.Name = "tbox_Nombre1"
+        Me.tbox_Nombre1.Size = New System.Drawing.Size(278, 20)
+        Me.tbox_Nombre1.TabIndex = 0
+        '
+        'tbox_Observaciones1
+        '
+        Me.tbox_Observaciones1.Location = New System.Drawing.Point(145, 128)
+        Me.tbox_Observaciones1.MaxLength = 2000
+        Me.tbox_Observaciones1.Name = "tbox_Observaciones1"
+        Me.tbox_Observaciones1.Size = New System.Drawing.Size(278, 103)
+        Me.tbox_Observaciones1.TabIndex = 4
+        Me.tbox_Observaciones1.Text = ""
+        '
+        'lbl_Nombre1
+        '
+        Me.lbl_Nombre1.AutoSize = True
+        Me.lbl_Nombre1.Location = New System.Drawing.Point(16, 12)
+        Me.lbl_Nombre1.Name = "lbl_Nombre1"
+        Me.lbl_Nombre1.Size = New System.Drawing.Size(47, 13)
+        Me.lbl_Nombre1.TabIndex = 9
+        Me.lbl_Nombre1.Text = "Nombre:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'btn_Guardar1
+        '
+        Me.btn_Guardar1.Location = New System.Drawing.Point(348, 237)
+        Me.btn_Guardar1.Name = "btn_Guardar1"
+        Me.btn_Guardar1.Size = New System.Drawing.Size(75, 23)
+        Me.btn_Guardar1.TabIndex = 5
+        Me.btn_Guardar1.Text = "Guardar"
+        Me.btn_Guardar1.UseVisualStyleBackColor = True
+        '
+        'date_Fecha1
+        '
+        Me.date_Fecha1.Location = New System.Drawing.Point(145, 96)
+        Me.date_Fecha1.Name = "date_Fecha1"
+        Me.date_Fecha1.Size = New System.Drawing.Size(278, 20)
+        Me.date_Fecha1.TabIndex = 3
+        '
+        'lbl_Telefono1
+        '
+        Me.lbl_Telefono1.AutoSize = True
+        Me.lbl_Telefono1.Location = New System.Drawing.Point(16, 40)
+        Me.lbl_Telefono1.Name = "lbl_Telefono1"
+        Me.lbl_Telefono1.Size = New System.Drawing.Size(52, 13)
+        Me.lbl_Telefono1.TabIndex = 19
+        Me.lbl_Telefono1.Text = "Telefono:"
+        '
+        'tbox_Telefono1
+        '
+        Me.tbox_Telefono1.Location = New System.Drawing.Point(145, 37)
+        Me.tbox_Telefono1.MaxLength = 20
+        Me.tbox_Telefono1.Name = "tbox_Telefono1"
+        Me.tbox_Telefono1.Size = New System.Drawing.Size(278, 20)
+        Me.tbox_Telefono1.TabIndex = 1
+        '
+        'lbl_Mensaje1
+        '
+        Me.lbl_Mensaje1.AutoSize = True
+        Me.lbl_Mensaje1.ForeColor = System.Drawing.Color.DimGray
+        Me.lbl_Mensaje1.Location = New System.Drawing.Point(145, 242)
+        Me.lbl_Mensaje1.Name = "lbl_Mensaje1"
+        Me.lbl_Mensaje1.Size = New System.Drawing.Size(0, 13)
+        Me.lbl_Mensaje1.TabIndex = 21
         '
         'Principal
         '
@@ -955,8 +955,6 @@ Partial Class Principal
         Me.Name = "Principal"
         Me.Text = "Sistema de Gestión TodoTransporte"
         Me.TabControl.ResumeLayout(False)
-        Me.Tab1.ResumeLayout(False)
-        Me.Tab1.PerformLayout()
         Me.Tab2.ResumeLayout(False)
         Me.Tab2.PerformLayout()
         Me.gbox_Matricula2.ResumeLayout(False)
@@ -975,24 +973,13 @@ Partial Class Principal
         Me.examengroup.PerformLayout()
         Me.Tab4.ResumeLayout(False)
         Me.Tab4.PerformLayout()
+        Me.Tab1.ResumeLayout(False)
+        Me.Tab1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents TabControl As System.Windows.Forms.TabControl
-    Friend WithEvents Tab1 As System.Windows.Forms.TabPage
     Friend WithEvents Tab2 As System.Windows.Forms.TabPage
-    Friend WithEvents tbox_Telefono1 As System.Windows.Forms.TextBox
-    Friend WithEvents lbl_Telefono1 As System.Windows.Forms.Label
-    Friend WithEvents date_Fecha1 As System.Windows.Forms.DateTimePicker
-    Friend WithEvents btn_Guardar1 As System.Windows.Forms.Button
-    Friend WithEvents lbl_Nombre1 As System.Windows.Forms.Label
-    Friend WithEvents tbox_Observaciones1 As System.Windows.Forms.RichTextBox
-    Friend WithEvents tbox_Nombre1 As System.Windows.Forms.TextBox
-    Friend WithEvents lbl_Observaciones1 As System.Windows.Forms.Label
-    Friend WithEvents lbl_Fecha1 As System.Windows.Forms.Label
-    Friend WithEvents cbox_CursoInteres1 As System.Windows.Forms.ComboBox
-    Friend WithEvents lbl_CursoInteres1 As System.Windows.Forms.Label
-    Friend WithEvents lbl_Mensaje1 As System.Windows.Forms.Label
     Friend WithEvents tbox_Nombres2 As System.Windows.Forms.TextBox
     Friend WithEvents lbl_Nombres2 As System.Windows.Forms.Label
     Friend WithEvents tbox_VerificadorRut2 As System.Windows.Forms.TextBox
@@ -1063,4 +1050,17 @@ Partial Class Principal
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents nombrePsico As System.Windows.Forms.ComboBox
     Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents Tab1 As System.Windows.Forms.TabPage
+    Friend WithEvents lbl_Mensaje1 As System.Windows.Forms.Label
+    Friend WithEvents tbox_Telefono1 As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_Telefono1 As System.Windows.Forms.Label
+    Friend WithEvents date_Fecha1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents btn_Guardar1 As System.Windows.Forms.Button
+    Friend WithEvents lbl_Nombre1 As System.Windows.Forms.Label
+    Friend WithEvents tbox_Observaciones1 As System.Windows.Forms.RichTextBox
+    Friend WithEvents tbox_Nombre1 As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_Observaciones1 As System.Windows.Forms.Label
+    Friend WithEvents lbl_Fecha1 As System.Windows.Forms.Label
+    Friend WithEvents cbox_CursoInteres1 As System.Windows.Forms.ComboBox
+    Friend WithEvents lbl_CursoInteres1 As System.Windows.Forms.Label
 End Class

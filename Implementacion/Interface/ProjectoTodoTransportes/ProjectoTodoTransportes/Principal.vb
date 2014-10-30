@@ -257,4 +257,7 @@
         Herramientas.soloNumeros(e)
     End Sub
 
+    'PESTAÑAS VERTICALES
+
+
 End Class
