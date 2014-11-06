@@ -23,10 +23,7 @@
         Me.MainMenu.TabPages(1).Controls.Add(regMatricula)
         regMatricula.Show()
 
-        Dim encuesta As New Encuesta(USER, con)
-        encuesta.TopLevel = False
-        Me.MainMenu.TabPages(3).Controls.Add(encuesta)
-        encuesta.Show()
+     
 
     End Sub
 
@@ -59,4 +56,21 @@
         con.Close()
 
     End Sub
+
+    Private Sub TabPage4_Click(sender As Object, e As System.EventArgs) Handles TabPage4.Click
+
+    End Sub
+
+
+    Private Sub MainMenu_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles MainMenu.SelectedIndexChanged
+        Dim tab As Integer = MainMenu.SelectedIndex
+        If tab = 3 Then
+            Dim encuesta As New Encuesta(USER, con)
+            encuesta.TopLevel = False
+            Me.MainMenu.TabPages(3).Controls.Add(encuesta)
+            encuesta.Show()
+        End If
+    End Sub
+
+
 End Class
