@@ -55,13 +55,13 @@ Partial Class Principal
         '
         'TabPage2
         '
-        Me.TabPage2.Location = New System.Drawing.Point(23, 4)
+        Me.TabPage2.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage2.Location = New System.Drawing.Point(154, 4)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(791, 378)
+        Me.TabPage2.Size = New System.Drawing.Size(660, 378)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "TabPage2"
-        Me.TabPage2.UseVisualStyleBackColor = True
         '
         'Principal
         '
