@@ -209,9 +209,9 @@ Partial Class Form2
         Me.GroupBox2.Controls.Add(Me.chbox_regular)
         Me.GroupBox2.Controls.Add(Me.chbox_estudios)
         Me.GroupBox2.Controls.Add(Me.chbox_foto)
-        Me.GroupBox2.Location = New System.Drawing.Point(477, 195)
+        Me.GroupBox2.Location = New System.Drawing.Point(477, 159)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(205, 175)
+        Me.GroupBox2.Size = New System.Drawing.Size(205, 153)
         Me.GroupBox2.TabIndex = 16
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Estado de Documentos"
@@ -266,9 +266,9 @@ Partial Class Form2
         Me.GroupBox3.Controls.Add(Me.Label8)
         Me.GroupBox3.Controls.Add(Me.chbox_pago)
         Me.GroupBox3.Controls.Add(Me.Label7)
-        Me.GroupBox3.Location = New System.Drawing.Point(688, 195)
+        Me.GroupBox3.Location = New System.Drawing.Point(688, 159)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(208, 175)
+        Me.GroupBox3.Size = New System.Drawing.Size(208, 153)
         Me.GroupBox3.TabIndex = 17
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Matricula"
@@ -343,7 +343,7 @@ Partial Class Form2
         '
         'btn_estudiante
         '
-        Me.btn_estudiante.Location = New System.Drawing.Point(831, 391)
+        Me.btn_estudiante.Location = New System.Drawing.Point(827, 328)
         Me.btn_estudiante.Name = "btn_estudiante"
         Me.btn_estudiante.Size = New System.Drawing.Size(75, 23)
         Me.btn_estudiante.TabIndex = 16
@@ -386,7 +386,7 @@ Partial Class Form2
         'lbl_mensaje_conf
         '
         Me.lbl_mensaje_conf.AutoSize = True
-        Me.lbl_mensaje_conf.Location = New System.Drawing.Point(485, 418)
+        Me.lbl_mensaje_conf.Location = New System.Drawing.Point(485, 329)
         Me.lbl_mensaje_conf.Name = "lbl_mensaje_conf"
         Me.lbl_mensaje_conf.Size = New System.Drawing.Size(0, 13)
         Me.lbl_mensaje_conf.TabIndex = 22
@@ -412,7 +412,7 @@ Partial Class Form2
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(914, 432)
+        Me.ClientSize = New System.Drawing.Size(932, 364)
         Me.Controls.Add(Me.tbox_edad)
         Me.Controls.Add(Me.lbl_edad)
         Me.Controls.Add(Me.lbl_mensaje_conf)

@@ -255,9 +255,15 @@ Partial Class Principal
         Me.lbl_CursoInteres1.AutoSize = True
         Me.lbl_CursoInteres1.Location = New System.Drawing.Point(16, 69)
         Me.lbl_CursoInteres1.Name = "lbl_CursoInteres1"
+<<<<<<< HEAD
+        Me.lbl_CursoInteres1.Size = New System.Drawing.Size(100, 13)
+        Me.lbl_CursoInteres1.TabIndex = 16
+        Me.lbl_CursoInteres1.Text = "Licencia de Interés:"
+=======
         Me.lbl_CursoInteres1.Size = New System.Drawing.Size(87, 13)
         Me.lbl_CursoInteres1.TabIndex = 16
         Me.lbl_CursoInteres1.Text = "Curso de Interés:"
+>>>>>>> origin/master
         '
         'Tab2
         '

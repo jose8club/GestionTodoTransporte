@@ -38,4 +38,12 @@
 
     End Sub
 
+<<<<<<< HEAD
+    Private Sub lbl_CursoInteres1_Click(sender As System.Object, e As System.EventArgs) Handles lbl_CursoInteres1.Click
+
+    End Sub
+
+    
+=======
+>>>>>>> origin/master
 End Class

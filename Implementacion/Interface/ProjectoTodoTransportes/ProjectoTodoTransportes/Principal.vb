@@ -270,5 +270,10 @@
 
     Private Sub Tab2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Tab2.Click
 
+<<<<<<< HEAD
+    Private Sub Tab1_Click(sender As System.Object, e As System.EventArgs) Handles Tab1.Click
+
+=======
+>>>>>>> origin/master
     End Sub
 End Class

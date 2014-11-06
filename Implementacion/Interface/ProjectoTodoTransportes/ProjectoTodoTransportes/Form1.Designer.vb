@@ -24,6 +24,21 @@ Partial Class MainWindow
     Private Sub InitializeComponent()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+<<<<<<< HEAD
+        Me.lbl_Mensaje1 = New System.Windows.Forms.Label()
+        Me.tbox_Telefono1 = New System.Windows.Forms.TextBox()
+        Me.lbl_Telefono1 = New System.Windows.Forms.Label()
+        Me.date_Fecha1 = New System.Windows.Forms.DateTimePicker()
+        Me.btn_Guardar1 = New System.Windows.Forms.Button()
+        Me.lbl_Nombre1 = New System.Windows.Forms.Label()
+        Me.tbox_Observaciones1 = New System.Windows.Forms.RichTextBox()
+        Me.tbox_Nombre1 = New System.Windows.Forms.TextBox()
+        Me.lbl_Observaciones1 = New System.Windows.Forms.Label()
+        Me.lbl_Fecha1 = New System.Windows.Forms.Label()
+        Me.cbox_CursoInteres1 = New System.Windows.Forms.ComboBox()
+        Me.lbl_CursoInteres1 = New System.Windows.Forms.Label()
+=======
+>>>>>>> origin/master
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.btn_Guardar2 = New System.Windows.Forms.Button()
         Me.gbox_Matricula2 = New System.Windows.Forms.GroupBox()
@@ -59,9 +74,12 @@ Partial Class MainWindow
         Me.tbox_Nombres2 = New System.Windows.Forms.TextBox()
         Me.lbl_Nombres2 = New System.Windows.Forms.Label()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+<<<<<<< HEAD
+=======
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
+>>>>>>> origin/master
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.TabControl3 = New System.Windows.Forms.TabControl()
         Me.TabPage12 = New System.Windows.Forms.TabPage()
@@ -107,8 +125,11 @@ Partial Class MainWindow
         Me.gbox_Matricula2.SuspendLayout()
         Me.gbox_EstadoDocs2.SuspendLayout()
         Me.gbox_Horarios2.SuspendLayout()
+<<<<<<< HEAD
+=======
         Me.TabPage3.SuspendLayout()
         Me.TabControl2.SuspendLayout()
+>>>>>>> origin/master
         Me.TabPage4.SuspendLayout()
         Me.TabControl3.SuspendLayout()
         Me.TabPage5.SuspendLayout()
@@ -168,6 +189,113 @@ Partial Class MainWindow
         Me.TabPage1.Text = "Registrar Cliente"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+<<<<<<< HEAD
+        'lbl_Mensaje1
+        '
+        Me.lbl_Mensaje1.AutoSize = True
+        Me.lbl_Mensaje1.ForeColor = System.Drawing.Color.DimGray
+        Me.lbl_Mensaje1.Location = New System.Drawing.Point(259, 257)
+        Me.lbl_Mensaje1.Name = "lbl_Mensaje1"
+        Me.lbl_Mensaje1.Size = New System.Drawing.Size(0, 13)
+        Me.lbl_Mensaje1.TabIndex = 33
+        '
+        'tbox_Telefono1
+        '
+        Me.tbox_Telefono1.Location = New System.Drawing.Point(259, 52)
+        Me.tbox_Telefono1.MaxLength = 20
+        Me.tbox_Telefono1.Name = "tbox_Telefono1"
+        Me.tbox_Telefono1.Size = New System.Drawing.Size(278, 20)
+        Me.tbox_Telefono1.TabIndex = 23
+        '
+        'lbl_Telefono1
+        '
+        Me.lbl_Telefono1.AutoSize = True
+        Me.lbl_Telefono1.Location = New System.Drawing.Point(130, 55)
+        Me.lbl_Telefono1.Name = "lbl_Telefono1"
+        Me.lbl_Telefono1.Size = New System.Drawing.Size(52, 13)
+        Me.lbl_Telefono1.TabIndex = 32
+        Me.lbl_Telefono1.Text = "Telefono:"
+        '
+        'date_Fecha1
+        '
+        Me.date_Fecha1.Location = New System.Drawing.Point(259, 111)
+        Me.date_Fecha1.Name = "date_Fecha1"
+        Me.date_Fecha1.Size = New System.Drawing.Size(278, 20)
+        Me.date_Fecha1.TabIndex = 25
+        '
+        'btn_Guardar1
+        '
+        Me.btn_Guardar1.Location = New System.Drawing.Point(462, 252)
+        Me.btn_Guardar1.Name = "btn_Guardar1"
+        Me.btn_Guardar1.Size = New System.Drawing.Size(75, 23)
+        Me.btn_Guardar1.TabIndex = 27
+        Me.btn_Guardar1.Text = "Guardar"
+        Me.btn_Guardar1.UseVisualStyleBackColor = True
+        '
+        'lbl_Nombre1
+        '
+        Me.lbl_Nombre1.AutoSize = True
+        Me.lbl_Nombre1.Location = New System.Drawing.Point(130, 27)
+        Me.lbl_Nombre1.Name = "lbl_Nombre1"
+        Me.lbl_Nombre1.Size = New System.Drawing.Size(47, 13)
+        Me.lbl_Nombre1.TabIndex = 28
+        Me.lbl_Nombre1.Text = "Nombre:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
+        'tbox_Observaciones1
+        '
+        Me.tbox_Observaciones1.Location = New System.Drawing.Point(259, 143)
+        Me.tbox_Observaciones1.MaxLength = 2000
+        Me.tbox_Observaciones1.Name = "tbox_Observaciones1"
+        Me.tbox_Observaciones1.Size = New System.Drawing.Size(278, 103)
+        Me.tbox_Observaciones1.TabIndex = 26
+        Me.tbox_Observaciones1.Text = ""
+        '
+        'tbox_Nombre1
+        '
+        Me.tbox_Nombre1.Location = New System.Drawing.Point(259, 24)
+        Me.tbox_Nombre1.MaxLength = 255
+        Me.tbox_Nombre1.Name = "tbox_Nombre1"
+        Me.tbox_Nombre1.Size = New System.Drawing.Size(278, 20)
+        Me.tbox_Nombre1.TabIndex = 22
+        '
+        'lbl_Observaciones1
+        '
+        Me.lbl_Observaciones1.AutoSize = True
+        Me.lbl_Observaciones1.Location = New System.Drawing.Point(130, 146)
+        Me.lbl_Observaciones1.Name = "lbl_Observaciones1"
+        Me.lbl_Observaciones1.Size = New System.Drawing.Size(81, 13)
+        Me.lbl_Observaciones1.TabIndex = 31
+        Me.lbl_Observaciones1.Text = "Observaciones:"
+        '
+        'lbl_Fecha1
+        '
+        Me.lbl_Fecha1.AutoSize = True
+        Me.lbl_Fecha1.Location = New System.Drawing.Point(130, 114)
+        Me.lbl_Fecha1.Name = "lbl_Fecha1"
+        Me.lbl_Fecha1.Size = New System.Drawing.Size(100, 13)
+        Me.lbl_Fecha1.TabIndex = 29
+        Me.lbl_Fecha1.Text = "Fecha de Atención:"
+        '
+        'cbox_CursoInteres1
+        '
+        Me.cbox_CursoInteres1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbox_CursoInteres1.FormattingEnabled = True
+        Me.cbox_CursoInteres1.Location = New System.Drawing.Point(259, 81)
+        Me.cbox_CursoInteres1.Name = "cbox_CursoInteres1"
+        Me.cbox_CursoInteres1.Size = New System.Drawing.Size(278, 21)
+        Me.cbox_CursoInteres1.TabIndex = 24
+        '
+        'lbl_CursoInteres1
+        '
+        Me.lbl_CursoInteres1.AutoSize = True
+        Me.lbl_CursoInteres1.Location = New System.Drawing.Point(130, 84)
+        Me.lbl_CursoInteres1.Name = "lbl_CursoInteres1"
+        Me.lbl_CursoInteres1.Size = New System.Drawing.Size(100, 13)
+        Me.lbl_CursoInteres1.TabIndex = 30
+        Me.lbl_CursoInteres1.Text = "Licencia de Interés:"
+        '
+=======
+>>>>>>> origin/master
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.btn_Guardar2)
@@ -506,6 +634,8 @@ Partial Class MainWindow
         Me.lbl_Nombres2.Text = "Nombres:"
         '
         'TabPage3
+<<<<<<< HEAD
+=======
         '
         Me.TabPage3.Controls.Add(Me.TabControl2)
         Me.TabPage3.Location = New System.Drawing.Point(152, 4)
@@ -526,24 +656,24 @@ Partial Class MainWindow
         Me.TabControl2.TabIndex = 0
         '
         'TabPage10
+>>>>>>> origin/master
         '
-        Me.TabPage10.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage10.Name = "TabPage10"
-        Me.TabPage10.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage10.Size = New System.Drawing.Size(621, 426)
-        Me.TabPage10.TabIndex = 0
-        Me.TabPage10.Text = "Crear Profesor"
-        Me.TabPage10.UseVisualStyleBackColor = True
+        Me.TabPage3.Location = New System.Drawing.Point(152, 4)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Size = New System.Drawing.Size(635, 458)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Profesores"
+        Me.TabPage3.UseVisualStyleBackColor = True
         '
-        'TabPage11
+        'TabPage4
         '
-        Me.TabPage11.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage11.Name = "TabPage11"
-        Me.TabPage11.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage11.Size = New System.Drawing.Size(621, 426)
-        Me.TabPage11.TabIndex = 1
-        Me.TabPage11.Text = "Resúmen "
-        Me.TabPage11.UseVisualStyleBackColor = True
+        Me.TabPage4.Controls.Add(Me.TabControl3)
+        Me.TabPage4.Location = New System.Drawing.Point(152, 4)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Size = New System.Drawing.Size(635, 458)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "Encuesta"
+        Me.TabPage4.UseVisualStyleBackColor = True
         '
         'TabPage4
         '
@@ -937,8 +1067,11 @@ Partial Class MainWindow
         Me.gbox_EstadoDocs2.PerformLayout()
         Me.gbox_Horarios2.ResumeLayout(False)
         Me.gbox_Horarios2.PerformLayout()
+<<<<<<< HEAD
+=======
         Me.TabPage3.ResumeLayout(False)
         Me.TabControl2.ResumeLayout(False)
+>>>>>>> origin/master
         Me.TabPage4.ResumeLayout(False)
         Me.TabControl3.ResumeLayout(False)
         Me.TabPage5.ResumeLayout(False)
@@ -997,9 +1130,6 @@ Partial Class MainWindow
     Friend WithEvents lbl_RUT2 As System.Windows.Forms.Label
     Friend WithEvents tbox_Nombres2 As System.Windows.Forms.TextBox
     Friend WithEvents lbl_Nombres2 As System.Windows.Forms.Label
-    Friend WithEvents TabControl2 As System.Windows.Forms.TabControl
-    Friend WithEvents TabPage10 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage11 As System.Windows.Forms.TabPage
     Friend WithEvents TabControl3 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage12 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage13 As System.Windows.Forms.TabPage

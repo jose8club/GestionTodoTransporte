@@ -43,7 +43,7 @@ Partial Class Bienvenido
         Me.tbox_Bienvenido.Size = New System.Drawing.Size(326, 48)
         Me.tbox_Bienvenido.TabIndex = 4
         Me.tbox_Bienvenido.Text = "Bienvenido al Sistema de Gestión TodoTransportes. Para comenzar ingrese su nombre" & _
-            " de usuario y contraseña."
+    " de usuario y contraseña."
         Me.tbox_Bienvenido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'tbox_Usuario
