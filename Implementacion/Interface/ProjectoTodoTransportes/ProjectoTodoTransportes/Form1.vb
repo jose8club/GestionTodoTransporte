@@ -1,6 +1,7 @@
 ﻿Public Class MainWindow
 
 
+
     Private Sub TabControl1_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles TabControl1.DrawItem
         Dim g As Graphics = e.Graphics
         Dim _TextBrush As Brush
@@ -36,4 +37,5 @@
     Private Sub tbox_Telefono1_KeyPress(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
 
     End Sub
+
 End Class

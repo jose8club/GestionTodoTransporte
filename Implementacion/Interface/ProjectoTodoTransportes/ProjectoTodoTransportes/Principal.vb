@@ -6,6 +6,15 @@
     Private Sub Principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.CargaContenidos(0)
         Me.CambiaTamaño(0)
+
+        Dim forma As New Form7
+        forma.TopLevel = False
+        forma.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+
+        Me.TabControl.TabPages(4).Controls.Add(forma)
+        forma.Show()
+
+
     End Sub
 
     Sub New(ByVal Usuario As String, ByVal conexion As Conexion)
@@ -259,5 +268,7 @@
 
     'PESTAÑAS VERTICALES
 
+    Private Sub Tab2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Tab2.Click
 
+    End Sub
 End Class
