@@ -25,6 +25,8 @@ Partial Class Principal
         Me.MainMenu = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.MainMenu.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -33,6 +35,8 @@ Partial Class Principal
         Me.MainMenu.Alignment = System.Windows.Forms.TabAlignment.Left
         Me.MainMenu.Controls.Add(Me.TabPage1)
         Me.MainMenu.Controls.Add(Me.TabPage2)
+        Me.MainMenu.Controls.Add(Me.TabPage3)
+        Me.MainMenu.Controls.Add(Me.TabPage4)
         Me.MainMenu.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
         Me.MainMenu.ItemSize = New System.Drawing.Size(25, 150)
         Me.MainMenu.Location = New System.Drawing.Point(21, 12)
@@ -51,7 +55,7 @@ Partial Class Principal
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(660, 378)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "TabPage1"
+        Me.TabPage1.Text = "Atención al Cliente"
         '
         'TabPage2
         '
@@ -61,7 +65,25 @@ Partial Class Principal
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(660, 378)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "TabPage2"
+        Me.TabPage2.Text = "Matrícula"
+        '
+        'TabPage3
+        '
+        Me.TabPage3.Location = New System.Drawing.Point(154, 4)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Size = New System.Drawing.Size(660, 378)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Profesores"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'TabPage4
+        '
+        Me.TabPage4.Location = New System.Drawing.Point(154, 4)
+        Me.TabPage4.Name = "TabPage4"
+        Me.TabPage4.Size = New System.Drawing.Size(660, 378)
+        Me.TabPage4.TabIndex = 3
+        Me.TabPage4.Text = "Encuesta de Calidad"
+        Me.TabPage4.UseVisualStyleBackColor = True
         '
         'Principal
         '
@@ -78,5 +100,7 @@ Partial Class Principal
     Friend WithEvents MainMenu As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
 
 End Class

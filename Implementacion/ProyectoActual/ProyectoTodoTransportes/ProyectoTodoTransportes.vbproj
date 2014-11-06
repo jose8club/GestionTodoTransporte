@@ -83,6 +83,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Conexion.vb" />
+    <Compile Include="Encuesta.Designer.vb">
+      <DependentUpon>Encuesta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Encuesta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Principal.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Bienvenido.resx">
       <DependentUpon>Bienvenido.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Encuesta.resx">
+      <DependentUpon>Encuesta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

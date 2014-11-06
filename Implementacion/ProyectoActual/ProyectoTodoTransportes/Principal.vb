@@ -23,6 +23,11 @@
         Me.MainMenu.TabPages(1).Controls.Add(regMatricula)
         regMatricula.Show()
 
+        Dim encuesta As New Encuesta(USER, con)
+        encuesta.TopLevel = False
+        Me.MainMenu.TabPages(3).Controls.Add(encuesta)
+        encuesta.Show()
+
     End Sub
 
     Private Sub MainMenu_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles MainMenu.DrawItem
@@ -47,5 +52,11 @@
         _StringFlags.Alignment = StringAlignment.Center
         _StringFlags.LineAlignment = StringAlignment.Center
         g.DrawString(_TabPage.Text, _TabFont, _TextBrush, _TabBounds, New StringFormat(_StringFlags))
+    End Sub
+
+    Protected Overrides Sub Finalize()
+        MyBase.Finalize()
+        con.Close()
+
     End Sub
 End Class
