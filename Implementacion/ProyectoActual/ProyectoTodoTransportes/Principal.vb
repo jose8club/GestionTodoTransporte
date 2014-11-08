@@ -23,7 +23,7 @@
         Me.MainMenu.TabPages(1).Controls.Add(regMatricula)
         regMatricula.Show()
 
-     
+        
 
     End Sub
 
@@ -57,10 +57,6 @@
 
     End Sub
 
-    Private Sub TabPage4_Click(sender As Object, e As System.EventArgs) Handles TabPage4.Click
-
-    End Sub
-
 
     Private Sub MainMenu_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles MainMenu.SelectedIndexChanged
         Dim tab As Integer = MainMenu.SelectedIndex
@@ -69,6 +65,11 @@
             encuesta.TopLevel = False
             Me.MainMenu.TabPages(3).Controls.Add(encuesta)
             encuesta.Show()
+        ElseIf tab = 4 Then
+            Dim psicotecnico As New Psicotecnico(USER, con)
+            psicotecnico.TopLevel = False
+            Me.MainMenu.TabPages(4).Controls.Add(psicotecnico)
+            psicotecnico.Show()
         End If
     End Sub
 

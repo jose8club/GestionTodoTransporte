@@ -27,6 +27,7 @@ Partial Class Principal
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.MainMenu.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -37,6 +38,7 @@ Partial Class Principal
         Me.MainMenu.Controls.Add(Me.TabPage2)
         Me.MainMenu.Controls.Add(Me.TabPage3)
         Me.MainMenu.Controls.Add(Me.TabPage4)
+        Me.MainMenu.Controls.Add(Me.TabPage5)
         Me.MainMenu.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
         Me.MainMenu.ItemSize = New System.Drawing.Size(25, 150)
         Me.MainMenu.Location = New System.Drawing.Point(21, 12)
@@ -85,6 +87,15 @@ Partial Class Principal
         Me.TabPage4.Text = "Encuesta de Calidad"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
+        'TabPage5
+        '
+        Me.TabPage5.Location = New System.Drawing.Point(154, 4)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Size = New System.Drawing.Size(660, 378)
+        Me.TabPage5.TabIndex = 4
+        Me.TabPage5.Text = "Psicotecnico"
+        Me.TabPage5.UseVisualStyleBackColor = True
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -102,5 +113,6 @@ Partial Class Principal
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
 
 End Class

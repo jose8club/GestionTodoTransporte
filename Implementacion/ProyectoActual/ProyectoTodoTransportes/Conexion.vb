@@ -597,11 +597,14 @@ Public Class Conexion
         End Using
 
     End Sub
+
+
+
     'Crear examen psicotecnico'
     Sub RegistrarExamenPsico(ByVal Fecha As String, ByVal Examinador As String, ByVal Estado As String)
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO EXAMEN_PSICOTECNICO (Fecha, Examinador, Estado) VALUES(@Fecha, @Examinador, @Estado)"
+                .CommandText = "INSERT INTO PSICOTECNICO (Fecha, Examinador, Estado) VALUES(@Fecha, @Examinador, @Estado)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
@@ -619,5 +622,59 @@ Public Class Conexion
         End Using
 
     End Sub
+
+    Function registrosFuncionario() As String
+
+        'Retorna el numero de examinadores
+        'Usado para crear el combobox
+
+        Dim cant As String = ""
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT COUNT(*) FROM DOCENTE"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                comando.ExecuteNonQuery()
+                cant = comando.ExecuteScalar()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+
+        Return cant
+    End Function
+
+    Function funcionarioToArray(ByVal n As Integer) As String()
+
+        'Retorna un Array con los nombres de los estudiantes registrados por la empresa
+
+        Dim est(n) As String
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT Nombre FROM DOCENTE"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                Dim i As Integer
+                i = 0
+                Using lector As MySqlDataReader = comando.ExecuteReader()
+                    While lector.Read()
+                        est(i) = lector.GetString(0)
+                        i = i + 1
+                    End While
+                End Using
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+
+        Return est
+    End Function
 
 End Class
