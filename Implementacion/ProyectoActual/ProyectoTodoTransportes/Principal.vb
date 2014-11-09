@@ -11,20 +11,17 @@
         InitializeComponent()
     End Sub
 
-    Private Sub Principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub Principal_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        con.Close()
+        Application.Exit()
+    End Sub
 
+
+    Private Sub Principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim regCliente As New RegistrarCliente(USER, con)
         regCliente.TopLevel = False
         Me.MainMenu.TabPages(0).Controls.Add(regCliente)
         regCliente.Show()
-
-        Dim regMatricula As New RegistrarMatricula(USER, con)
-        regMatricula.TopLevel = False
-        Me.MainMenu.TabPages(1).Controls.Add(regMatricula)
-        regMatricula.Show()
-
-     
-
     End Sub
 
     Private Sub MainMenu_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles MainMenu.DrawItem
@@ -51,20 +48,20 @@
         g.DrawString(_TabPage.Text, _TabFont, _TextBrush, _TabBounds, New StringFormat(_StringFlags))
     End Sub
 
-    Protected Overrides Sub Finalize()
-        MyBase.Finalize()
-        con.Close()
-
-    End Sub
-
-    Private Sub TabPage4_Click(sender As Object, e As System.EventArgs) Handles TabPage4.Click
-
-    End Sub
-
-
     Private Sub MainMenu_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles MainMenu.SelectedIndexChanged
         Dim tab As Integer = MainMenu.SelectedIndex
-        If tab = 3 Then
+        Me.MainMenu.TabPages(tab).Controls.Clear()
+        If tab = 0 Then
+            Dim regCliente As New RegistrarCliente(USER, con)
+            regCliente.TopLevel = False
+            Me.MainMenu.TabPages(0).Controls.Add(regCliente)
+            regCliente.Show()
+        ElseIf tab = 1 Then
+            Dim regMatricula As New RegistrarMatricula(USER, con)
+            regMatricula.TopLevel = False
+            Me.MainMenu.TabPages(1).Controls.Add(regMatricula)
+            regMatricula.Show()
+        ElseIf tab = 3 Then
             Dim encuesta As New Encuesta(USER, con)
             encuesta.TopLevel = False
             Me.MainMenu.TabPages(3).Controls.Add(encuesta)
