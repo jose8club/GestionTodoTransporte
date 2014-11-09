@@ -93,7 +93,7 @@ Partial Class Psicotecnico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(467, 307)
+        Me.ClientSize = New System.Drawing.Size(612, 319)
         Me.Controls.Add(Me.tbox_estado)
         Me.Controls.Add(Me.cbox_examinador)
         Me.Controls.Add(Me.guardarPsico)
