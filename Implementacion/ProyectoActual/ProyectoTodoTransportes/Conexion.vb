@@ -24,6 +24,58 @@ Public Class Conexion
         End Using
     End Sub
 
+    Function count(ByVal NombreTabla As String) As String
+
+        'Retorna el numero de registros en 'NombreTabla'
+
+        Dim cant As String = ""
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT COUNT(*) FROM " & NombreTabla
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                comando.ExecuteNonQuery()
+                cant = comando.ExecuteScalar()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+
+        Return cant
+    End Function
+
+    Function toArray(ByVal n As Integer, ByVal NombreCampo As String, ByVal NombreTabla As String) As String()
+
+        'Retorna un arreglo con los datos 'campo' de la tabla 'tabla'
+
+        Dim arreglo(n) As String
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT " & NombreCampo & " FROM " & NombreTabla
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                Dim i As Integer = 0
+                Using lector As MySqlDataReader = comando.ExecuteReader()
+                    While lector.Read()
+                        arreglo(i) = lector.GetString(0)
+                        i = i + 1
+                    End While
+                End Using
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+
+        Return arreglo
+    End Function
+
     Sub Close()
         Using comando As New MySqlCommand()
             comando.Connection = conn
@@ -132,30 +184,6 @@ Public Class Conexion
 
         End Using
         Return False
-    End Function
-
-    Function count_FUNCIONARIO() As String
-
-        'Retorna el numero de cursos
-        'Usado para crear el combobox
-
-        Dim cant As String = ""
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "SELECT COUNT(*) FROM FUNCIONARIO"
-                .CommandType = CommandType.Text
-                .Connection = conn
-            End With
-
-            Try
-                comando.ExecuteNonQuery()
-                cant = comando.ExecuteScalar()
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-        End Using
-
-        Return cant
     End Function
 
     Function funcionariosToArray(ByVal n As Integer) As String()
