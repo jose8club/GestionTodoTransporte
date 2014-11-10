@@ -34,8 +34,8 @@
     
     Private Sub guardarPsico_Click(sender As System.Object, e As System.EventArgs) Handles guardarPsico.Click
         Try
-            con.RegistrarExamenPsico(Format(date_psico.Value, "yyyy-MM-dd"), cbox_examinador.Text, tbox_estado.Text)
-            'con.RegistrarExamenPsico(cbox_documento.Text, Format(date_psico.Value, "yyyy-MM-dd"), cbox_examinador.Text, tbox_estado.Text)
+            'con.RegistrarExamenPsico(Format(date_psico.Value, "yyyy-MM-dd"), cbox_examinador.Text, tbox_estado.Text)
+            con.RegistrarExamenPsico(cbox_documento.Text, Format(date_psico.Value, "yyyy-MM-dd"), cbox_examinador.Text, tbox_estado.Text)
             MsgBox("Operación realizada con éxito")
         Catch ex As Exception
             MsgBox(ex.Message.ToString)
