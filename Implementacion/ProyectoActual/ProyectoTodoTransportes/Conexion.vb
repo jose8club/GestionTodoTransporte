@@ -604,7 +604,7 @@ Public Class Conexion
     Sub RegistrarExamenPsico(ByVal Documento As Integer, ByVal Fecha As String, ByVal Examinador As String, ByVal Estado As String)
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO PSICOTECNICO (Documento, Fecha, Examinador, Estado) VALUES(@Fecha, @Examinador, @Estado)"
+                .CommandText = "INSERT INTO PSICOTECNICO (Documento, Fecha, Examinador, Estado) VALUES(@Documento, @Fecha, @Examinador, @Estado)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
