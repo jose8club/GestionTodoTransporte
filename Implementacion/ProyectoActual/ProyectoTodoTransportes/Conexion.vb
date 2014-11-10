@@ -601,13 +601,14 @@ Public Class Conexion
 
 
     'Crear examen psicotecnico'
-    Sub RegistrarExamenPsico(ByVal Fecha As String, ByVal Examinador As String, ByVal Estado As String)
+    Sub RegistrarExamenPsico(ByVal Documento As Integer, ByVal Fecha As String, ByVal Examinador As String, ByVal Estado As String)
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO PSICOTECNICO (Fecha, Examinador, Estado) VALUES(@Fecha, @Examinador, @Estado)"
+                .CommandText = "INSERT INTO PSICOTECNICO (Documento, Fecha, Examinador, Estado) VALUES(@Fecha, @Examinador, @Estado)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
+                .Parameters.AddWithValue("@Documento", Documento)
                 .Parameters.AddWithValue("@Fecha", Fecha)
                 .Parameters.AddWithValue("@Examinador", Examinador)
                 .Parameters.AddWithValue("@Estado", Estado)
@@ -655,6 +656,60 @@ Public Class Conexion
         Using comando As New MySqlCommand()
             With comando
                 .CommandText = "SELECT Nombre FROM DOCENTE"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                Dim i As Integer
+                i = 0
+                Using lector As MySqlDataReader = comando.ExecuteReader()
+                    While lector.Read()
+                        est(i) = lector.GetString(0)
+                        i = i + 1
+                    End While
+                End Using
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+
+        Return est
+    End Function
+
+    Function registrosDocumento() As String
+
+        'Retorna el numero de documentos
+        'Usado para crear el combobox
+
+        Dim cant As String = ""
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT COUNT(*) FROM DOCUMENTO"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                comando.ExecuteNonQuery()
+                cant = comando.ExecuteScalar()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+
+        Return cant
+    End Function
+
+    Function documentoToArray(ByVal n As Integer) As String()
+
+        'Retorna un Array con los nombres de los estudiantes registrados por la empresa
+
+        Dim est(n) As String
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT idDOCUMENTO FROM DOCUMENTO"
                 .CommandType = CommandType.Text
                 .Connection = conn
             End With

@@ -29,11 +29,13 @@ Partial Class Psicotecnico
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cbox_examinador = New System.Windows.Forms.ComboBox()
         Me.tbox_estado = New System.Windows.Forms.TextBox()
+        Me.cbox_documento = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'guardarPsico
         '
-        Me.guardarPsico.Location = New System.Drawing.Point(335, 251)
+        Me.guardarPsico.Location = New System.Drawing.Point(336, 304)
         Me.guardarPsico.Name = "guardarPsico"
         Me.guardarPsico.Size = New System.Drawing.Size(101, 28)
         Me.guardarPsico.TabIndex = 21
@@ -50,7 +52,7 @@ Partial Class Psicotecnico
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(27, 187)
+        Me.Label5.Location = New System.Drawing.Point(28, 240)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(40, 13)
         Me.Label5.TabIndex = 15
@@ -59,7 +61,7 @@ Partial Class Psicotecnico
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(27, 125)
+        Me.Label4.Location = New System.Drawing.Point(28, 178)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(62, 13)
         Me.Label4.TabIndex = 14
@@ -77,23 +79,42 @@ Partial Class Psicotecnico
         'cbox_examinador
         '
         Me.cbox_examinador.FormattingEnabled = True
-        Me.cbox_examinador.Location = New System.Drawing.Point(102, 125)
+        Me.cbox_examinador.Location = New System.Drawing.Point(103, 178)
         Me.cbox_examinador.Name = "cbox_examinador"
         Me.cbox_examinador.Size = New System.Drawing.Size(334, 21)
         Me.cbox_examinador.TabIndex = 22
         '
         'tbox_estado
         '
-        Me.tbox_estado.Location = New System.Drawing.Point(103, 187)
+        Me.tbox_estado.Location = New System.Drawing.Point(104, 240)
         Me.tbox_estado.Name = "tbox_estado"
         Me.tbox_estado.Size = New System.Drawing.Size(333, 20)
         Me.tbox_estado.TabIndex = 23
+        '
+        'cbox_documento
+        '
+        Me.cbox_documento.FormattingEnabled = True
+        Me.cbox_documento.Location = New System.Drawing.Point(103, 116)
+        Me.cbox_documento.Name = "cbox_documento"
+        Me.cbox_documento.Size = New System.Drawing.Size(334, 21)
+        Me.cbox_documento.TabIndex = 25
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(28, 116)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(62, 13)
+        Me.Label1.TabIndex = 24
+        Me.Label1.Text = "Documento"
         '
         'Psicotecnico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(612, 319)
+        Me.ClientSize = New System.Drawing.Size(612, 366)
+        Me.Controls.Add(Me.cbox_documento)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.tbox_estado)
         Me.Controls.Add(Me.cbox_examinador)
         Me.Controls.Add(Me.guardarPsico)
@@ -115,4 +136,6 @@ Partial Class Psicotecnico
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents cbox_examinador As System.Windows.Forms.ComboBox
     Friend WithEvents tbox_estado As System.Windows.Forms.TextBox
+    Friend WithEvents cbox_documento As System.Windows.Forms.ComboBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class
