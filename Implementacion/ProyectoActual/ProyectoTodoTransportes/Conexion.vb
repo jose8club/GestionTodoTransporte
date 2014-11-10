@@ -9,8 +9,19 @@ Public Class Conexion
     Dim lector As MySqlDataReader
     Dim comando As MySqlCommand
 
-    Sub Main()
+    Sub iSesion()
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandType = CommandType.Text
+                .Connection = conn
 
+            End With
+            Try
+                conn.Open()
+            Catch ex As Exception
+                MsgBox(ex.ToString)
+            End Try
+        End Using
     End Sub
 
     Sub Close()
@@ -121,6 +132,112 @@ Public Class Conexion
 
         End Using
         Return False
+    End Function
+
+    Function count_FUNCIONARIO() As String
+
+        'Retorna el numero de cursos
+        'Usado para crear el combobox
+
+        Dim cant As String = ""
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT COUNT(*) FROM FUNCIONARIO"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                comando.ExecuteNonQuery()
+                cant = comando.ExecuteScalar()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+
+        Return cant
+    End Function
+
+    Function funcionariosToArray(ByVal n As Integer) As String()
+
+        'Retorna un Array con los cursos impartidos por la empresa
+
+        Dim cursos(n) As String
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT idFUNCIONARIO FROM funcionario"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                Dim i As Integer = 0
+                Using lector As MySqlDataReader = comando.ExecuteReader()
+                    While lector.Read()
+                        cursos(i) = lector.GetString(0)
+                        i = i + 1
+                    End While
+                End Using
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+
+        Return cursos
+    End Function
+
+    Function registrosEnTIPOUSUARIO() As String
+
+        'Retorna el numero de cursos
+        'Usado para crear el combobox
+
+        Dim cant As String = ""
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT COUNT(*) FROM TIPO_USUARIO"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                comando.ExecuteNonQuery()
+                cant = comando.ExecuteScalar()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+
+        Return cant
+    End Function
+
+    Function tipoUsuariosToArray(ByVal n As Integer) As String()
+
+        'Retorna un Array con los cursos impartidos por la empresa
+
+        Dim tipos(n) As String
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT Tipo FROM tipo_usuario"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                Dim i As Integer = 0
+                Using lector As MySqlDataReader = comando.ExecuteReader()
+                    While lector.Read()
+                        tipos(i) = lector.GetString(0)
+                        i = i + 1
+                    End While
+                End Using
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+
+        Return tipos
     End Function
 
     Function registrosEnCURSO() As String
