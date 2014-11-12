@@ -2,32 +2,36 @@
 
     Dim con As New Conexion
     Dim USER As String = ""
+    Dim STATUS As ToolStripStatusLabel
 
-    Sub New(ByVal usuario As String, ByVal conexion As Conexion)
+    Sub New(ByVal usuario As String, ByVal conexion As Conexion, ByVal estado As ToolStripStatusLabel)
         con = conexion
         USER = usuario
+        STATUS = estado
         InitializeComponent()
     End Sub
 
     Private Sub RegistrarMatricula_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'CARGAR COMBOXO cursointeres
+        'CARGAR COMBOBOX cursointeres
 
         Dim items() As String
         Dim n As Integer
-        n = con.count("Curso") - 1
 
+        n = con.count("Curso") - 1
         items = con.toArray(n, "Codigo", "Curso")
         For i As Integer = 0 To n
             cbox_CursoRendir.Items.Add(items(i))
         Next
+        If n >= 0 Then cbox_CursoRendir.SelectedIndex = 0
 
         'CARGAR COMBOBOX teoria
-        n = con.count("Teoria") - 1
 
+        n = con.count("Teoria") - 1
         items = con.toArray(n, "Horario", "Teoria")
         For i As Integer = 0 To n
             cbox_HorarioTeorico.Items.Add(items(i))
         Next
+        If n >= 0 Then cbox_HorarioTeorico.SelectedIndex = 0
 
         'CARGAR COMBOBOX practica
 
@@ -36,21 +40,17 @@
         'For i As Integer = 0 To k
         ' cbox_HorarioPractico.Items.Add(pract(i))
         ' Next
+        'If n >= 0 Then cbox_HorarioPractico.SelectedIndex = 0
 
         'CARGAR COMBOBOX medio pago
-        '       Dim f As Integer
-        '       f = con.registrosMedio - 1
-        '       Dim medio(k) As String
-        '       medio = con.MedioToArray(f)
-        '      For i As Integer = 0 To f
-        'cbox_MedioPago.Items.Add(medio(i))
-        'Next
 
+        n = con.count("Medio_pago") - 1
+        items = con.toArray(n, "Nombre", "Medio_pago")
+        For i As Integer = 0 To n
+            cbox_MedioPago.Items.Add(items(i))
+        Next
+        If n >= 0 Then cbox_MedioPago.SelectedIndex = 0
 
-        'cbox_HorarioTeorico.SelectedIndex = 0
-        'cbox_MedioPago.SelectedIndex = 0
-        'cbox_CursoRendir.SelectedIndex = 0
-        'cbox_HorarioPractico.SelectedIndex = 0
     End Sub
 
     Private Sub btn_Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Guardar.Click

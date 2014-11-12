@@ -27,7 +27,12 @@ Partial Class Principal
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.lbl_Estado = New System.Windows.Forms.StatusStrip()
+        Me.ESTADO = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MainMenu.SuspendLayout()
+        Me.lbl_Estado.SuspendLayout()
         Me.SuspendLayout()
         '
         'MainMenu
@@ -37,6 +42,8 @@ Partial Class Principal
         Me.MainMenu.Controls.Add(Me.TabPage2)
         Me.MainMenu.Controls.Add(Me.TabPage3)
         Me.MainMenu.Controls.Add(Me.TabPage4)
+        Me.MainMenu.Controls.Add(Me.TabPage5)
+        Me.MainMenu.Controls.Add(Me.TabPage6)
         Me.MainMenu.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
         Me.MainMenu.ItemSize = New System.Drawing.Size(25, 150)
         Me.MainMenu.Location = New System.Drawing.Point(21, 12)
@@ -85,16 +92,53 @@ Partial Class Principal
         Me.TabPage4.Text = "Encuesta de Calidad"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
+        'TabPage5
+        '
+        Me.TabPage5.Location = New System.Drawing.Point(154, 4)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Size = New System.Drawing.Size(660, 378)
+        Me.TabPage5.TabIndex = 4
+        Me.TabPage5.Text = "Vehículos"
+        Me.TabPage5.UseVisualStyleBackColor = True
+        '
+        'TabPage6
+        '
+        Me.TabPage6.Location = New System.Drawing.Point(154, 4)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Size = New System.Drawing.Size(660, 378)
+        Me.TabPage6.TabIndex = 5
+        Me.TabPage6.Text = "TabPage6"
+        Me.TabPage6.UseVisualStyleBackColor = True
+        '
+        'lbl_Estado
+        '
+        Me.lbl_Estado.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ESTADO})
+        Me.lbl_Estado.Location = New System.Drawing.Point(0, 408)
+        Me.lbl_Estado.Name = "lbl_Estado"
+        Me.lbl_Estado.Size = New System.Drawing.Size(853, 22)
+        Me.lbl_Estado.TabIndex = 1
+        Me.lbl_Estado.Text = "ESTADO"
+        '
+        'ESTADO
+        '
+        Me.ESTADO.Name = "ESTADO"
+        Me.ESTADO.Size = New System.Drawing.Size(124, 17)
+        Me.ESTADO.Text = "ToolStripStatusLabel1"
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(851, 419)
+        Me.ClientSize = New System.Drawing.Size(853, 430)
+        Me.Controls.Add(Me.lbl_Estado)
         Me.Controls.Add(Me.MainMenu)
         Me.Name = "Principal"
         Me.Text = "Sistema de Gestión TodoTransporte"
         Me.MainMenu.ResumeLayout(False)
+        Me.lbl_Estado.ResumeLayout(False)
+        Me.lbl_Estado.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents MainMenu As System.Windows.Forms.TabControl
@@ -102,5 +146,9 @@ Partial Class Principal
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage6 As System.Windows.Forms.TabPage
+    Friend WithEvents lbl_Estado As System.Windows.Forms.StatusStrip
+    Friend WithEvents ESTADO As System.Windows.Forms.ToolStripStatusLabel
 
 End Class

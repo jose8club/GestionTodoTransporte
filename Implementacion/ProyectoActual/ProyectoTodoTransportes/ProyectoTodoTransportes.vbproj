@@ -136,6 +136,12 @@
     <Compile Include="RegistrarMatricula.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Vehiculos.Designer.vb">
+      <DependentUpon>Vehiculos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Vehiculos.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Bienvenido.resx">
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarMatricula.resx">
       <DependentUpon>RegistrarMatricula.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vehiculos.resx">
+      <DependentUpon>Vehiculos.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

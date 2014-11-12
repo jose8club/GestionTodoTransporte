@@ -18,10 +18,11 @@
 
 
     Private Sub Principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Dim regCliente As New RegistrarCliente(USER, con)
+        Dim regCliente As New RegistrarCliente(USER, con, ESTADO)
         regCliente.TopLevel = False
         Me.MainMenu.TabPages(0).Controls.Add(regCliente)
         regCliente.Show()
+        ESTADO.Text = "Usuario: " & USER
     End Sub
 
     Private Sub MainMenu_DrawItem(ByVal sender As Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles MainMenu.DrawItem
@@ -52,22 +53,27 @@
         Dim tab As Integer = MainMenu.SelectedIndex
         Me.MainMenu.TabPages(tab).Controls.Clear()
         If tab = 0 Then
-            Dim regCliente As New RegistrarCliente(USER, con)
+            Dim regCliente As New RegistrarCliente(USER, con, ESTADO)
             regCliente.TopLevel = False
             Me.MainMenu.TabPages(0).Controls.Add(regCliente)
             regCliente.Show()
         ElseIf tab = 1 Then
-            Dim regMatricula As New RegistrarMatricula(USER, con)
+            Dim regMatricula As New RegistrarMatricula(USER, con, ESTADO)
             regMatricula.TopLevel = False
             Me.MainMenu.TabPages(1).Controls.Add(regMatricula)
             regMatricula.Show()
         ElseIf tab = 3 Then
-            Dim encuesta As New Encuesta(USER, con)
+            Dim encuesta As New Encuesta(USER, con, ESTADO)
             encuesta.TopLevel = False
             Me.MainMenu.TabPages(3).Controls.Add(encuesta)
             encuesta.Show()
+        ElseIf tab = 4 Then
+            Dim regVehiculo As New Vehiculos(USER, con, ESTADO)
+            regVehiculo.TopLevel = False
+            Me.MainMenu.TabPages(4).Controls.Add(regVehiculo)
+            regVehiculo.Show()
+
         End If
     End Sub
-
 
 End Class

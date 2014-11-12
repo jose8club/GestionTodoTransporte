@@ -267,256 +267,34 @@ Public Class Conexion
         End Using
     End Sub
 
+    Sub regVehiculo(ByVal Patente As String, ByVal Modelo As String, ByVal Estado As String)
+
+        'Realiza el registro en la tabla CLIENTE
+
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO  Auto_Escuela (Matricula, Modelo, Estado) VALUES(@Patente, @Modelo, @Estado)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Patente", Patente)
+                .Parameters.AddWithValue("@Modelo", Modelo)
+                .Parameters.AddWithValue("@Estado", Estado)
+
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+    End Sub
+
 #End Region
 
 #Region "OTROS"
 
-
-    Function funcionariosToArray(ByVal n As Integer) As String()
-
-        'Retorna un Array con los cursos impartidos por la empresa
-
-        Dim cursos(n) As String
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "SELECT idFUNCIONARIO FROM funcionario"
-                .CommandType = CommandType.Text
-                .Connection = conn
-            End With
-
-            Try
-                Dim i As Integer = 0
-                Using lector As MySqlDataReader = comando.ExecuteReader()
-                    While lector.Read()
-                        cursos(i) = lector.GetString(0)
-                        i = i + 1
-                    End While
-                End Using
-
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-        End Using
-
-        Return cursos
-    End Function
-
-    Function registrosEnTIPOUSUARIO() As String
-
-        'Retorna el numero de cursos
-        'Usado para crear el combobox
-
-        Dim cant As String = ""
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "SELECT COUNT(*) FROM TIPO_USUARIO"
-                .CommandType = CommandType.Text
-                .Connection = conn
-            End With
-
-            Try
-                comando.ExecuteNonQuery()
-                cant = comando.ExecuteScalar()
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-        End Using
-
-        Return cant
-    End Function
-
-    Function tipoUsuariosToArray(ByVal n As Integer) As String()
-
-        'Retorna un Array con los cursos impartidos por la empresa
-
-        Dim tipos(n) As String
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "SELECT Tipo FROM tipo_usuario"
-                .CommandType = CommandType.Text
-                .Connection = conn
-            End With
-
-            Try
-                Dim i As Integer = 0
-                Using lector As MySqlDataReader = comando.ExecuteReader()
-                    While lector.Read()
-                        tipos(i) = lector.GetString(0)
-                        i = i + 1
-                    End While
-                End Using
-
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-        End Using
-
-        Return tipos
-    End Function
-
-    'AQUI EMPIEZAN LOS METODOS DEL CASO DE USO REGISTRAR CLIENTE
-    'Horarios estudiante practico caso de uso registar estudiante
-
-    Function registrosPractico() As String
-
-        'Retorna el numero de clases practica
-        'Usado para crear el combobox
-
-        Dim cant As String = ""
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "SELECT COUNT(*) FROM PRACTICA"
-                .CommandType = CommandType.Text
-                .Connection = conn
-            End With
-
-            Try
-                comando.ExecuteNonQuery()
-                cant = comando.ExecuteScalar()
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-        End Using
-
-        Return cant
-    End Function
-
-    Function practicoToArray(ByVal n As Integer) As String()
-
-        'Retorna un Array con los practicos impartidos por la empresa
-
-        Dim pract(n) As String
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "SELECT Horario FROM PRACTICA"
-                .CommandType = CommandType.Text
-                .Connection = conn
-            End With
-
-            Try
-                Dim i As Integer = 0
-                Using lector As MySqlDataReader = comando.ExecuteReader()
-                    While lector.Read()
-                        pract(i) = lector.GetString(0)
-                        i = i + 1
-                    End While
-                End Using
-
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-        End Using
-
-        Return pract
-    End Function
-    'Horarios estudiante teorico caso de uso registar estudiante'
-
-    Function registrosTeorico() As String
-
-        'Retorna el numero de clases practica
-        'Usado para crear el combobox
-
-        Dim cant As String = ""
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "SELECT COUNT(*) FROM TEORIA"
-                .CommandType = CommandType.Text
-                .Connection = conn
-            End With
-
-            Try
-                comando.ExecuteNonQuery()
-                cant = comando.ExecuteScalar()
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-        End Using
-
-        Return cant
-    End Function
-
-    Function teoricoToArray(ByVal n As Integer) As String()
-
-        'Retorna un Array con los practicoss impartidos por la empresa
-
-        Dim teo(n) As String
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "SELECT Horario FROM TEORIA"
-                .CommandType = CommandType.Text
-                .Connection = conn
-            End With
-
-            Try
-                Dim i As Integer = 0
-                Using lector As MySqlDataReader = comando.ExecuteReader()
-                    While lector.Read()
-                        teo(i) = lector.GetString(0)
-                        i = i + 1
-                    End While
-                End Using
-
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-        End Using
-
-        Return teo
-    End Function
-
-    Function registrosMedio() As String
-
-        'Retorna el numero de clases practica
-        'Usado para crear el combobox
-
-        Dim cant As String = ""
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "SELECT COUNT(*) FROM MEDIO_PAGO"
-                .CommandType = CommandType.Text
-                .Connection = conn
-            End With
-
-            Try
-                comando.ExecuteNonQuery()
-                cant = comando.ExecuteScalar()
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-        End Using
-
-        Return cant
-    End Function
-
-    Function MedioToArray(ByVal n As Integer) As String()
-
-        'Retorna un Array con los practicoss impartidos por la empresa
-
-        Dim medio(n) As String
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "SELECT medio FROM MEDIO_PAGO"
-                .CommandType = CommandType.Text
-                .Connection = conn
-            End With
-
-            Try
-                Dim i As Integer
-                i = 0
-                Using lector As MySqlDataReader = comando.ExecuteReader()
-                    While lector.Read()
-                        medio(i) = lector.GetString(0)
-                        i = i + 1
-                    End While
-                End Using
-
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-        End Using
-
-        Return medio
-    End Function
 
     Function buscarPago(ByVal edad As Integer, ByVal Codigo As String) As Integer
         Dim pago As Integer
