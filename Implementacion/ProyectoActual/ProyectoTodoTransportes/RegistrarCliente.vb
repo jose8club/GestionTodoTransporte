@@ -11,13 +11,16 @@
     Private Sub RegistrarCliente_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         cbox_CursoInteres.Items.Clear()
         Dim n As Integer
-        n = con.registrosEnCURSO - 1
-        Dim cursos(n) As String
-        cursos = con.cursosToArray(n)
+        Dim items() As String
+        n = con.count("curso") - 1
+
+        items = con.toArray(n, "Codigo", "Curso")
         For i As Integer = 0 To n
-            cbox_CursoInteres.Items.Add(cursos(i))
+            cbox_CursoInteres.Items.Add(items(i))
         Next
-        cbox_CursoInteres.SelectedIndex = 0
+        If n >= 0 Then
+            cbox_CursoInteres.SelectedIndex = 0
+        End If
     End Sub
 
     Private Sub btn_Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Guardar.Click
@@ -30,13 +33,11 @@
         Else
             lbl_Nombre.ForeColor = System.Drawing.SystemColors.ControlText
             Try
-                Dim idcliente As Integer = CInt(con.obtenerUltimoIDCliente) + 1
-                'falta validar que sucede cuando no hay clientes
-
-                con.registrarCliente(idcliente, tbox_Nombre.Text, CInt(tbox_Telefono.Text), cbox_CursoInteres.Text,
-                                Format(date_FechaAtencion.Value, "yyyy-MM-dd"), tbox_Observaciones.Text, USER)
-
-                con.registrarAtencion(USER, idcliente)
+                Dim idcliente As Integer
+                If con.last("idCliente_Potencial", "Cliente_Potencial") = "" Then idcliente = 1 Else idcliente = CInt(con.last("idCliente_Potencial", "Cliente_Potencial")) + 1
+                MsgBox(idcliente)
+                con.regClientePotencial(tbox_Nombre.Text, CInt(tbox_Telefono.Text), cbox_CursoInteres.Text, tbox_Observaciones.Text, USER)
+                con.regAtencion(USER, idcliente, Format(date_FechaAtencion.Value, "yyyy-MM-dd"), "OFF")
 
                 lbl_Mensaje1.ForeColor = Color.Blue
                 lbl_Mensaje1.Text = "Cliente " & tbox_Nombre.Text & " fue agregado con éxito."
@@ -56,6 +57,8 @@
         End If
     End Sub
 
+#Region "VALIDACION DE ENTRADA"
+
     Private Sub tbox_Telefono_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_Telefono.KeyPress
         Herramientas.soloNumeros(e)
     End Sub
@@ -64,7 +67,6 @@
         Herramientas.soloTexto(e)
     End Sub
 
-    Private Sub cbox_CursoInteres_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_CursoInteres.SelectedIndexChanged
+#End Region
 
-    End Sub
 End Class

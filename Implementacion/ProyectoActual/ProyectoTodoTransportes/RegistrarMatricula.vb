@@ -11,46 +11,47 @@
 
     Private Sub RegistrarMatricula_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'CARGAR COMBOXO cursointeres
+
+        Dim items() As String
         Dim n As Integer
-        n = con.registrosEnCURSO - 1
-        Dim cursos(n) As String
-        cursos = con.cursosToArray(n)
+        n = con.count("Curso") - 1
+
+        items = con.toArray(n, "Codigo", "Curso")
         For i As Integer = 0 To n
-            cbox_CursoRendir.Items.Add(cursos(i))
+            cbox_CursoRendir.Items.Add(items(i))
         Next
-        cbox_CursoRendir.SelectedIndex = 0
 
         'CARGAR COMBOBOX teoria
-        Dim m As Integer
-        m = con.registrosTeorico - 1
-        Dim teo(m) As String
-        teo = con.teoricoToArray(m)
-        For i As Integer = 0 To m
-            cbox_HorarioTeorico.Items.Add(teo(i))
+        n = con.count("Teoria") - 1
+
+        items = con.toArray(n, "Horario", "Teoria")
+        For i As Integer = 0 To n
+            cbox_HorarioTeorico.Items.Add(items(i))
         Next
-        cbox_HorarioTeorico.SelectedIndex = 0
 
         'CARGAR COMBOBOX practica
-        Dim k As Integer
-        k = con.registrosPractico - 1
-        Dim pract(k) As String
-        pract = con.practicoToArray(k)
-        For i As Integer = 0 To k
-            cbox_HorarioPractico.Items.Add(pract(i))
-        Next
-        cbox_HorarioPractico.SelectedIndex = 0
+
+        'n = con.count("Teoria") - 1
+        'pract = con.practicoToArray(k)
+        'For i As Integer = 0 To k
+        ' cbox_HorarioPractico.Items.Add(pract(i))
+        ' Next
 
         'CARGAR COMBOBOX medio pago
-        Dim f As Integer
-        f = con.registrosMedio - 1
-        Dim medio(k) As String
-        medio = con.MedioToArray(f)
-        For i As Integer = 0 To f
-            cbox_MedioPago.Items.Add(medio(i))
-        Next
-        cbox_MedioPago.SelectedIndex = 0
-    End Sub
+        '       Dim f As Integer
+        '       f = con.registrosMedio - 1
+        '       Dim medio(k) As String
+        '       medio = con.MedioToArray(f)
+        '      For i As Integer = 0 To f
+        'cbox_MedioPago.Items.Add(medio(i))
+        'Next
 
+
+        'cbox_HorarioTeorico.SelectedIndex = 0
+        'cbox_MedioPago.SelectedIndex = 0
+        'cbox_CursoRendir.SelectedIndex = 0
+        'cbox_HorarioPractico.SelectedIndex = 0
+    End Sub
 
     Private Sub btn_Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Guardar.Click
 
@@ -119,6 +120,8 @@
     End Sub
 
 
+#Region "Validacion de entrada"
+
     Private Sub tbox_RUT_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_RUT.KeyPress
         Herramientas.soloNumeros(e)
     End Sub
@@ -138,6 +141,8 @@
     Private Sub tbox_Nombre_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_Nombre.KeyPress
         Herramientas.soloTexto(e)
     End Sub
+
+#End Region
 
 
 End Class

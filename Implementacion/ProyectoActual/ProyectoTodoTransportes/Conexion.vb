@@ -1,5 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 
+
 Public Class Conexion
 
     Dim cs As String = "Database=ttpt;Data Source=localhost;" _
@@ -9,7 +10,11 @@ Public Class Conexion
     Dim lector As MySqlDataReader
     Dim comando As MySqlCommand
 
+
+#Region "DESARROLLO"
+
     Sub iSesion()
+        'INICIA SESIÓN SIN PEDIR USER/PASS
         Using comando As New MySqlCommand()
             With comando
                 .CommandType = CommandType.Text
@@ -23,6 +28,10 @@ Public Class Conexion
             End Try
         End Using
     End Sub
+
+#End Region
+
+#Region "HERRAMIENTAS"
 
     Function count(ByVal NombreTabla As String) As String
 
@@ -47,9 +56,31 @@ Public Class Conexion
         Return cant
     End Function
 
+    Function last(ByVal columna As String, ByVal tabla As String) As String
+
+        'Funcion que retorna el último 'columna' de la tabla 'tabla'
+
+        Using comando As New MySqlCommand()
+
+            comando.CommandText = "SELECT max(" & columna & ") AS " & columna & " FROM " & tabla
+            comando.CommandType = CommandType.Text
+            comando.Connection = conn
+
+            Try
+                comando.ExecuteNonQuery()
+
+                Dim res As String = Convert.ToString(comando.ExecuteScalar)
+                Return res
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+    End Function
+
     Function toArray(ByVal n As Integer, ByVal NombreCampo As String, ByVal NombreTabla As String) As String()
 
-        'Retorna un arreglo con los datos 'campo' de la tabla 'tabla'
+        'Retorna un arreglo con los datos 'NombreCampo' de la tabla 'NombreTabla'
 
         Dim arreglo(n) As String
         Using comando As New MySqlCommand()
@@ -76,89 +107,27 @@ Public Class Conexion
         Return arreglo
     End Function
 
-    Sub Close()
-        Using comando As New MySqlCommand()
-            comando.Connection = conn
-        End Using
-        Try
-            If conn.State = ConnectionState.Open Then conn.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message.ToString)
-        End Try
+    Function selectWhereQuery(ByVal columna As String, ByVal tabla As String, ByVal condicion As String) As String
 
-    End Sub
+        'DEVUELVE UN DATO EN ESPECIFICO EN LA BD
 
-    Sub registrarAtencion(ByVal usuario As String, ByVal idcliente As Integer)
-
-        'Realiza el registro en la tabla ATENCION_CLIENTE
-
+        Dim res As String
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO ATENCION_CLIENTE (Usuario, Cliente) VALUES(@Usuario,@Cliente)"
+                .CommandText = "SELECT " & columna & " FROM " & tabla & " WHERE " & condicion
                 .CommandType = CommandType.Text
                 .Connection = conn
-
-                .Parameters.AddWithValue("@Usuario", usuario)
-                .Parameters.AddWithValue("@Cliente", idcliente)
-
             End With
             Try
                 comando.ExecuteNonQuery()
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-
-        End Using
-    End Sub
-
-    Function obtenerUltimoIDCliente() As String
-
-        'Funcion que retorna el último idCliente de la tabla CLIENTE
-
-        Using comando As New MySqlCommand()
-
-            comando.CommandText = "SELECT max(idCLIENTE) AS idCLIENTE FROM CLIENTE"
-            comando.CommandType = CommandType.Text
-            comando.Connection = conn
-
-            Try
-                comando.ExecuteNonQuery()
-
-                Dim id As String = Convert.ToString(comando.ExecuteScalar)
-                Return id
-
+                res = comando.ExecuteScalar
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
             End Try
         End Using
+
+        Return res
     End Function
-
-    Sub registrarCliente(ByVal id As Integer, ByVal Nombre As String, ByVal Telefono As Integer, ByVal Curso As String, ByVal Fecha As String, ByVal Otros As String, ByVal USER As String)
-
-        'Realiza el registro en la tabla CLIENTE
-
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "INSERT INTO CLIENTE (idCLIENTE,Nombre, Telefono, Curso, Fecha, Extra, Atención) VALUES(@id,@Nombre, @Telefono, @Curso, @Fecha, @Extra, @Atencion)"
-                .CommandType = CommandType.Text
-                .Connection = conn
-
-                .Parameters.AddWithValue("@id", id)
-                .Parameters.AddWithValue("@Nombre", Nombre)
-                .Parameters.AddWithValue("@Telefono", Telefono)
-                .Parameters.AddWithValue("@Curso", Curso)
-                .Parameters.AddWithValue("@Fecha", Fecha)
-                .Parameters.AddWithValue("@Extra", Otros)
-                .Parameters.AddWithValue("@Atencion", "Tipo1") 'MOMENTANEO
-            End With
-            Try
-                comando.ExecuteNonQuery()
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-
-        End Using
-    End Sub
 
     Function iniciarSesion(ByVal usuario As String, ByVal contra As String) As Boolean
 
@@ -176,6 +145,7 @@ Public Class Conexion
                 conn.Open()
                 comando.ExecuteNonQuery()
                 Dim pass As String = Convert.ToString(comando.ExecuteScalar)
+
                 If pass.Equals(contra) Then Return True Else Return False
 
             Catch ex As Exception
@@ -184,7 +154,123 @@ Public Class Conexion
 
         End Using
         Return False
+
     End Function
+
+    Sub Close()
+
+        'CIERRA LA BD
+
+        Using comando As New MySqlCommand()
+            comando.Connection = conn
+        End Using
+        Try
+            If conn.State = ConnectionState.Open Then conn.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message.ToString)
+        End Try
+
+    End Sub
+
+#End Region
+
+#Region "INSERTS"
+
+    Sub regFuncionario(ByVal Nombre As String, ByVal Tipo As String)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO FUNCIONARIO (Nombre, Tipo) VALUES(@Nombre, @Tipo)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Nombre", Nombre)
+                .Parameters.AddWithValue("@Tipo", Tipo)
+
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+    End Sub
+
+    Sub regUsuario(ByVal Nombre As String, ByVal Contra As String, ByVal Tipo As String, ByVal Funcionario As String)
+        Dim idFuncionario As String = Me.selectWhereQuery("idFUNCIONARIO", "FUNCIONARIO", "Nombre = '" & Funcionario & "'")
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO USUARIO (Nombre, Contraseña, Tipo, Funcionario) VALUES(@Nombre, @Contraseña, @Tipo, @Funcionario)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Nombre", Nombre)
+                .Parameters.AddWithValue("@Contraseña", Contra)
+                .Parameters.AddWithValue("@Tipo", Tipo)
+                .Parameters.AddWithValue("@Funcionario", CInt(idFuncionario))
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+    End Sub
+
+    Sub regAtencion(ByVal usuario As String, ByVal idcliente As Integer, ByVal fecha As String, ByVal metodo As String)
+
+        'Realiza el registro en la tabla ATENCION_CLIENTE
+
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO Atencion_cliente_potencial (Usuario, Cliente_Potencial, Fecha, Metodo) VALUES(@Usuario,@Cliente,@Fecha,@Metodo)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Usuario", usuario)
+                .Parameters.AddWithValue("@Cliente", idcliente)
+                .Parameters.AddWithValue("@Fecha", fecha)
+                .Parameters.AddWithValue("@Metodo", metodo) 'momentaneo'
+
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+    End Sub
+
+    Sub regClientePotencial(ByVal Nombre As String, ByVal Telefono As Integer, ByVal Producto As String, ByVal Extra As String, ByVal USER As String)
+
+        'Realiza el registro en la tabla CLIENTE
+
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO Cliente_potencial (Nombre, Telefono, Producto, Extra) VALUES(@Nombre, @Telefono, @Producto, @Extra)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Nombre", Nombre)
+                .Parameters.AddWithValue("@Telefono", Telefono)
+                .Parameters.AddWithValue("@Producto", Producto)
+                .Parameters.AddWithValue("@Extra", Extra)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+    End Sub
+
+#End Region
+
+#Region "OTROS"
+
 
     Function funcionariosToArray(ByVal n As Integer) As String()
 
@@ -266,59 +352,6 @@ Public Class Conexion
         End Using
 
         Return tipos
-    End Function
-
-    Function registrosEnCURSO() As String
-
-        'Retorna el numero de cursos
-        'Usado para crear el combobox
-
-        Dim cant As String = ""
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "SELECT COUNT(*) FROM CURSO"
-                .CommandType = CommandType.Text
-                .Connection = conn
-            End With
-
-            Try
-                comando.ExecuteNonQuery()
-                cant = comando.ExecuteScalar()
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-        End Using
-
-        Return cant
-    End Function
-
-    Function cursosToArray(ByVal n As Integer) As String()
-
-        'Retorna un Array con los cursos impartidos por la empresa
-
-        Dim cursos(n) As String
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "SELECT Codigo FROM CURSO"
-                .CommandType = CommandType.Text
-                .Connection = conn
-            End With
-
-            Try
-                Dim i As Integer = 0
-                Using lector As MySqlDataReader = comando.ExecuteReader()
-                    While lector.Read()
-                        cursos(i) = lector.GetString(0)
-                        i = i + 1
-                    End While
-                End Using
-
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-        End Using
-
-        Return cursos
     End Function
 
     'AQUI EMPIEZAN LOS METODOS DEL CASO DE USO REGISTRAR CLIENTE
@@ -764,5 +797,7 @@ Public Class Conexion
         End Using
 
     End Sub
+
+#End Region
 
 End Class
