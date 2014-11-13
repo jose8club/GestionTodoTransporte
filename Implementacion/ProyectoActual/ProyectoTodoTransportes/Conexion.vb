@@ -601,13 +601,14 @@ Public Class Conexion
 
 
     'Crear examen psicotecnico'
-    Sub RegistrarExamenPsico(ByVal Documento As Integer, ByVal Fecha As String, ByVal Examinador As String, ByVal Estado As String)
+    Sub RegistrarExamenPsico(ByVal Codigo As Integer, ByVal Documento As Integer, ByVal Fecha As String, ByVal Examinador As String, ByVal Estado As String)
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO PSICOTECNICO (Documento, Fecha, Examinador, Estado) VALUES(@Documento, @Fecha, @Examinador, @Estado)"
+                .CommandText = "INSERT INTO PSICOTECNICO (Codigo, Documento, Fecha, Examinador, Estado) VALUES(@Codigo, @Documento, @Fecha, @Examinador, @Estado)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
+                .Parameters.AddWithValue("@Codigo", Codigo)
                 .Parameters.AddWithValue("@Documento", Documento)
                 .Parameters.AddWithValue("@Fecha", Fecha)
                 .Parameters.AddWithValue("@Examinador", Examinador)

@@ -34,8 +34,8 @@
     
     Private Sub guardarPsico_Click(sender As System.Object, e As System.EventArgs) Handles guardarPsico.Click
         Try
-            'con.RegistrarExamenPsico(Format(date_psico.Value, "yyyy-MM-dd"), cbox_examinador.Text, tbox_estado.Text)
-            con.RegistrarExamenPsico(cbox_documento.Text, Format(date_psico.Value, "yyyy-MM-dd"), cbox_examinador.Text, tbox_estado.Text)
+
+            con.RegistrarExamenPsico(tbox_codigo.Text, cbox_documento.Text, Format(date_psico.Value, "yyyy-MM-dd"), cbox_examinador.Text, tbox_estado.Text)
             MsgBox("Operación realizada con éxito")
         Catch ex As Exception
             MsgBox(ex.Message.ToString)
@@ -46,6 +46,8 @@
     Private Sub tbox_estado_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_estado.KeyPress
         Herramientas.soloTexto(e)
     End Sub
-
+    Private Sub tbox_codigo_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_codigo.KeyPress
+        Herramientas.soloNumeros(e)
+    End Sub
    
 End Class
