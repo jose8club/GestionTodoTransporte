@@ -76,39 +76,39 @@ Partial Class Principal
         '
         'TabPage3
         '
+        Me.TabPage3.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage3.Location = New System.Drawing.Point(154, 4)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Size = New System.Drawing.Size(660, 378)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Profesores"
-        Me.TabPage3.UseVisualStyleBackColor = True
         '
         'TabPage4
         '
+        Me.TabPage4.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage4.Location = New System.Drawing.Point(154, 4)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Size = New System.Drawing.Size(660, 378)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Encuesta de Calidad"
-        Me.TabPage4.UseVisualStyleBackColor = True
         '
         'TabPage5
         '
+        Me.TabPage5.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage5.Location = New System.Drawing.Point(154, 4)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Size = New System.Drawing.Size(660, 378)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Vehículos"
-        Me.TabPage5.UseVisualStyleBackColor = True
         '
         'TabPage6
         '
+        Me.TabPage6.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage6.Location = New System.Drawing.Point(154, 4)
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Size = New System.Drawing.Size(660, 378)
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "TabPage6"
-        Me.TabPage6.UseVisualStyleBackColor = True
         '
         'lbl_Estado
         '

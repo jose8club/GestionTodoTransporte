@@ -291,6 +291,63 @@ Public Class Conexion
         End Using
     End Sub
 
+    Sub regDocente(ByVal ID As Integer, ByVal Telefono As Integer, ByVal Tipo As String)
+        'Realiza el registro en la tabla Docente
+
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO Docente (idDocente, Telefono, Tipo) VALUES(@id, @Telefono, @Tipo)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@id", ID)
+                .Parameters.AddWithValue("@Telefono", Telefono)
+                .Parameters.AddWithValue("@Tipo", Tipo)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+    End Sub
+
+    Sub regInstructor(ByVal id As Integer, ByVal Auto As String)
+
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO Instructor (idInstructor, Auto) VALUES(@id, @Auto)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@id", id)
+                .Parameters.AddWithValue("@Auto", Auto)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+    End Sub
+
+    Sub regProfesor(ByVal id As Integer)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO Profesor (idProfesor) VALUES(@id)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@id", id)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+    End Sub
+
 #End Region
 
 #Region "OTROS"

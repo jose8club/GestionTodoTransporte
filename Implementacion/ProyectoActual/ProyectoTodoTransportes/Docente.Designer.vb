@@ -30,7 +30,7 @@ Partial Class Docente
         Me.rad_Instructor = New System.Windows.Forms.RadioButton()
         Me.lbl_Tipo = New System.Windows.Forms.Label()
         Me.cbox_Vehiculo = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lbl_Vehiculo = New System.Windows.Forms.Label()
         Me.btn_Guardar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
@@ -99,7 +99,6 @@ Partial Class Docente
         '
         'cbox_Vehiculo
         '
-        Me.cbox_Vehiculo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
         Me.cbox_Vehiculo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cbox_Vehiculo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_Vehiculo.FormattingEnabled = True
@@ -108,14 +107,14 @@ Partial Class Docente
         Me.cbox_Vehiculo.Size = New System.Drawing.Size(288, 21)
         Me.cbox_Vehiculo.TabIndex = 16
         '
-        'Label1
+        'lbl_Vehiculo
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(9, 113)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(99, 13)
-        Me.Label1.TabIndex = 17
-        Me.Label1.Text = "Vehículo asignado:"
+        Me.lbl_Vehiculo.AutoSize = True
+        Me.lbl_Vehiculo.Location = New System.Drawing.Point(9, 113)
+        Me.lbl_Vehiculo.Name = "lbl_Vehiculo"
+        Me.lbl_Vehiculo.Size = New System.Drawing.Size(99, 13)
+        Me.lbl_Vehiculo.TabIndex = 17
+        Me.lbl_Vehiculo.Text = "Vehículo asignado:"
         '
         'btn_Guardar
         '
@@ -132,7 +131,7 @@ Partial Class Docente
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(433, 193)
         Me.Controls.Add(Me.btn_Guardar)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lbl_Vehiculo)
         Me.Controls.Add(Me.cbox_Vehiculo)
         Me.Controls.Add(Me.lbl_Tipo)
         Me.Controls.Add(Me.rad_Instructor)
@@ -156,6 +155,6 @@ Partial Class Docente
     Friend WithEvents rad_Instructor As System.Windows.Forms.RadioButton
     Friend WithEvents lbl_Tipo As System.Windows.Forms.Label
     Friend WithEvents cbox_Vehiculo As System.Windows.Forms.ComboBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lbl_Vehiculo As System.Windows.Forms.Label
     Friend WithEvents btn_Guardar As System.Windows.Forms.Button
 End Class
