@@ -348,10 +348,126 @@ Public Class Conexion
         End Using
     End Sub
 
+    Sub regCliente(ByVal Nombre As String, ByVal RUT As String, ByVal Fecha As String, ByVal Telefono As String, ByVal Email As String)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO Cliente (Nombre,Rut,Fecha_Nac,Telefono,E-mail) VALUES(@Nombre,@Rut,@Fecha,@Telefono,@Email)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Nombre", Nombre)
+                .Parameters.AddWithValue("@Rut", RUT)
+                .Parameters.AddWithValue("@Fecha", Fecha)
+                .Parameters.AddWithValue("@Telefono", Telefono)
+                .Parameters.AddWithValue("@Email", Email)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+    End Sub
+
+    Sub regCompra(ByVal Cliente As String, ByVal Producto As String, ByVal Fecha As String)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO Compra (Cliente,Producto,Fecha) VALUES(@Cliente,@Producto,@Fecha)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Cliente", Cliente)
+                .Parameters.AddWithValue("@Producto", Producto)
+                .Parameters.AddWithValue("@Fecha", Fecha)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+    End Sub
+
+    Sub regPago(ByVal Codigo As String, ByVal Monto As Integer, ByVal Medio_Pago As String, ByVal Compra As Integer, ByVal Fecha As String)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO Pago (Codigo,Monto,Medio_Pago,Compra,Fecha) VALUES(@Codigo,@Monto,@Medio_Pago,@Compra,@Fecha"
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Codigo", Codigo)
+                .Parameters.AddWithValue("@Monto", Monto)
+                .Parameters.AddWithValue("@Medio_Pago", Medio_Pago)
+                .Parameters.AddWithValue("@Cliente", Compra)
+                .Parameters.AddWithValue("@Fecha", Fecha)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+    End Sub
+
+    Sub regMatricula(ByVal Codigo As String, ByVal Nombre As String, ByVal RUT As String, ByVal Edad As Integer, ByVal Fecha As String, ByVal Telefono As Integer, ByVal CodigoCompra As Integer, ByVal Curso As String, ByVal HoraTeorica As String, ByVal HoraPractica As String, ByVal Documento As String, ByVal Estudiante As Integer)
+        'Registra Matricula'
+
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO MATRICULA (Codigo,Nombre,RUT,Edad,Fecha,Telefono,CodigoCompra,Curso,HoraTeoria,HoraPractica,Documento,Estudiante) VALUES(@Codigo,@Nombre,@RUT,@Edad,@Fecha,@Telefono,@CodigoCompra,@Curso,@HoraTeorica,@HoraPractica,@Documento,@Estudiante)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Codigo", Codigo)
+                .Parameters.AddWithValue("@Nombre", Nombre)
+                .Parameters.AddWithValue("@RUT", RUT)
+                .Parameters.AddWithValue("@Edad", Edad)
+                .Parameters.AddWithValue("@Fecha", Fecha)
+                .Parameters.AddWithValue("@Telefono", Telefono)
+                .Parameters.AddWithValue("@CodigoCompra", CodigoCompra)
+                .Parameters.AddWithValue("@Curso", Curso)
+                .Parameters.AddWithValue("@HoraTeorica", HoraTeorica)
+                .Parameters.AddWithValue("@HoraPractica", HoraPractica)
+                .Parameters.AddWithValue("@Documento", Documento)
+                .Parameters.AddWithValue("@Estudiante", Estudiante)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+
+    End Sub
+
+    Sub regEstudiante(ByVal idEstudiante As String, ByVal FotosCarnet As Integer, ByVal CertEstudios As Integer, ByVal CertAlumnRegular As Integer, ByVal AutNotarial As Integer)
+        'Registra Estudiante'
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO ESTUDIANTE (idEstudiante, FotosCarnet, CertEstudios, CertAlumnRegular, AutNotarial) VALUES(@idEstudiante, @FotosCarnet, @CertEstudios, @CertAlumnRegular, @AutNotarial)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@idEstudiante", idEstudiante)
+                .Parameters.AddWithValue("@FotosCarnet", FotosCarnet)
+                .Parameters.AddWithValue("@CertEstudios", CertEstudios)
+                .Parameters.AddWithValue("@CertAlumnRegular", CertAlumnRegular)
+                .Parameters.AddWithValue("@AutNotarial", AutNotarial)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+
+    End Sub
+
+
 #End Region
 
 #Region "OTROS"
-
 
     Function buscarPago(ByVal edad As Integer, ByVal Codigo As String) As Integer
         Dim pago As Integer
@@ -377,84 +493,7 @@ Public Class Conexion
         End Using
         Return pago
     End Function
-
-    Sub RegistrarPago(ByVal Codigo As Integer, ByVal Monto As Integer, ByVal Medio As String)
-        'Registra Pago'
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "INSERT INTO PAGO (Codigo, Monto, Medio) VALUES(@Codigo, @Monto, @Medio)"
-                .CommandType = CommandType.Text
-                .Connection = conn
-
-                .Parameters.AddWithValue("@Codigo", Codigo)
-                .Parameters.AddWithValue("@Monto", Monto)
-                .Parameters.AddWithValue("@Medio", Medio)
-
-            End With
-            Try
-                comando.ExecuteNonQuery()
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-
-        End Using
-    End Sub
-
-    Sub RegistrarMatricula(ByVal Codigo As String, ByVal Nombre As String, ByVal RUT As String, ByVal Edad As Integer, ByVal Fecha As String, ByVal Telefono As Integer, ByVal CodigoPago As Integer, ByVal Curso As String, ByVal HoraTeorica As String, ByVal HoraPractica As String)
-        'Registra Matricula'
-
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "INSERT INTO MATRICULA (Codigo, Nombre, RUT, Edad, Fecha, Telefono, CodigoPago, Curso, HoraTeoria, HoraPractica) VALUES(@Codigo, @Nombre, @RUT, @Edad, @Fecha, @Telefono, @CodigoPago, @Curso, @HoraTeorica, @HoraPractica)"
-                .CommandType = CommandType.Text
-                .Connection = conn
-
-                .Parameters.AddWithValue("@Codigo", Codigo)
-                .Parameters.AddWithValue("@Nombre", Nombre)
-                .Parameters.AddWithValue("@RUT", RUT)
-                .Parameters.AddWithValue("@Edad", Edad)
-                .Parameters.AddWithValue("@Fecha", Fecha)
-                .Parameters.AddWithValue("@Telefono", Telefono)
-                .Parameters.AddWithValue("@CodigoPago", CodigoPago)
-                .Parameters.AddWithValue("@Curso", Curso)
-                .Parameters.AddWithValue("@HoraTeorica", HoraTeorica)
-                .Parameters.AddWithValue("@HoraPractica", HoraPractica)
-
-            End With
-            Try
-                comando.ExecuteNonQuery()
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-
-        End Using
-
-    End Sub
-
-    Sub RegistrarEstudiante(ByVal Matricula As String, ByVal FotosCarnet As Integer, ByVal CertEstudios As Boolean, ByVal CertAlumnRegular As Boolean, ByVal AutNotarial As Boolean)
-        'Registra Estudiante'
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "INSERT INTO ESTUDIANTE (Matricula, FotosCarnet, CertEstudios, CertAlumnRegular, AutNotarial) VALUES(@Matricula, @FotosCarnet, @CertEstudios, @CertAlumnRegular, @AutNotarial)"
-                .CommandType = CommandType.Text
-                .Connection = conn
-
-                .Parameters.AddWithValue("@Matricula", Matricula)
-                .Parameters.AddWithValue("@FotosCarnet", FotosCarnet)
-                .Parameters.AddWithValue("@CertEstudios", CertEstudios)
-                .Parameters.AddWithValue("@CertAlumnRegular", CertAlumnRegular)
-                .Parameters.AddWithValue("@AutNotarial", AutNotarial)
-            End With
-            Try
-                comando.ExecuteNonQuery()
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-
-        End Using
-
-    End Sub
-
+   
     'Crear clase'
     Sub RegistrarClase(ByVal Codigo As String, ByVal Curso As String, ByVal FechaInicio As String, ByVal FechaTermino As String)
         Using comando As New MySqlCommand()

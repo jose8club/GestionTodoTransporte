@@ -1,0 +1,41 @@
+[13nov14]
+Conexión.vb
+
+- Se hacen regiones para mantener organizado el código
+
+Métodos Nuevos:
+
+#REGION INSERTS
+- regClientePotencial
+- regVehiculo
+- regInstructor
+- regProfesor
+- regCliente
+- regCompra
+- regPago
+- regMatricula
+- regEstudiante
+
+
+Pantallas Nuevas:
+- Incluyen tabIndex y Validacion de entrada.
+
+- Docente.vb (Lectura/Escritura) BDActual 
+- Vehículos.vb (Lectura/Escritura) BDActual
+
+Actualizaciones:
+
+- registrarCliente.vb ---> Funciona con la BD Actual (Lectura/Escritura)
+- registrarMatrícula.vb ---> Funciona con la BD Actual (Lectura)
+
+Cosas Nuevas:
+
+- Barra de estado (cualquier Form debería poder editar el label con mensajes)
+
+PROBLEMAS:
+
+- Matrícula involucra demasiadas tablas.
+- Falta tabla Clase (hay FK's a Clase desde otras tablas)
+- Preguntas de Encuesta en BD
+
+*Varios pequeños errores solucionados.

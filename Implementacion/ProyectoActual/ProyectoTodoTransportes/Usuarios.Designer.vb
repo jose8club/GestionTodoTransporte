@@ -81,6 +81,7 @@ Partial Class Usuarios
         'tbox_NombreUsuario
         '
         Me.tbox_NombreUsuario.Location = New System.Drawing.Point(158, 61)
+        Me.tbox_NombreUsuario.MaxLength = 45
         Me.tbox_NombreUsuario.Name = "tbox_NombreUsuario"
         Me.tbox_NombreUsuario.Size = New System.Drawing.Size(288, 20)
         Me.tbox_NombreUsuario.TabIndex = 2
@@ -88,6 +89,7 @@ Partial Class Usuarios
         'tbox_Contrasena
         '
         Me.tbox_Contrasena.Location = New System.Drawing.Point(158, 87)
+        Me.tbox_Contrasena.MaxLength = 45
         Me.tbox_Contrasena.Name = "tbox_Contrasena"
         Me.tbox_Contrasena.Size = New System.Drawing.Size(288, 20)
         Me.tbox_Contrasena.TabIndex = 3

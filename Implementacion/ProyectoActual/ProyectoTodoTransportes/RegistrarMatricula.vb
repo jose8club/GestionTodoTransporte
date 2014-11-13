@@ -17,8 +17,8 @@
         Dim items() As String
         Dim n As Integer
 
-        n = con.count("Curso") - 1
-        items = con.toArray(n, "Codigo", "Curso")
+        n = con.count("Producto") - 1
+        items = con.toArray(n, "Nombre", "Producto")
         For i As Integer = 0 To n
             cbox_CursoRendir.Items.Add(items(i))
         Next
@@ -81,15 +81,13 @@
             lbl_RUT.ForeColor = System.Drawing.SystemColors.ControlText
 
             Try
-                con.RegistrarPago(CInt(tbox_PagoRealizado.Text), CInt(lbl_ValorCurso2.Text), cbox_MedioPago.Text)
 
-                con.RegistrarMatricula(tbox_codigo.Text, tbox_Nombre.Text, rut, Herramientas.edadPorNacimiento(Format(date_FechaNacimiento.Value, "yyyy-MM-dd")),
-                                Format(date_FechaNacimiento.Value, "yyyy-MM-dd"), CInt(tbox_Telefono.Text),
-                                CInt(tbox_PagoRealizado.Text), cbox_CursoRendir.Text, cbox_HorarioTeorico.Text, cbox_HorarioPractico.Text)
+                'con.registrarpago'
+                'con.registrarmatricula'
+                'con.registrarestudiante'
 
-                con.RegistrarEstudiante(tbox_codigo.Text, FotoCarnet, CertificadoEstudios, CertificadoAlumnoRegular, AntecedentesNotariales)
 
-                MsgBox("Operación realizada con éxito")
+                STATUS.Text = "Operación realizada con éxito"
 
                 'Resetea valores
                 tbox_Nombre.Text = ""
@@ -111,12 +109,6 @@
                 MsgBox(ex.Message.ToString)
             End Try
         End If
-    End Sub
-
-    Private Sub date_FechaNacimiento_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles date_FechaNacimiento.ValueChanged
-        Dim precio As Integer
-        precio = con.buscarPago(Herramientas.edadPorNacimiento(Format(date_FechaNacimiento.Value, "yyyy-MM-dd")), cbox_CursoRendir.Text)
-        lbl_ValorCurso2.Text = CStr(precio)
     End Sub
 
 

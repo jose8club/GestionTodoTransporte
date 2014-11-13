@@ -53,6 +53,8 @@ Partial Class RegistrarMatricula
         Me.lbl_RUT = New System.Windows.Forms.Label()
         Me.tbox_Nombre = New System.Windows.Forms.TextBox()
         Me.lbl_Nombre = New System.Windows.Forms.Label()
+        Me.tbox_Email = New System.Windows.Forms.TextBox()
+        Me.lbl_Email = New System.Windows.Forms.Label()
         Me.gbox_Matricula2.SuspendLayout()
         Me.gbox_EstadoDocs2.SuspendLayout()
         Me.gbox_Horarios2.SuspendLayout()
@@ -60,7 +62,7 @@ Partial Class RegistrarMatricula
         '
         'btn_Guardar
         '
-        Me.btn_Guardar.Location = New System.Drawing.Point(371, 355)
+        Me.btn_Guardar.Location = New System.Drawing.Point(371, 391)
         Me.btn_Guardar.Name = "btn_Guardar"
         Me.btn_Guardar.Size = New System.Drawing.Size(75, 23)
         Me.btn_Guardar.TabIndex = 16
@@ -77,7 +79,7 @@ Partial Class RegistrarMatricula
         Me.gbox_Matricula2.Controls.Add(Me.lbl_ValorCurso2)
         Me.gbox_Matricula2.Controls.Add(Me.check_PagoRealizado)
         Me.gbox_Matricula2.Controls.Add(Me.lbl_codigo)
-        Me.gbox_Matricula2.Location = New System.Drawing.Point(229, 230)
+        Me.gbox_Matricula2.Location = New System.Drawing.Point(229, 266)
         Me.gbox_Matricula2.Name = "gbox_Matricula2"
         Me.gbox_Matricula2.Size = New System.Drawing.Size(217, 119)
         Me.gbox_Matricula2.TabIndex = 57
@@ -161,7 +163,7 @@ Partial Class RegistrarMatricula
         Me.gbox_EstadoDocs2.Controls.Add(Me.check_AlumnoReg)
         Me.gbox_EstadoDocs2.Controls.Add(Me.check_CertEstudios)
         Me.gbox_EstadoDocs2.Controls.Add(Me.check_Foto)
-        Me.gbox_EstadoDocs2.Location = New System.Drawing.Point(17, 230)
+        Me.gbox_EstadoDocs2.Location = New System.Drawing.Point(17, 266)
         Me.gbox_EstadoDocs2.Name = "gbox_EstadoDocs2"
         Me.gbox_EstadoDocs2.Size = New System.Drawing.Size(205, 119)
         Me.gbox_EstadoDocs2.TabIndex = 56
@@ -214,7 +216,7 @@ Partial Class RegistrarMatricula
         Me.gbox_Horarios2.Controls.Add(Me.lbl_HorarioPractico)
         Me.gbox_Horarios2.Controls.Add(Me.cbox_HorarioTeorico)
         Me.gbox_Horarios2.Controls.Add(Me.lbl_HorarioTeorico)
-        Me.gbox_Horarios2.Location = New System.Drawing.Point(18, 143)
+        Me.gbox_Horarios2.Location = New System.Drawing.Point(18, 179)
         Me.gbox_Horarios2.Name = "gbox_Horarios2"
         Me.gbox_Horarios2.Size = New System.Drawing.Size(428, 81)
         Me.gbox_Horarios2.TabIndex = 55
@@ -350,11 +352,30 @@ Partial Class RegistrarMatricula
         Me.lbl_Nombre.TabIndex = 49
         Me.lbl_Nombre.Text = "Nombre:"
         '
+        'tbox_Email
+        '
+        Me.tbox_Email.Location = New System.Drawing.Point(144, 143)
+        Me.tbox_Email.MaxLength = 20
+        Me.tbox_Email.Name = "tbox_Email"
+        Me.tbox_Email.Size = New System.Drawing.Size(302, 20)
+        Me.tbox_Email.TabIndex = 58
+        '
+        'lbl_Email
+        '
+        Me.lbl_Email.AutoSize = True
+        Me.lbl_Email.Location = New System.Drawing.Point(15, 146)
+        Me.lbl_Email.Name = "lbl_Email"
+        Me.lbl_Email.Size = New System.Drawing.Size(38, 13)
+        Me.lbl_Email.TabIndex = 59
+        Me.lbl_Email.Text = "E-mail:"
+        '
         'RegistrarMatricula
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(462, 394)
+        Me.ClientSize = New System.Drawing.Size(462, 428)
+        Me.Controls.Add(Me.tbox_Email)
+        Me.Controls.Add(Me.lbl_Email)
         Me.Controls.Add(Me.btn_Guardar)
         Me.Controls.Add(Me.gbox_Matricula2)
         Me.Controls.Add(Me.gbox_EstadoDocs2)
@@ -414,4 +435,6 @@ Partial Class RegistrarMatricula
     Friend WithEvents lbl_RUT As System.Windows.Forms.Label
     Friend WithEvents tbox_Nombre As System.Windows.Forms.TextBox
     Friend WithEvents lbl_Nombre As System.Windows.Forms.Label
+    Friend WithEvents tbox_Email As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_Email As System.Windows.Forms.Label
 End Class
