@@ -16,7 +16,6 @@
         Application.Exit()
     End Sub
 
-
     Private Sub Principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim regCliente As New RegistrarCliente(USER, con, ESTADO)
         regCliente.TopLevel = False
@@ -72,7 +71,11 @@
             regVehiculo.TopLevel = False
             Me.MainMenu.TabPages(4).Controls.Add(regVehiculo)
             regVehiculo.Show()
-
+        ElseIf tab = 2 Then
+            Dim regDocente As New Docente(USER, con, ESTADO)
+            regDocente.TopLevel = False
+            Me.MainMenu.TabPages(2).Controls.Add(regDocente)
+            regDocente.Show()
         End If
     End Sub
 
