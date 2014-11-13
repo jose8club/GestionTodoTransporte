@@ -50,33 +50,43 @@
 
     Private Sub MainMenu_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles MainMenu.SelectedIndexChanged
         Dim tab As Integer = MainMenu.SelectedIndex
+        Dim form As Form = New Form
         Me.MainMenu.TabPages(tab).Controls.Clear()
+
         If tab = 0 Then
-            Dim regCliente As New RegistrarCliente(USER, con, ESTADO)
-            regCliente.TopLevel = False
-            Me.MainMenu.TabPages(0).Controls.Add(regCliente)
-            regCliente.Show()
+            form = New RegistrarCliente(USER, con, ESTADO)
+            form.TopLevel = False
+            Me.MainMenu.TabPages(0).Controls.Add(form)
+            form.Show()
         ElseIf tab = 1 Then
-            Dim regMatricula As New RegistrarMatricula(USER, con, ESTADO)
-            regMatricula.TopLevel = False
-            Me.MainMenu.TabPages(1).Controls.Add(regMatricula)
-            regMatricula.Show()
-        ElseIf tab = 3 Then
-            Dim encuesta As New Encuesta(USER, con, ESTADO)
-            encuesta.TopLevel = False
-            Me.MainMenu.TabPages(3).Controls.Add(encuesta)
-            encuesta.Show()
-        ElseIf tab = 4 Then
-            Dim regVehiculo As New Vehiculos(USER, con, ESTADO)
-            regVehiculo.TopLevel = False
-            Me.MainMenu.TabPages(4).Controls.Add(regVehiculo)
-            regVehiculo.Show()
+            form = New RegistrarMatricula(USER, con, ESTADO)
+            form.TopLevel = False
+            Me.MainMenu.TabPages(1).Controls.Add(form)
+            form.Show()
         ElseIf tab = 2 Then
-            Dim regDocente As New Docente(USER, con, ESTADO)
-            regDocente.TopLevel = False
-            Me.MainMenu.TabPages(2).Controls.Add(regDocente)
-            regDocente.Show()
+            form = New Docente(USER, con, ESTADO)
+            form.TopLevel = False
+            Me.MainMenu.TabPages(2).Controls.Add(form)
+            form.Show()
+        ElseIf tab = 3 Then
+            form = New Encuesta(USER, con, ESTADO)
+            form.TopLevel = False
+            Me.MainMenu.TabPages(3).Controls.Add(form)
+            form.Show()
+        ElseIf tab = 4 Then
+            form = New Vehiculos(USER, con, ESTADO)
+            form.TopLevel = False
+            Me.MainMenu.TabPages(4).Controls.Add(form)
+            form.Show()
+        ElseIf tab = 5 Then
+            form = New Usuarios(USER, con, ESTADO)
+            form.TopLevel = False
+            Me.MainMenu.TabPages(5).Controls.Add(form)
+            form.Show()
         End If
+
+
+
     End Sub
 
 End Class

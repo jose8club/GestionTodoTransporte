@@ -1,4 +1,5 @@
 ﻿Module Herramientas
+    Public ReadOnly NoEspeciales As String = "abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789"
 
     Function isRut(ByVal rut As String, ByVal digito As String)
 

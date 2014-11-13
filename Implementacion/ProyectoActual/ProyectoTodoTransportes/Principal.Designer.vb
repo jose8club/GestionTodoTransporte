@@ -108,7 +108,7 @@ Partial Class Principal
         Me.TabPage6.Name = "TabPage6"
         Me.TabPage6.Size = New System.Drawing.Size(660, 378)
         Me.TabPage6.TabIndex = 5
-        Me.TabPage6.Text = "TabPage6"
+        Me.TabPage6.Text = "Agregar Usuario"
         '
         'lbl_Estado
         '

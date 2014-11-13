@@ -64,7 +64,7 @@ Partial Class Vehiculos
         Me.tbox_modelo.MaxLength = 45
         Me.tbox_modelo.Name = "tbox_modelo"
         Me.tbox_modelo.Size = New System.Drawing.Size(259, 20)
-        Me.tbox_modelo.TabIndex = 9
+        Me.tbox_modelo.TabIndex = 1
         '
         'tbox_Patente
         '
@@ -72,7 +72,7 @@ Partial Class Vehiculos
         Me.tbox_Patente.MaxLength = 6
         Me.tbox_Patente.Name = "tbox_Patente"
         Me.tbox_Patente.Size = New System.Drawing.Size(259, 20)
-        Me.tbox_Patente.TabIndex = 8
+        Me.tbox_Patente.TabIndex = 0
         '
         'cbox_Estado
         '
@@ -81,14 +81,14 @@ Partial Class Vehiculos
         Me.cbox_Estado.Location = New System.Drawing.Point(158, 66)
         Me.cbox_Estado.Name = "cbox_Estado"
         Me.cbox_Estado.Size = New System.Drawing.Size(259, 21)
-        Me.cbox_Estado.TabIndex = 7
+        Me.cbox_Estado.TabIndex = 2
         '
         'btn_Guardar
         '
         Me.btn_Guardar.Location = New System.Drawing.Point(340, 145)
         Me.btn_Guardar.Name = "btn_Guardar"
         Me.btn_Guardar.Size = New System.Drawing.Size(75, 23)
-        Me.btn_Guardar.TabIndex = 13
+        Me.btn_Guardar.TabIndex = 3
         Me.btn_Guardar.Text = "Guardar"
         Me.btn_Guardar.UseVisualStyleBackColor = True
         '

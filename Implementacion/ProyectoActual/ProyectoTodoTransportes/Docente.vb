@@ -60,4 +60,16 @@
             End Try
         End If
     End Sub
+
+#Region "VALIDACIONES DE ENTRADA"
+
+    Private Sub tbox_Nombre_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_Nombre.KeyPress
+        Herramientas.soloTexto(e)
+    End Sub
+
+    Private Sub tbox_Telefono_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_Telefono.KeyPress
+        Herramientas.soloNumeros(e)
+    End Sub
+#End Region
+
 End Class

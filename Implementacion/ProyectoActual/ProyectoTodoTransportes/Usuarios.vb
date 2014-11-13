@@ -2,10 +2,17 @@
 
 Public Class Usuarios
     Dim con As New Conexion
+    Dim USER As String = ""
+    Dim STATUS As ToolStripStatusLabel
+
+    Sub New(ByVal usuario As String, ByVal conexion As Conexion, ByVal estado As ToolStripStatusLabel)
+        con = conexion
+        USER = usuario
+        STATUS = estado
+        InitializeComponent()
+    End Sub
 
     Private Sub Usuarios_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
-        con.iSesion()
 
         Dim n As Integer
         Dim items() As String
@@ -16,7 +23,7 @@ Public Class Usuarios
         For i As Integer = 0 To n
             cbox_TipoUsuario.Items.Add(items(i))
         Next
-        cbox_TipoUsuario.SelectedIndex = 0
+        If n >= 0 Then cbox_TipoUsuario.SelectedIndex = 0
 
         cbox_Funcionario.Items.Clear()
         n = con.count("funcionario") - 1
@@ -24,7 +31,7 @@ Public Class Usuarios
         For i As Integer = 0 To n
             cbox_Funcionario.Items.Add(items(i))
         Next
-        cbox_Funcionario.SelectedIndex = 0
+        If n >= 0 Then cbox_Funcionario.SelectedIndex = 0
 
 
     End Sub
@@ -33,4 +40,8 @@ Public Class Usuarios
         con.regUsuario(tbox_NombreUsuario.Text, tbox_Contrasena.Text, cbox_TipoUsuario.Text, cbox_Funcionario.Text)
     End Sub
 
+
+    Private Sub tbox_NombreUsuario_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_NombreUsuario.KeyPress
+        Herramientas.textoDeseado(e, Herramientas.NoEspeciales)
+    End Sub
 End Class

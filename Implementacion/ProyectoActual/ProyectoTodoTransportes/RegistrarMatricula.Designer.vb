@@ -38,10 +38,8 @@ Partial Class RegistrarMatricula
         Me.check_CertEstudios = New System.Windows.Forms.CheckBox()
         Me.check_Foto = New System.Windows.Forms.CheckBox()
         Me.gbox_Horarios2 = New System.Windows.Forms.GroupBox()
-        Me.btn_verDispPractico = New System.Windows.Forms.Button()
         Me.cbox_HorarioPractico = New System.Windows.Forms.ComboBox()
         Me.lbl_HorarioPractico = New System.Windows.Forms.Label()
-        Me.Btn_verDispTeorico = New System.Windows.Forms.Button()
         Me.cbox_HorarioTeorico = New System.Windows.Forms.ComboBox()
         Me.lbl_HorarioTeorico = New System.Windows.Forms.Label()
         Me.tbox_Telefono = New System.Windows.Forms.TextBox()
@@ -65,7 +63,7 @@ Partial Class RegistrarMatricula
         Me.btn_Guardar.Location = New System.Drawing.Point(371, 355)
         Me.btn_Guardar.Name = "btn_Guardar"
         Me.btn_Guardar.Size = New System.Drawing.Size(75, 23)
-        Me.btn_Guardar.TabIndex = 52
+        Me.btn_Guardar.TabIndex = 16
         Me.btn_Guardar.Text = "Guardar"
         Me.btn_Guardar.UseVisualStyleBackColor = True
         '
@@ -110,7 +108,7 @@ Partial Class RegistrarMatricula
         Me.tbox_PagoRealizado.MaxLength = 10
         Me.tbox_PagoRealizado.Name = "tbox_PagoRealizado"
         Me.tbox_PagoRealizado.Size = New System.Drawing.Size(75, 20)
-        Me.tbox_PagoRealizado.TabIndex = 17
+        Me.tbox_PagoRealizado.TabIndex = 14
         '
         'tbox_codigo
         '
@@ -118,7 +116,7 @@ Partial Class RegistrarMatricula
         Me.tbox_codigo.MaxLength = 6
         Me.tbox_codigo.Name = "tbox_codigo"
         Me.tbox_codigo.Size = New System.Drawing.Size(75, 20)
-        Me.tbox_codigo.TabIndex = 15
+        Me.tbox_codigo.TabIndex = 12
         '
         'cbox_MedioPago
         '
@@ -127,7 +125,7 @@ Partial Class RegistrarMatricula
         Me.cbox_MedioPago.Location = New System.Drawing.Point(134, 86)
         Me.cbox_MedioPago.Name = "cbox_MedioPago"
         Me.cbox_MedioPago.Size = New System.Drawing.Size(77, 21)
-        Me.cbox_MedioPago.TabIndex = 18
+        Me.cbox_MedioPago.TabIndex = 15
         '
         'lbl_ValorCurso2
         '
@@ -144,7 +142,7 @@ Partial Class RegistrarMatricula
         Me.check_PagoRealizado.Location = New System.Drawing.Point(9, 42)
         Me.check_PagoRealizado.Name = "check_PagoRealizado"
         Me.check_PagoRealizado.Size = New System.Drawing.Size(101, 17)
-        Me.check_PagoRealizado.TabIndex = 16
+        Me.check_PagoRealizado.TabIndex = 13
         Me.check_PagoRealizado.Text = "Pago Realizado"
         Me.check_PagoRealizado.UseVisualStyleBackColor = True
         '
@@ -176,7 +174,7 @@ Partial Class RegistrarMatricula
         Me.check_AntecedentesNot.Location = New System.Drawing.Point(11, 88)
         Me.check_AntecedentesNot.Name = "check_AntecedentesNot"
         Me.check_AntecedentesNot.Size = New System.Drawing.Size(142, 17)
-        Me.check_AntecedentesNot.TabIndex = 14
+        Me.check_AntecedentesNot.TabIndex = 11
         Me.check_AntecedentesNot.Text = "Antecedentes Notariales"
         Me.check_AntecedentesNot.UseVisualStyleBackColor = True
         '
@@ -186,7 +184,7 @@ Partial Class RegistrarMatricula
         Me.check_AlumnoReg.Location = New System.Drawing.Point(11, 65)
         Me.check_AlumnoReg.Name = "check_AlumnoReg"
         Me.check_AlumnoReg.Size = New System.Drawing.Size(154, 17)
-        Me.check_AlumnoReg.TabIndex = 13
+        Me.check_AlumnoReg.TabIndex = 10
         Me.check_AlumnoReg.Text = "Certificado Alumno Regular"
         Me.check_AlumnoReg.UseVisualStyleBackColor = True
         '
@@ -196,7 +194,7 @@ Partial Class RegistrarMatricula
         Me.check_CertEstudios.Location = New System.Drawing.Point(11, 42)
         Me.check_CertEstudios.Name = "check_CertEstudios"
         Me.check_CertEstudios.Size = New System.Drawing.Size(134, 17)
-        Me.check_CertEstudios.TabIndex = 12
+        Me.check_CertEstudios.TabIndex = 9
         Me.check_CertEstudios.Text = "Certificado de Estudios"
         Me.check_CertEstudios.UseVisualStyleBackColor = True
         '
@@ -206,16 +204,14 @@ Partial Class RegistrarMatricula
         Me.check_Foto.Location = New System.Drawing.Point(11, 19)
         Me.check_Foto.Name = "check_Foto"
         Me.check_Foto.Size = New System.Drawing.Size(81, 17)
-        Me.check_Foto.TabIndex = 11
+        Me.check_Foto.TabIndex = 8
         Me.check_Foto.Text = "Foto Carnet"
         Me.check_Foto.UseVisualStyleBackColor = True
         '
         'gbox_Horarios2
         '
-        Me.gbox_Horarios2.Controls.Add(Me.btn_verDispPractico)
         Me.gbox_Horarios2.Controls.Add(Me.cbox_HorarioPractico)
         Me.gbox_Horarios2.Controls.Add(Me.lbl_HorarioPractico)
-        Me.gbox_Horarios2.Controls.Add(Me.Btn_verDispTeorico)
         Me.gbox_Horarios2.Controls.Add(Me.cbox_HorarioTeorico)
         Me.gbox_Horarios2.Controls.Add(Me.lbl_HorarioTeorico)
         Me.gbox_Horarios2.Location = New System.Drawing.Point(18, 143)
@@ -225,23 +221,14 @@ Partial Class RegistrarMatricula
         Me.gbox_Horarios2.TabStop = False
         Me.gbox_Horarios2.Text = "Horarios"
         '
-        'btn_verDispPractico
-        '
-        Me.btn_verDispPractico.Location = New System.Drawing.Point(347, 46)
-        Me.btn_verDispPractico.Name = "btn_verDispPractico"
-        Me.btn_verDispPractico.Size = New System.Drawing.Size(75, 21)
-        Me.btn_verDispPractico.TabIndex = 10
-        Me.btn_verDispPractico.Text = "Ver Disp"
-        Me.btn_verDispPractico.UseVisualStyleBackColor = True
-        '
         'cbox_HorarioPractico
         '
         Me.cbox_HorarioPractico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_HorarioPractico.FormattingEnabled = True
         Me.cbox_HorarioPractico.Location = New System.Drawing.Point(131, 46)
         Me.cbox_HorarioPractico.Name = "cbox_HorarioPractico"
-        Me.cbox_HorarioPractico.Size = New System.Drawing.Size(210, 21)
-        Me.cbox_HorarioPractico.TabIndex = 9
+        Me.cbox_HorarioPractico.Size = New System.Drawing.Size(291, 21)
+        Me.cbox_HorarioPractico.TabIndex = 7
         '
         'lbl_HorarioPractico
         '
@@ -252,23 +239,14 @@ Partial Class RegistrarMatricula
         Me.lbl_HorarioPractico.TabIndex = 3
         Me.lbl_HorarioPractico.Text = "Práctico"
         '
-        'Btn_verDispTeorico
-        '
-        Me.Btn_verDispTeorico.Location = New System.Drawing.Point(347, 19)
-        Me.Btn_verDispTeorico.Name = "Btn_verDispTeorico"
-        Me.Btn_verDispTeorico.Size = New System.Drawing.Size(75, 21)
-        Me.Btn_verDispTeorico.TabIndex = 8
-        Me.Btn_verDispTeorico.Text = "Ver Disp"
-        Me.Btn_verDispTeorico.UseVisualStyleBackColor = True
-        '
         'cbox_HorarioTeorico
         '
         Me.cbox_HorarioTeorico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_HorarioTeorico.FormattingEnabled = True
         Me.cbox_HorarioTeorico.Location = New System.Drawing.Point(131, 19)
         Me.cbox_HorarioTeorico.Name = "cbox_HorarioTeorico"
-        Me.cbox_HorarioTeorico.Size = New System.Drawing.Size(210, 21)
-        Me.cbox_HorarioTeorico.TabIndex = 7
+        Me.cbox_HorarioTeorico.Size = New System.Drawing.Size(291, 21)
+        Me.cbox_HorarioTeorico.TabIndex = 6
         '
         'lbl_HorarioTeorico
         '
@@ -285,7 +263,7 @@ Partial Class RegistrarMatricula
         Me.tbox_Telefono.MaxLength = 20
         Me.tbox_Telefono.Name = "tbox_Telefono"
         Me.tbox_Telefono.Size = New System.Drawing.Size(302, 20)
-        Me.tbox_Telefono.TabIndex = 48
+        Me.tbox_Telefono.TabIndex = 5
         '
         'lbl_Telefono
         '
@@ -303,7 +281,7 @@ Partial Class RegistrarMatricula
         Me.cbox_CursoRendir.Location = New System.Drawing.Point(142, 90)
         Me.cbox_CursoRendir.Name = "cbox_CursoRendir"
         Me.cbox_CursoRendir.Size = New System.Drawing.Size(304, 21)
-        Me.cbox_CursoRendir.TabIndex = 47
+        Me.cbox_CursoRendir.TabIndex = 4
         '
         'lbl_CursoRendir
         '
@@ -319,7 +297,7 @@ Partial Class RegistrarMatricula
         Me.date_FechaNacimiento.Location = New System.Drawing.Point(144, 64)
         Me.date_FechaNacimiento.Name = "date_FechaNacimiento"
         Me.date_FechaNacimiento.Size = New System.Drawing.Size(302, 20)
-        Me.date_FechaNacimiento.TabIndex = 46
+        Me.date_FechaNacimiento.TabIndex = 3
         '
         'lbl_FechaNacimiento
         '
@@ -336,7 +314,7 @@ Partial Class RegistrarMatricula
         Me.tbox_VerificadorRUT.MaxLength = 1
         Me.tbox_VerificadorRUT.Name = "tbox_VerificadorRUT"
         Me.tbox_VerificadorRUT.Size = New System.Drawing.Size(48, 20)
-        Me.tbox_VerificadorRUT.TabIndex = 45
+        Me.tbox_VerificadorRUT.TabIndex = 2
         '
         'tbox_RUT
         '
@@ -344,7 +322,7 @@ Partial Class RegistrarMatricula
         Me.tbox_RUT.MaxLength = 8
         Me.tbox_RUT.Name = "tbox_RUT"
         Me.tbox_RUT.Size = New System.Drawing.Size(247, 20)
-        Me.tbox_RUT.TabIndex = 44
+        Me.tbox_RUT.TabIndex = 1
         '
         'lbl_RUT
         '
@@ -361,7 +339,7 @@ Partial Class RegistrarMatricula
         Me.tbox_Nombre.MaxLength = 255
         Me.tbox_Nombre.Name = "tbox_Nombre"
         Me.tbox_Nombre.Size = New System.Drawing.Size(304, 20)
-        Me.tbox_Nombre.TabIndex = 43
+        Me.tbox_Nombre.TabIndex = 0
         '
         'lbl_Nombre
         '
@@ -421,10 +399,8 @@ Partial Class RegistrarMatricula
     Friend WithEvents check_CertEstudios As System.Windows.Forms.CheckBox
     Friend WithEvents check_Foto As System.Windows.Forms.CheckBox
     Friend WithEvents gbox_Horarios2 As System.Windows.Forms.GroupBox
-    Friend WithEvents btn_verDispPractico As System.Windows.Forms.Button
     Friend WithEvents cbox_HorarioPractico As System.Windows.Forms.ComboBox
     Friend WithEvents lbl_HorarioPractico As System.Windows.Forms.Label
-    Friend WithEvents Btn_verDispTeorico As System.Windows.Forms.Button
     Friend WithEvents cbox_HorarioTeorico As System.Windows.Forms.ComboBox
     Friend WithEvents lbl_HorarioTeorico As System.Windows.Forms.Label
     Friend WithEvents tbox_Telefono As System.Windows.Forms.TextBox
