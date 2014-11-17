@@ -50,7 +50,7 @@ Partial Class Principal
         Me.MainMenu.Multiline = True
         Me.MainMenu.Name = "MainMenu"
         Me.MainMenu.SelectedIndex = 0
-        Me.MainMenu.Size = New System.Drawing.Size(818, 386)
+        Me.MainMenu.Size = New System.Drawing.Size(912, 401)
         Me.MainMenu.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.MainMenu.TabIndex = 0
         '
@@ -60,7 +60,7 @@ Partial Class Principal
         Me.TabPage1.Location = New System.Drawing.Point(154, 4)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(660, 378)
+        Me.TabPage1.Size = New System.Drawing.Size(754, 393)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Atención al Cliente"
         '
@@ -113,9 +113,9 @@ Partial Class Principal
         'lbl_Estado
         '
         Me.lbl_Estado.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ESTADO})
-        Me.lbl_Estado.Location = New System.Drawing.Point(0, 408)
+        Me.lbl_Estado.Location = New System.Drawing.Point(0, 428)
         Me.lbl_Estado.Name = "lbl_Estado"
-        Me.lbl_Estado.Size = New System.Drawing.Size(853, 22)
+        Me.lbl_Estado.Size = New System.Drawing.Size(945, 22)
         Me.lbl_Estado.TabIndex = 1
         Me.lbl_Estado.Text = "ESTADO"
         '
@@ -129,7 +129,7 @@ Partial Class Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(853, 430)
+        Me.ClientSize = New System.Drawing.Size(945, 450)
         Me.Controls.Add(Me.lbl_Estado)
         Me.Controls.Add(Me.MainMenu)
         Me.Name = "Principal"

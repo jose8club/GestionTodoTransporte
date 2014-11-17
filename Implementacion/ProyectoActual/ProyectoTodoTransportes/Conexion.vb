@@ -56,10 +56,33 @@ Public Class Conexion
         Return cant
     End Function
 
+    Function countWhere(ByVal NombreTabla As String, ByVal Condicion As String) As String
+
+        'Retorna el numero de registros en 'NombreTabla'
+
+        Dim cant As String = ""
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT COUNT(*) FROM " & NombreTabla & " WHERE " & Condicion
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                comando.ExecuteNonQuery()
+                cant = comando.ExecuteScalar()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+
+        Return cant
+    End Function
+
     Function last(ByVal columna As String, ByVal tabla As String) As String
 
         'Funcion que retorna el último 'columna' de la tabla 'tabla'
-
+        Dim res As String = ""
         Using comando As New MySqlCommand()
 
             comando.CommandText = "SELECT max(" & columna & ") AS " & columna & " FROM " & tabla
@@ -68,14 +91,12 @@ Public Class Conexion
 
             Try
                 comando.ExecuteNonQuery()
-
-                Dim res As String = Convert.ToString(comando.ExecuteScalar)
-                Return res
-
+                res = Convert.ToString(comando.ExecuteScalar)
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
             End Try
         End Using
+        Return res
     End Function
 
     Function toArray(ByVal n As Integer, ByVal NombreCampo As String, ByVal NombreTabla As String) As String()
@@ -107,11 +128,40 @@ Public Class Conexion
         Return arreglo
     End Function
 
+    Function toArrayWhere(ByVal n As Integer, ByVal NombreCampo As String, ByVal NombreTabla As String, ByVal Condicion As String) As String()
+
+        'Retorna un arreglo con los datos 'NombreCampo' de la tabla 'NombreTabla'
+
+        Dim arreglo(n) As String
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT " & NombreCampo & " FROM " & NombreTabla & " WHERE " & Condicion
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                Dim i As Integer = 0
+                Using lector As MySqlDataReader = comando.ExecuteReader()
+                    While lector.Read()
+                        arreglo(i) = lector.GetString(0)
+                        i = i + 1
+                    End While
+                End Using
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+
+        Return arreglo
+    End Function
+
     Function selectWhereQuery(ByVal columna As String, ByVal tabla As String, ByVal condicion As String) As String
 
         'DEVUELVE UN DATO EN ESPECIFICO EN LA BD
 
-        Dim res As String
+        Dim res As String = ""
         Using comando As New MySqlCommand()
             With comando
                 .CommandText = "SELECT " & columna & " FROM " & tabla & " WHERE " & condicion
@@ -125,7 +175,6 @@ Public Class Conexion
                 MsgBox(ex.Message.ToString)
             End Try
         End Using
-
         Return res
     End Function
 
@@ -351,7 +400,7 @@ Public Class Conexion
     Sub regCliente(ByVal Nombre As String, ByVal RUT As String, ByVal Fecha As String, ByVal Telefono As String, ByVal Email As String)
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO Cliente (Nombre,Rut,Fecha_Nac,Telefono,E-mail) VALUES(@Nombre,@Rut,@Fecha,@Telefono,@Email)"
+                .CommandText = "INSERT INTO Cliente (Nombre,Rut,Fecha_Nac,Telefono,Email) VALUES(@Nombre,@Rut,@Fecha,@Telefono,@Email)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
@@ -369,7 +418,7 @@ Public Class Conexion
         End Using
     End Sub
 
-    Sub regCompra(ByVal Cliente As String, ByVal Producto As String, ByVal Fecha As String)
+    Sub regCompra(ByVal Cliente As Integer, ByVal Producto As String, ByVal Fecha As String)
         Using comando As New MySqlCommand()
             With comando
                 .CommandText = "INSERT INTO Compra (Cliente,Producto,Fecha) VALUES(@Cliente,@Producto,@Fecha)"
@@ -391,13 +440,13 @@ Public Class Conexion
     Sub regPago(ByVal Codigo As String, ByVal Monto As Integer, ByVal Medio_Pago As String, ByVal Compra As Integer, ByVal Fecha As String)
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO Pago (Codigo,Monto,Medio_Pago,Compra,Fecha) VALUES(@Codigo,@Monto,@Medio_Pago,@Compra,@Fecha"
+                .CommandText = "INSERT INTO Pago (Codigo,Monto,Medio_Pago,Compra,Fecha) VALUES(@Codigo,@Monto,@Medio_Pago,@Compra,@Fecha)"
                 .Connection = conn
 
                 .Parameters.AddWithValue("@Codigo", Codigo)
                 .Parameters.AddWithValue("@Monto", Monto)
                 .Parameters.AddWithValue("@Medio_Pago", Medio_Pago)
-                .Parameters.AddWithValue("@Cliente", Compra)
+                .Parameters.AddWithValue("@Compra", Compra)
                 .Parameters.AddWithValue("@Fecha", Fecha)
             End With
             Try
@@ -440,15 +489,14 @@ Public Class Conexion
 
     End Sub
 
-    Sub regEstudiante(ByVal idEstudiante As String, ByVal FotosCarnet As Integer, ByVal CertEstudios As Integer, ByVal CertAlumnRegular As Integer, ByVal AutNotarial As Integer)
+    Sub regEstudiante(ByVal FotosCarnet As Integer, ByVal CertEstudios As Boolean, ByVal CertAlumnRegular As Boolean, ByVal AutNotarial As Boolean)
         'Registra Estudiante'
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO ESTUDIANTE (idEstudiante, FotosCarnet, CertEstudios, CertAlumnRegular, AutNotarial) VALUES(@idEstudiante, @FotosCarnet, @CertEstudios, @CertAlumnRegular, @AutNotarial)"
+                .CommandText = "INSERT INTO ESTUDIANTE (FotosCarnet, CertEstudios, CertAlumnRegular, AutNotarial) VALUES( @FotosCarnet, @CertEstudios, @CertAlumnRegular, @AutNotarial)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
-                .Parameters.AddWithValue("@idEstudiante", idEstudiante)
                 .Parameters.AddWithValue("@FotosCarnet", FotosCarnet)
                 .Parameters.AddWithValue("@CertEstudios", CertEstudios)
                 .Parameters.AddWithValue("@CertAlumnRegular", CertAlumnRegular)
@@ -462,6 +510,25 @@ Public Class Conexion
 
         End Using
 
+    End Sub
+
+    Sub regDocumento(ByVal Tipo As String)
+        'Registra Documento'
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO Documento (Tipo) VALUES( @Tipo)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@FotosCarnet", Tipo)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
     End Sub
 
 
@@ -493,7 +560,7 @@ Public Class Conexion
         End Using
         Return pago
     End Function
-   
+
     'Crear clase'
     Sub RegistrarClase(ByVal Codigo As String, ByVal Curso As String, ByVal FechaInicio As String, ByVal FechaTermino As String)
         Using comando As New MySqlCommand()

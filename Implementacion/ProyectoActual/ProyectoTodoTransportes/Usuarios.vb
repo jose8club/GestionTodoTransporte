@@ -40,7 +40,6 @@ Public Class Usuarios
         con.regUsuario(tbox_NombreUsuario.Text, tbox_Contrasena.Text, cbox_TipoUsuario.Text, cbox_Funcionario.Text)
     End Sub
 
-
     Private Sub tbox_NombreUsuario_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_NombreUsuario.KeyPress
         Herramientas.textoDeseado(e, Herramientas.NoEspeciales)
     End Sub

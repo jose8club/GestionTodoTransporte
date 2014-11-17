@@ -33,18 +33,22 @@ Partial Class RegistrarMatricula
         Me.check_PagoRealizado = New System.Windows.Forms.CheckBox()
         Me.lbl_codigo = New System.Windows.Forms.Label()
         Me.gbox_EstadoDocs2 = New System.Windows.Forms.GroupBox()
+        Me.lbl_Cantidad = New System.Windows.Forms.Label()
+        Me.tbox_cant = New System.Windows.Forms.TextBox()
         Me.check_AntecedentesNot = New System.Windows.Forms.CheckBox()
         Me.check_AlumnoReg = New System.Windows.Forms.CheckBox()
         Me.check_CertEstudios = New System.Windows.Forms.CheckBox()
         Me.check_Foto = New System.Windows.Forms.CheckBox()
         Me.gbox_Horarios2 = New System.Windows.Forms.GroupBox()
+        Me.cbox_Curso = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.cbox_HorarioPractico = New System.Windows.Forms.ComboBox()
         Me.lbl_HorarioPractico = New System.Windows.Forms.Label()
         Me.cbox_HorarioTeorico = New System.Windows.Forms.ComboBox()
         Me.lbl_HorarioTeorico = New System.Windows.Forms.Label()
         Me.tbox_Telefono = New System.Windows.Forms.TextBox()
         Me.lbl_Telefono = New System.Windows.Forms.Label()
-        Me.cbox_CursoRendir = New System.Windows.Forms.ComboBox()
+        Me.cbox_Licencia = New System.Windows.Forms.ComboBox()
         Me.lbl_CursoRendir = New System.Windows.Forms.Label()
         Me.date_FechaNacimiento = New System.Windows.Forms.DateTimePicker()
         Me.lbl_FechaNacimiento = New System.Windows.Forms.Label()
@@ -62,7 +66,7 @@ Partial Class RegistrarMatricula
         '
         'btn_Guardar
         '
-        Me.btn_Guardar.Location = New System.Drawing.Point(371, 391)
+        Me.btn_Guardar.Location = New System.Drawing.Point(597, 302)
         Me.btn_Guardar.Name = "btn_Guardar"
         Me.btn_Guardar.Size = New System.Drawing.Size(75, 23)
         Me.btn_Guardar.TabIndex = 16
@@ -79,7 +83,7 @@ Partial Class RegistrarMatricula
         Me.gbox_Matricula2.Controls.Add(Me.lbl_ValorCurso2)
         Me.gbox_Matricula2.Controls.Add(Me.check_PagoRealizado)
         Me.gbox_Matricula2.Controls.Add(Me.lbl_codigo)
-        Me.gbox_Matricula2.Location = New System.Drawing.Point(229, 266)
+        Me.gbox_Matricula2.Location = New System.Drawing.Point(461, 177)
         Me.gbox_Matricula2.Name = "gbox_Matricula2"
         Me.gbox_Matricula2.Size = New System.Drawing.Size(217, 119)
         Me.gbox_Matricula2.TabIndex = 57
@@ -159,21 +163,41 @@ Partial Class RegistrarMatricula
         '
         'gbox_EstadoDocs2
         '
+        Me.gbox_EstadoDocs2.Controls.Add(Me.lbl_Cantidad)
+        Me.gbox_EstadoDocs2.Controls.Add(Me.tbox_cant)
         Me.gbox_EstadoDocs2.Controls.Add(Me.check_AntecedentesNot)
         Me.gbox_EstadoDocs2.Controls.Add(Me.check_AlumnoReg)
         Me.gbox_EstadoDocs2.Controls.Add(Me.check_CertEstudios)
         Me.gbox_EstadoDocs2.Controls.Add(Me.check_Foto)
-        Me.gbox_EstadoDocs2.Location = New System.Drawing.Point(17, 266)
+        Me.gbox_EstadoDocs2.Location = New System.Drawing.Point(461, 12)
         Me.gbox_EstadoDocs2.Name = "gbox_EstadoDocs2"
-        Me.gbox_EstadoDocs2.Size = New System.Drawing.Size(205, 119)
+        Me.gbox_EstadoDocs2.Size = New System.Drawing.Size(217, 151)
         Me.gbox_EstadoDocs2.TabIndex = 56
         Me.gbox_EstadoDocs2.TabStop = False
         Me.gbox_EstadoDocs2.Text = "Estado de Documentos"
         '
+        'lbl_Cantidad
+        '
+        Me.lbl_Cantidad.AutoSize = True
+        Me.lbl_Cantidad.Location = New System.Drawing.Point(97, 30)
+        Me.lbl_Cantidad.Name = "lbl_Cantidad"
+        Me.lbl_Cantidad.Size = New System.Drawing.Size(32, 13)
+        Me.lbl_Cantidad.TabIndex = 60
+        Me.lbl_Cantidad.Text = "Cant:"
+        '
+        'tbox_cant
+        '
+        Me.tbox_cant.Enabled = False
+        Me.tbox_cant.Location = New System.Drawing.Point(136, 26)
+        Me.tbox_cant.MaxLength = 1
+        Me.tbox_cant.Name = "tbox_cant"
+        Me.tbox_cant.Size = New System.Drawing.Size(75, 20)
+        Me.tbox_cant.TabIndex = 60
+        '
         'check_AntecedentesNot
         '
         Me.check_AntecedentesNot.AutoSize = True
-        Me.check_AntecedentesNot.Location = New System.Drawing.Point(11, 88)
+        Me.check_AntecedentesNot.Location = New System.Drawing.Point(9, 99)
         Me.check_AntecedentesNot.Name = "check_AntecedentesNot"
         Me.check_AntecedentesNot.Size = New System.Drawing.Size(142, 17)
         Me.check_AntecedentesNot.TabIndex = 11
@@ -183,7 +207,7 @@ Partial Class RegistrarMatricula
         'check_AlumnoReg
         '
         Me.check_AlumnoReg.AutoSize = True
-        Me.check_AlumnoReg.Location = New System.Drawing.Point(11, 65)
+        Me.check_AlumnoReg.Location = New System.Drawing.Point(9, 76)
         Me.check_AlumnoReg.Name = "check_AlumnoReg"
         Me.check_AlumnoReg.Size = New System.Drawing.Size(154, 17)
         Me.check_AlumnoReg.TabIndex = 10
@@ -193,7 +217,7 @@ Partial Class RegistrarMatricula
         'check_CertEstudios
         '
         Me.check_CertEstudios.AutoSize = True
-        Me.check_CertEstudios.Location = New System.Drawing.Point(11, 42)
+        Me.check_CertEstudios.Location = New System.Drawing.Point(9, 52)
         Me.check_CertEstudios.Name = "check_CertEstudios"
         Me.check_CertEstudios.Size = New System.Drawing.Size(134, 17)
         Me.check_CertEstudios.TabIndex = 9
@@ -203,7 +227,7 @@ Partial Class RegistrarMatricula
         'check_Foto
         '
         Me.check_Foto.AutoSize = True
-        Me.check_Foto.Location = New System.Drawing.Point(11, 19)
+        Me.check_Foto.Location = New System.Drawing.Point(9, 29)
         Me.check_Foto.Name = "check_Foto"
         Me.check_Foto.Size = New System.Drawing.Size(81, 17)
         Me.check_Foto.TabIndex = 8
@@ -212,22 +236,42 @@ Partial Class RegistrarMatricula
         '
         'gbox_Horarios2
         '
+        Me.gbox_Horarios2.Controls.Add(Me.cbox_Curso)
+        Me.gbox_Horarios2.Controls.Add(Me.Label1)
         Me.gbox_Horarios2.Controls.Add(Me.cbox_HorarioPractico)
         Me.gbox_Horarios2.Controls.Add(Me.lbl_HorarioPractico)
         Me.gbox_Horarios2.Controls.Add(Me.cbox_HorarioTeorico)
         Me.gbox_Horarios2.Controls.Add(Me.lbl_HorarioTeorico)
         Me.gbox_Horarios2.Location = New System.Drawing.Point(18, 179)
         Me.gbox_Horarios2.Name = "gbox_Horarios2"
-        Me.gbox_Horarios2.Size = New System.Drawing.Size(428, 81)
+        Me.gbox_Horarios2.Size = New System.Drawing.Size(428, 120)
         Me.gbox_Horarios2.TabIndex = 55
         Me.gbox_Horarios2.TabStop = False
         Me.gbox_Horarios2.Text = "Horarios"
+        '
+        'cbox_Curso
+        '
+        Me.cbox_Curso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbox_Curso.FormattingEnabled = True
+        Me.cbox_Curso.Location = New System.Drawing.Point(126, 33)
+        Me.cbox_Curso.Name = "cbox_Curso"
+        Me.cbox_Curso.Size = New System.Drawing.Size(291, 21)
+        Me.cbox_Curso.TabIndex = 9
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(9, 36)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(37, 13)
+        Me.Label1.TabIndex = 8
+        Me.Label1.Text = "Curso:"
         '
         'cbox_HorarioPractico
         '
         Me.cbox_HorarioPractico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_HorarioPractico.FormattingEnabled = True
-        Me.cbox_HorarioPractico.Location = New System.Drawing.Point(131, 46)
+        Me.cbox_HorarioPractico.Location = New System.Drawing.Point(126, 87)
         Me.cbox_HorarioPractico.Name = "cbox_HorarioPractico"
         Me.cbox_HorarioPractico.Size = New System.Drawing.Size(291, 21)
         Me.cbox_HorarioPractico.TabIndex = 7
@@ -235,17 +279,17 @@ Partial Class RegistrarMatricula
         'lbl_HorarioPractico
         '
         Me.lbl_HorarioPractico.AutoSize = True
-        Me.lbl_HorarioPractico.Location = New System.Drawing.Point(11, 51)
+        Me.lbl_HorarioPractico.Location = New System.Drawing.Point(9, 90)
         Me.lbl_HorarioPractico.Name = "lbl_HorarioPractico"
-        Me.lbl_HorarioPractico.Size = New System.Drawing.Size(46, 13)
+        Me.lbl_HorarioPractico.Size = New System.Drawing.Size(86, 13)
         Me.lbl_HorarioPractico.TabIndex = 3
-        Me.lbl_HorarioPractico.Text = "Práctico"
+        Me.lbl_HorarioPractico.Text = "Horario Práctico:"
         '
         'cbox_HorarioTeorico
         '
         Me.cbox_HorarioTeorico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_HorarioTeorico.FormattingEnabled = True
-        Me.cbox_HorarioTeorico.Location = New System.Drawing.Point(131, 19)
+        Me.cbox_HorarioTeorico.Location = New System.Drawing.Point(126, 60)
         Me.cbox_HorarioTeorico.Name = "cbox_HorarioTeorico"
         Me.cbox_HorarioTeorico.Size = New System.Drawing.Size(291, 21)
         Me.cbox_HorarioTeorico.TabIndex = 6
@@ -253,11 +297,11 @@ Partial Class RegistrarMatricula
         'lbl_HorarioTeorico
         '
         Me.lbl_HorarioTeorico.AutoSize = True
-        Me.lbl_HorarioTeorico.Location = New System.Drawing.Point(11, 23)
+        Me.lbl_HorarioTeorico.Location = New System.Drawing.Point(9, 64)
         Me.lbl_HorarioTeorico.Name = "lbl_HorarioTeorico"
-        Me.lbl_HorarioTeorico.Size = New System.Drawing.Size(43, 13)
+        Me.lbl_HorarioTeorico.Size = New System.Drawing.Size(83, 13)
         Me.lbl_HorarioTeorico.TabIndex = 0
-        Me.lbl_HorarioTeorico.Text = "Teórico"
+        Me.lbl_HorarioTeorico.Text = "Horario Teórico:"
         '
         'tbox_Telefono
         '
@@ -276,23 +320,23 @@ Partial Class RegistrarMatricula
         Me.lbl_Telefono.TabIndex = 54
         Me.lbl_Telefono.Text = "Teléfono/Celular:"
         '
-        'cbox_CursoRendir
+        'cbox_Licencia
         '
-        Me.cbox_CursoRendir.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbox_CursoRendir.FormattingEnabled = True
-        Me.cbox_CursoRendir.Location = New System.Drawing.Point(142, 90)
-        Me.cbox_CursoRendir.Name = "cbox_CursoRendir"
-        Me.cbox_CursoRendir.Size = New System.Drawing.Size(304, 21)
-        Me.cbox_CursoRendir.TabIndex = 4
+        Me.cbox_Licencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbox_Licencia.FormattingEnabled = True
+        Me.cbox_Licencia.Location = New System.Drawing.Point(144, 90)
+        Me.cbox_Licencia.Name = "cbox_Licencia"
+        Me.cbox_Licencia.Size = New System.Drawing.Size(302, 21)
+        Me.cbox_Licencia.TabIndex = 4
         '
         'lbl_CursoRendir
         '
         Me.lbl_CursoRendir.AutoSize = True
         Me.lbl_CursoRendir.Location = New System.Drawing.Point(13, 93)
         Me.lbl_CursoRendir.Name = "lbl_CursoRendir"
-        Me.lbl_CursoRendir.Size = New System.Drawing.Size(75, 13)
+        Me.lbl_CursoRendir.Size = New System.Drawing.Size(50, 13)
         Me.lbl_CursoRendir.TabIndex = 53
-        Me.lbl_CursoRendir.Text = "Curso a rendir:"
+        Me.lbl_CursoRendir.Text = "Licencia:"
         '
         'date_FechaNacimiento
         '
@@ -373,7 +417,7 @@ Partial Class RegistrarMatricula
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(462, 428)
+        Me.ClientSize = New System.Drawing.Size(710, 337)
         Me.Controls.Add(Me.tbox_Email)
         Me.Controls.Add(Me.lbl_Email)
         Me.Controls.Add(Me.btn_Guardar)
@@ -382,7 +426,7 @@ Partial Class RegistrarMatricula
         Me.Controls.Add(Me.gbox_Horarios2)
         Me.Controls.Add(Me.tbox_Telefono)
         Me.Controls.Add(Me.lbl_Telefono)
-        Me.Controls.Add(Me.cbox_CursoRendir)
+        Me.Controls.Add(Me.cbox_Licencia)
         Me.Controls.Add(Me.lbl_CursoRendir)
         Me.Controls.Add(Me.date_FechaNacimiento)
         Me.Controls.Add(Me.lbl_FechaNacimiento)
@@ -426,7 +470,7 @@ Partial Class RegistrarMatricula
     Friend WithEvents lbl_HorarioTeorico As System.Windows.Forms.Label
     Friend WithEvents tbox_Telefono As System.Windows.Forms.TextBox
     Friend WithEvents lbl_Telefono As System.Windows.Forms.Label
-    Friend WithEvents cbox_CursoRendir As System.Windows.Forms.ComboBox
+    Friend WithEvents cbox_Licencia As System.Windows.Forms.ComboBox
     Friend WithEvents lbl_CursoRendir As System.Windows.Forms.Label
     Friend WithEvents date_FechaNacimiento As System.Windows.Forms.DateTimePicker
     Friend WithEvents lbl_FechaNacimiento As System.Windows.Forms.Label
@@ -437,4 +481,8 @@ Partial Class RegistrarMatricula
     Friend WithEvents lbl_Nombre As System.Windows.Forms.Label
     Friend WithEvents tbox_Email As System.Windows.Forms.TextBox
     Friend WithEvents lbl_Email As System.Windows.Forms.Label
+    Friend WithEvents cbox_Curso As System.Windows.Forms.ComboBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents tbox_cant As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_Cantidad As System.Windows.Forms.Label
 End Class
