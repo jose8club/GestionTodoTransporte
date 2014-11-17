@@ -100,5 +100,9 @@
 
     End Function
 
+    Function filtroContiene(ByVal items() As String, ByVal compara As String) As String()
+        Return items.Where(Function(s) s Like "*" & compara & "*").ToArray
+    End Function
+
 End Module
 

@@ -46,6 +46,7 @@ Partial Class Docente
         'tbox_Nombre
         '
         Me.tbox_Nombre.Location = New System.Drawing.Point(128, 12)
+        Me.tbox_Nombre.MaxLength = 45
         Me.tbox_Nombre.Name = "tbox_Nombre"
         Me.tbox_Nombre.Size = New System.Drawing.Size(288, 20)
         Me.tbox_Nombre.TabIndex = 9
@@ -62,6 +63,7 @@ Partial Class Docente
         'tbox_Telefono
         '
         Me.tbox_Telefono.Location = New System.Drawing.Point(128, 38)
+        Me.tbox_Telefono.MaxLength = 45
         Me.tbox_Telefono.Name = "tbox_Telefono"
         Me.tbox_Telefono.Size = New System.Drawing.Size(288, 20)
         Me.tbox_Telefono.TabIndex = 12

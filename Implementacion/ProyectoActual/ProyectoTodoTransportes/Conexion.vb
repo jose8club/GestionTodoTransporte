@@ -195,8 +195,12 @@ Public Class Conexion
                 comando.ExecuteNonQuery()
                 Dim pass As String = Convert.ToString(comando.ExecuteScalar)
 
-                If pass.Equals(contra) Then Return True Else Return False
-
+                If pass.Equals(contra) Then
+                    Return True
+                Else
+                    conn.Close()
+                    Return False
+                End If
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
             End Try

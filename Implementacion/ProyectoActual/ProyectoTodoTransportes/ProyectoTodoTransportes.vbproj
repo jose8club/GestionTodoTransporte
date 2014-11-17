@@ -40,7 +40,7 @@
     <OptionExplicit>On</OptionExplicit>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionCompare>Binary</OptionCompare>
+    <OptionCompare>Text</OptionCompare>
   </PropertyGroup>
   <PropertyGroup>
     <OptionStrict>Off</OptionStrict>
@@ -82,6 +82,12 @@
     <Compile Include="Bienvenido.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Clase.Designer.vb">
+      <DependentUpon>Clase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clase.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Conexion.vb" />
     <Compile Include="Docente.Designer.vb">
       <DependentUpon>Docente.vb</DependentUpon>
@@ -95,10 +101,22 @@
     <Compile Include="Encuesta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="editDocente.Designer.vb">
+      <DependentUpon>editDocente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="editDocente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Funcionario.Designer.vb">
       <DependentUpon>Funcionario.vb</DependentUpon>
     </Compile>
     <Compile Include="Funcionario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tab_Docente.Designer.vb">
+      <DependentUpon>tab_Docente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="tab_Docente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Usuarios.Designer.vb">
@@ -153,14 +171,23 @@
     <EmbeddedResource Include="Bienvenido.resx">
       <DependentUpon>Bienvenido.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Clase.resx">
+      <DependentUpon>Clase.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Docente.resx">
       <DependentUpon>Docente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Encuesta.resx">
       <DependentUpon>Encuesta.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="editDocente.resx">
+      <DependentUpon>editDocente.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Funcionario.resx">
       <DependentUpon>Funcionario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tab_Docente.resx">
+      <DependentUpon>tab_Docente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios.resx">
       <DependentUpon>Usuarios.vb</DependentUpon>

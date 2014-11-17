@@ -23,12 +23,12 @@
 
     Private Sub btn_Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Guardar.Click
 
-        If tbox_Patente.Text.Equals("") Then
-            STATUS.Text = "ERROR: Debe ingresar los datos asociados al vehículo"
-        Else
+        If validar() Then
             Try
                 con.regVehiculo(tbox_Patente.Text, tbox_modelo.Text, cbox_Estado.Text)
+
                 STATUS.Text = "Vehículo " & tbox_Patente.Text & " fue agregado correctamente."
+                reset()
             Catch ex As Exception
                 MsgBox(ex.ToString)
             End Try
@@ -36,4 +36,17 @@
 
     End Sub
 
+    Function validar() As Boolean
+        If tbox_Patente.Text.Equals("") Then
+            STATUS.Text = "ERROR: Ingrese los datos."
+            Return False
+        End If
+        Return True
+    End Function
+
+    Sub reset()
+        tbox_modelo.Text = ""
+        tbox_Patente.Text = ""
+        cbox_Estado.SelectedIndex = 0
+    End Sub
 End Class

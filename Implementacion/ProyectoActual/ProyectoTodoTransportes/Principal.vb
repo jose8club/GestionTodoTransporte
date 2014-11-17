@@ -64,7 +64,7 @@
             Me.MainMenu.TabPages(1).Controls.Add(form)
             form.Show()
         ElseIf tab = 2 Then
-            form = New Docente(USER, con, ESTADO)
+            form = New tab_Docente(USER, con, ESTADO)
             form.TopLevel = False
             Me.MainMenu.TabPages(2).Controls.Add(form)
             form.Show()
@@ -82,6 +82,11 @@
             form = New Usuarios(USER, con, ESTADO)
             form.TopLevel = False
             Me.MainMenu.TabPages(5).Controls.Add(form)
+            form.Show()
+        ElseIf tab = 6 Then
+            form = New Clase(USER, con, ESTADO)
+            form.TopLevel = False
+            Me.MainMenu.TabPages(6).Controls.Add(form)
             form.Show()
         End If
 
