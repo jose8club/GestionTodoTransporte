@@ -88,6 +88,11 @@
             form.TopLevel = False
             Me.MainMenu.TabPages(6).Controls.Add(form)
             form.Show()
+        ElseIf tab = 7 Then
+            form = New Psicotecnico(USER, con, ESTADO)
+            form.TopLevel = False
+            Me.MainMenu.TabPages(7).Controls.Add(form)
+            form.Show()
         End If
 
 

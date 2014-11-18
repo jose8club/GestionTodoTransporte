@@ -29,9 +29,10 @@ Partial Class Principal
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.TabPage7 = New System.Windows.Forms.TabPage()
         Me.lbl_Estado = New System.Windows.Forms.StatusStrip()
         Me.ESTADO = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.MainMenu.SuspendLayout()
         Me.lbl_Estado.SuspendLayout()
         Me.SuspendLayout()
@@ -46,6 +47,7 @@ Partial Class Principal
         Me.MainMenu.Controls.Add(Me.TabPage5)
         Me.MainMenu.Controls.Add(Me.TabPage6)
         Me.MainMenu.Controls.Add(Me.TabPage7)
+        Me.MainMenu.Controls.Add(Me.TabPage8)
         Me.MainMenu.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
         Me.MainMenu.ItemSize = New System.Drawing.Size(25, 150)
         Me.MainMenu.Location = New System.Drawing.Point(21, 12)
@@ -112,6 +114,15 @@ Partial Class Principal
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Agregar Usuario"
         '
+        'TabPage7
+        '
+        Me.TabPage7.Location = New System.Drawing.Point(154, 4)
+        Me.TabPage7.Name = "TabPage7"
+        Me.TabPage7.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage7.TabIndex = 6
+        Me.TabPage7.Text = "Clases"
+        Me.TabPage7.UseVisualStyleBackColor = True
+        '
         'lbl_Estado
         '
         Me.lbl_Estado.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ESTADO})
@@ -124,17 +135,17 @@ Partial Class Principal
         'ESTADO
         '
         Me.ESTADO.Name = "ESTADO"
-        Me.ESTADO.Size = New System.Drawing.Size(124, 17)
+        Me.ESTADO.Size = New System.Drawing.Size(121, 17)
         Me.ESTADO.Text = "ToolStripStatusLabel1"
         '
-        'TabPage7
+        'TabPage8
         '
-        Me.TabPage7.Location = New System.Drawing.Point(154, 4)
-        Me.TabPage7.Name = "TabPage7"
-        Me.TabPage7.Size = New System.Drawing.Size(754, 393)
-        Me.TabPage7.TabIndex = 6
-        Me.TabPage7.Text = "Clases"
-        Me.TabPage7.UseVisualStyleBackColor = True
+        Me.TabPage8.Location = New System.Drawing.Point(154, 4)
+        Me.TabPage8.Name = "TabPage8"
+        Me.TabPage8.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage8.TabIndex = 7
+        Me.TabPage8.Text = "Examen Psicotecnico"
+        Me.TabPage8.UseVisualStyleBackColor = True
         '
         'Principal
         '
@@ -162,5 +173,6 @@ Partial Class Principal
     Friend WithEvents lbl_Estado As System.Windows.Forms.StatusStrip
     Friend WithEvents ESTADO As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents TabPage7 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage8 As System.Windows.Forms.TabPage
 
 End Class
