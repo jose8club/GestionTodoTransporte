@@ -54,7 +54,7 @@ Partial Class Psicotecnico
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(75, 109)
+        Me.Label2.Location = New System.Drawing.Point(75, 82)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(65, 13)
         Me.Label2.TabIndex = 2
@@ -63,7 +63,7 @@ Partial Class Psicotecnico
         'cbox_doc
         '
         Me.cbox_doc.FormattingEnabled = True
-        Me.cbox_doc.Location = New System.Drawing.Point(180, 106)
+        Me.cbox_doc.Location = New System.Drawing.Point(180, 79)
         Me.cbox_doc.Name = "cbox_doc"
         Me.cbox_doc.Size = New System.Drawing.Size(332, 21)
         Me.cbox_doc.TabIndex = 3
@@ -71,7 +71,7 @@ Partial Class Psicotecnico
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(75, 171)
+        Me.Label3.Location = New System.Drawing.Point(75, 121)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(40, 13)
         Me.Label3.TabIndex = 4
@@ -79,7 +79,7 @@ Partial Class Psicotecnico
         '
         'date_examen
         '
-        Me.date_examen.Location = New System.Drawing.Point(180, 165)
+        Me.date_examen.Location = New System.Drawing.Point(180, 115)
         Me.date_examen.Name = "date_examen"
         Me.date_examen.Size = New System.Drawing.Size(332, 20)
         Me.date_examen.TabIndex = 5
@@ -87,7 +87,7 @@ Partial Class Psicotecnico
         'cbox_examinador
         '
         Me.cbox_examinador.FormattingEnabled = True
-        Me.cbox_examinador.Location = New System.Drawing.Point(180, 224)
+        Me.cbox_examinador.Location = New System.Drawing.Point(180, 150)
         Me.cbox_examinador.Name = "cbox_examinador"
         Me.cbox_examinador.Size = New System.Drawing.Size(332, 21)
         Me.cbox_examinador.TabIndex = 7
@@ -95,7 +95,7 @@ Partial Class Psicotecnico
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(75, 227)
+        Me.Label4.Location = New System.Drawing.Point(75, 153)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(65, 13)
         Me.Label4.TabIndex = 6
@@ -103,7 +103,7 @@ Partial Class Psicotecnico
         '
         'tbox_estado
         '
-        Me.tbox_estado.Location = New System.Drawing.Point(180, 289)
+        Me.tbox_estado.Location = New System.Drawing.Point(180, 190)
         Me.tbox_estado.Name = "tbox_estado"
         Me.tbox_estado.Size = New System.Drawing.Size(332, 20)
         Me.tbox_estado.TabIndex = 9
@@ -111,7 +111,7 @@ Partial Class Psicotecnico
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(75, 292)
+        Me.Label5.Location = New System.Drawing.Point(75, 193)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(43, 13)
         Me.Label5.TabIndex = 8
@@ -119,7 +119,7 @@ Partial Class Psicotecnico
         '
         'btn_psico
         '
-        Me.btn_psico.Location = New System.Drawing.Point(401, 342)
+        Me.btn_psico.Location = New System.Drawing.Point(401, 243)
         Me.btn_psico.Name = "btn_psico"
         Me.btn_psico.Size = New System.Drawing.Size(111, 23)
         Me.btn_psico.TabIndex = 10
@@ -130,7 +130,7 @@ Partial Class Psicotecnico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(637, 394)
+        Me.ClientSize = New System.Drawing.Size(762, 394)
         Me.Controls.Add(Me.btn_psico)
         Me.Controls.Add(Me.tbox_estado)
         Me.Controls.Add(Me.Label5)

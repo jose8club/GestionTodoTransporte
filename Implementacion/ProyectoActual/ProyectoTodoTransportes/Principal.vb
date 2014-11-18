@@ -93,10 +93,12 @@
             form.TopLevel = False
             Me.MainMenu.TabPages(7).Controls.Add(form)
             form.Show()
+        ElseIf tab = 8 Then
+            form = New Visual(USER, con, ESTADO)
+            form.TopLevel = False
+            Me.MainMenu.TabPages(8).Controls.Add(form)
+            form.Show()
         End If
-
-
-
     End Sub
 
 End Class
