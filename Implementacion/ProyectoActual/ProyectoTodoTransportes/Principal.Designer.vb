@@ -34,6 +34,7 @@ Partial Class Principal
         Me.ESTADO = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
+        Me.TabPage10 = New System.Windows.Forms.TabPage()
         Me.MainMenu.SuspendLayout()
         Me.lbl_Estado.SuspendLayout()
         Me.SuspendLayout()
@@ -50,6 +51,7 @@ Partial Class Principal
         Me.MainMenu.Controls.Add(Me.TabPage7)
         Me.MainMenu.Controls.Add(Me.TabPage8)
         Me.MainMenu.Controls.Add(Me.TabPage9)
+        Me.MainMenu.Controls.Add(Me.TabPage10)
         Me.MainMenu.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
         Me.MainMenu.ItemSize = New System.Drawing.Size(25, 150)
         Me.MainMenu.Location = New System.Drawing.Point(21, 12)
@@ -158,6 +160,15 @@ Partial Class Principal
         Me.TabPage9.Text = "Examen Visual"
         Me.TabPage9.UseVisualStyleBackColor = True
         '
+        'TabPage10
+        '
+        Me.TabPage10.Location = New System.Drawing.Point(154, 4)
+        Me.TabPage10.Name = "TabPage10"
+        Me.TabPage10.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage10.TabIndex = 9
+        Me.TabPage10.Text = "Examenes Escuela"
+        Me.TabPage10.UseVisualStyleBackColor = True
+        '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -186,5 +197,6 @@ Partial Class Principal
     Friend WithEvents TabPage7 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage8 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage9 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage10 As System.Windows.Forms.TabPage
 
 End Class

@@ -107,6 +107,12 @@
     <Compile Include="editDocente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Examen.Designer.vb">
+      <DependentUpon>Examen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Examen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Funcionario.Designer.vb">
       <DependentUpon>Funcionario.vb</DependentUpon>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="editDocente.resx">
       <DependentUpon>editDocente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Examen.resx">
+      <DependentUpon>Examen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funcionario.resx">
       <DependentUpon>Funcionario.vb</DependentUpon>

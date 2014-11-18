@@ -98,7 +98,13 @@
             form.TopLevel = False
             Me.MainMenu.TabPages(8).Controls.Add(form)
             form.Show()
+        ElseIf tab = 9 Then
+            form = New Examen(USER, con, ESTADO)
+            form.TopLevel = False
+            Me.MainMenu.TabPages(9).Controls.Add(form)
+            form.Show()
         End If
+
     End Sub
 
 End Class
