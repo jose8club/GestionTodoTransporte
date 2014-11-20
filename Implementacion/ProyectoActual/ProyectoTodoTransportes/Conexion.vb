@@ -271,20 +271,20 @@ Public Class Conexion
         End Using
     End Sub
 
-    Sub regAtencion(ByVal usuario As String, ByVal idcliente As Integer, ByVal fecha As String, ByVal metodo As String)
+    Sub regAtencion(ByVal usuario As String, ByVal idcliente As Integer, ByVal fecha As String, ByVal Tipo As String)
 
         'Realiza el registro en la tabla ATENCION_CLIENTE
 
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO Atencion_cliente_potencial (Usuario, Cliente_Potencial, Fecha, Metodo) VALUES(@Usuario,@Cliente,@Fecha,@Metodo)"
+                .CommandText = "INSERT INTO Atencion_cliente_potencial (Usuario, Cliente_Potencial, Fecha, Tipo) VALUES(@Usuario,@Cliente,@Fecha,@Tipo)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
                 .Parameters.AddWithValue("@Usuario", usuario)
                 .Parameters.AddWithValue("@Cliente", idcliente)
                 .Parameters.AddWithValue("@Fecha", fecha)
-                .Parameters.AddWithValue("@Metodo", metodo) 'momentaneo'
+                .Parameters.AddWithValue("@Tipo", Tipo) 'momentaneo'
 
             End With
             Try
@@ -296,7 +296,7 @@ Public Class Conexion
         End Using
     End Sub
 
-    Sub regClientePotencial(ByVal Nombre As String, ByVal Telefono As Integer, ByVal Producto As String, ByVal Extra As String, ByVal USER As String)
+    Function regClientePotencial(ByVal Nombre As String, ByVal Telefono As Integer, ByVal Producto As String, ByVal Extra As String) As Integer
 
         'Realiza el registro en la tabla CLIENTE
 
@@ -317,8 +317,9 @@ Public Class Conexion
                 MsgBox(ex.Message.ToString)
             End Try
 
+            Return comando.LastInsertedId
         End Using
-    End Sub
+    End Function
 
     Sub regVehiculo(ByVal Patente As String, ByVal Modelo As String, ByVal Estado As String)
 

@@ -17,10 +17,7 @@
     End Sub
 
     Private Sub Principal_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Dim regCliente As New RegistrarCliente(USER, con, ESTADO)
-        regCliente.TopLevel = False
-        Me.MainMenu.TabPages(0).Controls.Add(regCliente)
-        regCliente.Show()
+        loadTAB(MainMenu.TabPages(MainMenu.SelectedIndex).Text, MainMenu.SelectedIndex)
         ESTADO.Text = "Usuario: " & USER
     End Sub
 
@@ -48,63 +45,67 @@
         g.DrawString(_TabPage.Text, _TabFont, _TextBrush, _TabBounds, New StringFormat(_StringFlags))
     End Sub
 
-    Private Sub MainMenu_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles MainMenu.SelectedIndexChanged
+    Private Sub MainMenu_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles MainMenu.SelectedIndexChanged
         Dim tab As Integer = MainMenu.SelectedIndex
-        Dim form As Form = New Form
+        Dim Nombre As String = MainMenu.TabPages(tab).Text
+        loadTAB(Nombre, tab)
+    End Sub
+
+    Sub loadTAB(ByVal Nombre As String, ByVal tab As Integer)
+        'Se crea este método para poder editar el orden de las pestañas y no alterar el contenido
+        Dim Form As Form
         Me.MainMenu.TabPages(tab).Controls.Clear()
-
-        If tab = 0 Then
-            form = New RegistrarCliente(USER, con, ESTADO)
-            form.TopLevel = False
-            Me.MainMenu.TabPages(0).Controls.Add(form)
-            form.Show()
-        ElseIf tab = 1 Then
-            form = New RegistrarMatricula(USER, con, ESTADO)
-            form.TopLevel = False
-            Me.MainMenu.TabPages(1).Controls.Add(form)
-            form.Show()
-        ElseIf tab = 2 Then
-            form = New tab_Docente(USER, con, ESTADO)
-            form.TopLevel = False
-            Me.MainMenu.TabPages(2).Controls.Add(form)
-            form.Show()
-        ElseIf tab = 3 Then
-            form = New Encuesta(USER, con, ESTADO)
-            form.TopLevel = False
-            Me.MainMenu.TabPages(3).Controls.Add(form)
-            form.Show()
-        ElseIf tab = 4 Then
-            form = New Vehiculos(USER, con, ESTADO)
-            form.TopLevel = False
-            Me.MainMenu.TabPages(4).Controls.Add(form)
-            form.Show()
-        ElseIf tab = 5 Then
-            form = New Usuarios(USER, con, ESTADO)
-            form.TopLevel = False
-            Me.MainMenu.TabPages(5).Controls.Add(form)
-            form.Show()
-        ElseIf tab = 6 Then
-            form = New Clase(USER, con, ESTADO)
-            form.TopLevel = False
-            Me.MainMenu.TabPages(6).Controls.Add(form)
-            form.Show()
-        ElseIf tab = 7 Then
-            form = New Psicotecnico(USER, con, ESTADO)
-            form.TopLevel = False
-            Me.MainMenu.TabPages(7).Controls.Add(form)
-            form.Show()
-        ElseIf tab = 8 Then
-            form = New Visual(USER, con, ESTADO)
-            form.TopLevel = False
-            Me.MainMenu.TabPages(8).Controls.Add(form)
-            form.Show()
-        ElseIf tab = 9 Then
-            form = New Examen(USER, con, ESTADO)
-            form.TopLevel = False
-            Me.MainMenu.TabPages(9).Controls.Add(form)
-            form.Show()
+        If Nombre.Equals("Atención al Cliente") Then
+            Form = New RegistrarCliente(USER, con, ESTADO)
+            Form.TopLevel = False
+            Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            Form.Show()
+        ElseIf Nombre.Equals("Matrícula") Then
+            Form = New RegistrarMatricula(USER, con, ESTADO)
+            Form.TopLevel = False
+            Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            Form.Show()
+        ElseIf Nombre.Equals("Profesores") Then
+            Form = New tab_Docente(USER, con, ESTADO)
+            Form.TopLevel = False
+            Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            Form.Show()
+        ElseIf Nombre.Equals("Encuesta de Calidad") Then
+            Form = New Encuesta(USER, con, ESTADO)
+            Form.TopLevel = False
+            Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            Form.Show()
+        ElseIf Nombre.Equals("Vehículos") Then
+            Form = New Vehiculos(USER, con, ESTADO)
+            Form.TopLevel = False
+            Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            Form.Show()
+        ElseIf Nombre.Equals("Configuración") Then
+            Form = New tab_Config(USER, con, ESTADO)
+            Form.TopLevel = False
+            Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            Form.Show()
+        ElseIf Nombre.Equals("Clases") Then
+            Form = New Clase(USER, con, ESTADO)
+            Form.TopLevel = False
+            Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            Form.Show()
+        ElseIf Nombre.Equals("Examen Psicotecnico") Then
+            Form = New Psicotecnico(USER, con, ESTADO)
+            Form.TopLevel = False
+            Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            Form.Show()
+        ElseIf Nombre.Equals("Examen Visual") Then
+            Form = New Visual(USER, con, ESTADO)
+            Form.TopLevel = False
+            Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            Form.Show()
+        ElseIf Nombre.Equals("Examenes Escuela") Then
+            Form = New Examen(USER, con, ESTADO)
+            Form.TopLevel = False
+            Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            Form.Show()
         End If
-
     End Sub
 
 End Class

@@ -125,6 +125,12 @@
     <Compile Include="Psicotecnico.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="tab_Config.Designer.vb">
+      <DependentUpon>tab_Config.vb</DependentUpon>
+    </Compile>
+    <Compile Include="tab_Config.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="tab_Docente.Designer.vb">
       <DependentUpon>tab_Docente.vb</DependentUpon>
     </Compile>
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Psicotecnico.resx">
       <DependentUpon>Psicotecnico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tab_Config.resx">
+      <DependentUpon>tab_Config.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tab_Docente.resx">
       <DependentUpon>tab_Docente.vb</DependentUpon>
