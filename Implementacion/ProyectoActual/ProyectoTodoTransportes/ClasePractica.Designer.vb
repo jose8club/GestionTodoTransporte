@@ -23,14 +23,17 @@ Partial Class ClasePractica
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.date_horarioPract = New System.Windows.Forms.DateTimePicker()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.cbox_instructor = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cbox_cursoPract = New System.Windows.Forms.ComboBox()
         Me.tbox_idPractica = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.lbl_Horario = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Button1
@@ -42,24 +45,9 @@ Partial Class ClasePractica
         Me.Button1.Text = "Guardar"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'date_horarioPract
-        '
-        Me.date_horarioPract.Location = New System.Drawing.Point(143, 124)
-        Me.date_horarioPract.Name = "date_horarioPract"
-        Me.date_horarioPract.Size = New System.Drawing.Size(256, 20)
-        Me.date_horarioPract.TabIndex = 23
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(10, 130)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(44, 13)
-        Me.Label9.TabIndex = 22
-        Me.Label9.Text = "Horario:"
-        '
         'cbox_instructor
         '
+        Me.cbox_instructor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_instructor.FormattingEnabled = True
         Me.cbox_instructor.Location = New System.Drawing.Point(143, 84)
         Me.cbox_instructor.Name = "cbox_instructor"
@@ -77,6 +65,7 @@ Partial Class ClasePractica
         '
         'cbox_cursoPract
         '
+        Me.cbox_cursoPract.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_cursoPract.FormattingEnabled = True
         Me.cbox_cursoPract.Location = New System.Drawing.Point(143, 47)
         Me.cbox_cursoPract.Name = "cbox_cursoPract"
@@ -108,14 +97,64 @@ Partial Class ClasePractica
         Me.Label7.TabIndex = 16
         Me.Label7.Text = "Identificador:"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(375, 124)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(26, 13)
+        Me.Label2.TabIndex = 30
+        Me.Label2.Text = "Hrs."
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(245, 124)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(10, 13)
+        Me.Label1.TabIndex = 29
+        Me.Label1.Text = ":"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(261, 121)
+        Me.TextBox2.MaxLength = 2
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(94, 20)
+        Me.TextBox2.TabIndex = 28
+        Me.TextBox2.Text = "00"
+        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(145, 121)
+        Me.TextBox1.MaxLength = 2
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(94, 20)
+        Me.TextBox1.TabIndex = 27
+        Me.TextBox1.Text = "00"
+        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lbl_Horario
+        '
+        Me.lbl_Horario.AutoSize = True
+        Me.lbl_Horario.Location = New System.Drawing.Point(12, 124)
+        Me.lbl_Horario.Name = "lbl_Horario"
+        Me.lbl_Horario.Size = New System.Drawing.Size(44, 13)
+        Me.lbl_Horario.TabIndex = 26
+        Me.lbl_Horario.Text = "Horario:"
+        '
         'ClasePractica
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(447, 254)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.lbl_Horario)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.date_horarioPract)
-        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.cbox_instructor)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.cbox_cursoPract)
@@ -130,12 +169,15 @@ Partial Class ClasePractica
 
     End Sub
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents date_horarioPract As System.Windows.Forms.DateTimePicker
-    Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents cbox_instructor As System.Windows.Forms.ComboBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents cbox_cursoPract As System.Windows.Forms.ComboBox
     Friend WithEvents tbox_idPractica As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents lbl_Horario As System.Windows.Forms.Label
 End Class

@@ -82,6 +82,24 @@
     <Compile Include="Bienvenido.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ExamenMunicipal.Designer.vb">
+      <DependentUpon>ExamenMunicipal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ExamenMunicipal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamenPractico.Designer.vb">
+      <DependentUpon>ExamenPractico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ExamenPractico.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExamenTeorico.Designer.vb">
+      <DependentUpon>ExamenTeorico.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ExamenTeorico.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="tab_Clases.Designer.vb">
       <DependentUpon>tab_Clases.vb</DependentUpon>
     </Compile>
@@ -212,6 +230,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Bienvenido.resx">
       <DependentUpon>Bienvenido.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamenMunicipal.resx">
+      <DependentUpon>ExamenMunicipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamenPractico.resx">
+      <DependentUpon>ExamenPractico.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamenTeorico.resx">
+      <DependentUpon>ExamenTeorico.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tab_Clases.resx">
       <DependentUpon>tab_Clases.vb</DependentUpon>
