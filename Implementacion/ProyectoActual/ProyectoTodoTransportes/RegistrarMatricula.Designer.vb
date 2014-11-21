@@ -59,6 +59,8 @@ Partial Class RegistrarMatricula
         Me.lbl_Nombre = New System.Windows.Forms.Label()
         Me.tbox_Email = New System.Windows.Forms.TextBox()
         Me.lbl_Email = New System.Windows.Forms.Label()
+        Me.cbox_Producto = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.gbox_Matricula2.SuspendLayout()
         Me.gbox_EstadoDocs2.SuspendLayout()
         Me.gbox_Horarios2.SuspendLayout()
@@ -242,7 +244,7 @@ Partial Class RegistrarMatricula
         Me.gbox_Horarios2.Controls.Add(Me.lbl_HorarioPractico)
         Me.gbox_Horarios2.Controls.Add(Me.cbox_HorarioTeorico)
         Me.gbox_Horarios2.Controls.Add(Me.lbl_HorarioTeorico)
-        Me.gbox_Horarios2.Location = New System.Drawing.Point(18, 179)
+        Me.gbox_Horarios2.Location = New System.Drawing.Point(18, 205)
         Me.gbox_Horarios2.Name = "gbox_Horarios2"
         Me.gbox_Horarios2.Size = New System.Drawing.Size(428, 120)
         Me.gbox_Horarios2.TabIndex = 55
@@ -305,7 +307,7 @@ Partial Class RegistrarMatricula
         '
         'tbox_Telefono
         '
-        Me.tbox_Telefono.Location = New System.Drawing.Point(144, 117)
+        Me.tbox_Telefono.Location = New System.Drawing.Point(144, 143)
         Me.tbox_Telefono.MaxLength = 20
         Me.tbox_Telefono.Name = "tbox_Telefono"
         Me.tbox_Telefono.Size = New System.Drawing.Size(302, 20)
@@ -314,7 +316,7 @@ Partial Class RegistrarMatricula
         'lbl_Telefono
         '
         Me.lbl_Telefono.AutoSize = True
-        Me.lbl_Telefono.Location = New System.Drawing.Point(13, 120)
+        Me.lbl_Telefono.Location = New System.Drawing.Point(12, 146)
         Me.lbl_Telefono.Name = "lbl_Telefono"
         Me.lbl_Telefono.Size = New System.Drawing.Size(89, 13)
         Me.lbl_Telefono.TabIndex = 54
@@ -334,9 +336,9 @@ Partial Class RegistrarMatricula
         Me.lbl_CursoRendir.AutoSize = True
         Me.lbl_CursoRendir.Location = New System.Drawing.Point(13, 93)
         Me.lbl_CursoRendir.Name = "lbl_CursoRendir"
-        Me.lbl_CursoRendir.Size = New System.Drawing.Size(50, 13)
+        Me.lbl_CursoRendir.Size = New System.Drawing.Size(89, 13)
         Me.lbl_CursoRendir.TabIndex = 53
-        Me.lbl_CursoRendir.Text = "Licencia:"
+        Me.lbl_CursoRendir.Text = "Tipo de Licencia:"
         '
         'date_FechaNacimiento
         '
@@ -398,7 +400,7 @@ Partial Class RegistrarMatricula
         '
         'tbox_Email
         '
-        Me.tbox_Email.Location = New System.Drawing.Point(144, 143)
+        Me.tbox_Email.Location = New System.Drawing.Point(144, 168)
         Me.tbox_Email.MaxLength = 20
         Me.tbox_Email.Name = "tbox_Email"
         Me.tbox_Email.Size = New System.Drawing.Size(302, 20)
@@ -407,17 +409,37 @@ Partial Class RegistrarMatricula
         'lbl_Email
         '
         Me.lbl_Email.AutoSize = True
-        Me.lbl_Email.Location = New System.Drawing.Point(15, 146)
+        Me.lbl_Email.Location = New System.Drawing.Point(13, 171)
         Me.lbl_Email.Name = "lbl_Email"
         Me.lbl_Email.Size = New System.Drawing.Size(38, 13)
         Me.lbl_Email.TabIndex = 59
         Me.lbl_Email.Text = "E-mail:"
+        '
+        'cbox_Producto
+        '
+        Me.cbox_Producto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbox_Producto.FormattingEnabled = True
+        Me.cbox_Producto.Location = New System.Drawing.Point(144, 117)
+        Me.cbox_Producto.Name = "cbox_Producto"
+        Me.cbox_Producto.Size = New System.Drawing.Size(302, 21)
+        Me.cbox_Producto.TabIndex = 60
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(13, 120)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(53, 13)
+        Me.Label2.TabIndex = 61
+        Me.Label2.Text = "Producto:"
         '
         'RegistrarMatricula
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(710, 337)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.cbox_Producto)
         Me.Controls.Add(Me.tbox_Email)
         Me.Controls.Add(Me.lbl_Email)
         Me.Controls.Add(Me.btn_Guardar)
@@ -485,4 +507,6 @@ Partial Class RegistrarMatricula
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents tbox_cant As System.Windows.Forms.TextBox
     Friend WithEvents lbl_Cantidad As System.Windows.Forms.Label
+    Friend WithEvents cbox_Producto As System.Windows.Forms.ComboBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class

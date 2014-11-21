@@ -34,13 +34,15 @@ Partial Class RegistrarCliente
         Me.lbl_FechaAtencion = New System.Windows.Forms.Label()
         Me.cbox_CursoInteres = New System.Windows.Forms.ComboBox()
         Me.lbl_CursoInteres = New System.Windows.Forms.Label()
+        Me.cbox_TipoLicencia = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'lbl_Mensaje1
         '
         Me.lbl_Mensaje1.AutoSize = True
         Me.lbl_Mensaje1.ForeColor = System.Drawing.Color.DimGray
-        Me.lbl_Mensaje1.Location = New System.Drawing.Point(142, 245)
+        Me.lbl_Mensaje1.Location = New System.Drawing.Point(141, 272)
         Me.lbl_Mensaje1.Name = "lbl_Mensaje1"
         Me.lbl_Mensaje1.Size = New System.Drawing.Size(0, 13)
         Me.lbl_Mensaje1.TabIndex = 45
@@ -64,14 +66,14 @@ Partial Class RegistrarCliente
         '
         'date_FechaAtencion
         '
-        Me.date_FechaAtencion.Location = New System.Drawing.Point(142, 99)
+        Me.date_FechaAtencion.Location = New System.Drawing.Point(141, 129)
         Me.date_FechaAtencion.Name = "date_FechaAtencion"
         Me.date_FechaAtencion.Size = New System.Drawing.Size(278, 20)
         Me.date_FechaAtencion.TabIndex = 37
         '
         'btn_Guardar
         '
-        Me.btn_Guardar.Location = New System.Drawing.Point(345, 240)
+        Me.btn_Guardar.Location = New System.Drawing.Point(344, 267)
         Me.btn_Guardar.Name = "btn_Guardar"
         Me.btn_Guardar.Size = New System.Drawing.Size(75, 23)
         Me.btn_Guardar.TabIndex = 39
@@ -89,7 +91,7 @@ Partial Class RegistrarCliente
         '
         'tbox_Observaciones
         '
-        Me.tbox_Observaciones.Location = New System.Drawing.Point(142, 131)
+        Me.tbox_Observaciones.Location = New System.Drawing.Point(141, 158)
         Me.tbox_Observaciones.MaxLength = 2000
         Me.tbox_Observaciones.Name = "tbox_Observaciones"
         Me.tbox_Observaciones.Size = New System.Drawing.Size(278, 103)
@@ -107,7 +109,7 @@ Partial Class RegistrarCliente
         'lbl_Observaciones
         '
         Me.lbl_Observaciones.AutoSize = True
-        Me.lbl_Observaciones.Location = New System.Drawing.Point(13, 134)
+        Me.lbl_Observaciones.Location = New System.Drawing.Point(13, 161)
         Me.lbl_Observaciones.Name = "lbl_Observaciones"
         Me.lbl_Observaciones.Size = New System.Drawing.Size(81, 13)
         Me.lbl_Observaciones.TabIndex = 43
@@ -116,7 +118,7 @@ Partial Class RegistrarCliente
         'lbl_FechaAtencion
         '
         Me.lbl_FechaAtencion.AutoSize = True
-        Me.lbl_FechaAtencion.Location = New System.Drawing.Point(13, 102)
+        Me.lbl_FechaAtencion.Location = New System.Drawing.Point(13, 132)
         Me.lbl_FechaAtencion.Name = "lbl_FechaAtencion"
         Me.lbl_FechaAtencion.Size = New System.Drawing.Size(100, 13)
         Me.lbl_FechaAtencion.TabIndex = 41
@@ -126,7 +128,7 @@ Partial Class RegistrarCliente
         '
         Me.cbox_CursoInteres.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_CursoInteres.FormattingEnabled = True
-        Me.cbox_CursoInteres.Location = New System.Drawing.Point(142, 69)
+        Me.cbox_CursoInteres.Location = New System.Drawing.Point(142, 99)
         Me.cbox_CursoInteres.Name = "cbox_CursoInteres"
         Me.cbox_CursoInteres.Size = New System.Drawing.Size(278, 21)
         Me.cbox_CursoInteres.TabIndex = 36
@@ -134,17 +136,37 @@ Partial Class RegistrarCliente
         'lbl_CursoInteres
         '
         Me.lbl_CursoInteres.AutoSize = True
-        Me.lbl_CursoInteres.Location = New System.Drawing.Point(13, 72)
+        Me.lbl_CursoInteres.Location = New System.Drawing.Point(13, 102)
         Me.lbl_CursoInteres.Name = "lbl_CursoInteres"
         Me.lbl_CursoInteres.Size = New System.Drawing.Size(87, 13)
         Me.lbl_CursoInteres.TabIndex = 42
         Me.lbl_CursoInteres.Text = "Curso de Interés:"
         '
+        'cbox_TipoLicencia
+        '
+        Me.cbox_TipoLicencia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbox_TipoLicencia.FormattingEnabled = True
+        Me.cbox_TipoLicencia.Location = New System.Drawing.Point(142, 69)
+        Me.cbox_TipoLicencia.Name = "cbox_TipoLicencia"
+        Me.cbox_TipoLicencia.Size = New System.Drawing.Size(278, 21)
+        Me.cbox_TipoLicencia.TabIndex = 46
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(13, 72)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(89, 13)
+        Me.Label1.TabIndex = 47
+        Me.Label1.Text = "Tipo de Licencia:"
+        '
         'RegistrarCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(438, 283)
+        Me.ClientSize = New System.Drawing.Size(491, 323)
+        Me.Controls.Add(Me.cbox_TipoLicencia)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lbl_Mensaje1)
         Me.Controls.Add(Me.tbox_Telefono)
         Me.Controls.Add(Me.lbl_Telefono)
@@ -176,4 +198,6 @@ Partial Class RegistrarCliente
     Friend WithEvents lbl_FechaAtencion As System.Windows.Forms.Label
     Friend WithEvents cbox_CursoInteres As System.Windows.Forms.ComboBox
     Friend WithEvents lbl_CursoInteres As System.Windows.Forms.Label
+    Friend WithEvents cbox_TipoLicencia As System.Windows.Forms.ComboBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class

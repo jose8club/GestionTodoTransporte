@@ -11,7 +11,8 @@
     End Sub
 
     Private Sub RegistrarCliente_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        loadCBOX("Curso")
+        loadCBOX("Area")
+        loadCBOX("Producto")
     End Sub
 
     Private Sub btn_Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Guardar.Click
@@ -61,17 +62,30 @@
     Sub loadCBOX(ByVal Nombre As String)
         Dim n As Integer
         Dim items() As String
-        If Nombre.Equals("Curso") Then
+        If Nombre.Equals("Producto") Then
             cbox_CursoInteres.Items.Clear()
 
-            n = con.count("producto") - 1
-            items = con.toArray(n, "Nombre", "Producto")
-
+            n = con.countWhere("producto", "Area = '" & cbox_TipoLicencia.Text & "'") - 1
+            items = con.toArrayWhere(n, "Nombre", "Producto", "Area = '" & cbox_TipoLicencia.Text & "'")
             For i As Integer = 0 To n
                 cbox_CursoInteres.Items.Add(items(i))
             Next
             If n >= 0 Then
                 cbox_CursoInteres.SelectedIndex = 0
+            End If
+
+        ElseIf Nombre.Equals("Area") Then
+            cbox_TipoLicencia.Items.Clear()
+
+            n = con.count("Area") - 1
+            items = con.toArray(n, "Nombre", "Area")
+
+            For i As Integer = 0 To n
+                cbox_TipoLicencia.Items.Add(items(i))
+            Next
+            If con.countWhere("Producto", "Area = 'Otros'") = 0 Then cbox_TipoLicencia.Items.Remove("Otros")
+            If n >= 0 Then
+                cbox_TipoLicencia.SelectedIndex = 0
             End If
         End If
     End Sub
@@ -87,4 +101,7 @@
 
 #End Region
 
+    Private Sub cbox_TipoLicencia_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_TipoLicencia.SelectedIndexChanged
+        loadCBOX("Producto")
+    End Sub
 End Class

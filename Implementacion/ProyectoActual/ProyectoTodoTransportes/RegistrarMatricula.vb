@@ -14,6 +14,7 @@
     Private Sub RegistrarMatricula_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         cargaCBOX("Licencia")
+        cargaCBOX("Producto")
         cargaCBOX("Curso")
         cargaCBOX("Horario Práctico")
         cargaCBOX("Horario Teórico")
@@ -83,14 +84,12 @@
     Sub cargaCBOX(ByVal Nombre As String)
         Dim items() As String
         Dim n As Integer
-        Dim licencia As String
 
         If Nombre.Equals("Curso") Then
 
             cbox_Curso.Items.Clear()
-            licencia = con.selectWhereQuery("Nombre", "Area", "Alias = '" & cbox_Licencia.Text & "'")
-            n = con.countWhere("Producto", "Area = '" & licencia & "'") - 1
-            items = con.toArrayWhere(n, "Nombre", "Producto", "Area = '" & licencia & "'")
+            n = con.countWhere("Curso", "Producto = '" & cbox_Producto.Text & "'") - 1
+            items = con.toArrayWhere(n, "Codigo", "Curso", "Producto = '" & cbox_Producto.Text & "'")
             For i As Integer = 0 To n
                 cbox_Curso.Items.Add(items(i))
             Next
@@ -100,11 +99,12 @@
 
             cbox_Licencia.Items.Clear()
             n = con.count("Area") - 1
-            items = con.toArray(n, "Alias", "Area")
+            items = con.toArray(n, "Nombre", "Area")
             For i As Integer = 0 To n
                 cbox_Licencia.Items.Add(items(i))
             Next
             If n >= 0 Then cbox_Licencia.SelectedIndex = 0
+            If con.countWhere("Producto", "Area = 'Otros'") = 0 Then cbox_Licencia.Items.Remove("Otros")
 
         ElseIf Nombre.Equals("Horario Práctico") Then
 
@@ -135,6 +135,16 @@
                 cbox_MedioPago.Items.Add(items(i))
             Next
             If n >= 0 Then cbox_MedioPago.SelectedIndex = 0
+
+        ElseIf Nombre.Equals("Producto") Then
+
+            cbox_Producto.Items.Clear()
+            n = con.countWhere("Producto", "Area = '" & cbox_Licencia.Text & "'") - 1
+            items = con.toArrayWhere(n, "Nombre", "Producto", "Area = '" & cbox_Licencia.Text & "'")
+            For i As Integer = 0 To n
+                cbox_Producto.Items.Add(items(i))
+            Next
+            If n >= 0 Then cbox_Producto.SelectedIndex = 0
 
         End If
     End Sub
@@ -206,7 +216,7 @@
 #End Region
 
     Private Sub cbox_Licencia_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_Licencia.SelectedIndexChanged
-
+        cargaCBOX("Producto")
         cargaCBOX("Curso")
         cargaCBOX("Horario Práctico")
         cargaCBOX("Horario Teórico")
@@ -222,5 +232,11 @@
 
     Private Sub check_Foto_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles check_Foto.CheckedChanged
         If check_Foto.Checked Then tbox_cant.Enabled = True Else tbox_cant.Enabled = False
+    End Sub
+
+    Private Sub cbox_Producto_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_Producto.SelectedIndexChanged
+        cargaCBOX("Curso")
+        cargaCBOX("Horario Práctico")
+        cargaCBOX("Horario Teórico")
     End Sub
 End Class
