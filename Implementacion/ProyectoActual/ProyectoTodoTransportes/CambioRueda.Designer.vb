@@ -27,15 +27,15 @@ Partial Class CambioRueda
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.tbox_codigoRueda = New System.Windows.Forms.TextBox()
+        Me.cbox_docRueda = New System.Windows.Forms.ComboBox()
+        Me.date_rueda = New System.Windows.Forms.DateTimePicker()
+        Me.tbox_hor1 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.tbox_hor2 = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cbox_instRueda = New System.Windows.Forms.ComboBox()
+        Me.btn_rueda = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -83,37 +83,37 @@ Partial Class CambioRueda
         Me.Label5.TabIndex = 4
         Me.Label5.Text = "Instructor"
         '
-        'TextBox1
+        'tbox_codigoRueda
         '
-        Me.TextBox1.Location = New System.Drawing.Point(150, 30)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(343, 20)
-        Me.TextBox1.TabIndex = 5
+        Me.tbox_codigoRueda.Location = New System.Drawing.Point(150, 30)
+        Me.tbox_codigoRueda.Name = "tbox_codigoRueda"
+        Me.tbox_codigoRueda.Size = New System.Drawing.Size(343, 20)
+        Me.tbox_codigoRueda.TabIndex = 5
         '
-        'ComboBox1
+        'cbox_docRueda
         '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(150, 67)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(343, 21)
-        Me.ComboBox1.TabIndex = 6
+        Me.cbox_docRueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbox_docRueda.FormattingEnabled = True
+        Me.cbox_docRueda.Location = New System.Drawing.Point(150, 67)
+        Me.cbox_docRueda.Name = "cbox_docRueda"
+        Me.cbox_docRueda.Size = New System.Drawing.Size(343, 21)
+        Me.cbox_docRueda.TabIndex = 6
         '
-        'DateTimePicker1
+        'date_rueda
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(150, 107)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(343, 20)
-        Me.DateTimePicker1.TabIndex = 7
+        Me.date_rueda.Location = New System.Drawing.Point(150, 107)
+        Me.date_rueda.Name = "date_rueda"
+        Me.date_rueda.Size = New System.Drawing.Size(343, 20)
+        Me.date_rueda.TabIndex = 7
         '
-        'TextBox2
+        'tbox_hor1
         '
-        Me.TextBox2.Location = New System.Drawing.Point(150, 145)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(129, 20)
-        Me.TextBox2.TabIndex = 8
-        Me.TextBox2.Text = "00"
-        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.tbox_hor1.Location = New System.Drawing.Point(150, 145)
+        Me.tbox_hor1.Name = "tbox_hor1"
+        Me.tbox_hor1.Size = New System.Drawing.Size(129, 20)
+        Me.tbox_hor1.TabIndex = 8
+        Me.tbox_hor1.Text = "00"
+        Me.tbox_hor1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label6
         '
@@ -125,14 +125,14 @@ Partial Class CambioRueda
         Me.Label6.TabIndex = 9
         Me.Label6.Text = ":"
         '
-        'TextBox3
+        'tbox_hor2
         '
-        Me.TextBox3.Location = New System.Drawing.Point(306, 146)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(129, 20)
-        Me.TextBox3.TabIndex = 10
-        Me.TextBox3.Text = "00"
-        Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.tbox_hor2.Location = New System.Drawing.Point(306, 146)
+        Me.tbox_hor2.Name = "tbox_hor2"
+        Me.tbox_hor2.Size = New System.Drawing.Size(129, 20)
+        Me.tbox_hor2.TabIndex = 10
+        Me.tbox_hor2.Text = "00"
+        Me.tbox_hor2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label7
         '
@@ -143,38 +143,38 @@ Partial Class CambioRueda
         Me.Label7.TabIndex = 11
         Me.Label7.Text = "hrs."
         '
-        'ComboBox2
+        'cbox_instRueda
         '
-        Me.ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Location = New System.Drawing.Point(150, 179)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(343, 21)
-        Me.ComboBox2.TabIndex = 12
+        Me.cbox_instRueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbox_instRueda.FormattingEnabled = True
+        Me.cbox_instRueda.Location = New System.Drawing.Point(150, 179)
+        Me.cbox_instRueda.Name = "cbox_instRueda"
+        Me.cbox_instRueda.Size = New System.Drawing.Size(343, 21)
+        Me.cbox_instRueda.TabIndex = 12
         '
-        'Button1
+        'btn_rueda
         '
-        Me.Button1.Location = New System.Drawing.Point(375, 233)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(118, 23)
-        Me.Button1.TabIndex = 13
-        Me.Button1.Text = "Guardar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btn_rueda.Location = New System.Drawing.Point(375, 233)
+        Me.btn_rueda.Name = "btn_rueda"
+        Me.btn_rueda.Size = New System.Drawing.Size(118, 23)
+        Me.btn_rueda.TabIndex = 13
+        Me.btn_rueda.Text = "Guardar"
+        Me.btn_rueda.UseVisualStyleBackColor = True
         '
         'CambioRueda
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(752, 399)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.ComboBox2)
+        Me.Controls.Add(Me.btn_rueda)
+        Me.Controls.Add(Me.cbox_instRueda)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.tbox_hor2)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.DateTimePicker1)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.tbox_hor1)
+        Me.Controls.Add(Me.date_rueda)
+        Me.Controls.Add(Me.cbox_docRueda)
+        Me.Controls.Add(Me.tbox_codigoRueda)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -192,13 +192,13 @@ Partial Class CambioRueda
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents tbox_codigoRueda As System.Windows.Forms.TextBox
+    Friend WithEvents cbox_docRueda As System.Windows.Forms.ComboBox
+    Friend WithEvents date_rueda As System.Windows.Forms.DateTimePicker
+    Friend WithEvents tbox_hor1 As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents tbox_hor2 As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents cbox_instRueda As System.Windows.Forms.ComboBox
+    Friend WithEvents btn_rueda As System.Windows.Forms.Button
 End Class
