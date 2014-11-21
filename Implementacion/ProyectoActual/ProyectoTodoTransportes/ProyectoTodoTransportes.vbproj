@@ -89,6 +89,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Conexion.vb" />
+    <Compile Include="Curso.Designer.vb">
+      <DependentUpon>Curso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Curso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Docente.Designer.vb">
       <DependentUpon>Docente.vb</DependentUpon>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Clase.resx">
       <DependentUpon>Clase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Curso.resx">
+      <DependentUpon>Curso.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Docente.resx">
       <DependentUpon>Docente.vb</DependentUpon>

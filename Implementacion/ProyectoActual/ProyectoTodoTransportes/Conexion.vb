@@ -536,6 +536,26 @@ Public Class Conexion
         End Using
     End Sub
 
+    Sub regCurso(ByVal Codigo As String, ByVal Producto As String, ByVal FechaInicio As String, ByVal FechaTermino As String)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO Curso (Codigo, Producto, FechaInicio, FechaTermino) VALUES(@Codigo, @Producto, @FechaInicio, @FechaTermino)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Codigo", Codigo)
+                .Parameters.AddWithValue("@Producto", Producto)
+                .Parameters.AddWithValue("@FechaInicio", FechaInicio)
+                .Parameters.AddWithValue("@FechaTermino", FechaTermino)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+    End Sub
 
 #End Region
 

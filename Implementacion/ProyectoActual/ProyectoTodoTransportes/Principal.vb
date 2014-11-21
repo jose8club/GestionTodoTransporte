@@ -105,6 +105,11 @@
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
+        ElseIf Nombre.Equals("Cursos") Then
+            Form = New Curso(USER, con, ESTADO)
+            Form.TopLevel = False
+            Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            Form.Show()
         End If
     End Sub
 

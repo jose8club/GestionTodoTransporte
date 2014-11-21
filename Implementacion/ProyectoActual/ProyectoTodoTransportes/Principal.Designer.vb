@@ -28,13 +28,14 @@ Partial Class Principal
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
+        Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
         Me.TabPage8 = New System.Windows.Forms.TabPage()
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
-        Me.TabPage6 = New System.Windows.Forms.TabPage()
         Me.lbl_Estado = New System.Windows.Forms.StatusStrip()
         Me.ESTADO = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.TabPage11 = New System.Windows.Forms.TabPage()
         Me.MainMenu.SuspendLayout()
         Me.lbl_Estado.SuspendLayout()
         Me.SuspendLayout()
@@ -52,6 +53,7 @@ Partial Class Principal
         Me.MainMenu.Controls.Add(Me.TabPage8)
         Me.MainMenu.Controls.Add(Me.TabPage9)
         Me.MainMenu.Controls.Add(Me.TabPage10)
+        Me.MainMenu.Controls.Add(Me.TabPage11)
         Me.MainMenu.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
         Me.MainMenu.ItemSize = New System.Drawing.Size(25, 150)
         Me.MainMenu.Location = New System.Drawing.Point(21, 12)
@@ -109,6 +111,15 @@ Partial Class Principal
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Vehículos"
         '
+        'TabPage6
+        '
+        Me.TabPage6.BackColor = System.Drawing.SystemColors.Control
+        Me.TabPage6.Location = New System.Drawing.Point(154, 4)
+        Me.TabPage6.Name = "TabPage6"
+        Me.TabPage6.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage6.TabIndex = 5
+        Me.TabPage6.Text = "Configuración"
+        '
         'TabPage7
         '
         Me.TabPage7.Location = New System.Drawing.Point(154, 4)
@@ -145,15 +156,6 @@ Partial Class Principal
         Me.TabPage10.Text = "Examenes Escuela"
         Me.TabPage10.UseVisualStyleBackColor = True
         '
-        'TabPage6
-        '
-        Me.TabPage6.BackColor = System.Drawing.SystemColors.Control
-        Me.TabPage6.Location = New System.Drawing.Point(154, 4)
-        Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(754, 393)
-        Me.TabPage6.TabIndex = 5
-        Me.TabPage6.Text = "Configuración"
-        '
         'lbl_Estado
         '
         Me.lbl_Estado.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ESTADO})
@@ -168,6 +170,15 @@ Partial Class Principal
         Me.ESTADO.Name = "ESTADO"
         Me.ESTADO.Size = New System.Drawing.Size(124, 17)
         Me.ESTADO.Text = "ToolStripStatusLabel1"
+        '
+        'TabPage11
+        '
+        Me.TabPage11.Location = New System.Drawing.Point(154, 4)
+        Me.TabPage11.Name = "TabPage11"
+        Me.TabPage11.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage11.TabIndex = 10
+        Me.TabPage11.Text = "Cursos"
+        Me.TabPage11.UseVisualStyleBackColor = True
         '
         'Principal
         '
@@ -198,5 +209,6 @@ Partial Class Principal
     Friend WithEvents TabPage8 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage9 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage10 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage11 As System.Windows.Forms.TabPage
 
 End Class
