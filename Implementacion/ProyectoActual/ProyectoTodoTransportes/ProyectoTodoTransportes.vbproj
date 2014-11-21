@@ -82,6 +82,12 @@
     <Compile Include="Bienvenido.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CambioRueda.Designer.vb">
+      <DependentUpon>CambioRueda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CambioRueda.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ExamenMunicipal.Designer.vb">
       <DependentUpon>ExamenMunicipal.vb</DependentUpon>
     </Compile>
@@ -230,6 +236,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Bienvenido.resx">
       <DependentUpon>Bienvenido.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CambioRueda.resx">
+      <DependentUpon>CambioRueda.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExamenMunicipal.resx">
       <DependentUpon>ExamenMunicipal.vb</DependentUpon>

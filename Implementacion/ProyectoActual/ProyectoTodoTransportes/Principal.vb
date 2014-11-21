@@ -110,6 +110,11 @@
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
+        ElseIf Nombre.Equals("Cambio Rueda") Then
+            Form = New CambioRueda(USER, con, ESTADO)
+            Form.TopLevel = False
+            Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            Form.Show()
         End If
     End Sub
 
