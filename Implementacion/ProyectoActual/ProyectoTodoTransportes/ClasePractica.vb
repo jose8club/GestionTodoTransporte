@@ -1,4 +1,4 @@
-﻿Public Class Clase
+﻿Public Class ClasePractica
     Dim con As New Conexion
     Dim USER As String = ""
     Dim STATUS As ToolStripStatusLabel
@@ -9,9 +9,7 @@
         STATUS = estado
         InitializeComponent()
     End Sub
-
-    Private Sub Clase_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub ClasePractica_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
     End Sub
-
 End Class

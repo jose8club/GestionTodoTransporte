@@ -104,5 +104,19 @@
         Return items.Where(Function(s) s Like "*" & compara & "*").ToArray
     End Function
 
+    Function HoraMaxima(ByVal H As Integer) As Integer
+        If H > 23 Then
+            Return 23
+        End If
+        Return H
+    End Function
+
+    Function MinutoMaximo(ByVal M As Integer) As Integer
+        If M > 59 Then
+            Return 59
+        End If
+        Return M
+    End Function
+
 End Module
 

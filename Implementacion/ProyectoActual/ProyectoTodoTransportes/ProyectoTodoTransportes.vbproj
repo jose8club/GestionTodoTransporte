@@ -82,10 +82,22 @@
     <Compile Include="Bienvenido.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clase.Designer.vb">
-      <DependentUpon>Clase.vb</DependentUpon>
+    <Compile Include="tab_Clases.Designer.vb">
+      <DependentUpon>tab_Clases.vb</DependentUpon>
     </Compile>
-    <Compile Include="Clase.vb">
+    <Compile Include="tab_Clases.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClasePractica.Designer.vb">
+      <DependentUpon>ClasePractica.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ClasePractica.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClaseTeorica.Designer.vb">
+      <DependentUpon>ClaseTeorica.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ClaseTeorica.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Conexion.vb" />
@@ -201,8 +213,14 @@
     <EmbeddedResource Include="Bienvenido.resx">
       <DependentUpon>Bienvenido.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Clase.resx">
-      <DependentUpon>Clase.vb</DependentUpon>
+    <EmbeddedResource Include="tab_Clases.resx">
+      <DependentUpon>tab_Clases.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClasePractica.resx">
+      <DependentUpon>ClasePractica.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClaseTeorica.resx">
+      <DependentUpon>ClaseTeorica.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Curso.resx">
       <DependentUpon>Curso.vb</DependentUpon>

@@ -157,6 +157,37 @@ Public Class Conexion
         Return arreglo
     End Function
 
+    Function toArray2Where(ByVal n As Integer, ByVal NombreCampos As String, ByVal NombreTabla As String, ByVal Condicion As String) As String(,)
+
+        'Retorna un arreglo con los datos 'NombreCampo' de la tabla 'NombreTabla'
+
+        Dim arreglo(n, 2) As String
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT " & NombreCampos & " FROM " & NombreTabla & " WHERE " & Condicion
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                Dim i As Integer = 0
+                Using lector As MySqlDataReader = comando.ExecuteReader()
+                    While lector.Read()
+                        arreglo(i, 0) = lector.GetString(0)
+                        arreglo(i, 1) = lector.GetString(1)
+                        MsgBox(arreglo(i, 1))
+                        i = i + 1
+                    End While
+                End Using
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+
+        Return arreglo
+    End Function
+
     Function selectWhereQuery(ByVal columna As String, ByVal tabla As String, ByVal condicion As String) As String
 
         'DEVUELVE UN DATO EN ESPECIFICO EN LA BD
@@ -557,6 +588,27 @@ Public Class Conexion
         End Using
     End Sub
 
+    Sub regTeoria(ByVal Codigo As String, ByVal Curso As String, ByVal Horario As String, ByVal Duracion As Integer, ByVal idProfesor As Integer)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO Teoria (idTeoria,Clase,Horario,Duracion,Profesor) VALUES(@Codigo,@Curso,@Horario,@Duracion,@idProfesor)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Codigo", Codigo)
+                .Parameters.AddWithValue("@Curso", Curso)
+                .Parameters.AddWithValue("@Horario", Horario)
+                .Parameters.AddWithValue("@Duracion", Duracion)
+                .Parameters.AddWithValue("@idProfesor", idProfesor)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+    End Sub
 #End Region
 
 #Region "OTROS"
@@ -585,98 +637,6 @@ Public Class Conexion
         End Using
         Return pago
     End Function
-
-    'Crear clase'
-    Sub RegistrarClase(ByVal Codigo As String, ByVal Curso As String, ByVal FechaInicio As String, ByVal FechaTermino As String)
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "INSERT INTO CLASE (Codigo, Curso, FechaInicio, FechaTermino) VALUES(@Codigo, @Curso, @FechaInicio, @FechaTermino)"
-                .CommandType = CommandType.Text
-                .Connection = conn
-
-                .Parameters.AddWithValue("@Codigo", Codigo)
-                .Parameters.AddWithValue("@Curso", Curso)
-                .Parameters.AddWithValue("@FechaInicio", FechaInicio)
-                .Parameters.AddWithValue("@FechaTermino", FechaTermino)
-
-            End With
-            Try
-                comando.ExecuteNonQuery()
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-
-        End Using
-
-    End Sub
-    'Crear clase-estudiante'
-    Sub RegistrarClaseEstudiante(ByVal Clase As String, ByVal Estudiante As String, ByVal ExamenVisual As Integer, ByVal Psicotecnico As Integer, ByVal ClaseCambioRueda As Integer)
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "INSERT INTO CLASE_ESTUDIANTE (Clase, Estudiante, ExamenVisual, Psicotecnico, ClaseCambioRueda) VALUES(@Clase, @Estudiante, @ExamenVisual, @Psicotecnico, @ClaseCambioRueda)"
-                .CommandType = CommandType.Text
-                .Connection = conn
-
-                .Parameters.AddWithValue("@Clase", Clase)
-                .Parameters.AddWithValue("@Estudiante", Estudiante)
-                .Parameters.AddWithValue("@ExamenVisual", ExamenVisual)
-                .Parameters.AddWithValue("@Psicotecnico", Psicotecnico)
-                .Parameters.AddWithValue("@ClaseCambioRueda", ClaseCambioRueda)
-            End With
-            Try
-                comando.ExecuteNonQuery()
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-
-        End Using
-
-    End Sub
-    'Crear examen visual'
-    Sub RegistrarExamenVisual(ByVal Examinador As String, ByVal Estado As String, ByVal Certificado As Boolean, ByVal Fecha As String)
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "INSERT INTO EXAMEN_VISUAL (Examinador, Estado, Certificado, Fecha) VALUES(@Examinador, @Estado, @Certificado, @Fecha)"
-                .CommandType = CommandType.Text
-                .Connection = conn
-
-                .Parameters.AddWithValue("@Examinador", Examinador)
-                .Parameters.AddWithValue("@Estado", Estado)
-                .Parameters.AddWithValue("@Certificado", Certificado)
-                .Parameters.AddWithValue("@Fecha", Fecha)
-
-            End With
-            Try
-                comando.ExecuteNonQuery()
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-
-        End Using
-
-    End Sub
-    'Crear examen psicotecnico'
-    Sub RegistrarExamenPsico(ByVal Fecha As String, ByVal Examinador As String, ByVal Estado As String)
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "INSERT INTO EXAMEN_PSICOTECNICO (Fecha, Examinador, Estado) VALUES(@Fecha, @Examinador, @Estado)"
-                .CommandType = CommandType.Text
-                .Connection = conn
-
-                .Parameters.AddWithValue("@Fecha", Fecha)
-                .Parameters.AddWithValue("@Examinador", Examinador)
-                .Parameters.AddWithValue("@Estado", Estado)
-
-            End With
-            Try
-                comando.ExecuteNonQuery()
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-
-        End Using
-
-    End Sub
 
 #End Region
 
