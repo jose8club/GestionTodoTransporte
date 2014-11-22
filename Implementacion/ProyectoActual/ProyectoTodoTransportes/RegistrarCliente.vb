@@ -28,6 +28,7 @@
             Try
                 Dim ID As Integer = con.regClientePotencial(Nombre, Telefono, Curso, Extra)
                 con.regAtencion(USER, ID, Fecha, "OFF")
+                'Manejar transacción COMMIT - ROLLBACK
 
                 STATUS.Text = "Cliente " & Nombre & "fue agregado exitosamente."
                 reset()
