@@ -11,10 +11,9 @@
     End Sub
 
     Private Sub CambioRueda_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        'loadCBOX("Documento")
-        'loadCBOX("Instructor")
+        loadCBOX("Documento")
+        loadCBOX("Instructor")
     End Sub
-
 
 #Region "Metodos"
     Sub loadCBOX(ByVal Nombre As String)
@@ -24,17 +23,16 @@
             cbox_docRueda.Items.Clear()
 
             n = con.count("Documento") - 1
-            items = con.toArray(n, "Codigo", "Documento")
+            items = con.toArray(n, "Tipo", "Documento")
             For i As Integer = 0 To n
                 cbox_docRueda.Items.Add(items(i))
             Next
             If n >= 0 Then cbox_docRueda.SelectedIndex = 0
         ElseIf Nombre.Equals("Instructor") Then
-
             cbox_instRueda.Items.Clear()
 
-            Dim aux1 As String = con.countWhere("Docente", "Tipo = 'PRO'") - 1
-            Dim aux2() As String = con.toArrayWhere(aux1, "idDocente", "Docente", "Tipo = 'PRO'")
+            Dim aux1 As String = con.countWhere("Docente", "Tipo = 'INS'") - 1
+            Dim aux2() As String = con.toArrayWhere(aux1, "idDocente", "Docente", "Tipo = 'INS'")
 
             Dim arreglo(aux1, 2) As String
             For i As Integer = 0 To aux1
@@ -53,11 +51,46 @@
                 cbox_instRueda.Items.Add(items2(i))
             Next
             If aux1 >= 0 Then cbox_instRueda.SelectedIndex = 0
-
         End If
+
     End Sub
+    Function validar() As Boolean
+        If tbox_codigoRueda.Text.Trim.Equals("") Then
+            STATUS.Text = "ERROR: Ingrese los datos."
+            MsgBox("ERROR: Ingrese los datos.")
+            Return False
+        End If
+        Return True
+    End Function
 #End Region
+
+#Region "VALIDACION DE ENTRADA"
     Private Sub tbox_codigoRueda_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_codigoRueda.KeyPress
         Herramientas.soloNumeros(e)
     End Sub
+
+    Private Sub tbox_hor1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_hor1.KeyPress
+        Herramientas.soloNumeros(e)
+    End Sub
+
+    Private Sub tbox_hor2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_hor2.KeyPress
+        Herramientas.soloNumeros(e)
+    End Sub
+
+    Private Sub btn_rueda_Click(sender As System.Object, e As System.EventArgs) Handles btn_rueda.Click
+        If validar() Then
+            Dim Codigo As Integer = tbox_codigoRueda.Text()
+            Dim Documento As Integer = cbox_docRueda.Text()
+            Dim Fecha As String = Format(date_rueda.Value, "yyyy-MM-dd")
+            Dim Horario As String = tbox_hor1.Text & ":" & tbox_hor2.Text & ":00"
+            Dim Instructor As Integer = Instructores(cbox_instRueda.SelectedIndex, 1)
+            Try
+                con.regRueda(Codigo, Documento, Fecha, Horario, Instructor)
+                STATUS.Text = "Clase " & Codigo & " fue agregada exitosamente."
+            Catch ex As Exception
+
+            End Try
+        End If
+    End Sub
+#End Region
 End Class

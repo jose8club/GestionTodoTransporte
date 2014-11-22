@@ -609,6 +609,28 @@ Public Class Conexion
 
         End Using
     End Sub
+
+    Sub regRueda(ByVal Codigo As Integer, ByVal Documento As Integer, ByVal Fecha As String, ByVal Horario As String, ByVal Instructor As Integer)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO CAMBIO_RUEDA (Codigo,Documento,Fecha,Horario,Instructor) VALUES(@Codigo,@Documento,@Fecha,@Horario,@Instructor)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Codigo", Codigo)
+                .Parameters.AddWithValue("@Documento", Documento)
+                .Parameters.AddWithValue("@Fecha", Fecha)
+                .Parameters.AddWithValue("@Horario", Horario)
+                .Parameters.AddWithValue("@Instructor", Instructor)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+    End Sub
 #End Region
 
 #Region "OTROS"
