@@ -69,7 +69,7 @@
             Dim Estado As Integer = tbox_estado.Text()
             Try
                 con.regPsico(Codigo, Documento, Fecha, Funcionario, Estado)
-                STATUS.Text = "Clase " & Codigo & " fue agregada exitosamente."
+                STATUS.Text = "Examen Psicotecnico: " & Codigo & " fue agregada exitosamente."
             Catch ex As Exception
 
             End Try

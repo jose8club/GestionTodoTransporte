@@ -106,7 +106,7 @@
             Dim Curso As String = cbox_Curso.Text
             Try
                 con.regTeoria(Codigo, Curso, Horario, Duracion, Profesor)
-                STATUS.Text = "Clase " & Codigo & " fue agregada exitosamente."
+                STATUS.Text = "Clase Teorica" & Codigo & " fue agregada exitosamente."
             Catch ex As Exception
 
             End Try

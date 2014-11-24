@@ -86,7 +86,7 @@
             Dim Instructor As Integer = Instructores(cbox_instRueda.SelectedIndex, 1)
             Try
                 con.regRueda(Codigo, Documento, Fecha, Horario, Instructor)
-                STATUS.Text = "Clase " & Codigo & " fue agregada exitosamente."
+                STATUS.Text = "Clase cambio rueda" & Codigo & " fue agregada exitosamente."
             Catch ex As Exception
 
             End Try
