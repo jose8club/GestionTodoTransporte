@@ -29,15 +29,13 @@ Partial Class ExamenPractico
         Me.Label7 = New System.Windows.Forms.Label()
         Me.date_fechaPract = New System.Windows.Forms.DateTimePicker()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.cbox_docPractico = New System.Windows.Forms.ComboBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.tbox_codigoPract = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btn_exPract
         '
-        Me.btn_exPract.Location = New System.Drawing.Point(352, 232)
+        Me.btn_exPract.Location = New System.Drawing.Point(352, 197)
         Me.btn_exPract.Name = "btn_exPract"
         Me.btn_exPract.Size = New System.Drawing.Size(111, 23)
         Me.btn_exPract.TabIndex = 43
@@ -46,7 +44,7 @@ Partial Class ExamenPractico
         '
         'tbox_calPract
         '
-        Me.tbox_calPract.Location = New System.Drawing.Point(131, 179)
+        Me.tbox_calPract.Location = New System.Drawing.Point(131, 144)
         Me.tbox_calPract.Name = "tbox_calPract"
         Me.tbox_calPract.Size = New System.Drawing.Size(56, 20)
         Me.tbox_calPract.TabIndex = 42
@@ -54,7 +52,7 @@ Partial Class ExamenPractico
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(26, 182)
+        Me.Label6.Location = New System.Drawing.Point(26, 147)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(64, 13)
         Me.Label6.TabIndex = 41
@@ -64,7 +62,7 @@ Partial Class ExamenPractico
         '
         Me.cbox_instructor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_instructor.FormattingEnabled = True
-        Me.cbox_instructor.Location = New System.Drawing.Point(131, 139)
+        Me.cbox_instructor.Location = New System.Drawing.Point(131, 104)
         Me.cbox_instructor.Name = "cbox_instructor"
         Me.cbox_instructor.Size = New System.Drawing.Size(332, 21)
         Me.cbox_instructor.TabIndex = 40
@@ -72,7 +70,7 @@ Partial Class ExamenPractico
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(26, 142)
+        Me.Label7.Location = New System.Drawing.Point(26, 107)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(54, 13)
         Me.Label7.TabIndex = 39
@@ -80,7 +78,7 @@ Partial Class ExamenPractico
         '
         'date_fechaPract
         '
-        Me.date_fechaPract.Location = New System.Drawing.Point(131, 104)
+        Me.date_fechaPract.Location = New System.Drawing.Point(131, 69)
         Me.date_fechaPract.Name = "date_fechaPract"
         Me.date_fechaPract.Size = New System.Drawing.Size(332, 20)
         Me.date_fechaPract.TabIndex = 38
@@ -88,29 +86,11 @@ Partial Class ExamenPractico
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(26, 110)
+        Me.Label8.Location = New System.Drawing.Point(26, 75)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(40, 13)
         Me.Label8.TabIndex = 37
         Me.Label8.Text = "Fecha:"
-        '
-        'cbox_docPractico
-        '
-        Me.cbox_docPractico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbox_docPractico.FormattingEnabled = True
-        Me.cbox_docPractico.Location = New System.Drawing.Point(131, 68)
-        Me.cbox_docPractico.Name = "cbox_docPractico"
-        Me.cbox_docPractico.Size = New System.Drawing.Size(332, 21)
-        Me.cbox_docPractico.TabIndex = 36
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(26, 71)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(65, 13)
-        Me.Label9.TabIndex = 35
-        Me.Label9.Text = "Documento:"
         '
         'tbox_codigoPract
         '
@@ -140,8 +120,6 @@ Partial Class ExamenPractico
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.date_fechaPract)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.cbox_docPractico)
-        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.tbox_codigoPract)
         Me.Controls.Add(Me.Label10)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -158,8 +136,6 @@ Partial Class ExamenPractico
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents date_fechaPract As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents cbox_docPractico As System.Windows.Forms.ComboBox
-    Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents tbox_codigoPract As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
 End Class

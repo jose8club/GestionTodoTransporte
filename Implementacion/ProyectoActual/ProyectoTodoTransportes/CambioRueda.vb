@@ -11,24 +11,12 @@
     End Sub
 
     Private Sub CambioRueda_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        loadCBOX("Documento")
         loadCBOX("Instructor")
     End Sub
 
 #Region "Metodos"
     Sub loadCBOX(ByVal Nombre As String)
-        Dim n As Integer
-        Dim items() As String
-        If Nombre.Equals("Documento") Then
-            cbox_docRueda.Items.Clear()
-
-            n = con.count("Documento") - 1
-            items = con.toArray(n, "Tipo", "Documento")
-            For i As Integer = 0 To n
-                cbox_docRueda.Items.Add(items(i))
-            Next
-            If n >= 0 Then cbox_docRueda.SelectedIndex = 0
-        ElseIf Nombre.Equals("Instructor") Then
+        If Nombre.Equals("Instructor") Then
             cbox_instRueda.Items.Clear()
 
             Dim aux1 As String = con.countWhere("Docente", "Tipo = 'INS'") - 1
@@ -80,11 +68,13 @@
     Private Sub btn_rueda_Click(sender As System.Object, e As System.EventArgs) Handles btn_rueda.Click
         If validar() Then
             Dim Codigo As Integer = tbox_codigoRueda.Text()
-            Dim Documento As Integer = cbox_docRueda.Text()
+            Dim Documento As Integer = 0
             Dim Fecha As String = Format(date_rueda.Value, "yyyy-MM-dd")
             Dim Horario As String = tbox_hor1.Text & ":" & tbox_hor2.Text & ":00"
             Dim Instructor As Integer = Instructores(cbox_instRueda.SelectedIndex, 1)
             Try
+                con.regDocumento("Clase Cambio Rueda")
+                Documento = con.last("idDOCUMENTO", "Documento")
                 con.regRueda(Codigo, Documento, Fecha, Horario, Instructor)
                 STATUS.Text = "Clase cambio rueda" & Codigo & " fue agregada exitosamente."
             Catch ex As Exception

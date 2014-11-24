@@ -11,7 +11,6 @@
     End Sub
     
     Private Sub Psicotecnico_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        loadCBOX("Documento")
         loadCBOX("Funcionario")
     End Sub
 
@@ -19,16 +18,7 @@
     Sub loadCBOX(ByVal Nombre As String)
         Dim n As Integer
         Dim items() As String
-        If Nombre.Equals("Documento") Then
-            cbox_doc.Items.Clear()
-
-            n = con.count("Documento") - 1
-            items = con.toArray(n, "Tipo", "Documento")
-            For i As Integer = 0 To n
-                cbox_doc.Items.Add(items(i))
-            Next
-            If n >= 0 Then cbox_doc.SelectedIndex = 0
-        ElseIf Nombre.Equals("Funcionario") Then
+        If Nombre.Equals("Funcionario") Then
             cbox_examinador.Items.Clear()
 
             n = con.count("Funcionario") - 1
@@ -56,18 +46,20 @@
         Herramientas.soloNumeros(e)
     End Sub
 
-    Private Sub tbox_estado_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_estado.KeyPress
+    Private Sub tbox_estado_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
         Herramientas.soloTexto(e)
     End Sub
 
     Private Sub btn_psico_Click(sender As System.Object, e As System.EventArgs) Handles btn_psico.Click
+        Dim Documento As Integer = 0
         Dim Funcionario As Integer = CInt(con.selectWhereQuery("idFuncionario", "Funcionario", "Nombre = '" & cbox_examinador.Text & "'"))
         If validar() Then
             Dim Codigo As Integer = tbox_codigo.Text()
-            Dim Documento As Integer = cbox_doc.Text()
             Dim Fecha As String = Format(date_examen.Value, "yyyy-MM-dd")
-            Dim Estado As Integer = tbox_estado.Text()
+            Dim Estado As Integer = cbox_estado.Text()
             Try
+                con.regDocumento("Examen Psicotecnico")
+                Documento = con.last("idDOCUMENTO", "Documento")
                 con.regPsico(Codigo, Documento, Fecha, Funcionario, Estado)
                 STATUS.Text = "Examen Psicotecnico: " & Codigo & " fue agregada exitosamente."
             Catch ex As Exception

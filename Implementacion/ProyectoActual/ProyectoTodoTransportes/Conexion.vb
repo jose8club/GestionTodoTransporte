@@ -591,7 +591,7 @@ Public Class Conexion
                 .CommandType = CommandType.Text
                 .Connection = conn
 
-                .Parameters.AddWithValue("@FotosCarnet", Tipo)
+                .Parameters.AddWithValue("@Tipo", Tipo)
             End With
             Try
                 comando.ExecuteNonQuery()
