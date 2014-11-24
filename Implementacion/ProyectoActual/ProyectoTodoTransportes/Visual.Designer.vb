@@ -64,6 +64,7 @@ Partial Class Visual
         '
         'cbox_examinador
         '
+        Me.cbox_examinador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_examinador.FormattingEnabled = True
         Me.cbox_examinador.Location = New System.Drawing.Point(185, 171)
         Me.cbox_examinador.Name = "cbox_examinador"
@@ -97,6 +98,7 @@ Partial Class Visual
         '
         'cbox_doc
         '
+        Me.cbox_doc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_doc.FormattingEnabled = True
         Me.cbox_doc.Location = New System.Drawing.Point(185, 86)
         Me.cbox_doc.Name = "cbox_doc"

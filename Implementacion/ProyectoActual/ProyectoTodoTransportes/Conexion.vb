@@ -188,6 +188,7 @@ Public Class Conexion
         Return arreglo
     End Function
 
+
     Function selectWhereQuery(ByVal columna As String, ByVal tabla As String, ByVal condicion As String) As String
 
         'DEVUELVE UN DATO EN ESPECIFICO EN LA BD
@@ -622,6 +623,28 @@ Public Class Conexion
                 .Parameters.AddWithValue("@Fecha", Fecha)
                 .Parameters.AddWithValue("@Horario", Horario)
                 .Parameters.AddWithValue("@Instructor", Instructor)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+    End Sub
+
+    Sub regPsico(ByVal Codigo As Integer, ByVal Documento As Integer, ByVal Fecha As String, ByVal Examinador As Integer, ByVal Estado As String)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO PSICOTECNICO (Codigo,Documento,Fecha,Examinador,Estado) VALUES(@Codigo,@Documento,@Fecha,@Examinador,@Estado)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Codigo", Codigo)
+                .Parameters.AddWithValue("@Documento", Documento)
+                .Parameters.AddWithValue("@Fecha", Fecha)
+                .Parameters.AddWithValue("@Examinador", Examinador)
+                .Parameters.AddWithValue("@Estado", Estado)
             End With
             Try
                 comando.ExecuteNonQuery()

@@ -62,6 +62,7 @@ Partial Class ExamenTeorico
         '
         'cbox_examinador
         '
+        Me.cbox_examinador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_examinador.FormattingEnabled = True
         Me.cbox_examinador.Location = New System.Drawing.Point(128, 129)
         Me.cbox_examinador.Name = "cbox_examinador"
@@ -95,6 +96,7 @@ Partial Class ExamenTeorico
         '
         'cbox_docTeo
         '
+        Me.cbox_docTeo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_docTeo.FormattingEnabled = True
         Me.cbox_docTeo.Location = New System.Drawing.Point(128, 58)
         Me.cbox_docTeo.Name = "cbox_docTeo"

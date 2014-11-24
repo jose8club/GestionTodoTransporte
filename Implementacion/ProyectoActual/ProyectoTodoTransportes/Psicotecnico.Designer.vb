@@ -62,6 +62,7 @@ Partial Class Psicotecnico
         '
         'cbox_doc
         '
+        Me.cbox_doc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_doc.FormattingEnabled = True
         Me.cbox_doc.Location = New System.Drawing.Point(180, 79)
         Me.cbox_doc.Name = "cbox_doc"
@@ -86,6 +87,7 @@ Partial Class Psicotecnico
         '
         'cbox_examinador
         '
+        Me.cbox_examinador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_examinador.FormattingEnabled = True
         Me.cbox_examinador.Location = New System.Drawing.Point(180, 150)
         Me.cbox_examinador.Name = "cbox_examinador"

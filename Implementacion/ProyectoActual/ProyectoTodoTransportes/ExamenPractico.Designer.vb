@@ -62,6 +62,7 @@ Partial Class ExamenPractico
         '
         'cbox_instructor
         '
+        Me.cbox_instructor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_instructor.FormattingEnabled = True
         Me.cbox_instructor.Location = New System.Drawing.Point(131, 139)
         Me.cbox_instructor.Name = "cbox_instructor"
@@ -95,6 +96,7 @@ Partial Class ExamenPractico
         '
         'cbox_docPractico
         '
+        Me.cbox_docPractico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_docPractico.FormattingEnabled = True
         Me.cbox_docPractico.Location = New System.Drawing.Point(131, 68)
         Me.cbox_docPractico.Name = "cbox_docPractico"
