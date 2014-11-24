@@ -8,8 +8,25 @@ Public Class Conexion
     Dim conn As New MySqlConnection(cs)
     Dim adaptador As MySqlDataAdapter
     Dim lector As MySqlDataReader
-    Dim comando As MySqlCommand
+    Dim comando As New MySqlCommand
+    Dim transaccion As MySqlTransaction
 
+    Sub New()
+        comando.CommandType = CommandType.Text
+        comando.Connection = conn
+    End Sub
+
+    Sub beginTransaction()
+        transaccion = conn.BeginTransaction
+    End Sub
+
+    Sub commitTransaction()
+        transaccion.Commit()
+    End Sub
+
+    Sub rollbackTransaction()
+        transaccion.Rollback()
+    End Sub
 
 #Region "DESARROLLO"
 
@@ -29,6 +46,23 @@ Public Class Conexion
         End Using
     End Sub
 
+    Function Prueba() As Boolean
+        Using comando
+            With comando
+                .Transaction = transaccion
+                .CommandText = "INSERT INTO TIPO_USUARIO (Tipo) Values(@Tipo)"
+
+                Try
+                    .Parameters.AddWithValue("@Tipo", "chao2")
+                    comando.ExecuteNonQuery()
+                Catch ex As Exception
+                    rollbackTransaction()
+                    Return False
+                End Try
+            End With
+        End Using
+        Return True
+    End Function
 #End Region
 
 #Region "HERRAMIENTAS"
