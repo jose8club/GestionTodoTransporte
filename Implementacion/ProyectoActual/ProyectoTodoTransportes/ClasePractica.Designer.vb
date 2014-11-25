@@ -22,7 +22,7 @@ Partial Class ClasePractica
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn_guardarPract = New System.Windows.Forms.Button()
         Me.cbox_instructor = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cbox_cursoPract = New System.Windows.Forms.ComboBox()
@@ -36,14 +36,14 @@ Partial Class ClasePractica
         Me.lbl_Horario = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'Button1
+        'btn_guardarPract
         '
-        Me.Button1.Location = New System.Drawing.Point(298, 190)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(101, 23)
-        Me.Button1.TabIndex = 24
-        Me.Button1.Text = "Guardar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btn_guardarPract.Location = New System.Drawing.Point(298, 190)
+        Me.btn_guardarPract.Name = "btn_guardarPract"
+        Me.btn_guardarPract.Size = New System.Drawing.Size(101, 23)
+        Me.btn_guardarPract.TabIndex = 24
+        Me.btn_guardarPract.Text = "Guardar"
+        Me.btn_guardarPract.UseVisualStyleBackColor = True
         '
         'cbox_instructor
         '
@@ -154,7 +154,7 @@ Partial Class ClasePractica
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.lbl_Horario)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btn_guardarPract)
         Me.Controls.Add(Me.cbox_instructor)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.cbox_cursoPract)
@@ -168,7 +168,7 @@ Partial Class ClasePractica
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btn_guardarPract As System.Windows.Forms.Button
     Friend WithEvents cbox_instructor As System.Windows.Forms.ComboBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents cbox_cursoPract As System.Windows.Forms.ComboBox

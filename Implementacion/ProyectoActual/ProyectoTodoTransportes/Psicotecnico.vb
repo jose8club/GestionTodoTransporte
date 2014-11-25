@@ -56,10 +56,10 @@
         If validar() Then
             Dim Codigo As Integer = tbox_codigo.Text()
             Dim Fecha As String = Format(date_examen.Value, "yyyy-MM-dd")
-            Dim Estado As Integer = cbox_estado.Text()
+            Dim Estado As String = cbox_estado.Text()
             Try
-                con.regDocumento("Examen Psicotecnico")
-                Documento = con.last("idDOCUMENTO", "Documento")
+                con.regDocumento("Psicotecnico")
+                Documento = CInt(con.last("idDOCUMENTO", "Documento"))
                 con.regPsico(Codigo, Documento, Fecha, Funcionario, Estado)
                 STATUS.Text = "Examen Psicotecnico: " & Codigo & " fue agregada exitosamente."
             Catch ex As Exception

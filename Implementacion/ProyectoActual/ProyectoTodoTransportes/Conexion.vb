@@ -688,6 +688,28 @@ Public Class Conexion
 
         End Using
     End Sub
+
+    Sub regPractica(ByVal Codigo As String, ByVal Clase As String, ByVal Instructor As Integer, ByVal Horario As String)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO Practica (idPractica,Clase,Instructor,Horario) VALUES(@Codigo,@Clase,@Instructor,@Horario)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Codigo", Codigo)
+                .Parameters.AddWithValue("@Clase", Clase)
+                .Parameters.AddWithValue("@Instructor", Instructor)
+                .Parameters.AddWithValue("@Horario", Horario)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+    End Sub
+
 #End Region
 
 #Region "OTROS"

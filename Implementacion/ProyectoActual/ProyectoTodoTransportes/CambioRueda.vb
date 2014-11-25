@@ -73,8 +73,8 @@
             Dim Horario As String = tbox_hor1.Text & ":" & tbox_hor2.Text & ":00"
             Dim Instructor As Integer = Instructores(cbox_instRueda.SelectedIndex, 1)
             Try
-                con.regDocumento("Clase Cambio Rueda")
-                Documento = con.last("idDOCUMENTO", "Documento")
+                con.regDocumento("Cambio Rueda")
+                Documento = CInt(con.last("idDOCUMENTO", "Documento"))
                 con.regRueda(Codigo, Documento, Fecha, Horario, Instructor)
                 STATUS.Text = "Clase cambio rueda" & Codigo & " fue agregada exitosamente."
             Catch ex As Exception

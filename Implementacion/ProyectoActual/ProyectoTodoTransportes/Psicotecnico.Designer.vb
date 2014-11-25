@@ -105,6 +105,7 @@ Partial Class Psicotecnico
         '
         Me.cbox_estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_estado.FormattingEnabled = True
+        Me.cbox_estado.Items.AddRange(New Object() {"APROBADO", "REPROBADO", "PENDIENTE"})
         Me.cbox_estado.Location = New System.Drawing.Point(180, 157)
         Me.cbox_estado.Name = "cbox_estado"
         Me.cbox_estado.Size = New System.Drawing.Size(332, 21)
