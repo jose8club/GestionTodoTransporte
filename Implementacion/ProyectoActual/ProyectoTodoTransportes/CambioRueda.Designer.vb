@@ -134,6 +134,7 @@ Partial Class CambioRueda
         '
         'btn_rueda
         '
+        Me.btn_rueda.Enabled = False
         Me.btn_rueda.Location = New System.Drawing.Point(375, 194)
         Me.btn_rueda.Name = "btn_rueda"
         Me.btn_rueda.Size = New System.Drawing.Size(118, 23)

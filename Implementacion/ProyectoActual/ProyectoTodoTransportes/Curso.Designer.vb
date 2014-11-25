@@ -122,6 +122,7 @@ Partial Class Curso
         '
         'btn_Guardar
         '
+        Me.btn_Guardar.Enabled = False
         Me.btn_Guardar.Location = New System.Drawing.Point(353, 169)
         Me.btn_Guardar.Name = "btn_Guardar"
         Me.btn_Guardar.Size = New System.Drawing.Size(75, 23)

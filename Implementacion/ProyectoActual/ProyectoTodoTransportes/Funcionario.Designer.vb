@@ -63,6 +63,7 @@ Partial Class Funcionario
         '
         'btn_Guardar
         '
+        Me.btn_Guardar.Enabled = False
         Me.btn_Guardar.Location = New System.Drawing.Point(366, 161)
         Me.btn_Guardar.Name = "btn_Guardar"
         Me.btn_Guardar.Size = New System.Drawing.Size(75, 23)

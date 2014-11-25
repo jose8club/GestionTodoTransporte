@@ -41,6 +41,7 @@ Partial Class ClaseTeorica
         '
         'btn_teorica
         '
+        Me.btn_teorica.Enabled = False
         Me.btn_teorica.Location = New System.Drawing.Point(300, 217)
         Me.btn_teorica.Name = "btn_teorica"
         Me.btn_teorica.Size = New System.Drawing.Size(101, 23)

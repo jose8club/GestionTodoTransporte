@@ -35,6 +35,7 @@ Partial Class ExamenTeorico
         '
         'btn_exTeo
         '
+        Me.btn_exTeo.Enabled = False
         Me.btn_exTeo.Location = New System.Drawing.Point(349, 186)
         Me.btn_exTeo.Name = "btn_exTeo"
         Me.btn_exTeo.Size = New System.Drawing.Size(111, 23)

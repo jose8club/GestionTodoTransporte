@@ -94,6 +94,7 @@ Partial Class Psicotecnico
         '
         'btn_psico
         '
+        Me.btn_psico.Enabled = False
         Me.btn_psico.Location = New System.Drawing.Point(401, 210)
         Me.btn_psico.Name = "btn_psico"
         Me.btn_psico.Size = New System.Drawing.Size(111, 23)

@@ -68,6 +68,7 @@ Partial Class RegistrarMatricula
         '
         'btn_Guardar
         '
+        Me.btn_Guardar.Enabled = False
         Me.btn_Guardar.Location = New System.Drawing.Point(597, 302)
         Me.btn_Guardar.Name = "btn_Guardar"
         Me.btn_Guardar.Size = New System.Drawing.Size(75, 23)

@@ -38,6 +38,7 @@ Partial Class ClasePractica
         '
         'btn_guardarPract
         '
+        Me.btn_guardarPract.Enabled = False
         Me.btn_guardarPract.Location = New System.Drawing.Point(298, 190)
         Me.btn_guardarPract.Name = "btn_guardarPract"
         Me.btn_guardarPract.Size = New System.Drawing.Size(101, 23)
