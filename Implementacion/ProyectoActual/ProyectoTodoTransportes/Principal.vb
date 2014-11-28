@@ -115,7 +115,18 @@
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
+        ElseIf Nombre.Equals("Horarios") Then
+            Form = New Horarios(USER, con, ESTADO)
+            Form.TopLevel = False
+            Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            Form.Show()
+        ElseIf Nombre.Equals("Resumen") Then
+            Form = New tab_resumen(USER, con, ESTADO)
+            Form.TopLevel = False
+            Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            Form.Show()
         End If
+
     End Sub
 
 End Class

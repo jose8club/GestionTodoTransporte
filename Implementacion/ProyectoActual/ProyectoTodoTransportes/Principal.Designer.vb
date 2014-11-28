@@ -34,9 +34,11 @@ Partial Class Principal
         Me.TabPage9 = New System.Windows.Forms.TabPage()
         Me.TabPage10 = New System.Windows.Forms.TabPage()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
+        Me.TabPage12 = New System.Windows.Forms.TabPage()
         Me.lbl_Estado = New System.Windows.Forms.StatusStrip()
         Me.ESTADO = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.TabPage12 = New System.Windows.Forms.TabPage()
+        Me.TabPage13 = New System.Windows.Forms.TabPage()
+        Me.TabPage14 = New System.Windows.Forms.TabPage()
         Me.MainMenu.SuspendLayout()
         Me.lbl_Estado.SuspendLayout()
         Me.SuspendLayout()
@@ -56,6 +58,8 @@ Partial Class Principal
         Me.MainMenu.Controls.Add(Me.TabPage10)
         Me.MainMenu.Controls.Add(Me.TabPage11)
         Me.MainMenu.Controls.Add(Me.TabPage12)
+        Me.MainMenu.Controls.Add(Me.TabPage13)
+        Me.MainMenu.Controls.Add(Me.TabPage14)
         Me.MainMenu.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed
         Me.MainMenu.ItemSize = New System.Drawing.Size(25, 150)
         Me.MainMenu.Location = New System.Drawing.Point(21, 12)
@@ -167,6 +171,15 @@ Partial Class Principal
         Me.TabPage11.Text = "Cursos"
         Me.TabPage11.UseVisualStyleBackColor = True
         '
+        'TabPage12
+        '
+        Me.TabPage12.Location = New System.Drawing.Point(154, 4)
+        Me.TabPage12.Name = "TabPage12"
+        Me.TabPage12.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage12.TabIndex = 11
+        Me.TabPage12.Text = "Cambio Rueda"
+        Me.TabPage12.UseVisualStyleBackColor = True
+        '
         'lbl_Estado
         '
         Me.lbl_Estado.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ESTADO})
@@ -182,14 +195,23 @@ Partial Class Principal
         Me.ESTADO.Size = New System.Drawing.Size(121, 17)
         Me.ESTADO.Text = "ToolStripStatusLabel1"
         '
-        'TabPage12
+        'TabPage13
         '
-        Me.TabPage12.Location = New System.Drawing.Point(154, 4)
-        Me.TabPage12.Name = "TabPage12"
-        Me.TabPage12.Size = New System.Drawing.Size(754, 393)
-        Me.TabPage12.TabIndex = 11
-        Me.TabPage12.Text = "Cambio Rueda"
-        Me.TabPage12.UseVisualStyleBackColor = True
+        Me.TabPage13.Location = New System.Drawing.Point(154, 4)
+        Me.TabPage13.Name = "TabPage13"
+        Me.TabPage13.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage13.TabIndex = 12
+        Me.TabPage13.Text = "Horarios"
+        Me.TabPage13.UseVisualStyleBackColor = True
+        '
+        'TabPage14
+        '
+        Me.TabPage14.Location = New System.Drawing.Point(154, 4)
+        Me.TabPage14.Name = "TabPage14"
+        Me.TabPage14.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage14.TabIndex = 13
+        Me.TabPage14.Text = "Resumen"
+        Me.TabPage14.UseVisualStyleBackColor = True
         '
         'Principal
         '
@@ -222,5 +244,7 @@ Partial Class Principal
     Friend WithEvents TabPage10 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage11 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage12 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage13 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage14 As System.Windows.Forms.TabPage
 
 End Class

@@ -106,6 +106,36 @@
     <Compile Include="ExamenTeorico.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Horarios.Designer.vb">
+      <DependentUpon>Horarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Horarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="resAsistencia.Designer.vb">
+      <DependentUpon>resAsistencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="resAsistencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="resCalificaciones.Designer.vb">
+      <DependentUpon>resCalificaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="resCalificaciones.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="resGeneral.Designer.vb">
+      <DependentUpon>resGeneral.vb</DependentUpon>
+    </Compile>
+    <Compile Include="resGeneral.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="resProfesores.Designer.vb">
+      <DependentUpon>resProfesores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="resProfesores.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="tab_Clases.Designer.vb">
       <DependentUpon>tab_Clases.vb</DependentUpon>
     </Compile>
@@ -179,6 +209,12 @@
     <Compile Include="tab_Docente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="tab_resumen.Designer.vb">
+      <DependentUpon>tab_resumen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="tab_resumen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Usuarios.Designer.vb">
       <DependentUpon>Usuarios.vb</DependentUpon>
     </Compile>
@@ -249,6 +285,21 @@
     <EmbeddedResource Include="ExamenTeorico.resx">
       <DependentUpon>ExamenTeorico.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Horarios.resx">
+      <DependentUpon>Horarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resAsistencia.resx">
+      <DependentUpon>resAsistencia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resCalificaciones.resx">
+      <DependentUpon>resCalificaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resGeneral.resx">
+      <DependentUpon>resGeneral.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resProfesores.resx">
+      <DependentUpon>resProfesores.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="tab_Clases.resx">
       <DependentUpon>tab_Clases.vb</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="tab_Docente.resx">
       <DependentUpon>tab_Docente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tab_resumen.resx">
+      <DependentUpon>tab_resumen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios.resx">
       <DependentUpon>Usuarios.vb</DependentUpon>
