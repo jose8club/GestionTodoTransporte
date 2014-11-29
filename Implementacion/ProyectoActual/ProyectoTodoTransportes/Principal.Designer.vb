@@ -35,10 +35,10 @@ Partial Class Principal
         Me.TabPage10 = New System.Windows.Forms.TabPage()
         Me.TabPage11 = New System.Windows.Forms.TabPage()
         Me.TabPage12 = New System.Windows.Forms.TabPage()
-        Me.lbl_Estado = New System.Windows.Forms.StatusStrip()
-        Me.ESTADO = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TabPage13 = New System.Windows.Forms.TabPage()
         Me.TabPage14 = New System.Windows.Forms.TabPage()
+        Me.lbl_Estado = New System.Windows.Forms.StatusStrip()
+        Me.ESTADO = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MainMenu.SuspendLayout()
         Me.lbl_Estado.SuspendLayout()
         Me.SuspendLayout()
@@ -180,21 +180,6 @@ Partial Class Principal
         Me.TabPage12.Text = "Cambio Rueda"
         Me.TabPage12.UseVisualStyleBackColor = True
         '
-        'lbl_Estado
-        '
-        Me.lbl_Estado.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ESTADO})
-        Me.lbl_Estado.Location = New System.Drawing.Point(0, 428)
-        Me.lbl_Estado.Name = "lbl_Estado"
-        Me.lbl_Estado.Size = New System.Drawing.Size(945, 22)
-        Me.lbl_Estado.TabIndex = 1
-        Me.lbl_Estado.Text = "ESTADO"
-        '
-        'ESTADO
-        '
-        Me.ESTADO.Name = "ESTADO"
-        Me.ESTADO.Size = New System.Drawing.Size(121, 17)
-        Me.ESTADO.Text = "ToolStripStatusLabel1"
-        '
         'TabPage13
         '
         Me.TabPage13.Location = New System.Drawing.Point(154, 4)
@@ -212,6 +197,21 @@ Partial Class Principal
         Me.TabPage14.TabIndex = 13
         Me.TabPage14.Text = "Resumen"
         Me.TabPage14.UseVisualStyleBackColor = True
+        '
+        'lbl_Estado
+        '
+        Me.lbl_Estado.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ESTADO})
+        Me.lbl_Estado.Location = New System.Drawing.Point(0, 428)
+        Me.lbl_Estado.Name = "lbl_Estado"
+        Me.lbl_Estado.Size = New System.Drawing.Size(945, 22)
+        Me.lbl_Estado.TabIndex = 1
+        Me.lbl_Estado.Text = "ESTADO"
+        '
+        'ESTADO
+        '
+        Me.ESTADO.Name = "ESTADO"
+        Me.ESTADO.Size = New System.Drawing.Size(121, 17)
+        Me.ESTADO.Text = "ToolStripStatusLabel1"
         '
         'Principal
         '
