@@ -27,6 +27,7 @@ Partial Class tab_resumen
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.MainMenu.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -36,6 +37,7 @@ Partial Class tab_resumen
         Me.MainMenu.Controls.Add(Me.TabPage2)
         Me.MainMenu.Controls.Add(Me.TabPage3)
         Me.MainMenu.Controls.Add(Me.TabPage4)
+        Me.MainMenu.Controls.Add(Me.TabPage5)
         Me.MainMenu.Location = New System.Drawing.Point(21, 23)
         Me.MainMenu.Name = "MainMenu"
         Me.MainMenu.SelectedIndex = 0
@@ -80,6 +82,15 @@ Partial Class tab_resumen
         Me.TabPage4.Text = "Calificaciones"
         Me.TabPage4.UseVisualStyleBackColor = True
         '
+        'TabPage5
+        '
+        Me.TabPage5.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage5.Name = "TabPage5"
+        Me.TabPage5.Size = New System.Drawing.Size(705, 320)
+        Me.TabPage5.TabIndex = 4
+        Me.TabPage5.Text = "Clientes"
+        Me.TabPage5.UseVisualStyleBackColor = True
+        '
         'tab_resumen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -98,4 +109,5 @@ Partial Class tab_resumen
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage4 As System.Windows.Forms.TabPage
+    Friend WithEvents TabPage5 As System.Windows.Forms.TabPage
 End Class

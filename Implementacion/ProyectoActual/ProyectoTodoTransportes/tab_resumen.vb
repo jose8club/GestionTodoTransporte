@@ -43,6 +43,11 @@
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
+        ElseIf Nombre.Equals("Clientes") Then
+            Form = New resClientePot(USER, con, STATUS)
+            Form.TopLevel = False
+            Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            Form.Show()
         End If
     End Sub
 
