@@ -3,6 +3,7 @@
     Dim USER As String = ""
     Dim STATUS As ToolStripStatusLabel
     Dim items() As String
+    Dim items3() As String
     Sub New(ByVal usuario As String, ByVal conexion As Conexion, ByVal estado As ToolStripStatusLabel)
         con = conexion
         USER = usuario
@@ -26,18 +27,21 @@
                 cbox_funcionario.Items.Add(items2(i))
             Next
             If n >= 0 Then cbox_funcionario.SelectedIndex = 0
-            If cbox_funcionario.SelectedIndex Then
-                setItems(cbox_funcionario.Text)
-                cargaLIST("Usuario")
-            End If
+
+            setItems(cbox_funcionario.Text)
+            cargaLIST("Usuario")
+
         End If
     End Sub
 
     Sub setItems(ByVal Nombre As String)
         Dim n As Integer
 
-        n = con.countWhere("Atencion_Cliente_Potencial", "Usuario = " & Nombre & "") - 1
-        items = con.toArrayWhere(n, "Cliente_Potencial", "Atencion_Cliente_Potencial", "Usuario = " & Nombre & "")
+        n = con.countWhere("Atencion_Cliente_Potencial", "Usuario = '" & Nombre & "'") - 1
+        items = con.toArrayWhere(n, "Cliente_Potencial", "Atencion_Cliente_Potencial", "Usuario = '" & Nombre & "'")
+        'For i As Integer = 0 To n
+        'items(i) = con.selectWhereQuery("Nombre", "Cliente_Potencial", "idCLIENTE_POTENCIAL = '" & items3(i) & "'")
+        'Next
     End Sub
 
     Sub cargaLIST(ByVal Nombre As String)
