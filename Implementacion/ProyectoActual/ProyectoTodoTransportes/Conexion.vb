@@ -222,6 +222,37 @@ Public Class Conexion
         Return arreglo
     End Function
 
+    Function toArray3Where(ByVal n As Integer, ByVal NombreCampo As String, ByVal NombreTabla As String, ByVal OtraTabla As String, ByVal Condicion As String) As String()
+
+        'Retorna un arreglo con los datos de dos tablas diferentes
+        'por ejemplo
+        'select Nombre from cliente_potencial , atencion_cliente_potencial  where Usuario="Desarrollador"
+
+        Dim arreglo(n) As String
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT " & NombreCampo & "FROM " & NombreTabla & ", " & OtraTabla & " WHERE " & Condicion
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try
+                Dim i As Integer = 0
+                Using lector As MySqlDataReader = comando.ExecuteReader()
+                    While lector.Read()
+                        arreglo(i) = lector.GetString(0)
+                        i = i + 1
+                    End While
+                End Using
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+
+        Return arreglo
+    End Function
+
 
     Function selectWhereQuery(ByVal columna As String, ByVal tabla As String, ByVal condicion As String) As String
 
@@ -602,6 +633,8 @@ Public Class Conexion
         End Using
     End Sub
 
+
+
     Sub regCurso(ByVal Codigo As String, ByVal Producto As String, ByVal FechaInicio As String, ByVal FechaTermino As String)
         Using comando As New MySqlCommand()
             With comando
@@ -689,6 +722,30 @@ Public Class Conexion
         End Using
     End Sub
 
+    Sub regVisual(ByVal Codigo As Integer, ByVal Documento As Integer, ByVal Examinador As Integer, ByVal Estado As String, ByVal Certificado As Boolean, ByVal Fecha As String)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO EXAMEN_VISUAL (Codigo,Documento,Examinador,Estado,Certificado,Fecha) VALUES(@Codigo,@Documento,@Examinador,@Estado,@Certificado,@Fecha)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Codigo", Codigo)
+                .Parameters.AddWithValue("@Documento", Documento)
+                .Parameters.AddWithValue("@Examinador", Examinador)
+                .Parameters.AddWithValue("@Estado", Estado)
+                .Parameters.AddWithValue("@Certificado", Certificado)
+                .Parameters.AddWithValue("@Fecha", Fecha)
+               
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+    End Sub
+
     Sub regPractica(ByVal Codigo As String, ByVal Clase As String, ByVal Instructor As Integer, ByVal Horario As String)
         Using comando As New MySqlCommand()
             With comando
@@ -700,6 +757,28 @@ Public Class Conexion
                 .Parameters.AddWithValue("@Clase", Clase)
                 .Parameters.AddWithValue("@Instructor", Instructor)
                 .Parameters.AddWithValue("@Horario", Horario)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+    End Sub
+
+    Sub regExTeo(ByVal Codigo As Integer, ByVal Documento As Integer, ByVal Fecha As String, ByVal Examinador As String, ByVal Calificacion As Integer)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO EXAMEN_TEORICO (Codigo,Documento,Fecha,Examinador,Calificacion) VALUES(@Codigo,@Documento,@Fecha,@Examinador,@Calificacion)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Codigo", Codigo)
+                .Parameters.AddWithValue("@Documento", Documento)
+                .Parameters.AddWithValue("@Fecha", Fecha)
+                .Parameters.AddWithValue("@Examinador", Examinador)
+                .Parameters.AddWithValue("@Calificacion", Calificacion)
             End With
             Try
                 comando.ExecuteNonQuery()

@@ -30,7 +30,7 @@
 
             setItems(cbox_funcionario.Text)
             cargaLIST("Usuario")
-
+            list_clientes.Items.Clear()
         End If
     End Sub
 
@@ -39,6 +39,7 @@
 
         n = con.countWhere("Atencion_Cliente_Potencial", "Usuario = '" & Nombre & "'") - 1
         items = con.toArrayWhere(n, "Cliente_Potencial", "Atencion_Cliente_Potencial", "Usuario = '" & Nombre & "'")
+        'items = con.toArray3Where(n, "Nombre", "Cliente_Potencial", "Atencion_Cliente_Potencial", "Usuario = '" & Nombre & "'")
         'For i As Integer = 0 To n
         'items(i) = con.selectWhereQuery("Nombre", "Cliente_Potencial", "idCLIENTE_POTENCIAL = '" & items3(i) & "'")
         'Next

@@ -37,7 +37,6 @@ Partial Class Visual
         '
         'btn_visual
         '
-        Me.btn_visual.Enabled = False
         Me.btn_visual.Location = New System.Drawing.Point(406, 270)
         Me.btn_visual.Name = "btn_visual"
         Me.btn_visual.Size = New System.Drawing.Size(111, 23)
