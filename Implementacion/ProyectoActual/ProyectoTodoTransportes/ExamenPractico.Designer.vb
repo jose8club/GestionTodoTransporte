@@ -35,7 +35,6 @@ Partial Class ExamenPractico
         '
         'btn_exPract
         '
-        Me.btn_exPract.Enabled = False
         Me.btn_exPract.Location = New System.Drawing.Point(352, 197)
         Me.btn_exPract.Name = "btn_exPract"
         Me.btn_exPract.Size = New System.Drawing.Size(111, 23)

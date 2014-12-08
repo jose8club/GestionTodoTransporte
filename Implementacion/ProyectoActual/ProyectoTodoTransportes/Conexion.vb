@@ -789,6 +789,50 @@ Public Class Conexion
         End Using
     End Sub
 
+    Sub regExPract(ByVal Codigo As Integer, ByVal Documento As Integer, ByVal Fecha As String, ByVal Instructor As Integer, ByVal Calificacion As Integer)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO EXAMEN_PRACTICO (Codigo,Documento,Fecha,Instructor,Calificacion) VALUES(@Codigo,@Documento,@Fecha,@Instructor,@Calificacion)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Codigo", Codigo)
+                .Parameters.AddWithValue("@Documento", Documento)
+                .Parameters.AddWithValue("@Fecha", Fecha)
+                .Parameters.AddWithValue("@Instructor", Instructor)
+                .Parameters.AddWithValue("@Calificacion", Calificacion)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+    End Sub
+
+    Sub regExMun(ByVal Codigo As Integer, ByVal Documento As Integer, ByVal Instructor As Integer, ByVal Estado As String, ByVal Comentario As String)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO EXAMEN_MUNICIPAL (Codigo,Documento,Instructor,Estado,Comentario) VALUES(@Codigo,@Documento,@Instructor,@Estado,@Comentario)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Codigo", Codigo)
+                .Parameters.AddWithValue("@Documento", Documento)
+                .Parameters.AddWithValue("@Instructor", Instructor)
+                .Parameters.AddWithValue("@Estado", Estado)
+                .Parameters.AddWithValue("@Comentario", Comentario)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+    End Sub
+
 #End Region
 
 #Region "OTROS"

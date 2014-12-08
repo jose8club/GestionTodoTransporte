@@ -35,7 +35,6 @@ Partial Class ExamenMunicipal
         '
         'btn_Municipal
         '
-        Me.btn_Municipal.Enabled = False
         Me.btn_Municipal.Location = New System.Drawing.Point(322, 253)
         Me.btn_Municipal.Name = "btn_Municipal"
         Me.btn_Municipal.Size = New System.Drawing.Size(126, 23)
