@@ -59,7 +59,7 @@
                 con.regCurso(Codigo, Producto, FechaInicio, FechaTermino)
                 STATUS.Text = "Curso " & Codigo & " fue agregado exitosamente."
             Catch ex As Exception
-
+                STATUS.Text = "Curso no" & Codigo & " fue agregado exitosamente."
             End Try
         End If
     End Sub

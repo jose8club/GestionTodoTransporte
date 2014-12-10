@@ -108,7 +108,7 @@
                 con.regTeoria(Codigo, Curso, Horario, Duracion, Profesor)
                 STATUS.Text = "Clase Teorica" & Codigo & " fue agregada exitosamente."
             Catch ex As Exception
-
+                STATUS.Text = "Clase Teorica" & Codigo & " no fue agregada exitosamente."
             End Try
         End If
     End Sub

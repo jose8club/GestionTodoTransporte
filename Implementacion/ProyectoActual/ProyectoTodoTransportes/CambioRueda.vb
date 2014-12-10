@@ -78,7 +78,7 @@
                 con.regRueda(Codigo, Documento, Fecha, Horario, Instructor)
                 STATUS.Text = "Clase cambio rueda" & Codigo & " fue agregada exitosamente."
             Catch ex As Exception
-
+                STATUS.Text = "Clase cambio rueda" & Codigo & " no fue agregada exitosamente."
             End Try
         End If
     End Sub
