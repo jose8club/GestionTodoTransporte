@@ -614,15 +614,36 @@ Public Class Conexion
 
     End Sub
 
-    Sub regDocumento(ByVal Tipo As String)
+    Sub regDocumento(ByVal Documento As String)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO Documento (Tipo) VALUES(@Tipo)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Tipo", Documento)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+    End Sub
+
+    Sub regDocumento2(ByVal Tipo As String, ByVal Funcionario As Integer, ByVal Fecha As String, ByVal Estado As String)
         'Registra Documento'
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO Documento (Tipo) VALUES( @Tipo)"
+                .CommandText = "INSERT INTO Documento (Tipo, Funcionario, Fecha, Estado) VALUES( @Tipo, @Funcionario, @Fecha, @Estado)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
                 .Parameters.AddWithValue("@Tipo", Tipo)
+                .Parameters.AddWithValue("@Funcionario", Funcionario)
+                .Parameters.AddWithValue("@Fecha", Fecha)
+                .Parameters.AddWithValue("@Estado", Estado)
             End With
             Try
                 comando.ExecuteNonQuery()
@@ -700,18 +721,14 @@ Public Class Conexion
         End Using
     End Sub
 
-    Sub regPsico(ByVal Codigo As Integer, ByVal Documento As Integer, ByVal Fecha As String, ByVal Examinador As Integer, ByVal Estado As String)
+    Sub regPsico(ByVal Documento As Integer)
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO PSICOTECNICO (Codigo,Documento,Fecha,Examinador,Estado) VALUES(@Codigo,@Documento,@Fecha,@Examinador,@Estado)"
+                .CommandText = "INSERT INTO PSICOTECNICO (Documento) VALUES(@Documento)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
-                .Parameters.AddWithValue("@Codigo", Codigo)
                 .Parameters.AddWithValue("@Documento", Documento)
-                .Parameters.AddWithValue("@Fecha", Fecha)
-                .Parameters.AddWithValue("@Examinador", Examinador)
-                .Parameters.AddWithValue("@Estado", Estado)
             End With
             Try
                 comando.ExecuteNonQuery()
@@ -823,6 +840,25 @@ Public Class Conexion
                 .Parameters.AddWithValue("@Instructor", Instructor)
                 .Parameters.AddWithValue("@Estado", Estado)
                 .Parameters.AddWithValue("@Comentario", Comentario)
+            End With
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+
+        End Using
+    End Sub
+
+    Sub regEstDoc(ByVal Estudiante As Integer, ByVal Documento As Integer)
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "INSERT INTO PSICOTECNICO (Estudiante, Documento) VALUES(@Estudiante, @Documento)"
+                .CommandType = CommandType.Text
+                .Connection = conn
+
+                .Parameters.AddWithValue("@Estudiante", Estudiante)
+                .Parameters.AddWithValue("@Documento", Documento)
             End With
             Try
                 comando.ExecuteNonQuery()
