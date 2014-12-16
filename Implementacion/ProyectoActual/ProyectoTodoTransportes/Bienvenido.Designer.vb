@@ -30,7 +30,9 @@ Partial Class Bienvenido
         Me.btn_Login = New System.Windows.Forms.Button()
         Me.StatusBar = New System.Windows.Forms.StatusStrip()
         Me.STATUS = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.StatusBar.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tbox_Bienvenido
@@ -38,19 +40,19 @@ Partial Class Bienvenido
         Me.tbox_Bienvenido.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.tbox_Bienvenido.Cursor = System.Windows.Forms.Cursors.Default
         Me.tbox_Bienvenido.ForeColor = System.Drawing.SystemColors.WindowText
-        Me.tbox_Bienvenido.Location = New System.Drawing.Point(12, 12)
+        Me.tbox_Bienvenido.Location = New System.Drawing.Point(36, 185)
         Me.tbox_Bienvenido.Multiline = True
         Me.tbox_Bienvenido.Name = "tbox_Bienvenido"
         Me.tbox_Bienvenido.ReadOnly = True
         Me.tbox_Bienvenido.Size = New System.Drawing.Size(326, 48)
         Me.tbox_Bienvenido.TabIndex = 4
-        Me.tbox_Bienvenido.Text = "Bienvenido al Sistema de Gestión TodoTransportes. Para comenzar ingrese su nombre" & _
-            " de usuario y contraseña."
+        Me.tbox_Bienvenido.Text = "Bienvenido al Sistema de Gestión Académica de Todo Transporte. Para comenzar ingr" & _
+            "ese sus datos de inicio de sesión."
         Me.tbox_Bienvenido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'tbox_Usuario
         '
-        Me.tbox_Usuario.Location = New System.Drawing.Point(135, 61)
+        Me.tbox_Usuario.Location = New System.Drawing.Point(124, 241)
         Me.tbox_Usuario.MaxLength = 45
         Me.tbox_Usuario.Name = "tbox_Usuario"
         Me.tbox_Usuario.Size = New System.Drawing.Size(151, 20)
@@ -60,7 +62,7 @@ Partial Class Bienvenido
         'lbl_Usuario
         '
         Me.lbl_Usuario.AutoSize = True
-        Me.lbl_Usuario.Location = New System.Drawing.Point(65, 64)
+        Me.lbl_Usuario.Location = New System.Drawing.Point(176, 225)
         Me.lbl_Usuario.Name = "lbl_Usuario"
         Me.lbl_Usuario.Size = New System.Drawing.Size(46, 13)
         Me.lbl_Usuario.TabIndex = 3
@@ -69,7 +71,7 @@ Partial Class Bienvenido
         'lbl_Contra
         '
         Me.lbl_Contra.AutoSize = True
-        Me.lbl_Contra.Location = New System.Drawing.Point(65, 90)
+        Me.lbl_Contra.Location = New System.Drawing.Point(167, 264)
         Me.lbl_Contra.Name = "lbl_Contra"
         Me.lbl_Contra.Size = New System.Drawing.Size(64, 13)
         Me.lbl_Contra.TabIndex = 5
@@ -77,7 +79,7 @@ Partial Class Bienvenido
         '
         'tbox_Contra
         '
-        Me.tbox_Contra.Location = New System.Drawing.Point(135, 87)
+        Me.tbox_Contra.Location = New System.Drawing.Point(124, 280)
         Me.tbox_Contra.MaxLength = 45
         Me.tbox_Contra.Name = "tbox_Contra"
         Me.tbox_Contra.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
@@ -87,9 +89,9 @@ Partial Class Bienvenido
         '
         'btn_Login
         '
-        Me.btn_Login.Location = New System.Drawing.Point(89, 127)
+        Me.btn_Login.Location = New System.Drawing.Point(109, 323)
         Me.btn_Login.Name = "btn_Login"
-        Me.btn_Login.Size = New System.Drawing.Size(173, 31)
+        Me.btn_Login.Size = New System.Drawing.Size(180, 40)
         Me.btn_Login.TabIndex = 3
         Me.btn_Login.Text = "Iniciar Sesión"
         Me.btn_Login.UseVisualStyleBackColor = True
@@ -98,9 +100,9 @@ Partial Class Bienvenido
         '
         Me.StatusBar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.STATUS})
         Me.StatusBar.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
-        Me.StatusBar.Location = New System.Drawing.Point(0, 170)
+        Me.StatusBar.Location = New System.Drawing.Point(0, 376)
         Me.StatusBar.Name = "StatusBar"
-        Me.StatusBar.Size = New System.Drawing.Size(350, 22)
+        Me.StatusBar.Size = New System.Drawing.Size(399, 22)
         Me.StatusBar.TabIndex = 6
         Me.StatusBar.Text = "StatusStrip1"
         '
@@ -109,11 +111,22 @@ Partial Class Bienvenido
         Me.STATUS.Name = "STATUS"
         Me.STATUS.Size = New System.Drawing.Size(0, 17)
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ProyectoTodoTransportes.My.Resources.Resources._10850044_780782001992008_7920030837036309954_n
+        Me.PictureBox1.Location = New System.Drawing.Point(2, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(395, 156)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 7
+        Me.PictureBox1.TabStop = False
+        '
         'Bienvenido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(350, 192)
+        Me.ClientSize = New System.Drawing.Size(399, 398)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.StatusBar)
         Me.Controls.Add(Me.btn_Login)
         Me.Controls.Add(Me.lbl_Contra)
@@ -127,6 +140,7 @@ Partial Class Bienvenido
         Me.Text = "Iniciar Sesión..."
         Me.StatusBar.ResumeLayout(False)
         Me.StatusBar.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -139,4 +153,5 @@ Partial Class Bienvenido
     Friend WithEvents btn_Login As System.Windows.Forms.Button
     Friend WithEvents StatusBar As System.Windows.Forms.StatusStrip
     Friend WithEvents STATUS As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class
