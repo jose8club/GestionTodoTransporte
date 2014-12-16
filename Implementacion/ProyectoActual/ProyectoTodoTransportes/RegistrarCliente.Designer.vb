@@ -39,14 +39,12 @@ Partial Class RegistrarCliente
         Me.tbox_CodigoCurso = New System.Windows.Forms.TextBox()
         Me.lbl_TipoAtencion = New System.Windows.Forms.Label()
         Me.cbox_TipoAtencion = New System.Windows.Forms.ComboBox()
-        Me.tbox_LicConsulta = New System.Windows.Forms.TextBox()
-        Me.lbl_LicConsulta = New System.Windows.Forms.Label()
         CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tbox_Telefono
         '
-        Me.tbox_Telefono.Location = New System.Drawing.Point(159, 63)
+        Me.tbox_Telefono.Location = New System.Drawing.Point(170, 78)
         Me.tbox_Telefono.MaxLength = 20
         Me.tbox_Telefono.Name = "tbox_Telefono"
         Me.tbox_Telefono.Size = New System.Drawing.Size(248, 20)
@@ -55,7 +53,7 @@ Partial Class RegistrarCliente
         'lbl_Telefono
         '
         Me.lbl_Telefono.AutoSize = True
-        Me.lbl_Telefono.Location = New System.Drawing.Point(30, 66)
+        Me.lbl_Telefono.Location = New System.Drawing.Point(41, 81)
         Me.lbl_Telefono.Name = "lbl_Telefono"
         Me.lbl_Telefono.Size = New System.Drawing.Size(52, 13)
         Me.lbl_Telefono.TabIndex = 44
@@ -63,7 +61,7 @@ Partial Class RegistrarCliente
         '
         'date_FechaAtencion
         '
-        Me.date_FechaAtencion.Location = New System.Drawing.Point(170, 317)
+        Me.date_FechaAtencion.Location = New System.Drawing.Point(182, 302)
         Me.date_FechaAtencion.Name = "date_FechaAtencion"
         Me.date_FechaAtencion.Size = New System.Drawing.Size(237, 20)
         Me.date_FechaAtencion.TabIndex = 41
@@ -71,7 +69,7 @@ Partial Class RegistrarCliente
         'btn_Guardar
         '
         Me.btn_Guardar.Enabled = False
-        Me.btn_Guardar.Location = New System.Drawing.Point(511, 332)
+        Me.btn_Guardar.Location = New System.Drawing.Point(515, 318)
         Me.btn_Guardar.Name = "btn_Guardar"
         Me.btn_Guardar.Size = New System.Drawing.Size(160, 40)
         Me.btn_Guardar.TabIndex = 43
@@ -81,7 +79,7 @@ Partial Class RegistrarCliente
         'lbl_Nombre
         '
         Me.lbl_Nombre.AutoSize = True
-        Me.lbl_Nombre.Location = New System.Drawing.Point(30, 32)
+        Me.lbl_Nombre.Location = New System.Drawing.Point(41, 46)
         Me.lbl_Nombre.Name = "lbl_Nombre"
         Me.lbl_Nombre.Size = New System.Drawing.Size(47, 13)
         Me.lbl_Nombre.TabIndex = 40
@@ -89,7 +87,7 @@ Partial Class RegistrarCliente
         '
         'tbox_Consultas
         '
-        Me.tbox_Consultas.Location = New System.Drawing.Point(158, 200)
+        Me.tbox_Consultas.Location = New System.Drawing.Point(170, 184)
         Me.tbox_Consultas.MaxLength = 2000
         Me.tbox_Consultas.Name = "tbox_Consultas"
         Me.tbox_Consultas.Size = New System.Drawing.Size(249, 103)
@@ -98,7 +96,7 @@ Partial Class RegistrarCliente
         '
         'tbox_Nombre
         '
-        Me.tbox_Nombre.Location = New System.Drawing.Point(159, 29)
+        Me.tbox_Nombre.Location = New System.Drawing.Point(170, 43)
         Me.tbox_Nombre.MaxLength = 255
         Me.tbox_Nombre.Name = "tbox_Nombre"
         Me.tbox_Nombre.Size = New System.Drawing.Size(248, 20)
@@ -107,7 +105,7 @@ Partial Class RegistrarCliente
         'lbl_Consultas
         '
         Me.lbl_Consultas.AutoSize = True
-        Me.lbl_Consultas.Location = New System.Drawing.Point(30, 203)
+        Me.lbl_Consultas.Location = New System.Drawing.Point(41, 187)
         Me.lbl_Consultas.Name = "lbl_Consultas"
         Me.lbl_Consultas.Size = New System.Drawing.Size(56, 13)
         Me.lbl_Consultas.TabIndex = 43
@@ -116,7 +114,7 @@ Partial Class RegistrarCliente
         'lbl_FechaAtencion
         '
         Me.lbl_FechaAtencion.AutoSize = True
-        Me.lbl_FechaAtencion.Location = New System.Drawing.Point(30, 323)
+        Me.lbl_FechaAtencion.Location = New System.Drawing.Point(41, 308)
         Me.lbl_FechaAtencion.Name = "lbl_FechaAtencion"
         Me.lbl_FechaAtencion.Size = New System.Drawing.Size(100, 13)
         Me.lbl_FechaAtencion.TabIndex = 41
@@ -126,7 +124,7 @@ Partial Class RegistrarCliente
         '
         Me.cbox_CursoInteres.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_CursoInteres.FormattingEnabled = True
-        Me.cbox_CursoInteres.Location = New System.Drawing.Point(159, 132)
+        Me.cbox_CursoInteres.Location = New System.Drawing.Point(170, 149)
         Me.cbox_CursoInteres.Name = "cbox_CursoInteres"
         Me.cbox_CursoInteres.Size = New System.Drawing.Size(147, 21)
         Me.cbox_CursoInteres.TabIndex = 37
@@ -134,7 +132,7 @@ Partial Class RegistrarCliente
         'lbl_CursoInteres
         '
         Me.lbl_CursoInteres.AutoSize = True
-        Me.lbl_CursoInteres.Location = New System.Drawing.Point(30, 135)
+        Me.lbl_CursoInteres.Location = New System.Drawing.Point(41, 152)
         Me.lbl_CursoInteres.Name = "lbl_CursoInteres"
         Me.lbl_CursoInteres.Size = New System.Drawing.Size(87, 13)
         Me.lbl_CursoInteres.TabIndex = 42
@@ -144,7 +142,7 @@ Partial Class RegistrarCliente
         '
         Me.cbox_Area.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_Area.FormattingEnabled = True
-        Me.cbox_Area.Location = New System.Drawing.Point(159, 97)
+        Me.cbox_Area.Location = New System.Drawing.Point(170, 113)
         Me.cbox_Area.Name = "cbox_Area"
         Me.cbox_Area.Size = New System.Drawing.Size(248, 21)
         Me.cbox_Area.TabIndex = 36
@@ -152,7 +150,7 @@ Partial Class RegistrarCliente
         'lbl_Area
         '
         Me.lbl_Area.AutoSize = True
-        Me.lbl_Area.Location = New System.Drawing.Point(30, 100)
+        Me.lbl_Area.Location = New System.Drawing.Point(41, 116)
         Me.lbl_Area.Name = "lbl_Area"
         Me.lbl_Area.Size = New System.Drawing.Size(89, 13)
         Me.lbl_Area.TabIndex = 47
@@ -161,16 +159,16 @@ Partial Class RegistrarCliente
         'PictureBox
         '
         Me.PictureBox.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.b
-        Me.PictureBox.Location = New System.Drawing.Point(451, 29)
+        Me.PictureBox.Location = New System.Drawing.Point(470, 43)
         Me.PictureBox.Name = "PictureBox"
-        Me.PictureBox.Size = New System.Drawing.Size(280, 280)
+        Me.PictureBox.Size = New System.Drawing.Size(250, 250)
         Me.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox.TabIndex = 48
         Me.PictureBox.TabStop = False
         '
         'tbox_CodigoCurso
         '
-        Me.tbox_CodigoCurso.Location = New System.Drawing.Point(312, 132)
+        Me.tbox_CodigoCurso.Location = New System.Drawing.Point(323, 149)
         Me.tbox_CodigoCurso.MaxLength = 20
         Me.tbox_CodigoCurso.Name = "tbox_CodigoCurso"
         Me.tbox_CodigoCurso.Size = New System.Drawing.Size(95, 20)
@@ -179,7 +177,7 @@ Partial Class RegistrarCliente
         'lbl_TipoAtencion
         '
         Me.lbl_TipoAtencion.AutoSize = True
-        Me.lbl_TipoAtencion.Location = New System.Drawing.Point(30, 354)
+        Me.lbl_TipoAtencion.Location = New System.Drawing.Point(41, 340)
         Me.lbl_TipoAtencion.Name = "lbl_TipoAtencion"
         Me.lbl_TipoAtencion.Size = New System.Drawing.Size(91, 13)
         Me.lbl_TipoAtencion.TabIndex = 50
@@ -190,35 +188,16 @@ Partial Class RegistrarCliente
         Me.cbox_TipoAtencion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_TipoAtencion.FormattingEnabled = True
         Me.cbox_TipoAtencion.Items.AddRange(New Object() {"Oficina", "Teléfono"})
-        Me.cbox_TipoAtencion.Location = New System.Drawing.Point(158, 351)
+        Me.cbox_TipoAtencion.Location = New System.Drawing.Point(170, 337)
         Me.cbox_TipoAtencion.Name = "cbox_TipoAtencion"
         Me.cbox_TipoAtencion.Size = New System.Drawing.Size(249, 21)
         Me.cbox_TipoAtencion.TabIndex = 42
-        '
-        'tbox_LicConsulta
-        '
-        Me.tbox_LicConsulta.Location = New System.Drawing.Point(159, 166)
-        Me.tbox_LicConsulta.MaxLength = 20
-        Me.tbox_LicConsulta.Name = "tbox_LicConsulta"
-        Me.tbox_LicConsulta.Size = New System.Drawing.Size(248, 20)
-        Me.tbox_LicConsulta.TabIndex = 39
-        '
-        'lbl_LicConsulta
-        '
-        Me.lbl_LicConsulta.AutoSize = True
-        Me.lbl_LicConsulta.Location = New System.Drawing.Point(30, 169)
-        Me.lbl_LicConsulta.Name = "lbl_LicConsulta"
-        Me.lbl_LicConsulta.Size = New System.Drawing.Size(108, 13)
-        Me.lbl_LicConsulta.TabIndex = 53
-        Me.lbl_LicConsulta.Text = "Licencia de consulta:"
         '
         'RegistrarCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(760, 400)
-        Me.Controls.Add(Me.lbl_LicConsulta)
-        Me.Controls.Add(Me.tbox_LicConsulta)
         Me.Controls.Add(Me.cbox_TipoAtencion)
         Me.Controls.Add(Me.lbl_TipoAtencion)
         Me.Controls.Add(Me.tbox_CodigoCurso)
@@ -238,7 +217,7 @@ Partial Class RegistrarCliente
         Me.Controls.Add(Me.lbl_CursoInteres)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "RegistrarCliente"
-        Me.Text = "RegistrarCliente"
+        Me.Text = "s"
         CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -261,6 +240,4 @@ Partial Class RegistrarCliente
     Friend WithEvents tbox_CodigoCurso As System.Windows.Forms.TextBox
     Friend WithEvents lbl_TipoAtencion As System.Windows.Forms.Label
     Friend WithEvents cbox_TipoAtencion As System.Windows.Forms.ComboBox
-    Friend WithEvents tbox_LicConsulta As System.Windows.Forms.TextBox
-    Friend WithEvents lbl_LicConsulta As System.Windows.Forms.Label
 End Class

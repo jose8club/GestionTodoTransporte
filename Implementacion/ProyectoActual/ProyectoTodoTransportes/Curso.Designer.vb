@@ -33,6 +33,12 @@ Partial Class Curso
         Me.date_FechaInicio = New System.Windows.Forms.DateTimePicker()
         Me.date_FechaTermino = New System.Windows.Forms.DateTimePicker()
         Me.btn_Guardar = New System.Windows.Forms.Button()
+        Me.HorarioTeorico = New System.Windows.Forms.DataGridView()
+        Me.dg_HorarioTeorico = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.dg_Profesor = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.dg_Eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Button1 = New System.Windows.Forms.Button()
+        CType(Me.HorarioTeorico, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cbox_Area
@@ -91,7 +97,7 @@ Partial Class Curso
         'lbl_FechaTermino
         '
         Me.lbl_FechaTermino.AutoSize = True
-        Me.lbl_FechaTermino.Location = New System.Drawing.Point(21, 134)
+        Me.lbl_FechaTermino.Location = New System.Drawing.Point(443, 48)
         Me.lbl_FechaTermino.Name = "lbl_FechaTermino"
         Me.lbl_FechaTermino.Size = New System.Drawing.Size(96, 13)
         Me.lbl_FechaTermino.TabIndex = 54
@@ -100,7 +106,7 @@ Partial Class Curso
         'lbl_FechaInicio
         '
         Me.lbl_FechaInicio.AutoSize = True
-        Me.lbl_FechaInicio.Location = New System.Drawing.Point(21, 104)
+        Me.lbl_FechaInicio.Location = New System.Drawing.Point(443, 18)
         Me.lbl_FechaInicio.Name = "lbl_FechaInicio"
         Me.lbl_FechaInicio.Size = New System.Drawing.Size(83, 13)
         Me.lbl_FechaInicio.TabIndex = 55
@@ -108,14 +114,14 @@ Partial Class Curso
         '
         'date_FechaInicio
         '
-        Me.date_FechaInicio.Location = New System.Drawing.Point(150, 101)
+        Me.date_FechaInicio.Location = New System.Drawing.Point(572, 15)
         Me.date_FechaInicio.Name = "date_FechaInicio"
         Me.date_FechaInicio.Size = New System.Drawing.Size(278, 20)
         Me.date_FechaInicio.TabIndex = 56
         '
         'date_FechaTermino
         '
-        Me.date_FechaTermino.Location = New System.Drawing.Point(150, 131)
+        Me.date_FechaTermino.Location = New System.Drawing.Point(572, 45)
         Me.date_FechaTermino.Name = "date_FechaTermino"
         Me.date_FechaTermino.Size = New System.Drawing.Size(278, 20)
         Me.date_FechaTermino.TabIndex = 57
@@ -123,18 +129,60 @@ Partial Class Curso
         'btn_Guardar
         '
         Me.btn_Guardar.Enabled = False
-        Me.btn_Guardar.Location = New System.Drawing.Point(353, 169)
+        Me.btn_Guardar.Location = New System.Drawing.Point(480, 74)
         Me.btn_Guardar.Name = "btn_Guardar"
         Me.btn_Guardar.Size = New System.Drawing.Size(75, 23)
         Me.btn_Guardar.TabIndex = 58
         Me.btn_Guardar.Text = "Guardar"
         Me.btn_Guardar.UseVisualStyleBackColor = True
         '
+        'HorarioTeorico
+        '
+        Me.HorarioTeorico.AllowUserToAddRows = False
+        Me.HorarioTeorico.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.HorarioTeorico.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.HorarioTeorico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.HorarioTeorico.ColumnHeadersVisible = False
+        Me.HorarioTeorico.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dg_HorarioTeorico, Me.dg_Profesor, Me.dg_Eliminar})
+        Me.HorarioTeorico.GridColor = System.Drawing.SystemColors.ControlLight
+        Me.HorarioTeorico.Location = New System.Drawing.Point(47, 164)
+        Me.HorarioTeorico.Name = "HorarioTeorico"
+        Me.HorarioTeorico.RowHeadersVisible = False
+        Me.HorarioTeorico.Size = New System.Drawing.Size(301, 150)
+        Me.HorarioTeorico.TabIndex = 59
+        '
+        'dg_HorarioTeorico
+        '
+        Me.dg_HorarioTeorico.HeaderText = "Horario"
+        Me.dg_HorarioTeorico.Name = "dg_HorarioTeorico"
+        '
+        'dg_Profesor
+        '
+        Me.dg_Profesor.HeaderText = "Profesor"
+        Me.dg_Profesor.Name = "dg_Profesor"
+        '
+        'dg_Eliminar
+        '
+        Me.dg_Eliminar.HeaderText = "Eliminar"
+        Me.dg_Eliminar.Name = "dg_Eliminar"
+        Me.dg_Eliminar.Text = "X"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(273, 135)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 60
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Curso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(599, 346)
+        Me.ClientSize = New System.Drawing.Size(760, 400)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.HorarioTeorico)
         Me.Controls.Add(Me.btn_Guardar)
         Me.Controls.Add(Me.date_FechaTermino)
         Me.Controls.Add(Me.date_FechaInicio)
@@ -149,6 +197,7 @@ Partial Class Curso
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Curso"
         Me.Text = "Curso"
+        CType(Me.HorarioTeorico, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -164,4 +213,9 @@ Partial Class Curso
     Friend WithEvents date_FechaInicio As System.Windows.Forms.DateTimePicker
     Friend WithEvents date_FechaTermino As System.Windows.Forms.DateTimePicker
     Friend WithEvents btn_Guardar As System.Windows.Forms.Button
+    Friend WithEvents HorarioTeorico As System.Windows.Forms.DataGridView
+    Friend WithEvents dg_HorarioTeorico As System.Windows.Forms.DataGridViewComboBoxColumn
+    Friend WithEvents dg_Profesor As System.Windows.Forms.DataGridViewComboBoxColumn
+    Friend WithEvents dg_Eliminar As System.Windows.Forms.DataGridViewButtonColumn
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

@@ -11,6 +11,7 @@
     End Sub
 
     Private Sub Curso_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        loadDataView()
         loadCBOX("Area")
         loadCBOX("Producto")
     End Sub
@@ -73,5 +74,29 @@
         tbox_Codigo.Text = ""
         date_FechaInicio.Value = Date.Now
         date_FechaTermino.Value = Date.Now
+    End Sub
+
+
+    Sub loadDataView()
+        dg_Eliminar.Text = "x"
+
+        dg_HorarioTeorico.Items.Add("prueba11")
+        dg_HorarioTeorico.Items.Add("prueba12")
+        dg_HorarioTeorico.Items.Add("prueba13")
+
+        dg_Profesor.Items.Add("prueba21")
+        dg_Profesor.Items.Add("prueba22")
+        dg_Profesor.Items.Add("prueba23")
+    End Sub
+
+    Private Sub dg_Eliminar_click(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles HorarioTeorico.CellClick
+        Dim n As Integer = HorarioTeorico.Rows.Count - 1
+        If e.ColumnIndex = 2 Then
+            HorarioTeorico.Rows.RemoveAt(e.RowIndex)
+        End If
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        HorarioTeorico.Rows.Add()
     End Sub
 End Class
