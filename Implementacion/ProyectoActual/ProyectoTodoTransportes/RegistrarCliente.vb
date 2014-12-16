@@ -13,6 +13,7 @@
     Private Sub RegistrarCliente_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         loadCBOX("Area")
         loadCBOX("Producto")
+        loadImage()
     End Sub
 
     Private Sub btn_Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Guardar.Click
@@ -23,7 +24,7 @@
             Dim Nombre As String = tbox_Nombre.Text
             Dim Telefono As Integer = CInt(tbox_Telefono.Text)
             Dim Curso As String = cbox_CursoInteres.Text
-            Dim Extra As String = tbox_Observaciones.Text
+            Dim Extra As String = tbox_Consultas.Text
             Dim Fecha As String = Format(date_FechaAtencion.Value, "yyyy-MM-dd")
             Try
                 Dim ID As Integer = con.regClientePotencial(Nombre, Telefono, Curso, Extra)
@@ -55,7 +56,7 @@
 
     Sub reset()
         tbox_Nombre.Text = ""
-        tbox_Observaciones.Text = ""
+        tbox_Consultas.Text = ""
         tbox_Telefono.Text = ""
         cbox_CursoInteres.SelectedIndex = 0
     End Sub
@@ -66,8 +67,8 @@
         If Nombre.Equals("Producto") Then
             cbox_CursoInteres.Items.Clear()
 
-            n = con.countWhere("producto", "Area = '" & cbox_TipoLicencia.Text & "'") - 1
-            items = con.toArrayWhere(n, "Nombre", "Producto", "Area = '" & cbox_TipoLicencia.Text & "'")
+            n = con.countWhere("producto", "Area = '" & cbox_Area.Text & "'") - 1
+            items = con.toArrayWhere(n, "Nombre", "Producto", "Area = '" & cbox_Area.Text & "'")
             For i As Integer = 0 To n
                 cbox_CursoInteres.Items.Add(items(i))
             Next
@@ -76,17 +77,19 @@
             End If
 
         ElseIf Nombre.Equals("Area") Then
-            cbox_TipoLicencia.Items.Clear()
+            cbox_Area.Items.Clear()
 
             n = con.count("Area") - 1
             items = con.toArray(n, "Nombre", "Area")
 
             For i As Integer = 0 To n
-                cbox_TipoLicencia.Items.Add(items(i))
+                cbox_Area.Items.Add(items(i))
             Next
-            If con.countWhere("Producto", "Area = 'Otros'") = 0 Then cbox_TipoLicencia.Items.Remove("Otros")
+
+            'If con.countWhere("Producto", "Area = 'Otros'") = 0 Then cbox_TipoLicencia.Items.Remove("Otros")
+
             If n >= 0 Then
-                cbox_TipoLicencia.SelectedIndex = 0
+                cbox_Area.SelectedIndex = 0
             End If
         End If
     End Sub
@@ -100,10 +103,42 @@
         Return True
     End Function
 
+    Sub loadImage()
+        Dim s As String = cbox_CursoInteres.Text
+
+        If s.Equals("Clase B") Then
+            PictureBox.Image = My.Resources.b
+        ElseIf s.Equals("A-2: Taxis y Minibuses") Then
+            PictureBox.Image = My.Resources.a2
+        ElseIf s.Equals("A-3: Buses") Then
+            PictureBox.Image = My.Resources.a3
+        ElseIf s.Equals("A-4: Camiones") Then
+            PictureBox.Image = My.Resources.a4
+        ElseIf s.Equals("Retroexcavadora") Then
+            PictureBox.Image = My.Resources.retro
+        ElseIf s.Equals("Grua Horquilla") Then
+            PictureBox.Image = My.Resources.grua
+        ElseIf s.Equals("A-5: Camiones Articulados") Then
+            PictureBox.Image = My.Resources.LOGO
+        End If
+    End Sub
+
 #End Region
 
-    Private Sub cbox_TipoLicencia_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_TipoLicencia.SelectedIndexChanged
+    Private Sub cbox_TipoLicencia_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_Area.SelectedIndexChanged
         loadCBOX("Producto")
+        If cbox_Area.Text.Equals("Otros") And con.countWhere("Producto", "Area = 'Otros'") = 0 Then
+            cbox_CursoInteres.Enabled = False
+            lbl_CursoInteres.Enabled = False
+
+        Else
+            cbox_CursoInteres.Enabled = True
+            lbl_CursoInteres.Enabled = True
+        End If
+    End Sub
+
+    Private Sub cbox_CursoInteres_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_CursoInteres.SelectedIndexChanged
+        loadImage()
     End Sub
 
 End Class
