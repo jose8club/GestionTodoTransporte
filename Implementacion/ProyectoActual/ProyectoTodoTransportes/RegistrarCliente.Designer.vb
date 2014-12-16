@@ -36,6 +36,8 @@ Partial Class RegistrarCliente
         Me.lbl_CursoInteres = New System.Windows.Forms.Label()
         Me.cbox_TipoLicencia = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.PictureBox = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lbl_Mensaje1
@@ -161,11 +163,20 @@ Partial Class RegistrarCliente
         Me.Label1.TabIndex = 47
         Me.Label1.Text = "Tipo de Licencia:"
         '
+        'PictureBox
+        '
+        Me.PictureBox.Location = New System.Drawing.Point(438, 15)
+        Me.PictureBox.Name = "PictureBox"
+        Me.PictureBox.Size = New System.Drawing.Size(263, 195)
+        Me.PictureBox.TabIndex = 48
+        Me.PictureBox.TabStop = False
+        '
         'RegistrarCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(491, 323)
+        Me.ClientSize = New System.Drawing.Size(760, 400)
+        Me.Controls.Add(Me.PictureBox)
         Me.Controls.Add(Me.cbox_TipoLicencia)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lbl_Mensaje1)
@@ -183,6 +194,7 @@ Partial Class RegistrarCliente
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "RegistrarCliente"
         Me.Text = "RegistrarCliente"
+        CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -201,4 +213,5 @@ Partial Class RegistrarCliente
     Friend WithEvents lbl_CursoInteres As System.Windows.Forms.Label
     Friend WithEvents cbox_TipoLicencia As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox As System.Windows.Forms.PictureBox
 End Class

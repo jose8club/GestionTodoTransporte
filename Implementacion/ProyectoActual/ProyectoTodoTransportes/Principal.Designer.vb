@@ -66,7 +66,7 @@ Partial Class Principal
         Me.MainMenu.Multiline = True
         Me.MainMenu.Name = "MainMenu"
         Me.MainMenu.SelectedIndex = 0
-        Me.MainMenu.Size = New System.Drawing.Size(912, 401)
+        Me.MainMenu.Size = New System.Drawing.Size(918, 408)
         Me.MainMenu.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.MainMenu.TabIndex = 0
         '
@@ -76,7 +76,7 @@ Partial Class Principal
         Me.TabPage1.Location = New System.Drawing.Point(154, 4)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage1.Size = New System.Drawing.Size(760, 400)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Atención al Cliente"
         '
@@ -210,7 +210,7 @@ Partial Class Principal
         'ESTADO
         '
         Me.ESTADO.Name = "ESTADO"
-        Me.ESTADO.Size = New System.Drawing.Size(121, 17)
+        Me.ESTADO.Size = New System.Drawing.Size(124, 17)
         Me.ESTADO.Text = "ToolStripStatusLabel1"
         '
         'Principal
@@ -221,7 +221,7 @@ Partial Class Principal
         Me.Controls.Add(Me.lbl_Estado)
         Me.Controls.Add(Me.MainMenu)
         Me.Name = "Principal"
-        Me.Text = "Sistema de Gestión TodoTransporte"
+        Me.Text = "Sistema de Gestión Académica Todo Transporte"
         Me.MainMenu.ResumeLayout(False)
         Me.lbl_Estado.ResumeLayout(False)
         Me.lbl_Estado.PerformLayout()
