@@ -30,7 +30,7 @@
 
             setItems(cbox_funcionario.Text)
             cargaLIST("Usuario")
-            list_clientes.Items.Clear()
+            'list_clientes.Items.Clear()
         End If
     End Sub
 
