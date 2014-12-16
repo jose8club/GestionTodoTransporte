@@ -105,4 +105,5 @@
     Private Sub cbox_TipoLicencia_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_TipoLicencia.SelectedIndexChanged
         loadCBOX("Producto")
     End Sub
+
 End Class

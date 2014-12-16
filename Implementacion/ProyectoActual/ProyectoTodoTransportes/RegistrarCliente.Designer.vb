@@ -114,9 +114,9 @@ Partial Class RegistrarCliente
         Me.lbl_Observaciones.AutoSize = True
         Me.lbl_Observaciones.Location = New System.Drawing.Point(13, 161)
         Me.lbl_Observaciones.Name = "lbl_Observaciones"
-        Me.lbl_Observaciones.Size = New System.Drawing.Size(81, 13)
+        Me.lbl_Observaciones.Size = New System.Drawing.Size(56, 13)
         Me.lbl_Observaciones.TabIndex = 43
-        Me.lbl_Observaciones.Text = "Observaciones:"
+        Me.lbl_Observaciones.Text = "Consultas:"
         '
         'lbl_FechaAtencion
         '
@@ -165,9 +165,11 @@ Partial Class RegistrarCliente
         '
         'PictureBox
         '
-        Me.PictureBox.Location = New System.Drawing.Point(438, 15)
+        Me.PictureBox.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.b
+        Me.PictureBox.Location = New System.Drawing.Point(489, 12)
         Me.PictureBox.Name = "PictureBox"
-        Me.PictureBox.Size = New System.Drawing.Size(263, 195)
+        Me.PictureBox.Size = New System.Drawing.Size(225, 225)
+        Me.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox.TabIndex = 48
         Me.PictureBox.TabStop = False
         '
