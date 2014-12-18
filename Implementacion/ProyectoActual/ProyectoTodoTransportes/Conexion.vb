@@ -222,35 +222,27 @@ Public Class Conexion
         Return arreglo
     End Function
 
-    Function toArray3Where(ByVal n As Integer, ByVal NombreCampo As String, ByVal NombreTabla As String, ByVal OtraTabla As String, ByVal Condicion As String) As String()
+    Function SelectWhere2Query(ByVal NombreCampo As String, ByVal NombreTabla As String, ByVal Condicion As String, ByVal OtraCondicion As String) As String
 
-        'Retorna un arreglo con los datos de dos tablas diferentes
+        'Retorna una setencia con los datos de dos tablas diferentes
         'por ejemplo
         'select Nombre from cliente_potencial , atencion_cliente_potencial  where Usuario="Desarrollador"
-
-        Dim arreglo(n) As String
+        Dim res As String = ""
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "SELECT " & NombreCampo & "FROM " & NombreTabla & ", " & OtraTabla & " WHERE " & Condicion
+                .CommandText = "SELECT " & NombreCampo & " FROM " & NombreTabla & " WHERE " & Condicion & " AND " & OtraCondicion
                 .CommandType = CommandType.Text
                 .Connection = conn
             End With
-
             Try
-                Dim i As Integer = 0
-                Using lector As MySqlDataReader = comando.ExecuteReader()
-                    While lector.Read()
-                        arreglo(i) = lector.GetString(0)
-                        i = i + 1
-                    End While
-                End Using
-
+                comando.ExecuteNonQuery()
+                res = comando.ExecuteScalar
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
             End Try
         End Using
 
-        Return arreglo
+        Return res
     End Function
 
 

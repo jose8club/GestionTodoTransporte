@@ -97,11 +97,11 @@ Partial Class Psicotecnico
         '
         'cbox_estudiante
         '
-        Me.cbox_estudiante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple
+        Me.cbox_estudiante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_estudiante.FormattingEnabled = True
         Me.cbox_estudiante.Location = New System.Drawing.Point(180, 47)
         Me.cbox_estudiante.Name = "cbox_estudiante"
-        Me.cbox_estudiante.Size = New System.Drawing.Size(332, 20)
+        Me.cbox_estudiante.Size = New System.Drawing.Size(332, 21)
         Me.cbox_estudiante.TabIndex = 12
         '
         'tbox_estado

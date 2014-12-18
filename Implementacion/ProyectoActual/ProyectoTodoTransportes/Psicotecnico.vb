@@ -35,9 +35,9 @@
             n = con.count("Cliente") - 1
             items = con.toArrayWhere(n, "Nombre", "Cliente", "TipoCliente = 'Estudiante'")
             For i As Integer = 0 To n
-                cbox_funcionario.Items.Add(items(i))
+                cbox_estudiante.Items.Add(items(i))
             Next
-            If n >= 0 Then cbox_funcionario.SelectedIndex = 0
+            If n >= 0 Then cbox_estudiante.SelectedIndex = 0
         End If
 
     End Sub
@@ -65,7 +65,10 @@
             Dim Fecha As String = Format(date_examen.Value, "yyyy-MM-dd")
             Dim Estado As String = tbox_estado.Text()
             Dim Tipo As String = "Psicotecnico"
-            Dim Estudiante As Integer = CInt(cbox_estudiante.Text())
+            Dim Cliente As Integer = CInt(con.SelectWhere2Query("idCliente", "Cliente", "Nombre = '" & cbox_estudiante.Text & "'", "TipoCliente = 'Estudiante'"))
+            Dim Compra As Integer = CInt(con.selectWhereQuery("idCompra", "Compra", "Cliente = '" & Cliente & "'"))
+            Dim Matricula As String = con.selectWhereQuery("Codigo", "Matricula", "CodigoCompra = '" & Compra & "'")
+            Dim Estudiante As Integer = con.selectWhereQuery("idEstudiante", "Estudiante", "idEstudiante = '" & Matricula & "'")
             Try
                 con.regDocumento2(Tipo, Funcionario, Fecha, Estado)
                 Documento = CInt(con.last("idDOCUMENTO", "Documento"))
