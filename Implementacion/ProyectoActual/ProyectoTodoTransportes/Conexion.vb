@@ -840,7 +840,7 @@ Public Class Conexion
     Sub regEstDoc(ByVal Estudiante As Integer, ByVal Documento As Integer)
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO PSICOTECNICO (Estudiante, Documento) VALUES(@Estudiante, @Documento)"
+                .CommandText = "INSERT INTO ESTUDIANTE_DOCUMENTO (Estudiante, Documento) VALUES(@Estudiante, @Documento)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
