@@ -11,6 +11,7 @@
     End Sub
 
     Private Sub Visual_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        loadCBOX("Estudiante")
         loadCBOX("Funcionario")
     End Sub
 
@@ -19,21 +20,31 @@
         Dim n As Integer
         Dim items() As String
         If Nombre.Equals("Funcionario") Then
-            cbox_examinador.Items.Clear()
+            cbox_funcionario.Items.Clear()
 
             n = con.count("Funcionario") - 1
             items = con.toArray(n, "Nombre", "Funcionario")
             For i As Integer = 0 To n
-                cbox_examinador.Items.Add(items(i))
+                cbox_funcionario.Items.Add(items(i))
             Next
-            If n >= 0 Then cbox_examinador.SelectedIndex = 0
+            If n >= 0 Then cbox_funcionario.SelectedIndex = 0
 
+        ElseIf Nombre.Equals("Estudiante") Then
+            cbox_estudiante.Items.Clear()
+
+            n = con.count("Cliente") - 1
+            items = con.toArrayWhere(n, "Nombre", "Cliente", "TipoCliente = 'Estudiante'")
+            For i As Integer = 0 To n
+                cbox_estudiante.Items.Add(items(i))
+            Next
+            If n >= 0 Then cbox_estudiante.SelectedIndex = 0
         End If
+
     End Sub
 
     Function validar() As Boolean
 
-        If tbox_codigo.Text.Trim.Equals("") Then
+        If tbox_estado.Text.Trim.Equals("") Then
             STATUS.Text = "ERROR: Ingrese los datos."
             Return False
         End If
@@ -42,9 +53,6 @@
 #End Region
 
 #Region "VALIDACION DE ENTRADA"
-    Private Sub tbox_codigo_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_codigo.KeyPress
-        Herramientas.soloNumeros(e)
-    End Sub
 
     Private Sub tbox_estado_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
         Herramientas.soloTexto(e)
@@ -54,18 +62,23 @@
     Private Sub btn_visual_Click(sender As System.Object, e As System.EventArgs) Handles btn_visual.Click
         Dim bool_cert As Boolean = chbox_cert.Checked()
         Dim Documento As Integer = 0
-        Dim Funcionario As Integer = CInt(con.selectWhereQuery("idFuncionario", "Funcionario", "Nombre = '" & cbox_examinador.Text & "'"))
+        Dim Funcionario As Integer = CInt(con.selectWhereQuery("idFuncionario", "Funcionario", "Nombre = '" & cbox_funcionario.Text & "'"))
         If validar() Then
-            Dim Codigo As Integer = tbox_codigo.Text()
             Dim Fecha As String = Format(date_examen.Value, "yyyy-MM-dd")
-            Dim Estado As String = cbox_estado.Text()
+            Dim Estado As String = tbox_estado.Text()
+            Dim Tipo As String = "Psicotecnico"
+            Dim Cliente As Integer = CInt(con.SelectWhere2Query("idCliente", "Cliente", "Nombre = '" & cbox_estudiante.Text & "'", "TipoCliente = 'Estudiante'"))
+            Dim Compra As Integer = CInt(con.selectWhereQuery("idCompra", "Compra", "Cliente = '" & Cliente & "'"))
+            Dim Matricula As String = con.selectWhereQuery("Codigo", "Matricula", "CodigoCompra = '" & Compra & "'")
+            Dim Estudiante As Integer = con.selectWhereQuery("idEstudiante", "Estudiante", "idEstudiante = '" & Matricula & "'")
             Try
-                con.regDocumento("Visual")
+                con.regDocumento2(Tipo, Funcionario, Fecha, Estado)
                 Documento = CInt(con.last("idDOCUMENTO", "Documento"))
-                con.regVisual(Codigo, Documento, Funcionario, Estado, bool_cert, Fecha)
-                STATUS.Text = "Examen Visual: " & Codigo & " fue agregada exitosamente."
+                con.regVisual(Documento, bool_cert)
+                con.regEstDoc(Estudiante, Documento)
+                STATUS.Text = "Examen Visual de: " & cbox_estudiante.Text() & " fue agregada exitosamente."
             Catch ex As Exception
-                STATUS.Text = "Examen Visual: " & Codigo & " no fue agregada exitosamente."
+
             End Try
         End If
     End Sub

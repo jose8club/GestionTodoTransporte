@@ -731,20 +731,15 @@ Public Class Conexion
         End Using
     End Sub
 
-    Sub regVisual(ByVal Codigo As Integer, ByVal Documento As Integer, ByVal Examinador As Integer, ByVal Estado As String, ByVal Certificado As Boolean, ByVal Fecha As String)
+    Sub regVisual(ByVal Documento As Integer, ByVal Certificado As Boolean)
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO EXAMEN_VISUAL (Codigo,Documento,Examinador,Estado,Certificado,Fecha) VALUES(@Codigo,@Documento,@Examinador,@Estado,@Certificado,@Fecha)"
+                .CommandText = "INSERT INTO EXAMEN_VISUAL (Documento,Certificado) VALUES(@Documento,@Certificado)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
-                .Parameters.AddWithValue("@Codigo", Codigo)
                 .Parameters.AddWithValue("@Documento", Documento)
-                .Parameters.AddWithValue("@Examinador", Examinador)
-                .Parameters.AddWithValue("@Estado", Estado)
                 .Parameters.AddWithValue("@Certificado", Certificado)
-                .Parameters.AddWithValue("@Fecha", Fecha)
-               
             End With
             Try
                 comando.ExecuteNonQuery()

@@ -24,15 +24,15 @@ Partial Class Visual
     Private Sub InitializeComponent()
         Me.btn_visual = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.cbox_examinador = New System.Windows.Forms.ComboBox()
+        Me.cbox_funcionario = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.date_examen = New System.Windows.Forms.DateTimePicker()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.tbox_codigo = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.chbox_cert = New System.Windows.Forms.CheckBox()
-        Me.cbox_estado = New System.Windows.Forms.ComboBox()
+        Me.cbox_estudiante = New System.Windows.Forms.ComboBox()
+        Me.tbox_estado = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'btn_visual
@@ -53,14 +53,14 @@ Partial Class Visual
         Me.Label5.TabIndex = 19
         Me.Label5.Text = "Estado:"
         '
-        'cbox_examinador
+        'cbox_funcionario
         '
-        Me.cbox_examinador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbox_examinador.FormattingEnabled = True
-        Me.cbox_examinador.Location = New System.Drawing.Point(185, 135)
-        Me.cbox_examinador.Name = "cbox_examinador"
-        Me.cbox_examinador.Size = New System.Drawing.Size(332, 21)
-        Me.cbox_examinador.TabIndex = 18
+        Me.cbox_funcionario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbox_funcionario.FormattingEnabled = True
+        Me.cbox_funcionario.Location = New System.Drawing.Point(185, 135)
+        Me.cbox_funcionario.Name = "cbox_funcionario"
+        Me.cbox_funcionario.Size = New System.Drawing.Size(332, 21)
+        Me.cbox_funcionario.TabIndex = 18
         '
         'Label4
         '
@@ -69,7 +69,7 @@ Partial Class Visual
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(65, 13)
         Me.Label4.TabIndex = 17
-        Me.Label4.Text = "Examinador:"
+        Me.Label4.Text = "Funcionario:"
         '
         'date_examen
         '
@@ -87,21 +87,14 @@ Partial Class Visual
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "Fecha:"
         '
-        'tbox_codigo
-        '
-        Me.tbox_codigo.Location = New System.Drawing.Point(185, 47)
-        Me.tbox_codigo.Name = "tbox_codigo"
-        Me.tbox_codigo.Size = New System.Drawing.Size(332, 20)
-        Me.tbox_codigo.TabIndex = 12
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(80, 50)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(43, 13)
+        Me.Label1.Size = New System.Drawing.Size(60, 13)
         Me.Label1.TabIndex = 11
-        Me.Label1.Text = "Codigo:"
+        Me.Label1.Text = "Estudiante:"
         '
         'Label6
         '
@@ -122,31 +115,37 @@ Partial Class Visual
         Me.chbox_cert.Text = "Entregado"
         Me.chbox_cert.UseVisualStyleBackColor = True
         '
-        'cbox_estado
+        'cbox_estudiante
         '
-        Me.cbox_estado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbox_estado.FormattingEnabled = True
-        Me.cbox_estado.Items.AddRange(New Object() {"APROBADO" & Global.Microsoft.VisualBasic.ChrW(9), "REPROBADO", "PENDIENTE"})
-        Me.cbox_estado.Location = New System.Drawing.Point(185, 181)
-        Me.cbox_estado.Name = "cbox_estado"
-        Me.cbox_estado.Size = New System.Drawing.Size(332, 21)
-        Me.cbox_estado.TabIndex = 24
+        Me.cbox_estudiante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbox_estudiante.FormattingEnabled = True
+        Me.cbox_estudiante.Location = New System.Drawing.Point(185, 47)
+        Me.cbox_estudiante.Name = "cbox_estudiante"
+        Me.cbox_estudiante.Size = New System.Drawing.Size(332, 21)
+        Me.cbox_estudiante.TabIndex = 25
+        '
+        'tbox_estado
+        '
+        Me.tbox_estado.Location = New System.Drawing.Point(185, 181)
+        Me.tbox_estado.Name = "tbox_estado"
+        Me.tbox_estado.Size = New System.Drawing.Size(332, 20)
+        Me.tbox_estado.TabIndex = 26
         '
         'Visual
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(756, 494)
-        Me.Controls.Add(Me.cbox_estado)
+        Me.Controls.Add(Me.tbox_estado)
+        Me.Controls.Add(Me.cbox_estudiante)
         Me.Controls.Add(Me.chbox_cert)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.btn_visual)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.cbox_examinador)
+        Me.Controls.Add(Me.cbox_funcionario)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.date_examen)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.tbox_codigo)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Visual"
@@ -157,13 +156,13 @@ Partial Class Visual
     End Sub
     Friend WithEvents btn_visual As System.Windows.Forms.Button
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents cbox_examinador As System.Windows.Forms.ComboBox
+    Friend WithEvents cbox_funcionario As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents date_examen As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents tbox_codigo As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents chbox_cert As System.Windows.Forms.CheckBox
-    Friend WithEvents cbox_estado As System.Windows.Forms.ComboBox
+    Friend WithEvents cbox_estudiante As System.Windows.Forms.ComboBox
+    Friend WithEvents tbox_estado As System.Windows.Forms.TextBox
 End Class
