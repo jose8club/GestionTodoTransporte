@@ -23,105 +23,127 @@ Partial Class ExamenTeorico
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.btn_exTeo = New System.Windows.Forms.Button()
-        Me.tbox_calificacionTeo = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.cbox_examinador = New System.Windows.Forms.ComboBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.date_examenTeo = New System.Windows.Forms.DateTimePicker()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.tbox_codigoTeo = New System.Windows.Forms.TextBox()
+        Me.cbox_estudiante = New System.Windows.Forms.ComboBox()
+        Me.tbox_estado = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.tbox_calTeo = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.cbox_funcionario = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.date_fechaTeo = New System.Windows.Forms.DateTimePicker()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btn_exTeo
         '
-        Me.btn_exTeo.Location = New System.Drawing.Point(349, 186)
+        Me.btn_exTeo.Location = New System.Drawing.Point(356, 245)
         Me.btn_exTeo.Name = "btn_exTeo"
         Me.btn_exTeo.Size = New System.Drawing.Size(111, 23)
         Me.btn_exTeo.TabIndex = 32
         Me.btn_exTeo.Text = "Guardar"
         Me.btn_exTeo.UseVisualStyleBackColor = True
         '
-        'tbox_calificacionTeo
+        'cbox_estudiante
         '
-        Me.tbox_calificacionTeo.Location = New System.Drawing.Point(128, 133)
-        Me.tbox_calificacionTeo.Name = "tbox_calificacionTeo"
-        Me.tbox_calificacionTeo.Size = New System.Drawing.Size(56, 20)
-        Me.tbox_calificacionTeo.TabIndex = 31
+        Me.cbox_estudiante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbox_estudiante.FormattingEnabled = True
+        Me.cbox_estudiante.Location = New System.Drawing.Point(135, 37)
+        Me.cbox_estudiante.Name = "cbox_estudiante"
+        Me.cbox_estudiante.Size = New System.Drawing.Size(332, 21)
+        Me.cbox_estudiante.TabIndex = 56
         '
-        'Label5
+        'tbox_estado
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(23, 136)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(64, 13)
-        Me.Label5.TabIndex = 30
-        Me.Label5.Text = "Calificación:"
-        '
-        'cbox_examinador
-        '
-        Me.cbox_examinador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbox_examinador.FormattingEnabled = True
-        Me.cbox_examinador.Location = New System.Drawing.Point(128, 93)
-        Me.cbox_examinador.Name = "cbox_examinador"
-        Me.cbox_examinador.Size = New System.Drawing.Size(332, 21)
-        Me.cbox_examinador.TabIndex = 29
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(23, 96)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(65, 13)
-        Me.Label4.TabIndex = 28
-        Me.Label4.Text = "Examinador:"
-        '
-        'date_examenTeo
-        '
-        Me.date_examenTeo.Location = New System.Drawing.Point(128, 58)
-        Me.date_examenTeo.Name = "date_examenTeo"
-        Me.date_examenTeo.Size = New System.Drawing.Size(332, 20)
-        Me.date_examenTeo.TabIndex = 27
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(23, 64)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(40, 13)
-        Me.Label3.TabIndex = 26
-        Me.Label3.Text = "Fecha:"
-        '
-        'tbox_codigoTeo
-        '
-        Me.tbox_codigoTeo.Location = New System.Drawing.Point(128, 23)
-        Me.tbox_codigoTeo.Name = "tbox_codigoTeo"
-        Me.tbox_codigoTeo.Size = New System.Drawing.Size(332, 20)
-        Me.tbox_codigoTeo.TabIndex = 23
+        Me.tbox_estado.Location = New System.Drawing.Point(135, 182)
+        Me.tbox_estado.Name = "tbox_estado"
+        Me.tbox_estado.Size = New System.Drawing.Size(332, 20)
+        Me.tbox_estado.TabIndex = 55
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(23, 26)
+        Me.Label1.Location = New System.Drawing.Point(30, 185)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(43, 13)
-        Me.Label1.TabIndex = 22
-        Me.Label1.Text = "Codigo:"
+        Me.Label1.TabIndex = 54
+        Me.Label1.Text = "Estado:"
+        '
+        'tbox_calTeo
+        '
+        Me.tbox_calTeo.Location = New System.Drawing.Point(135, 147)
+        Me.tbox_calTeo.Name = "tbox_calTeo"
+        Me.tbox_calTeo.Size = New System.Drawing.Size(56, 20)
+        Me.tbox_calTeo.TabIndex = 53
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(30, 150)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(64, 13)
+        Me.Label6.TabIndex = 52
+        Me.Label6.Text = "Calificación:"
+        '
+        'cbox_funcionario
+        '
+        Me.cbox_funcionario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbox_funcionario.FormattingEnabled = True
+        Me.cbox_funcionario.Location = New System.Drawing.Point(135, 108)
+        Me.cbox_funcionario.Name = "cbox_funcionario"
+        Me.cbox_funcionario.Size = New System.Drawing.Size(332, 21)
+        Me.cbox_funcionario.TabIndex = 51
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(30, 111)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(65, 13)
+        Me.Label7.TabIndex = 50
+        Me.Label7.Text = "Funcionario:"
+        '
+        'date_fechaTeo
+        '
+        Me.date_fechaTeo.Location = New System.Drawing.Point(135, 73)
+        Me.date_fechaTeo.Name = "date_fechaTeo"
+        Me.date_fechaTeo.Size = New System.Drawing.Size(332, 20)
+        Me.date_fechaTeo.TabIndex = 49
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(30, 79)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(40, 13)
+        Me.Label8.TabIndex = 48
+        Me.Label8.Text = "Fecha:"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(30, 40)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(60, 13)
+        Me.Label10.TabIndex = 47
+        Me.Label10.Text = "Estudiante:"
         '
         'ExamenTeorico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(729, 326)
-        Me.Controls.Add(Me.btn_exTeo)
-        Me.Controls.Add(Me.tbox_calificacionTeo)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.cbox_examinador)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.date_examenTeo)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.tbox_codigoTeo)
+        Me.Controls.Add(Me.cbox_estudiante)
+        Me.Controls.Add(Me.tbox_estado)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.tbox_calTeo)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.cbox_funcionario)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.date_fechaTeo)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.btn_exTeo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ExamenTeorico"
         Me.Text = "ExamenTeorico"
@@ -130,12 +152,14 @@ Partial Class ExamenTeorico
 
     End Sub
     Friend WithEvents btn_exTeo As System.Windows.Forms.Button
-    Friend WithEvents tbox_calificacionTeo As System.Windows.Forms.TextBox
-    Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents cbox_examinador As System.Windows.Forms.ComboBox
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents date_examenTeo As System.Windows.Forms.DateTimePicker
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents tbox_codigoTeo As System.Windows.Forms.TextBox
+    Friend WithEvents cbox_estudiante As System.Windows.Forms.ComboBox
+    Friend WithEvents tbox_estado As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents tbox_calTeo As System.Windows.Forms.TextBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents cbox_funcionario As System.Windows.Forms.ComboBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents date_fechaTeo As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
 End Class

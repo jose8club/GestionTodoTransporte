@@ -57,6 +57,7 @@
     Private Sub tbox_estado_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
         Herramientas.soloTexto(e)
     End Sub
+#End Region
 
     Private Sub btn_psico_Click(sender As System.Object, e As System.EventArgs) Handles btn_psico.Click
         Dim Documento As Integer = 0
@@ -76,11 +77,11 @@
                 con.regEstDoc(Estudiante, Documento)
                 STATUS.Text = "Examen Psicotecnico de: " & cbox_estudiante.Text() & " fue agregada exitosamente."
             Catch ex As Exception
-
+                STATUS.Text = "Examen Psicotecnico de: " & cbox_estudiante.Text() & " no fue agregado."
             End Try
         End If
     End Sub
-#End Region
+
 
     
 End Class

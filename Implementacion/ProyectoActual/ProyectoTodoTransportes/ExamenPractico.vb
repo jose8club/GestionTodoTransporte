@@ -11,42 +11,40 @@
     End Sub
 
     Private Sub ExamenPractico_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        loadCBOX("Instructor")
+        loadCBOX("Estudiante")
+        loadCBOX("Funcionario")
     End Sub
 
 #Region "Métodos"
     Sub loadCBOX(ByVal Nombre As String)
 
-        If Nombre.Equals("Instructor") Then
-            cbox_instructor.Items.Clear()
+       Dim n As Integer
+        Dim items() As String
+        If Nombre.Equals("Funcionario") Then
+            cbox_funcionario.Items.Clear()
 
-            Dim aux1 As String = con.countWhere("Docente", "Tipo = 'INS'") - 1
-            Dim aux2() As String = con.toArrayWhere(aux1, "idDocente", "Docente", "Tipo = 'INS'")
-
-            Dim arreglo(aux1, 2) As String
-            For i As Integer = 0 To aux1
-                arreglo(i, 0) = con.selectWhereQuery("Nombre", "Funcionario", "idFuncionario = '" & aux2(i) & "'")
-                arreglo(i, 1) = aux2(i)
+            n = con.count("Funcionario") - 1
+            items = con.toArray(n, "Nombre", "Funcionario")
+            For i As Integer = 0 To n
+                cbox_funcionario.Items.Add(items(i))
             Next
+            If n >= 0 Then cbox_funcionario.SelectedIndex = 0
 
-            Instructores = arreglo
+        ElseIf Nombre.Equals("Estudiante") Then
+            cbox_estudiante.Items.Clear()
 
-            Dim items2(aux1) As String
-            For i As Integer = 0 To aux1
-                items2(i) = arreglo(i, 0)
+            n = con.count("Cliente") - 1
+            items = con.toArrayWhere(n, "Nombre", "Cliente", "TipoCliente = 'Estudiante'")
+            For i As Integer = 0 To n
+                cbox_estudiante.Items.Add(items(i))
             Next
-
-            For i As Integer = 0 To aux1
-                cbox_instructor.Items.Add(items2(i))
-            Next
-            If aux1 >= 0 Then cbox_instructor.SelectedIndex = 0
-
+            If n >= 0 Then cbox_estudiante.SelectedIndex = 0
         End If
     End Sub
 
     Function validar() As Boolean
 
-        If tbox_codigoPract.Text.Trim.Equals("") Then
+        If tbox_estado.Text.Trim.Equals("") Then
             STATUS.Text = "ERROR: Ingrese los datos."
             Return False
         End If
@@ -55,29 +53,31 @@
 #End Region
 
 #Region "VALIDACION DE ENTRADA"
-    Private Sub tbox_codigoPract_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_codigoPract.KeyPress
-        Herramientas.soloNumeros(e)
-    End Sub
-
-    Private Sub tbox_calPract_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_calPract.KeyPress
+    Private Sub tbox_calPract_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
         Herramientas.soloNumeros(e)
     End Sub
 #End Region
 
     Private Sub btn_exPract_Click(sender As System.Object, e As System.EventArgs) Handles btn_exPract.Click
         Dim Documento As Integer = 0
-        Dim Instructor As String = Instructores(cbox_instructor.SelectedIndex, 1)
+        Dim Funcionario As Integer = CInt(con.selectWhereQuery("idFuncionario", "Funcionario", "Nombre = '" & cbox_funcionario.Text & "'"))
         If validar() Then
-            Dim Codigo As Integer = tbox_codigoPract.Text()
             Dim Fecha As String = Format(date_fechaPract.Value, "yyyy-MM-dd")
-            Dim Calificacion As String = tbox_calPract.Text()
+            Dim Estado As String = tbox_estado.Text()
+            Dim Tipo As String = "Examen Practico"
+            Dim Calificacion As Integer = CInt(tbox_calPract.Text)
+            Dim Cliente As Integer = CInt(con.SelectWhere2Query("idCliente", "Cliente", "Nombre = '" & cbox_estudiante.Text & "'", "TipoCliente = 'Estudiante'"))
+            Dim Compra As Integer = CInt(con.selectWhereQuery("idCompra", "Compra", "Cliente = '" & Cliente & "'"))
+            Dim Matricula As String = con.selectWhereQuery("Codigo", "Matricula", "CodigoCompra = '" & Compra & "'")
+            Dim Estudiante As String = con.selectWhereQuery("idEstudiante", "Estudiante", "idEstudiante = '" & Matricula & "'")
             Try
-                con.regDocumento("Examen Practico")
+                con.regDocumento2(Tipo, Funcionario, Fecha, Estado)
                 Documento = CInt(con.last("idDOCUMENTO", "Documento"))
-                con.regExPract(Codigo, Documento, Fecha, Instructor, Calificacion)
-                STATUS.Text = "Examen Practico: " & Codigo & " fue agregada exitosamente."
+                con.regExPract(Documento, Calificacion)
+                con.regEstDoc(Estudiante, Documento)
+                STATUS.Text = "Examen Practico de: " & cbox_estudiante.Text() & " fue agregada exitosamente."
             Catch ex As Exception
-                STATUS.Text = "Examen Practico: " & Codigo & " no fue agregada exitosamente."
+                STATUS.Text = "Examen Practico de: " & cbox_estudiante.Text() & " no fue agregada."
             End Try
         End If
     End Sub

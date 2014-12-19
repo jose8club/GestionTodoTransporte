@@ -78,7 +78,7 @@
                 con.regEstDoc(Estudiante, Documento)
                 STATUS.Text = "Examen Visual de: " & cbox_estudiante.Text() & " fue agregada exitosamente."
             Catch ex As Exception
-
+                STATUS.Text = "Examen Visual de: " & cbox_estudiante.Text() & " no fue agregada."
             End Try
         End If
     End Sub

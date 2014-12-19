@@ -691,18 +691,15 @@ Public Class Conexion
         End Using
     End Sub
 
-    Sub regRueda(ByVal Codigo As Integer, ByVal Documento As Integer, ByVal Fecha As String, ByVal Horario As String, ByVal Instructor As Integer)
+    Sub regRueda(ByVal Documento As Integer, ByVal Horario As String)
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO CAMBIO_RUEDA (Codigo,Documento,Fecha,Horario,Instructor) VALUES(@Codigo,@Documento,@Fecha,@Horario,@Instructor)"
+                .CommandText = "INSERT INTO CAMBIO_RUEDA (Documento,Horario) VALUES(@Documento,@Horario)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
-                .Parameters.AddWithValue("@Codigo", Codigo)
                 .Parameters.AddWithValue("@Documento", Documento)
-                .Parameters.AddWithValue("@Fecha", Fecha)
                 .Parameters.AddWithValue("@Horario", Horario)
-                .Parameters.AddWithValue("@Instructor", Instructor)
             End With
             Try
                 comando.ExecuteNonQuery()
@@ -771,17 +768,14 @@ Public Class Conexion
         End Using
     End Sub
 
-    Sub regExTeo(ByVal Codigo As Integer, ByVal Documento As Integer, ByVal Fecha As String, ByVal Examinador As String, ByVal Calificacion As Integer)
+    Sub regExTeo(ByVal Documento As Integer, ByVal Calificacion As Integer)
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO EXAMEN_TEORICO (Codigo,Documento,Fecha,Examinador,Calificacion) VALUES(@Codigo,@Documento,@Fecha,@Examinador,@Calificacion)"
+                .CommandText = "INSERT INTO EXAMEN_TEORICO (Documento,Calificacion) VALUES(@Documento,@Calificacion)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
-                .Parameters.AddWithValue("@Codigo", Codigo)
                 .Parameters.AddWithValue("@Documento", Documento)
-                .Parameters.AddWithValue("@Fecha", Fecha)
-                .Parameters.AddWithValue("@Examinador", Examinador)
                 .Parameters.AddWithValue("@Calificacion", Calificacion)
             End With
             Try
@@ -793,17 +787,14 @@ Public Class Conexion
         End Using
     End Sub
 
-    Sub regExPract(ByVal Codigo As Integer, ByVal Documento As Integer, ByVal Fecha As String, ByVal Instructor As Integer, ByVal Calificacion As Integer)
+    Sub regExPract(ByVal Documento As Integer, ByVal Calificacion As Integer)
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO EXAMEN_PRACTICO (Codigo,Documento,Fecha,Instructor,Calificacion) VALUES(@Codigo,@Documento,@Fecha,@Instructor,@Calificacion)"
+                .CommandText = "INSERT INTO EXAMEN_PRACTICO (Documento,Calificacion) VALUES(@Documento,@Calificacion)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
-                .Parameters.AddWithValue("@Codigo", Codigo)
                 .Parameters.AddWithValue("@Documento", Documento)
-                .Parameters.AddWithValue("@Fecha", Fecha)
-                .Parameters.AddWithValue("@Instructor", Instructor)
                 .Parameters.AddWithValue("@Calificacion", Calificacion)
             End With
             Try
