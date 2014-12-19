@@ -10,42 +10,40 @@
         InitializeComponent()
     End Sub
     Private Sub ExamenMunicipal_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        loadCBOX("Instructor")
+        loadCBOX("Funcionario")
+        loadCBOX("Estudiante")
     End Sub
 
 #Region "Métodos"
     Sub loadCBOX(ByVal Nombre As String)
 
-        If Nombre.Equals("Instructor") Then
-            cbox_instMun.Items.Clear()
+        Dim n As Integer
+        Dim items() As String
+        If Nombre.Equals("Funcionario") Then
+            cbox_funcionario.Items.Clear()
 
-            Dim aux1 As String = con.countWhere("Docente", "Tipo = 'INS'") - 1
-            Dim aux2() As String = con.toArrayWhere(aux1, "idDocente", "Docente", "Tipo = 'INS'")
-
-            Dim arreglo(aux1, 2) As String
-            For i As Integer = 0 To aux1
-                arreglo(i, 0) = con.selectWhereQuery("Nombre", "Funcionario", "idFuncionario = '" & aux2(i) & "'")
-                arreglo(i, 1) = aux2(i)
+            n = con.count("Funcionario") - 1
+            items = con.toArray(n, "Nombre", "Funcionario")
+            For i As Integer = 0 To n
+                cbox_funcionario.Items.Add(items(i))
             Next
+            If n >= 0 Then cbox_funcionario.SelectedIndex = 0
 
-            Instructores = arreglo
+        ElseIf Nombre.Equals("Estudiante") Then
+            cbox_estudiante.Items.Clear()
 
-            Dim items2(aux1) As String
-            For i As Integer = 0 To aux1
-                items2(i) = arreglo(i, 0)
+            n = con.count("Cliente") - 1
+            items = con.toArrayWhere(n, "Nombre", "Cliente", "TipoCliente = 'Estudiante'")
+            For i As Integer = 0 To n
+                cbox_estudiante.Items.Add(items(i))
             Next
-
-            For i As Integer = 0 To aux1
-                cbox_instMun.Items.Add(items2(i))
-            Next
-            If aux1 >= 0 Then cbox_instMun.SelectedIndex = 0
-
+            If n >= 0 Then cbox_estudiante.SelectedIndex = 0
         End If
     End Sub
 
     Function validar() As Boolean
 
-        If tbox_codMunicipal.Text.Trim.Equals("") Then
+        If tbox_estado.Text.Trim.Equals("") Then
             STATUS.Text = "ERROR: Ingrese los datos."
             Return False
         End If
@@ -54,25 +52,31 @@
 #End Region
 
 #Region "VALIDACION DE ENTRADA"
-    Private Sub tbox_codMunicipal_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_codMunicipal.KeyPress
+    Private Sub tbox_codMunicipal_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
         Herramientas.soloNumeros(e)
     End Sub
 #End Region
 
     Private Sub btn_Municipal_Click(sender As System.Object, e As System.EventArgs) Handles btn_Municipal.Click
         Dim Documento As Integer = 0
-        Dim Instructor As String = Instructores(cbox_instMun.SelectedIndex, 1)
+        Dim Funcionario As Integer = CInt(con.selectWhereQuery("idFuncionario", "Funcionario", "Nombre = '" & cbox_funcionario.Text & "'"))
+        Dim Comentario As String = rtbox_comentario.Text
         If validar() Then
-            Dim Codigo As Integer = CInt(tbox_codMunicipal.Text())
-            Dim Estado As String = cbox_estMun.Text()
-            Dim Comentario As String = rtbox_comentario.Text()
+            Dim Fecha As String = Format(date_examen.Value, "yyyy-MM-dd")
+            Dim Estado As String = tbox_estado.Text()
+            Dim Tipo As String = "Examen Municipal"
+            Dim Cliente As Integer = CInt(con.SelectWhere2Query("idCliente", "Cliente", "Nombre = '" & cbox_estudiante.Text & "'", "TipoCliente = 'Estudiante'"))
+            Dim Compra As Integer = CInt(con.selectWhereQuery("idCompra", "Compra", "Cliente = '" & Cliente & "'"))
+            Dim Matricula As String = con.selectWhereQuery("Codigo", "Matricula", "CodigoCompra = '" & Compra & "'")
+            Dim Estudiante As Integer = con.selectWhereQuery("idEstudiante", "Estudiante", "idEstudiante = '" & Matricula & "'")
             Try
-                con.regDocumento("Examen Municipal")
+                con.regDocumento2(Tipo, Funcionario, Fecha, Estado)
                 Documento = CInt(con.last("idDOCUMENTO", "Documento"))
-                con.regExMun(Codigo, Documento, Instructor, Estado, Comentario)
-                STATUS.Text = "Examen Municipal: " & Codigo & " fue agregada exitosamente."
+                con.regExMun(Documento, Comentario)
+                con.regEstDoc(Estudiante, Documento)
+                STATUS.Text = "Examen Municipal de: " & cbox_estudiante.Text() & " fue agregada exitosamente."
             Catch ex As Exception
-                STATUS.Text = "Examen Municipal: " & Codigo & " no fue agregada exitosamente."
+
             End Try
         End If
     End Sub

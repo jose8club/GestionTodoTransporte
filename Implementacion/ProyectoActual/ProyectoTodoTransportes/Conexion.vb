@@ -815,17 +815,14 @@ Public Class Conexion
         End Using
     End Sub
 
-    Sub regExMun(ByVal Codigo As Integer, ByVal Documento As Integer, ByVal Instructor As Integer, ByVal Estado As String, ByVal Comentario As String)
+    Sub regExMun(ByVal Documento As Integer, ByVal Comentario As String)
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO EXAMEN_MUNICIPAL (Codigo,Documento,Instructor,Estado,Comentario) VALUES(@Codigo,@Documento,@Instructor,@Estado,@Comentario)"
+                .CommandText = "INSERT INTO EXAMEN_MUNICIPAL (Documento,Comentario) VALUES(@Documento,@Comentario)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
-                .Parameters.AddWithValue("@Codigo", Codigo)
                 .Parameters.AddWithValue("@Documento", Documento)
-                .Parameters.AddWithValue("@Instructor", Instructor)
-                .Parameters.AddWithValue("@Estado", Estado)
                 .Parameters.AddWithValue("@Comentario", Comentario)
             End With
             Try
@@ -837,7 +834,7 @@ Public Class Conexion
         End Using
     End Sub
 
-    Sub regEstDoc(ByVal Estudiante As Integer, ByVal Documento As Integer)
+    Sub regEstDoc(ByVal Estudiante As String, ByVal Documento As Integer)
         Using comando As New MySqlCommand()
             With comando
                 .CommandText = "INSERT INTO ESTUDIANTE_DOCUMENTO (Estudiante, Documento) VALUES(@Estudiante, @Documento)"
