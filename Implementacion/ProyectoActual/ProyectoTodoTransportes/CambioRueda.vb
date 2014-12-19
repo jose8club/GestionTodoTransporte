@@ -78,9 +78,9 @@
                 Documento = CInt(con.last("idDOCUMENTO", "Documento"))
                 con.regRueda(Documento, Horario)
                 con.regEstDoc(Estudiante, Documento)
-                STATUS.Text = "Examen Psicotecnico de: " & cbox_estudiante.Text() & " fue agregada exitosamente."
+                STATUS.Text = "Clase Cambio Rueda de: " & cbox_estudiante.Text() & " fue agregada exitosamente."
             Catch ex As Exception
-                STATUS.Text = "Examen Psicotecnico de: " & cbox_estudiante.Text() & " no fue agregado."
+                STATUS.Text = "Clase Cambio Rueda de: " & cbox_estudiante.Text() & " no fue agregado."
             End Try
         End If
     End Sub

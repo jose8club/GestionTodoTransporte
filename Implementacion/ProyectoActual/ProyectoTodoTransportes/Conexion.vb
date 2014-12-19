@@ -628,7 +628,7 @@ Public Class Conexion
         'Registra Documento'
         Using comando As New MySqlCommand()
             With comando
-                .CommandText = "INSERT INTO Documento (Tipo, Funcionario, Fecha, Estado) VALUES( @Tipo, @Funcionario, @Fecha, @Estado)"
+                .CommandText = "INSERT INTO Documento (Tipo, Funcionario, Fecha, Estado) VALUES(@Tipo, @Funcionario, @Fecha, @Estado)"
                 .CommandType = CommandType.Text
                 .Connection = conn
 
