@@ -29,9 +29,9 @@ Partial Class Bienvenido
         Me.tbox_Contra = New System.Windows.Forms.TextBox()
         Me.btn_Login = New System.Windows.Forms.Button()
         Me.StatusBar = New System.Windows.Forms.StatusStrip()
+        Me.Estado = New System.Windows.Forms.ToolStripStatusLabel()
         Me.STATUS = New System.Windows.Forms.ToolStripStatusLabel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Estado = New System.Windows.Forms.ToolStripStatusLabel()
         Me.StatusBar.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -107,6 +107,11 @@ Partial Class Bienvenido
         Me.StatusBar.TabIndex = 6
         Me.StatusBar.Text = "StatusStrip1"
         '
+        'Estado
+        '
+        Me.Estado.Name = "Estado"
+        Me.Estado.Size = New System.Drawing.Size(0, 17)
+        '
         'STATUS
         '
         Me.STATUS.Name = "STATUS"
@@ -121,12 +126,6 @@ Partial Class Bienvenido
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 7
         Me.PictureBox1.TabStop = False
-        '
-        'Estado
-        '
-        Me.Estado.Name = "Estado"
-        Me.Estado.Size = New System.Drawing.Size(124, 17)
-        Me.Estado.Text = "ToolStripStatusLabel1"
         '
         'Bienvenido
         '

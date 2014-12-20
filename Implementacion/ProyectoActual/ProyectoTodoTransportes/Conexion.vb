@@ -283,7 +283,6 @@ Public Class Conexion
                 conn.Open()
                 comando.ExecuteNonQuery()
                 Dim pass As String = Convert.ToString(comando.ExecuteScalar)
-                MsgBox(pass)
                 If pass.Equals(contra) Then
                     Return True
                 Else
