@@ -61,7 +61,6 @@ Partial Class Curso
         '
         'cbox_Producto
         '
-        Me.cbox_Producto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_Producto.FormattingEnabled = True
         Me.cbox_Producto.Location = New System.Drawing.Point(150, 42)
         Me.cbox_Producto.Name = "cbox_Producto"

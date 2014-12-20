@@ -11,7 +11,7 @@
     End Sub
 
     Private Sub Curso_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        loadDataView()
+        loadDataViewGrid()
         loadCBOX("Area")
         loadCBOX("Producto")
     End Sub
@@ -77,7 +77,7 @@
     End Sub
 
 
-    Sub loadDataView()
+    Sub loadDataViewGrid()
         dg_Eliminar.Text = "x"
 
         dg_HorarioTeorico.Items.Add("prueba11")

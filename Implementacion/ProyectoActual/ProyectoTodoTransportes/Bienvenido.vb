@@ -10,7 +10,7 @@
                 principal.Show()
                 Me.Close()
             Else
-                STATUS.Text = "El Usuario y Contraseña ingresados no son validos."
+                Estado.Text = "El Usuario y Contraseña ingresados no son validos."
             End If
         End If
     End Sub
@@ -23,14 +23,10 @@
 
     Function validar() As Boolean
         If tbox_Usuario.Text.Trim.Equals("") Or tbox_Contra.Text.Trim.Equals("") Then
-            STATUS.Text = "Debe ingresar sus datos de inicio de sesión para continuar."
+            Estado.Text = "Debe ingresar sus datos de inicio de sesión para continuar."
             Return False
         Else
             Return True
         End If
     End Function
-
-    Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
-
-    End Sub
 End Class

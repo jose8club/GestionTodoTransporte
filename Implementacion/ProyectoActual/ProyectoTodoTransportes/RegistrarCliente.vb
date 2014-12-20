@@ -139,6 +139,7 @@
 
     Private Sub cbox_CursoInteres_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_CursoInteres.SelectedIndexChanged
         loadImage()
+
     End Sub
 
 End Class

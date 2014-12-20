@@ -31,6 +31,8 @@ Partial Class Bienvenido
         Me.StatusBar = New System.Windows.Forms.StatusStrip()
         Me.STATUS = New System.Windows.Forms.ToolStripStatusLabel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Estado = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.StatusBar.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -97,6 +99,7 @@ Partial Class Bienvenido
         '
         'StatusBar
         '
+        Me.StatusBar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Estado})
         Me.StatusBar.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.StatusBar.Location = New System.Drawing.Point(0, 376)
         Me.StatusBar.Name = "StatusBar"
@@ -119,6 +122,12 @@ Partial Class Bienvenido
         Me.PictureBox1.TabIndex = 7
         Me.PictureBox1.TabStop = False
         '
+        'Estado
+        '
+        Me.Estado.Name = "Estado"
+        Me.Estado.Size = New System.Drawing.Size(124, 17)
+        Me.Estado.Text = "ToolStripStatusLabel1"
+        '
         'Bienvenido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -136,6 +145,8 @@ Partial Class Bienvenido
         Me.MaximizeBox = False
         Me.Name = "Bienvenido"
         Me.Text = "Iniciar Sesión..."
+        Me.StatusBar.ResumeLayout(False)
+        Me.StatusBar.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -150,4 +161,5 @@ Partial Class Bienvenido
     Friend WithEvents StatusBar As System.Windows.Forms.StatusStrip
     Friend WithEvents STATUS As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents Estado As System.Windows.Forms.ToolStripStatusLabel
 End Class
