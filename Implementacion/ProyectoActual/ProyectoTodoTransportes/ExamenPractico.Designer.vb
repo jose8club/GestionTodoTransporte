@@ -40,7 +40,7 @@ Partial Class ExamenPractico
         Me.btn_exPract.Location = New System.Drawing.Point(352, 226)
         Me.btn_exPract.Name = "btn_exPract"
         Me.btn_exPract.Size = New System.Drawing.Size(111, 23)
-        Me.btn_exPract.TabIndex = 43
+        Me.btn_exPract.TabIndex = 51
         Me.btn_exPract.Text = "Guardar"
         Me.btn_exPract.UseVisualStyleBackColor = True
         '
@@ -49,7 +49,7 @@ Partial Class ExamenPractico
         Me.tbox_calPract.Location = New System.Drawing.Point(131, 143)
         Me.tbox_calPract.Name = "tbox_calPract"
         Me.tbox_calPract.Size = New System.Drawing.Size(56, 20)
-        Me.tbox_calPract.TabIndex = 42
+        Me.tbox_calPract.TabIndex = 49
         '
         'Label6
         '
@@ -67,7 +67,7 @@ Partial Class ExamenPractico
         Me.cbox_funcionario.Location = New System.Drawing.Point(131, 104)
         Me.cbox_funcionario.Name = "cbox_funcionario"
         Me.cbox_funcionario.Size = New System.Drawing.Size(332, 21)
-        Me.cbox_funcionario.TabIndex = 40
+        Me.cbox_funcionario.TabIndex = 48
         '
         'Label7
         '
@@ -83,7 +83,7 @@ Partial Class ExamenPractico
         Me.date_fechaPract.Location = New System.Drawing.Point(131, 69)
         Me.date_fechaPract.Name = "date_fechaPract"
         Me.date_fechaPract.Size = New System.Drawing.Size(332, 20)
-        Me.date_fechaPract.TabIndex = 38
+        Me.date_fechaPract.TabIndex = 47
         '
         'Label8
         '
@@ -108,7 +108,7 @@ Partial Class ExamenPractico
         Me.tbox_estado.Location = New System.Drawing.Point(131, 178)
         Me.tbox_estado.Name = "tbox_estado"
         Me.tbox_estado.Size = New System.Drawing.Size(332, 20)
-        Me.tbox_estado.TabIndex = 45
+        Me.tbox_estado.TabIndex = 50
         '
         'Label1
         '

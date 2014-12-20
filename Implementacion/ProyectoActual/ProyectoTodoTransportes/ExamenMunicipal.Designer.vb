@@ -40,7 +40,7 @@ Partial Class ExamenMunicipal
         Me.btn_Municipal.Location = New System.Drawing.Point(322, 287)
         Me.btn_Municipal.Name = "btn_Municipal"
         Me.btn_Municipal.Size = New System.Drawing.Size(126, 23)
-        Me.btn_Municipal.TabIndex = 47
+        Me.btn_Municipal.TabIndex = 53
         Me.btn_Municipal.Text = "Guardar"
         Me.btn_Municipal.UseVisualStyleBackColor = True
         '
@@ -49,7 +49,7 @@ Partial Class ExamenMunicipal
         Me.rtbox_comentario.Location = New System.Drawing.Point(116, 174)
         Me.rtbox_comentario.Name = "rtbox_comentario"
         Me.rtbox_comentario.Size = New System.Drawing.Size(332, 96)
-        Me.rtbox_comentario.TabIndex = 46
+        Me.rtbox_comentario.TabIndex = 52
         Me.rtbox_comentario.Text = ""
         '
         'Label15
@@ -77,7 +77,7 @@ Partial Class ExamenMunicipal
         Me.cbox_funcionario.Location = New System.Drawing.Point(116, 61)
         Me.cbox_funcionario.Name = "cbox_funcionario"
         Me.cbox_funcionario.Size = New System.Drawing.Size(332, 21)
-        Me.cbox_funcionario.TabIndex = 42
+        Me.cbox_funcionario.TabIndex = 49
         '
         'Label13
         '
@@ -111,7 +111,7 @@ Partial Class ExamenMunicipal
         Me.tbox_estado.Location = New System.Drawing.Point(116, 135)
         Me.tbox_estado.Name = "tbox_estado"
         Me.tbox_estado.Size = New System.Drawing.Size(332, 20)
-        Me.tbox_estado.TabIndex = 49
+        Me.tbox_estado.TabIndex = 51
         '
         'Label1
         '
@@ -127,7 +127,7 @@ Partial Class ExamenMunicipal
         Me.date_examen.Location = New System.Drawing.Point(116, 97)
         Me.date_examen.Name = "date_examen"
         Me.date_examen.Size = New System.Drawing.Size(332, 20)
-        Me.date_examen.TabIndex = 51
+        Me.date_examen.TabIndex = 50
         '
         'ExamenMunicipal
         '

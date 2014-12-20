@@ -70,14 +70,14 @@ Partial Class CambioRueda
         Me.date_rueda.Location = New System.Drawing.Point(150, 143)
         Me.date_rueda.Name = "date_rueda"
         Me.date_rueda.Size = New System.Drawing.Size(347, 20)
-        Me.date_rueda.TabIndex = 7
+        Me.date_rueda.TabIndex = 17
         '
         'tbox_hor1
         '
         Me.tbox_hor1.Location = New System.Drawing.Point(153, 192)
         Me.tbox_hor1.Name = "tbox_hor1"
         Me.tbox_hor1.Size = New System.Drawing.Size(129, 20)
-        Me.tbox_hor1.TabIndex = 8
+        Me.tbox_hor1.TabIndex = 18
         Me.tbox_hor1.Text = "00"
         Me.tbox_hor1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -96,7 +96,7 @@ Partial Class CambioRueda
         Me.tbox_hor2.Location = New System.Drawing.Point(309, 193)
         Me.tbox_hor2.Name = "tbox_hor2"
         Me.tbox_hor2.Size = New System.Drawing.Size(129, 20)
-        Me.tbox_hor2.TabIndex = 10
+        Me.tbox_hor2.TabIndex = 19
         Me.tbox_hor2.Text = "00"
         Me.tbox_hor2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -116,14 +116,14 @@ Partial Class CambioRueda
         Me.cbox_funcionario.Location = New System.Drawing.Point(152, 93)
         Me.cbox_funcionario.Name = "cbox_funcionario"
         Me.cbox_funcionario.Size = New System.Drawing.Size(343, 21)
-        Me.cbox_funcionario.TabIndex = 12
+        Me.cbox_funcionario.TabIndex = 16
         '
         'btn_rueda
         '
         Me.btn_rueda.Location = New System.Drawing.Point(377, 298)
         Me.btn_rueda.Name = "btn_rueda"
         Me.btn_rueda.Size = New System.Drawing.Size(118, 23)
-        Me.btn_rueda.TabIndex = 13
+        Me.btn_rueda.TabIndex = 21
         Me.btn_rueda.Text = "Guardar"
         Me.btn_rueda.UseVisualStyleBackColor = True
         '
@@ -159,7 +159,7 @@ Partial Class CambioRueda
         Me.tbox_estado.Location = New System.Drawing.Point(152, 241)
         Me.tbox_estado.Name = "tbox_estado"
         Me.tbox_estado.Size = New System.Drawing.Size(345, 20)
-        Me.tbox_estado.TabIndex = 17
+        Me.tbox_estado.TabIndex = 20
         '
         'CambioRueda
         '

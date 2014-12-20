@@ -40,7 +40,7 @@ Partial Class Visual
         Me.btn_visual.Location = New System.Drawing.Point(406, 270)
         Me.btn_visual.Name = "btn_visual"
         Me.btn_visual.Size = New System.Drawing.Size(111, 23)
-        Me.btn_visual.TabIndex = 21
+        Me.btn_visual.TabIndex = 30
         Me.btn_visual.Text = "Guardar"
         Me.btn_visual.UseVisualStyleBackColor = True
         '
@@ -60,7 +60,7 @@ Partial Class Visual
         Me.cbox_funcionario.Location = New System.Drawing.Point(185, 135)
         Me.cbox_funcionario.Name = "cbox_funcionario"
         Me.cbox_funcionario.Size = New System.Drawing.Size(332, 21)
-        Me.cbox_funcionario.TabIndex = 18
+        Me.cbox_funcionario.TabIndex = 27
         '
         'Label4
         '
@@ -76,7 +76,7 @@ Partial Class Visual
         Me.date_examen.Location = New System.Drawing.Point(185, 89)
         Me.date_examen.Name = "date_examen"
         Me.date_examen.Size = New System.Drawing.Size(332, 20)
-        Me.date_examen.TabIndex = 16
+        Me.date_examen.TabIndex = 26
         '
         'Label3
         '
@@ -111,7 +111,7 @@ Partial Class Visual
         Me.chbox_cert.Location = New System.Drawing.Point(185, 231)
         Me.chbox_cert.Name = "chbox_cert"
         Me.chbox_cert.Size = New System.Drawing.Size(75, 17)
-        Me.chbox_cert.TabIndex = 23
+        Me.chbox_cert.TabIndex = 29
         Me.chbox_cert.Text = "Entregado"
         Me.chbox_cert.UseVisualStyleBackColor = True
         '
@@ -129,7 +129,7 @@ Partial Class Visual
         Me.tbox_estado.Location = New System.Drawing.Point(185, 181)
         Me.tbox_estado.Name = "tbox_estado"
         Me.tbox_estado.Size = New System.Drawing.Size(332, 20)
-        Me.tbox_estado.TabIndex = 26
+        Me.tbox_estado.TabIndex = 28
         '
         'Visual
         '

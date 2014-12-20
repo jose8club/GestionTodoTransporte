@@ -40,7 +40,7 @@ Partial Class ExamenTeorico
         Me.btn_exTeo.Location = New System.Drawing.Point(356, 245)
         Me.btn_exTeo.Name = "btn_exTeo"
         Me.btn_exTeo.Size = New System.Drawing.Size(111, 23)
-        Me.btn_exTeo.TabIndex = 32
+        Me.btn_exTeo.TabIndex = 61
         Me.btn_exTeo.Text = "Guardar"
         Me.btn_exTeo.UseVisualStyleBackColor = True
         '
@@ -58,7 +58,7 @@ Partial Class ExamenTeorico
         Me.tbox_estado.Location = New System.Drawing.Point(135, 182)
         Me.tbox_estado.Name = "tbox_estado"
         Me.tbox_estado.Size = New System.Drawing.Size(332, 20)
-        Me.tbox_estado.TabIndex = 55
+        Me.tbox_estado.TabIndex = 60
         '
         'Label1
         '
@@ -74,7 +74,7 @@ Partial Class ExamenTeorico
         Me.tbox_calTeo.Location = New System.Drawing.Point(135, 147)
         Me.tbox_calTeo.Name = "tbox_calTeo"
         Me.tbox_calTeo.Size = New System.Drawing.Size(56, 20)
-        Me.tbox_calTeo.TabIndex = 53
+        Me.tbox_calTeo.TabIndex = 59
         '
         'Label6
         '
@@ -92,7 +92,7 @@ Partial Class ExamenTeorico
         Me.cbox_funcionario.Location = New System.Drawing.Point(135, 108)
         Me.cbox_funcionario.Name = "cbox_funcionario"
         Me.cbox_funcionario.Size = New System.Drawing.Size(332, 21)
-        Me.cbox_funcionario.TabIndex = 51
+        Me.cbox_funcionario.TabIndex = 58
         '
         'Label7
         '
@@ -108,7 +108,7 @@ Partial Class ExamenTeorico
         Me.date_fechaTeo.Location = New System.Drawing.Point(135, 73)
         Me.date_fechaTeo.Name = "date_fechaTeo"
         Me.date_fechaTeo.Size = New System.Drawing.Size(332, 20)
-        Me.date_fechaTeo.TabIndex = 49
+        Me.date_fechaTeo.TabIndex = 57
         '
         'Label8
         '

@@ -56,7 +56,7 @@ Partial Class Psicotecnico
         Me.date_examen.Location = New System.Drawing.Point(180, 82)
         Me.date_examen.Name = "date_examen"
         Me.date_examen.Size = New System.Drawing.Size(332, 20)
-        Me.date_examen.TabIndex = 5
+        Me.date_examen.TabIndex = 13
         '
         'cbox_funcionario
         '
@@ -65,7 +65,7 @@ Partial Class Psicotecnico
         Me.cbox_funcionario.Location = New System.Drawing.Point(180, 117)
         Me.cbox_funcionario.Name = "cbox_funcionario"
         Me.cbox_funcionario.Size = New System.Drawing.Size(332, 21)
-        Me.cbox_funcionario.TabIndex = 7
+        Me.cbox_funcionario.TabIndex = 14
         '
         'Label4
         '
@@ -90,7 +90,7 @@ Partial Class Psicotecnico
         Me.btn_psico.Location = New System.Drawing.Point(401, 210)
         Me.btn_psico.Name = "btn_psico"
         Me.btn_psico.Size = New System.Drawing.Size(111, 23)
-        Me.btn_psico.TabIndex = 10
+        Me.btn_psico.TabIndex = 16
         Me.btn_psico.Text = "Guardar"
         Me.btn_psico.UseVisualStyleBackColor = True
         '
@@ -108,7 +108,7 @@ Partial Class Psicotecnico
         Me.tbox_estado.Location = New System.Drawing.Point(180, 160)
         Me.tbox_estado.Name = "tbox_estado"
         Me.tbox_estado.Size = New System.Drawing.Size(332, 20)
-        Me.tbox_estado.TabIndex = 13
+        Me.tbox_estado.TabIndex = 15
         '
         'Psicotecnico
         '
