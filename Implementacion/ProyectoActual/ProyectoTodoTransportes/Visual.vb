@@ -67,7 +67,7 @@
             Dim Fecha As String = Format(date_examen.Value, "yyyy-MM-dd")
             Dim Estado As String = tbox_estado.Text()
             Dim Tipo As String = "Examen Visual"
-            Dim Cliente As Integer = CInt(con.SelectWhere2Query("idCliente", "Cliente", "Nombre = '" & cbox_estudiante.Text & "'", "TipoCliente = 'Estudiante'"))
+            Dim Cliente As Integer = CInt(con.selectWhereQuery("idCliente", "Cliente", "Nombre = '" & cbox_estudiante.Text & "' AND TipoCliente = 'Estudiante'"))
             Dim Compra As Integer = CInt(con.selectWhereQuery("idCompra", "Compra", "Cliente = '" & Cliente & "'"))
             Dim Matricula As String = con.selectWhereQuery("Codigo", "Matricula", "CodigoCompra = '" & Compra & "'")
             Dim Estudiante As String = con.selectWhereQuery("idEstudiante", "Estudiante", "idEstudiante = '" & Matricula & "'")
@@ -77,6 +77,8 @@
                 con.regVisual(Documento, bool_cert)
                 con.regEstDoc(Estudiante, Documento)
                 STATUS.Text = "Examen Visual de: " & cbox_estudiante.Text() & " fue agregada exitosamente."
+                tbox_estado.Text = ""
+                chbox_cert.Checked = False
             Catch ex As Exception
                 STATUS.Text = "Examen Visual de: " & cbox_estudiante.Text() & " no fue agregada."
             End Try

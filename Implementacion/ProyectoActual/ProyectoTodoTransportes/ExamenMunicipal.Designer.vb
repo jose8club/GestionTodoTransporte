@@ -72,6 +72,8 @@ Partial Class ExamenMunicipal
         '
         'cbox_funcionario
         '
+        Me.cbox_funcionario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cbox_funcionario.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cbox_funcionario.FormattingEnabled = True
         Me.cbox_funcionario.Location = New System.Drawing.Point(116, 61)
         Me.cbox_funcionario.Name = "cbox_funcionario"
@@ -98,6 +100,8 @@ Partial Class ExamenMunicipal
         '
         'cbox_estudiante
         '
+        Me.cbox_estudiante.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cbox_estudiante.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cbox_estudiante.FormattingEnabled = True
         Me.cbox_estudiante.Location = New System.Drawing.Point(116, 21)
         Me.cbox_estudiante.Name = "cbox_estudiante"

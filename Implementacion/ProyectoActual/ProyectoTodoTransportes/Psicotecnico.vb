@@ -66,7 +66,7 @@
             Dim Fecha As String = Format(date_examen.Value, "yyyy-MM-dd")
             Dim Estado As String = tbox_estado.Text()
             Dim Tipo As String = "Examen Psicotécnico"
-            Dim Cliente As Integer = CInt(con.SelectWhere2Query("idCliente", "Cliente", "Nombre = '" & cbox_estudiante.Text & "'", "TipoCliente = 'Estudiante'"))
+            Dim Cliente As Integer = CInt(con.selectWhereQuery("idCliente", "Cliente", "Nombre = '" & cbox_estudiante.Text & "' AND TipoCliente = 'Estudiante'"))
             Dim Compra As Integer = CInt(con.selectWhereQuery("idCompra", "Compra", "Cliente = '" & Cliente & "'"))
             Dim Matricula As String = con.selectWhereQuery("Codigo", "Matricula", "CodigoCompra = '" & Compra & "'")
             Dim Estudiante As String = con.selectWhereQuery("idEstudiante", "Estudiante", "idEstudiante = '" & Matricula & "'")

@@ -65,7 +65,7 @@
             Dim Fecha As String = Format(date_examen.Value, "yyyy-MM-dd")
             Dim Estado As String = tbox_estado.Text()
             Dim Tipo As String = "Examen Municipal"
-            Dim Cliente As Integer = CInt(con.SelectWhere2Query("idCliente", "Cliente", "Nombre = '" & cbox_estudiante.Text & "'", "TipoCliente = 'Estudiante'"))
+            Dim Cliente As Integer = CInt(con.selectWhereQuery("idCliente", "Cliente", "Nombre = '" & cbox_estudiante.Text & "' AND TipoCliente = 'Estudiante'"))
             Dim Compra As Integer = CInt(con.selectWhereQuery("idCompra", "Compra", "Cliente = '" & Cliente & "'"))
             Dim Matricula As String = con.selectWhereQuery("Codigo", "Matricula", "CodigoCompra = '" & Compra & "'")
             Dim Estudiante As String = con.selectWhereQuery("idEstudiante", "Estudiante", "idEstudiante = '" & Matricula & "'")
@@ -75,6 +75,11 @@
                 con.regExMun(Documento, Comentario)
                 con.regEstDoc(Estudiante, Documento)
                 STATUS.Text = "Examen Municipal de: " & cbox_estudiante.Text() & " fue agregada exitosamente."
+                If (Estado = "Aprobado") Then
+                    MsgBox("El estudiante : " & cbox_estudiante.Text() & " puede obtener la licencia")
+                Else
+                    MsgBox("El estudiante : " & cbox_estudiante.Text() & " no puede obtener la licencia")
+                End If
             Catch ex As Exception
 
             End Try

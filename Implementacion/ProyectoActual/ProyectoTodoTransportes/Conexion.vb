@@ -222,30 +222,6 @@ Public Class Conexion
         Return arreglo
     End Function
 
-    Function SelectWhere2Query(ByVal NombreCampo As String, ByVal NombreTabla As String, ByVal Condicion As String, ByVal OtraCondicion As String) As String
-
-        'Retorna una setencia con los datos de dos tablas diferentes
-        'por ejemplo
-        'select Nombre from cliente_potencial , atencion_cliente_potencial  where Usuario="Desarrollador"
-        Dim res As String = ""
-        Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "SELECT " & NombreCampo & " FROM " & NombreTabla & " WHERE " & Condicion & " AND " & OtraCondicion
-                .CommandType = CommandType.Text
-                .Connection = conn
-            End With
-            Try
-                comando.ExecuteNonQuery()
-                res = comando.ExecuteScalar
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-        End Using
-
-        Return res
-    End Function
-
-
     Function selectWhereQuery(ByVal columna As String, ByVal tabla As String, ByVal condicion As String) As String
 
         'DEVUELVE UN DATO EN ESPECIFICO EN LA BD

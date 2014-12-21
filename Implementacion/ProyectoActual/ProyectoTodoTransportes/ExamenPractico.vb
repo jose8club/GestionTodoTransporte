@@ -66,7 +66,7 @@
             Dim Estado As String = tbox_estado.Text()
             Dim Tipo As String = "Examen Practico"
             Dim Calificacion As Integer = CInt(tbox_calPract.Text)
-            Dim Cliente As Integer = CInt(con.SelectWhere2Query("idCliente", "Cliente", "Nombre = '" & cbox_estudiante.Text & "'", "TipoCliente = 'Estudiante'"))
+            Dim Cliente As Integer = CInt(con.selectWhereQuery("idCliente", "Cliente", "Nombre = '" & cbox_estudiante.Text & "' AND TipoCliente = 'Estudiante'"))
             Dim Compra As Integer = CInt(con.selectWhereQuery("idCompra", "Compra", "Cliente = '" & Cliente & "'"))
             Dim Matricula As String = con.selectWhereQuery("Codigo", "Matricula", "CodigoCompra = '" & Compra & "'")
             Dim Estudiante As String = con.selectWhereQuery("idEstudiante", "Estudiante", "idEstudiante = '" & Matricula & "'")
@@ -76,6 +76,11 @@
                 con.regExPract(Documento, Calificacion)
                 con.regEstDoc(Estudiante, Documento)
                 STATUS.Text = "Examen Practico de: " & cbox_estudiante.Text() & " fue agregada exitosamente."
+                If (Calificacion >= 4 Or Estado = "Aprobado") Then
+                    MsgBox("El estudiante : " & cbox_estudiante.Text() & " puede dar el examen municipal")
+                Else
+                    MsgBox("El estudiante : " & cbox_estudiante.Text() & " no puede dar el examen municipal")
+                End If
             Catch ex As Exception
                 STATUS.Text = "Examen Practico de: " & cbox_estudiante.Text() & " no fue agregada."
             End Try
