@@ -34,10 +34,10 @@ Partial Class Examen
         Me.TabControl1.Controls.Add(Me.Teorico)
         Me.TabControl1.Controls.Add(Me.Practico)
         Me.TabControl1.Controls.Add(Me.Municipal)
-        Me.TabControl1.Location = New System.Drawing.Point(32, 29)
+        Me.TabControl1.Location = New System.Drawing.Point(21, 12)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(683, 343)
+        Me.TabControl1.Size = New System.Drawing.Size(734, 398)
         Me.TabControl1.TabIndex = 0
         '
         'Teorico
@@ -45,7 +45,7 @@ Partial Class Examen
         Me.Teorico.Location = New System.Drawing.Point(4, 22)
         Me.Teorico.Name = "Teorico"
         Me.Teorico.Padding = New System.Windows.Forms.Padding(3)
-        Me.Teorico.Size = New System.Drawing.Size(675, 317)
+        Me.Teorico.Size = New System.Drawing.Size(726, 372)
         Me.Teorico.TabIndex = 0
         Me.Teorico.Text = "Examen Teorico"
         Me.Teorico.UseVisualStyleBackColor = True
@@ -55,7 +55,7 @@ Partial Class Examen
         Me.Practico.Location = New System.Drawing.Point(4, 22)
         Me.Practico.Name = "Practico"
         Me.Practico.Padding = New System.Windows.Forms.Padding(3)
-        Me.Practico.Size = New System.Drawing.Size(675, 347)
+        Me.Practico.Size = New System.Drawing.Size(675, 317)
         Me.Practico.TabIndex = 1
         Me.Practico.Text = "Examen Practico"
         Me.Practico.UseVisualStyleBackColor = True

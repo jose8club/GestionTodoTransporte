@@ -50,10 +50,8 @@
 
     End Sub
     Function validar() As Boolean
-        If rbtn_aprobado.Checked = False And rbtn_reprobado.Checked = False Then
-            MsgBox("Debe seleccionar las opciones de aprobación o reprobación del examen")
-            Return False
-        ElseIf Not cbox_matricula.Items.Contains(cbox_matricula.Text) Then
+        
+        If Not cbox_matricula.Items.Contains(cbox_matricula.Text) Then
             MsgBox("La matricula '" & cbox_matricula.Text & "' no existe")
             cbox_matricula.Text = ""
             Return False
@@ -85,6 +83,11 @@
         Herramientas.soloNumeros(e)
     End Sub
 
+    Function validar(ByVal Horario As String) As Boolean
+        'Futura validación
+        Return True
+    End Function
+
 #End Region
 
     Private Sub btn_rueda_Click(sender As System.Object, e As System.EventArgs) Handles btn_rueda.Click
@@ -92,7 +95,7 @@
         Dim Documento As Integer = 0
         Dim Funcionario As Integer = CInt(con.selectWhereQuery("idFuncionario", "Funcionario", "Nombre = '" & cbox_funcionario.Text & "'"))
         Dim Horario As String
-        
+
         If validar() Then
             Dim Fecha As String = Format(date_rueda.Value, "yyyy-MM-dd")
             If (CInt(sbox_hor2.Text) <= 9) Then
@@ -100,32 +103,20 @@
             Else
                 Horario = sbox_hor1.Text & ":" & sbox_hor2.Text & ":00"
             End If
+            Dim Val As Boolean = validar(Horario)
             Dim Tipo As String = "Cambio Rueda"
             Dim Estudiante As String = cbox_matricula.Text
             Dim Cliente As String = con.selectWhereQuery("cl.nombre", "cliente cl, compra co, matricula m", "m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_matricula.Text & "'")
             Try
-                If rbtn_aprobado.Checked Then
-                    con.regDocumento2(Tipo, Funcionario, Fecha, "Aprobado")
-                ElseIf rbtn_reprobado.Checked Then
-                    con.regDocumento2(Tipo, Funcionario, Fecha, "Reprobado")
-                Else
-
-                End If
+                con.regDocumento2(Tipo, Funcionario, Fecha, "Aprobado")
                 Documento = CInt(con.last("idDOCUMENTO", "Documento"))
                 con.regRueda(Documento, Horario)
                 con.regEstDoc(Estudiante, Documento)
                 STATUS.Text = "Clase Cambio Rueda de: " & Cliente & " fue agregada exitosamente."
-                date_rueda.Value = Now
-                rbtn_aprobado.Checked = False
-                rbtn_reprobado.Checked = False
-                sbox_hor1.Value = "0"
-                sbox_hor2.Value = "0"
                 cbox_matricula.Text = ""
-                cbox_funcionario.Text = ""
-
             Catch ex As Exception
-                STATUS.Text = "Clase Cambio Rueda de: " & Cliente & " no fue agregado."
-            End Try
+            STATUS.Text = "Clase Cambio Rueda de: " & Cliente & " no fue agregado."
+        End Try
         End If
     End Sub
 
@@ -133,7 +124,12 @@
         lbl_estudiante.Text = con.selectWhereQuery("cl.nombre", "cliente cl, compra co, matricula m", "m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_matricula.Text & "'")
     End Sub
 
-    Private Sub CambioRueda_Deactivate(sender As System.Object, e As System.EventArgs) Handles MyBase.Deactivate
-        STATUS.Text = "Usuario: " & USER & "."
+    Private Sub btn_reset_Click(sender As System.Object, e As System.EventArgs) Handles btn_reset.Click
+        date_rueda.Value = Now
+        sbox_hor1.Value = "0"
+        sbox_hor2.Value = "0"
+        cbox_matricula.Text = ""
+        cbox_funcionario.Text = ""
+        STATUS.Text = "Usuario " & USER & ""
     End Sub
 End Class

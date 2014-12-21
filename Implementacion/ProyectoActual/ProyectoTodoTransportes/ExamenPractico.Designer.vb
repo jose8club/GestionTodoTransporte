@@ -23,129 +23,170 @@ Partial Class ExamenPractico
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.btn_exPract = New System.Windows.Forms.Button()
+        Me.rbtn_reprobado = New System.Windows.Forms.RadioButton()
+        Me.rbtn_aprobado = New System.Windows.Forms.RadioButton()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lbl_estudiante = New System.Windows.Forms.Label()
+        Me.cbox_matricula = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cbox_funcionario = New System.Windows.Forms.ComboBox()
+        Me.date_rueda = New System.Windows.Forms.DateTimePicker()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.tbox_calPract = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.cbox_funcionario = New System.Windows.Forms.ComboBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.date_fechaPract = New System.Windows.Forms.DateTimePicker()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.tbox_estado = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.cbox_estudiante = New System.Windows.Forms.ComboBox()
+        Me.btn_reset = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btn_exPract
         '
-        Me.btn_exPract.Location = New System.Drawing.Point(352, 226)
+        Me.btn_exPract.Location = New System.Drawing.Point(390, 280)
         Me.btn_exPract.Name = "btn_exPract"
         Me.btn_exPract.Size = New System.Drawing.Size(111, 23)
         Me.btn_exPract.TabIndex = 51
         Me.btn_exPract.Text = "Guardar"
         Me.btn_exPract.UseVisualStyleBackColor = True
         '
-        'tbox_calPract
+        'rbtn_reprobado
         '
-        Me.tbox_calPract.Location = New System.Drawing.Point(131, 143)
-        Me.tbox_calPract.Name = "tbox_calPract"
-        Me.tbox_calPract.Size = New System.Drawing.Size(56, 20)
-        Me.tbox_calPract.TabIndex = 49
+        Me.rbtn_reprobado.AutoSize = True
+        Me.rbtn_reprobado.Location = New System.Drawing.Point(291, 227)
+        Me.rbtn_reprobado.Name = "rbtn_reprobado"
+        Me.rbtn_reprobado.Size = New System.Drawing.Size(78, 17)
+        Me.rbtn_reprobado.TabIndex = 82
+        Me.rbtn_reprobado.TabStop = True
+        Me.rbtn_reprobado.Text = "Reprobado"
+        Me.rbtn_reprobado.UseVisualStyleBackColor = True
         '
-        'Label6
+        'rbtn_aprobado
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(26, 146)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(64, 13)
-        Me.Label6.TabIndex = 41
-        Me.Label6.Text = "Calificación:"
+        Me.rbtn_aprobado.AutoSize = True
+        Me.rbtn_aprobado.Location = New System.Drawing.Point(156, 227)
+        Me.rbtn_aprobado.Name = "rbtn_aprobado"
+        Me.rbtn_aprobado.Size = New System.Drawing.Size(71, 17)
+        Me.rbtn_aprobado.TabIndex = 81
+        Me.rbtn_aprobado.TabStop = True
+        Me.rbtn_aprobado.Text = "Aprobado"
+        Me.rbtn_aprobado.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(41, 229)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(43, 13)
+        Me.Label1.TabIndex = 83
+        Me.Label1.Text = "Estado:"
+        '
+        'lbl_estudiante
+        '
+        Me.lbl_estudiante.AutoSize = True
+        Me.lbl_estudiante.Location = New System.Drawing.Point(276, 40)
+        Me.lbl_estudiante.Name = "lbl_estudiante"
+        Me.lbl_estudiante.Size = New System.Drawing.Size(39, 13)
+        Me.lbl_estudiante.TabIndex = 77
+        Me.lbl_estudiante.Text = "Label8"
+        '
+        'cbox_matricula
+        '
+        Me.cbox_matricula.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cbox_matricula.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cbox_matricula.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple
+        Me.cbox_matricula.FormattingEnabled = True
+        Me.cbox_matricula.Location = New System.Drawing.Point(154, 37)
+        Me.cbox_matricula.Name = "cbox_matricula"
+        Me.cbox_matricula.Size = New System.Drawing.Size(99, 21)
+        Me.cbox_matricula.TabIndex = 76
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(37, 40)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(110, 13)
+        Me.Label2.TabIndex = 75
+        Me.Label2.Text = "Registro de Matricula:"
         '
         'cbox_funcionario
         '
         Me.cbox_funcionario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.cbox_funcionario.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cbox_funcionario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple
         Me.cbox_funcionario.FormattingEnabled = True
-        Me.cbox_funcionario.Location = New System.Drawing.Point(131, 104)
+        Me.cbox_funcionario.Location = New System.Drawing.Point(154, 84)
         Me.cbox_funcionario.Name = "cbox_funcionario"
-        Me.cbox_funcionario.Size = New System.Drawing.Size(332, 21)
-        Me.cbox_funcionario.TabIndex = 48
+        Me.cbox_funcionario.Size = New System.Drawing.Size(347, 21)
+        Me.cbox_funcionario.TabIndex = 78
         '
-        'Label7
+        'date_rueda
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(26, 107)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(65, 13)
-        Me.Label7.TabIndex = 39
-        Me.Label7.Text = "Funcionario:"
+        Me.date_rueda.Location = New System.Drawing.Point(154, 129)
+        Me.date_rueda.Name = "date_rueda"
+        Me.date_rueda.Size = New System.Drawing.Size(347, 20)
+        Me.date_rueda.TabIndex = 79
         '
-        'date_fechaPract
+        'Label5
         '
-        Me.date_fechaPract.Location = New System.Drawing.Point(131, 69)
-        Me.date_fechaPract.Name = "date_fechaPract"
-        Me.date_fechaPract.Size = New System.Drawing.Size(332, 20)
-        Me.date_fechaPract.TabIndex = 47
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(37, 87)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(65, 13)
+        Me.Label5.TabIndex = 74
+        Me.Label5.Text = "Funcionario:"
         '
-        'Label8
+        'Label3
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(26, 75)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(40, 13)
-        Me.Label8.TabIndex = 37
-        Me.Label8.Text = "Fecha:"
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(38, 135)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(40, 13)
+        Me.Label3.TabIndex = 73
+        Me.Label3.Text = "Fecha:"
         '
-        'Label10
+        'tbox_calPract
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(26, 36)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(60, 13)
-        Me.Label10.TabIndex = 33
-        Me.Label10.Text = "Estudiante:"
+        Me.tbox_calPract.Location = New System.Drawing.Point(154, 175)
+        Me.tbox_calPract.Name = "tbox_calPract"
+        Me.tbox_calPract.Size = New System.Drawing.Size(56, 20)
+        Me.tbox_calPract.TabIndex = 85
         '
-        'tbox_estado
+        'Label6
         '
-        Me.tbox_estado.Location = New System.Drawing.Point(131, 178)
-        Me.tbox_estado.Name = "tbox_estado"
-        Me.tbox_estado.Size = New System.Drawing.Size(332, 20)
-        Me.tbox_estado.TabIndex = 50
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(41, 178)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(64, 13)
+        Me.Label6.TabIndex = 84
+        Me.Label6.Text = "Calificación:"
         '
-        'Label1
+        'btn_reset
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(26, 181)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(43, 13)
-        Me.Label1.TabIndex = 44
-        Me.Label1.Text = "Estado:"
-        '
-        'cbox_estudiante
-        '
-        Me.cbox_estudiante.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cbox_estudiante.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cbox_estudiante.FormattingEnabled = True
-        Me.cbox_estudiante.Location = New System.Drawing.Point(131, 33)
-        Me.cbox_estudiante.Name = "cbox_estudiante"
-        Me.cbox_estudiante.Size = New System.Drawing.Size(332, 21)
-        Me.cbox_estudiante.TabIndex = 46
+        Me.btn_reset.Location = New System.Drawing.Point(44, 280)
+        Me.btn_reset.Name = "btn_reset"
+        Me.btn_reset.Size = New System.Drawing.Size(117, 23)
+        Me.btn_reset.TabIndex = 86
+        Me.btn_reset.Text = "Resetear"
+        Me.btn_reset.UseVisualStyleBackColor = True
         '
         'ExamenPractico
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(681, 279)
-        Me.Controls.Add(Me.cbox_estudiante)
-        Me.Controls.Add(Me.tbox_estado)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btn_exPract)
+        Me.ClientSize = New System.Drawing.Size(681, 353)
+        Me.Controls.Add(Me.btn_reset)
         Me.Controls.Add(Me.tbox_calPract)
         Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.rbtn_reprobado)
+        Me.Controls.Add(Me.rbtn_aprobado)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lbl_estudiante)
+        Me.Controls.Add(Me.cbox_matricula)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cbox_funcionario)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.date_fechaPract)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.date_rueda)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.btn_exPract)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ExamenPractico"
         Me.Text = "ExamenPractico"
@@ -154,14 +195,17 @@ Partial Class ExamenPractico
 
     End Sub
     Friend WithEvents btn_exPract As System.Windows.Forms.Button
+    Friend WithEvents rbtn_reprobado As System.Windows.Forms.RadioButton
+    Friend WithEvents rbtn_aprobado As System.Windows.Forms.RadioButton
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lbl_estudiante As System.Windows.Forms.Label
+    Friend WithEvents cbox_matricula As System.Windows.Forms.ComboBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents cbox_funcionario As System.Windows.Forms.ComboBox
+    Friend WithEvents date_rueda As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents tbox_calPract As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents cbox_funcionario As System.Windows.Forms.ComboBox
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents date_fechaPract As System.Windows.Forms.DateTimePicker
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents tbox_estado As System.Windows.Forms.TextBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents cbox_estudiante As System.Windows.Forms.ComboBox
+    Friend WithEvents btn_reset As System.Windows.Forms.Button
 End Class
