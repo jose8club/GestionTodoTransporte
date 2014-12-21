@@ -22,6 +22,8 @@ Partial Class Curso
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.cbox_Area = New System.Windows.Forms.ComboBox()
         Me.lbl_Licencia = New System.Windows.Forms.Label()
         Me.cbox_Producto = New System.Windows.Forms.ComboBox()
@@ -33,12 +35,20 @@ Partial Class Curso
         Me.date_FechaInicio = New System.Windows.Forms.DateTimePicker()
         Me.date_FechaTermino = New System.Windows.Forms.DateTimePicker()
         Me.btn_Guardar = New System.Windows.Forms.Button()
-        Me.HorarioTeorico = New System.Windows.Forms.DataGridView()
-        Me.dg_HorarioTeorico = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.dg_Profesor = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.dg_Eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.Button1 = New System.Windows.Forms.Button()
-        CType(Me.HorarioTeorico, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DG_HTmanana = New System.Windows.Forms.DataGridView()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ADD_manana = New System.Windows.Forms.Button()
+        Me.ADD_tarde = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.DG_HTtarde = New System.Windows.Forms.DataGridView()
+        Me.HTT_Horario = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.HTT_Profesor = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.HTT_Eliminar = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.HTM_Horario = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.HTM_Profesor = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.HTM_Eliminar = New System.Windows.Forms.DataGridViewImageColumn()
+        CType(Me.DG_HTmanana, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DG_HTtarde, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cbox_Area
@@ -135,53 +145,137 @@ Partial Class Curso
         Me.btn_Guardar.Text = "Guardar"
         Me.btn_Guardar.UseVisualStyleBackColor = True
         '
-        'HorarioTeorico
+        'DG_HTmanana
         '
-        Me.HorarioTeorico.AllowUserToAddRows = False
-        Me.HorarioTeorico.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.HorarioTeorico.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.HorarioTeorico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.HorarioTeorico.ColumnHeadersVisible = False
-        Me.HorarioTeorico.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.dg_HorarioTeorico, Me.dg_Profesor, Me.dg_Eliminar})
-        Me.HorarioTeorico.GridColor = System.Drawing.SystemColors.ControlLight
-        Me.HorarioTeorico.Location = New System.Drawing.Point(47, 164)
-        Me.HorarioTeorico.Name = "HorarioTeorico"
-        Me.HorarioTeorico.RowHeadersVisible = False
-        Me.HorarioTeorico.Size = New System.Drawing.Size(301, 150)
-        Me.HorarioTeorico.TabIndex = 59
+        Me.DG_HTmanana.AllowUserToAddRows = False
+        Me.DG_HTmanana.AllowUserToDeleteRows = False
+        Me.DG_HTmanana.AllowUserToResizeColumns = False
+        Me.DG_HTmanana.AllowUserToResizeRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.DG_HTmanana.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.DG_HTmanana.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.DG_HTmanana.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.DG_HTmanana.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_HTmanana.ColumnHeadersVisible = False
+        Me.DG_HTmanana.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HTM_Horario, Me.HTM_Profesor, Me.HTM_Eliminar})
+        Me.DG_HTmanana.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
+        Me.DG_HTmanana.GridColor = System.Drawing.SystemColors.ControlLight
+        Me.DG_HTmanana.Location = New System.Drawing.Point(47, 164)
+        Me.DG_HTmanana.Name = "DG_HTmanana"
+        Me.DG_HTmanana.RowHeadersVisible = False
+        Me.DG_HTmanana.Size = New System.Drawing.Size(322, 76)
+        Me.DG_HTmanana.TabIndex = 59
         '
-        'dg_HorarioTeorico
+        'Label1
         '
-        Me.dg_HorarioTeorico.HeaderText = "Horario"
-        Me.dg_HorarioTeorico.Name = "dg_HorarioTeorico"
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(44, 140)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(52, 13)
+        Me.Label1.TabIndex = 61
+        Me.Label1.Text = "Mañana"
         '
-        'dg_Profesor
+        'ADD_manana
         '
-        Me.dg_Profesor.HeaderText = "Profesor"
-        Me.dg_Profesor.Name = "dg_Profesor"
+        Me.ADD_manana.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.ADD_BUTTON_16x16_fw
+        Me.ADD_manana.Location = New System.Drawing.Point(294, 135)
+        Me.ADD_manana.Margin = New System.Windows.Forms.Padding(0)
+        Me.ADD_manana.Name = "ADD_manana"
+        Me.ADD_manana.Size = New System.Drawing.Size(75, 26)
+        Me.ADD_manana.TabIndex = 62
+        Me.ADD_manana.Text = "Agregar"
+        Me.ADD_manana.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ADD_manana.UseVisualStyleBackColor = True
         '
-        'dg_Eliminar
+        'ADD_tarde
         '
-        Me.dg_Eliminar.HeaderText = "Eliminar"
-        Me.dg_Eliminar.Name = "dg_Eliminar"
-        Me.dg_Eliminar.Text = "X"
+        Me.ADD_tarde.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.ADD_BUTTON_16x16_fw
+        Me.ADD_tarde.Location = New System.Drawing.Point(294, 255)
+        Me.ADD_tarde.Margin = New System.Windows.Forms.Padding(0)
+        Me.ADD_tarde.Name = "ADD_tarde"
+        Me.ADD_tarde.Size = New System.Drawing.Size(75, 26)
+        Me.ADD_tarde.TabIndex = 65
+        Me.ADD_tarde.Text = "Agregar"
+        Me.ADD_tarde.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ADD_tarde.UseVisualStyleBackColor = True
         '
-        'Button1
+        'Label2
         '
-        Me.Button1.Location = New System.Drawing.Point(273, 135)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 60
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(44, 260)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(40, 13)
+        Me.Label2.TabIndex = 64
+        Me.Label2.Text = "Tarde"
+        '
+        'DG_HTtarde
+        '
+        Me.DG_HTtarde.AllowUserToAddRows = False
+        Me.DG_HTtarde.AllowUserToDeleteRows = False
+        Me.DG_HTtarde.AllowUserToResizeColumns = False
+        Me.DG_HTtarde.AllowUserToResizeRows = False
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.DG_HTtarde.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        Me.DG_HTtarde.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.DG_HTtarde.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.DG_HTtarde.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_HTtarde.ColumnHeadersVisible = False
+        Me.DG_HTtarde.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HTT_Horario, Me.HTT_Profesor, Me.HTT_Eliminar})
+        Me.DG_HTtarde.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
+        Me.DG_HTtarde.GridColor = System.Drawing.SystemColors.ControlLight
+        Me.DG_HTtarde.Location = New System.Drawing.Point(47, 284)
+        Me.DG_HTtarde.Name = "DG_HTtarde"
+        Me.DG_HTtarde.RowHeadersVisible = False
+        Me.DG_HTtarde.Size = New System.Drawing.Size(322, 76)
+        Me.DG_HTtarde.TabIndex = 63
+        '
+        'HTT_Horario
+        '
+        Me.HTT_Horario.HeaderText = "Horario"
+        Me.HTT_Horario.Name = "HTT_Horario"
+        '
+        'HTT_Profesor
+        '
+        Me.HTT_Profesor.HeaderText = "Profesor"
+        Me.HTT_Profesor.Name = "HTT_Profesor"
+        '
+        'HTT_Eliminar
+        '
+        Me.HTT_Eliminar.HeaderText = "Eliminar"
+        Me.HTT_Eliminar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON_16x16_fw
+        Me.HTT_Eliminar.Name = "HTT_Eliminar"
+        Me.HTT_Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        '
+        'HTM_Horario
+        '
+        Me.HTM_Horario.HeaderText = "Horario"
+        Me.HTM_Horario.Name = "HTM_Horario"
+        '
+        'HTM_Profesor
+        '
+        Me.HTM_Profesor.HeaderText = "Profesor"
+        Me.HTM_Profesor.Name = "HTM_Profesor"
+        '
+        'HTM_Eliminar
+        '
+        Me.HTM_Eliminar.HeaderText = "Eliminar"
+        Me.HTM_Eliminar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON_16x16_fw
+        Me.HTM_Eliminar.Name = "HTM_Eliminar"
+        Me.HTM_Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
         'Curso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(760, 400)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.HorarioTeorico)
+        Me.Controls.Add(Me.ADD_tarde)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.DG_HTtarde)
+        Me.Controls.Add(Me.ADD_manana)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.DG_HTmanana)
         Me.Controls.Add(Me.btn_Guardar)
         Me.Controls.Add(Me.date_FechaTermino)
         Me.Controls.Add(Me.date_FechaInicio)
@@ -196,7 +290,8 @@ Partial Class Curso
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Curso"
         Me.Text = "Curso"
-        CType(Me.HorarioTeorico, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DG_HTmanana, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DG_HTtarde, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -212,9 +307,16 @@ Partial Class Curso
     Friend WithEvents date_FechaInicio As System.Windows.Forms.DateTimePicker
     Friend WithEvents date_FechaTermino As System.Windows.Forms.DateTimePicker
     Friend WithEvents btn_Guardar As System.Windows.Forms.Button
-    Friend WithEvents HorarioTeorico As System.Windows.Forms.DataGridView
-    Friend WithEvents dg_HorarioTeorico As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents dg_Profesor As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents dg_Eliminar As System.Windows.Forms.DataGridViewButtonColumn
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents DG_HTmanana As System.Windows.Forms.DataGridView
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents ADD_manana As System.Windows.Forms.Button
+    Friend WithEvents ADD_tarde As System.Windows.Forms.Button
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents DG_HTtarde As System.Windows.Forms.DataGridView
+    Friend WithEvents HTT_Horario As System.Windows.Forms.DataGridViewComboBoxColumn
+    Friend WithEvents HTT_Profesor As System.Windows.Forms.DataGridViewComboBoxColumn
+    Friend WithEvents HTT_Eliminar As System.Windows.Forms.DataGridViewImageColumn
+    Friend WithEvents HTM_Horario As System.Windows.Forms.DataGridViewComboBoxColumn
+    Friend WithEvents HTM_Profesor As System.Windows.Forms.DataGridViewComboBoxColumn
+    Friend WithEvents HTM_Eliminar As System.Windows.Forms.DataGridViewImageColumn
 End Class

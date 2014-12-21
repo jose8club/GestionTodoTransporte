@@ -414,6 +414,18 @@
   <ItemGroup>
     <None Include="Resources\retro.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ADD_BUTTON.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ADD_BUTTON_25x25.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ADD_BUTTON_16x16.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DELETE_BUTTON_16x16.fw.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

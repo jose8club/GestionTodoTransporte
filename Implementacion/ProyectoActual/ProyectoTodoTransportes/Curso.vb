@@ -78,7 +78,6 @@
 
 
     Sub loadDataViewGrid()
-        dg_Eliminar.Text = "x"
 
         dg_HorarioTeorico.Items.Add("prueba11")
         dg_HorarioTeorico.Items.Add("prueba12")
@@ -89,14 +88,25 @@
         dg_Profesor.Items.Add("prueba23")
     End Sub
 
-    Private Sub dg_Eliminar_click(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles HorarioTeorico.CellClick
-        Dim n As Integer = HorarioTeorico.Rows.Count - 1
+    Private Sub DG_HTmanana_click(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DG_HTmanana.CellClick
+
+        DG_HTmanana.BeginEdit(True)
+        If DG_HTmanana.Rows(e.RowIndex).Cells(dg_HorarioTeorico.Name).Selected = True Then
+            DirectCast(DG_HTmanana.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
+        ElseIf DG_HTmanana.Rows(e.RowIndex).Cells(dg_Profesor.Name).Selected = True Then
+            DirectCast(DG_HTmanana.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
+        End If
+
         If e.ColumnIndex = 2 Then
-            HorarioTeorico.Rows.RemoveAt(e.RowIndex)
+            DG_HTmanana.Rows.RemoveAt(e.RowIndex)
         End If
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        HorarioTeorico.Rows.Add()
+    Private Sub ADD_manana_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ADD_manana.Click
+        DG_HTmanana.Rows.Add()
+    End Sub
+
+    Private Sub ADD_tarde_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ADD_tarde.Click
+        DG_HTtarde.Rows.Add()
     End Sub
 End Class

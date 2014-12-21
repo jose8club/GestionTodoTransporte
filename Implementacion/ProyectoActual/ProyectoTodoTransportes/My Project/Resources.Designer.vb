@@ -103,9 +103,49 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property ADD_BUTTON_16x16_fw() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("ADD_BUTTON_16x16.fw", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property ADD_BUTTON_25x25_fw() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("ADD_BUTTON_25x25.fw", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property ADD_BUTTON_fw() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("ADD_BUTTON.fw", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property b() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("b", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property DELETE_BUTTON_16x16_fw() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("DELETE_BUTTON_16x16.fw", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
