@@ -79,28 +79,41 @@
 
     Sub loadDataViewGrid()
 
-        dg_HorarioTeorico.Items.Add("prueba11")
-        dg_HorarioTeorico.Items.Add("prueba12")
-        dg_HorarioTeorico.Items.Add("prueba13")
-
-        dg_Profesor.Items.Add("prueba21")
-        dg_Profesor.Items.Add("prueba22")
-        dg_Profesor.Items.Add("prueba23")
+        DG_HTmanana.RowTemplate.Height = 22
     End Sub
 
     Private Sub DG_HTmanana_click(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DG_HTmanana.CellClick
 
         DG_HTmanana.BeginEdit(True)
-        If DG_HTmanana.Rows(e.RowIndex).Cells(dg_HorarioTeorico.Name).Selected = True Then
-            DirectCast(DG_HTmanana.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
-        ElseIf DG_HTmanana.Rows(e.RowIndex).Cells(dg_Profesor.Name).Selected = True Then
+        If DG_HTmanana.Rows(e.RowIndex).Cells(HTM_Profesor.Name).Selected = True Or
+            DG_HTmanana.Rows(e.RowIndex).Cells(HTM_Hora.Name).Selected Or
+            DG_HTmanana.Rows(e.RowIndex).Cells(HTM_Minutos.Name).Selected Then
+
             DirectCast(DG_HTmanana.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
         End If
 
-        If e.ColumnIndex = 2 Then
+
+        If DG_HTmanana.Columns(e.ColumnIndex).Name = "HTM_Eliminar" Then
             DG_HTmanana.Rows.RemoveAt(e.RowIndex)
         End If
     End Sub
+
+    Private Sub DG_HTtarde_click(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DG_HTtarde.CellClick
+
+        DG_HTtarde.BeginEdit(True)
+        If DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Profesor.Name).Selected = True Or
+            DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Hora.Name).Selected Or
+            DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Minutos.Name).Selected Then
+
+            DirectCast(DG_HTtarde.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
+        End If
+
+
+        If DG_HTtarde.Columns(e.ColumnIndex).Name = "HTT_Eliminar" Then
+            DG_HTtarde.Rows.RemoveAt(e.RowIndex)
+        End If
+    End Sub
+
 
     Private Sub ADD_manana_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ADD_manana.Click
         DG_HTmanana.Rows.Add()
@@ -109,4 +122,5 @@
     Private Sub ADD_tarde_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ADD_tarde.Click
         DG_HTtarde.Rows.Add()
     End Sub
+
 End Class

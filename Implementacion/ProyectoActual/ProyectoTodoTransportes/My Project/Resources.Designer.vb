@@ -153,6 +153,46 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property DELETE_BUTTON_16x1622_fw() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("DELETE_BUTTON_16x1622.fw", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property DELETE_BUTTON_FINAL_fw() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("DELETE_BUTTON_FINAL.fw", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property DELETE_BUTTON_finale_fw() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("DELETE_BUTTON_finale.fw", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property DELETE_BUTTON_trans_fw() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("DELETE_BUTTON_trans.fw", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property grua() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("grua", resourceCulture)
