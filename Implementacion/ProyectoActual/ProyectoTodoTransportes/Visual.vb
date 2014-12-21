@@ -84,8 +84,8 @@
 
 
         If validar() Then
-            Dim Fecha As String = Format(date_rueda.Value, "yyyy-MM-dd")
-            
+            Dim Fecha As String = Format(date_visual.Value, "yyyy-MM-dd")
+
             Dim Tipo As String = "Examen Visual"
             Dim Estudiante As String = cbox_matricula.Text
             Dim Cliente As String = con.selectWhereQuery("cl.nombre", "cliente cl, compra co, matricula m", "m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_matricula.Text & "'")
@@ -113,7 +113,7 @@
 
 
     Private Sub btn_reset_Click(sender As System.Object, e As System.EventArgs) Handles btn_reset.Click
-        date_rueda.Value = Now
+        date_visual.Value = Now
         cbox_matricula.Text = ""
         cbox_funcionario.Text = ""
         rbtn_aprobado.Checked = False

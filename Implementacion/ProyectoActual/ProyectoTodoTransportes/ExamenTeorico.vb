@@ -95,10 +95,10 @@
             Try
                 If rbtn_aprobado.Checked Then
                     con.regDocumento2(Tipo, Funcionario, Fecha, "Aprobado")
-                    MsgBox("El estudiante : " & Cliente & " puede dar la clase practica")
+                    MsgBox("El estudiante : " & Cliente & " puede dar la clase practica con calificacion " & (Calificacion / 10) & "")
                 ElseIf rbtn_reprobado.Checked Then
                     con.regDocumento2(Tipo, Funcionario, Fecha, "Reprobado")
-                    MsgBox("El estudiante : " & Cliente & " no puede dar la clase practica")
+                    MsgBox("El estudiante : " & Cliente & " no puede dar la clase practica con calificacion " & (Calificacion / 10) & "")
                 End If
                 Documento = CInt(con.last("idDOCUMENTO", "Documento"))
                 con.regExTeo(Documento, Calificacion)

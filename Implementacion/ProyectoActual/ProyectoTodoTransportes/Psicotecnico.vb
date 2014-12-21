@@ -79,7 +79,7 @@
         Dim Funcionario As Integer = CInt(con.selectWhereQuery("idFuncionario", "Funcionario", "Nombre = '" & cbox_funcionario.Text & "'"))
 
         If validar() Then
-            Dim Fecha As String = Format(date_rueda.Value, "yyyy-MM-dd")
+            Dim Fecha As String = Format(date_psico.Value, "yyyy-MM-dd")
 
             Dim Tipo As String = "Examen Psicotécnico"
             Dim Estudiante As String = cbox_matricula.Text
@@ -105,9 +105,9 @@
     Private Sub cbox_matricula_SelectedValueChanged(sender As System.Object, e As System.EventArgs) Handles cbox_matricula.SelectedValueChanged
         lbl_estudiante.Text = con.selectWhereQuery("cl.nombre", "cliente cl, compra co, matricula m", "m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_matricula.Text & "'")
     End Sub
-    
+
     Private Sub btn_reset_Click(sender As System.Object, e As System.EventArgs) Handles btn_reset.Click
-        date_rueda.Value = Now
+        date_psico.Value = Now
         cbox_matricula.Text = ""
         cbox_funcionario.Text = ""
         rbtn_aprobado.Checked = False

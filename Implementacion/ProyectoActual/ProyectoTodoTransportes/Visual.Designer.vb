@@ -29,7 +29,7 @@ Partial Class Visual
         Me.cbox_matricula = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbox_funcionario = New System.Windows.Forms.ComboBox()
-        Me.date_rueda = New System.Windows.Forms.DateTimePicker()
+        Me.date_visual = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.rbtn_reprobado = New System.Windows.Forms.RadioButton()
@@ -106,12 +106,12 @@ Partial Class Visual
         Me.cbox_funcionario.Size = New System.Drawing.Size(343, 21)
         Me.cbox_funcionario.TabIndex = 36
         '
-        'date_rueda
+        'date_visual
         '
-        Me.date_rueda.Location = New System.Drawing.Point(201, 174)
-        Me.date_rueda.Name = "date_rueda"
-        Me.date_rueda.Size = New System.Drawing.Size(347, 20)
-        Me.date_rueda.TabIndex = 37
+        Me.date_visual.Location = New System.Drawing.Point(201, 174)
+        Me.date_visual.Name = "date_visual"
+        Me.date_visual.Size = New System.Drawing.Size(347, 20)
+        Me.date_visual.TabIndex = 37
         '
         'Label5
         '
@@ -184,7 +184,7 @@ Partial Class Visual
         Me.Controls.Add(Me.cbox_matricula)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cbox_funcionario)
-        Me.Controls.Add(Me.date_rueda)
+        Me.Controls.Add(Me.date_visual)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.chbox_cert)
@@ -204,7 +204,7 @@ Partial Class Visual
     Friend WithEvents cbox_matricula As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents cbox_funcionario As System.Windows.Forms.ComboBox
-    Friend WithEvents date_rueda As System.Windows.Forms.DateTimePicker
+    Friend WithEvents date_visual As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents rbtn_reprobado As System.Windows.Forms.RadioButton

@@ -32,7 +32,7 @@ Partial Class ExamenMunicipal
         Me.cbox_matricula = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbox_funcionario = New System.Windows.Forms.ComboBox()
-        Me.date_rueda = New System.Windows.Forms.DateTimePicker()
+        Me.date_municipal = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btn_reset = New System.Windows.Forms.Button()
@@ -135,12 +135,12 @@ Partial Class ExamenMunicipal
         Me.cbox_funcionario.Size = New System.Drawing.Size(347, 21)
         Me.cbox_funcionario.TabIndex = 58
         '
-        'date_rueda
+        'date_municipal
         '
-        Me.date_rueda.Location = New System.Drawing.Point(149, 118)
-        Me.date_rueda.Name = "date_rueda"
-        Me.date_rueda.Size = New System.Drawing.Size(347, 20)
-        Me.date_rueda.TabIndex = 59
+        Me.date_municipal.Location = New System.Drawing.Point(149, 118)
+        Me.date_municipal.Name = "date_municipal"
+        Me.date_municipal.Size = New System.Drawing.Size(347, 20)
+        Me.date_municipal.TabIndex = 59
         '
         'Label5
         '
@@ -182,7 +182,7 @@ Partial Class ExamenMunicipal
         Me.Controls.Add(Me.cbox_matricula)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cbox_funcionario)
-        Me.Controls.Add(Me.date_rueda)
+        Me.Controls.Add(Me.date_municipal)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btn_Municipal)
@@ -205,7 +205,7 @@ Partial Class ExamenMunicipal
     Friend WithEvents cbox_matricula As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents cbox_funcionario As System.Windows.Forms.ComboBox
-    Friend WithEvents date_rueda As System.Windows.Forms.DateTimePicker
+    Friend WithEvents date_municipal As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents btn_reset As System.Windows.Forms.Button

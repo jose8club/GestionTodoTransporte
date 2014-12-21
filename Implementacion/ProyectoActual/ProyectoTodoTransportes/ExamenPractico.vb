@@ -87,7 +87,7 @@
         Dim Funcionario As Integer = CInt(con.selectWhereQuery("idFuncionario", "Funcionario", "Nombre = '" & cbox_funcionario.Text & "'"))
 
         If validar() Then
-            Dim Fecha As String = Format(date_rueda.Value, "yyyy-MM-dd")
+            Dim Fecha As String = Format(date_practico.Value, "yyyy-MM-dd")
 
             Dim Tipo As String = "Examen Practico"
             Dim Estudiante As String = cbox_matricula.Text
@@ -95,10 +95,10 @@
             Try
                 If rbtn_aprobado.Checked Then
                     con.regDocumento2(Tipo, Funcionario, Fecha, "Aprobado")
-                    MsgBox("El estudiante : " & Cliente & " puede dar el examen municipal")
+                    MsgBox("El estudiante : " & Cliente & " puede dar el examen municipal con calificacion " & (Calificacion / 10) & "")
                 ElseIf rbtn_reprobado.Checked Then
                     con.regDocumento2(Tipo, Funcionario, Fecha, "Reprobado")
-                    MsgBox("El estudiante : " & Cliente & " no puede dar el examen municipal")
+                    MsgBox("El estudiante : " & Cliente & " no puede dar el examen municipal con calificacion " & (Calificacion / 10) & "")
                 End If
                 Documento = CInt(con.last("idDOCUMENTO", "Documento"))
                 con.regExPract(Documento, Calificacion)
@@ -117,7 +117,7 @@
     End Sub
 
     Private Sub btn_reset_Click(sender As System.Object, e As System.EventArgs) Handles btn_reset.Click
-        date_rueda.Value = Now
+        date_practico.Value = Now
         tbox_calPract.Text = ""
         cbox_matricula.Text = ""
         cbox_funcionario.Text = ""

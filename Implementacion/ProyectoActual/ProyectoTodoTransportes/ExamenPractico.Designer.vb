@@ -30,7 +30,7 @@ Partial Class ExamenPractico
         Me.cbox_matricula = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbox_funcionario = New System.Windows.Forms.ComboBox()
-        Me.date_rueda = New System.Windows.Forms.DateTimePicker()
+        Me.date_practico = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.tbox_calPract = New System.Windows.Forms.TextBox()
@@ -43,7 +43,7 @@ Partial Class ExamenPractico
         Me.btn_exPract.Location = New System.Drawing.Point(390, 280)
         Me.btn_exPract.Name = "btn_exPract"
         Me.btn_exPract.Size = New System.Drawing.Size(111, 23)
-        Me.btn_exPract.TabIndex = 51
+        Me.btn_exPract.TabIndex = 84
         Me.btn_exPract.Text = "Guardar"
         Me.btn_exPract.UseVisualStyleBackColor = True
         '
@@ -118,12 +118,12 @@ Partial Class ExamenPractico
         Me.cbox_funcionario.Size = New System.Drawing.Size(347, 21)
         Me.cbox_funcionario.TabIndex = 78
         '
-        'date_rueda
+        'date_practico
         '
-        Me.date_rueda.Location = New System.Drawing.Point(154, 129)
-        Me.date_rueda.Name = "date_rueda"
-        Me.date_rueda.Size = New System.Drawing.Size(347, 20)
-        Me.date_rueda.TabIndex = 79
+        Me.date_practico.Location = New System.Drawing.Point(154, 129)
+        Me.date_practico.Name = "date_practico"
+        Me.date_practico.Size = New System.Drawing.Size(347, 20)
+        Me.date_practico.TabIndex = 79
         '
         'Label5
         '
@@ -148,7 +148,7 @@ Partial Class ExamenPractico
         Me.tbox_calPract.Location = New System.Drawing.Point(154, 175)
         Me.tbox_calPract.Name = "tbox_calPract"
         Me.tbox_calPract.Size = New System.Drawing.Size(56, 20)
-        Me.tbox_calPract.TabIndex = 85
+        Me.tbox_calPract.TabIndex = 80
         '
         'Label6
         '
@@ -164,7 +164,7 @@ Partial Class ExamenPractico
         Me.btn_reset.Location = New System.Drawing.Point(44, 280)
         Me.btn_reset.Name = "btn_reset"
         Me.btn_reset.Size = New System.Drawing.Size(117, 23)
-        Me.btn_reset.TabIndex = 86
+        Me.btn_reset.TabIndex = 85
         Me.btn_reset.Text = "Resetear"
         Me.btn_reset.UseVisualStyleBackColor = True
         '
@@ -183,7 +183,7 @@ Partial Class ExamenPractico
         Me.Controls.Add(Me.cbox_matricula)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cbox_funcionario)
-        Me.Controls.Add(Me.date_rueda)
+        Me.Controls.Add(Me.date_practico)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btn_exPract)
@@ -202,7 +202,7 @@ Partial Class ExamenPractico
     Friend WithEvents cbox_matricula As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents cbox_funcionario As System.Windows.Forms.ComboBox
-    Friend WithEvents date_rueda As System.Windows.Forms.DateTimePicker
+    Friend WithEvents date_practico As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents tbox_calPract As System.Windows.Forms.TextBox

@@ -78,7 +78,7 @@
         Dim Funcionario As Integer = CInt(con.selectWhereQuery("idFuncionario", "Funcionario", "Nombre = '" & cbox_funcionario.Text & "'"))
 
         If validar() Then
-            Dim Fecha As String = Format(date_rueda.Value, "yyyy-MM-dd")
+            Dim Fecha As String = Format(date_municipal.Value, "yyyy-MM-dd")
 
             Dim Tipo As String = "Examen Municipal"
             Dim Estudiante As String = cbox_matricula.Text
@@ -109,7 +109,7 @@
 
     Private Sub btn_reset_Click(sender As System.Object, e As System.EventArgs) Handles btn_reset.Click
         rtbox_comentario.Text = ""
-        date_rueda.Value = Now
+        date_municipal.Value = Now
         cbox_matricula.Text = ""
         cbox_funcionario.Text = ""
         rbtn_aprobado.Checked = False

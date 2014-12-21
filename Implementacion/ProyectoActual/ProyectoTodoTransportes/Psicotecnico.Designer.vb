@@ -30,7 +30,7 @@ Partial Class Psicotecnico
         Me.cbox_matricula = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbox_funcionario = New System.Windows.Forms.ComboBox()
-        Me.date_rueda = New System.Windows.Forms.DateTimePicker()
+        Me.date_psico = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btn_reset = New System.Windows.Forms.Button()
@@ -116,12 +116,12 @@ Partial Class Psicotecnico
         Me.cbox_funcionario.Size = New System.Drawing.Size(347, 21)
         Me.cbox_funcionario.TabIndex = 46
         '
-        'date_rueda
+        'date_psico
         '
-        Me.date_rueda.Location = New System.Drawing.Point(204, 145)
-        Me.date_rueda.Name = "date_rueda"
-        Me.date_rueda.Size = New System.Drawing.Size(347, 20)
-        Me.date_rueda.TabIndex = 47
+        Me.date_psico.Location = New System.Drawing.Point(204, 145)
+        Me.date_psico.Name = "date_psico"
+        Me.date_psico.Size = New System.Drawing.Size(347, 20)
+        Me.date_psico.TabIndex = 47
         '
         'Label5
         '
@@ -163,7 +163,7 @@ Partial Class Psicotecnico
         Me.Controls.Add(Me.cbox_matricula)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cbox_funcionario)
-        Me.Controls.Add(Me.date_rueda)
+        Me.Controls.Add(Me.date_psico)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btn_psico)
@@ -182,7 +182,7 @@ Partial Class Psicotecnico
     Friend WithEvents cbox_matricula As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents cbox_funcionario As System.Windows.Forms.ComboBox
-    Friend WithEvents date_rueda As System.Windows.Forms.DateTimePicker
+    Friend WithEvents date_psico As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents btn_reset As System.Windows.Forms.Button
