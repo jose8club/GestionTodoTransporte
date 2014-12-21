@@ -16,6 +16,36 @@ Public Class Conexion
         comando.Connection = conn
     End Sub
 
+    Function doQuery(ByVal s As String) As String()
+        Dim arreglo(2) As String
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "select tipo from docente"
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+            Try
+                Dim i As Integer = 0
+                Using lector As MySqlDataReader = comando.ExecuteReader()
+                    
+                    While lector.Read()
+
+                        'arreglo(i) = lector.GetString(0)
+
+                        i = i + 1
+
+                    End While
+                End Using
+                Return arreglo
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+
+        Return {"0"}
+    End Function
+
     Sub beginTransaction()
         transaccion = conn.BeginTransaction
     End Sub

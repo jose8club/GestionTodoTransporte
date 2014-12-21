@@ -2,9 +2,11 @@
     Dim con As New Conexion
     Dim USER As String = ""
     Dim STATUS As ToolStripStatusLabel
+    Dim datacbox As DataCBOX
 
     Sub New(ByVal usuario As String, ByVal conexion As Conexion, ByVal estado As ToolStripStatusLabel)
         con = conexion
+        datacbox = New DataCBOX(con)
         USER = usuario
         STATUS = estado
         InitializeComponent()
@@ -78,6 +80,8 @@
 
 
     Sub loadDataViewGrid()
+        Dim a() As String = {}
+        a = datacbox.Profesores()
 
         DG_HTmanana.RowTemplate.Height = 22
     End Sub
@@ -117,6 +121,7 @@
 
     Private Sub ADD_manana_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ADD_manana.Click
         DG_HTmanana.Rows.Add()
+        
     End Sub
 
     Private Sub ADD_tarde_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ADD_tarde.Click

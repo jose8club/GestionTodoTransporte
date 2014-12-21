@@ -88,6 +88,7 @@
     <Compile Include="CambioRueda.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DataCBOX.vb" />
     <Compile Include="ExamenMunicipal.Designer.vb">
       <DependentUpon>ExamenMunicipal.vb</DependentUpon>
     </Compile>
