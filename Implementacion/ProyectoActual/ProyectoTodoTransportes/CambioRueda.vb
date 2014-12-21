@@ -2,7 +2,6 @@
     Dim con As New Conexion
     Dim USER As String = ""
     Dim STATUS As ToolStripStatusLabel
-    Dim Instructores(,) As String
     Sub New(ByVal usuario As String, ByVal conexion As Conexion, ByVal estado As ToolStripStatusLabel)
         con = conexion
         USER = usuario
@@ -12,77 +11,129 @@
 
     Private Sub CambioRueda_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         loadCBOX("Funcionario")
-        loadCBOX("Estudiante")
+        loadCBOX("Matricula")
+        lbl_estudiante.Text = con.selectWhereQuery("cl.nombre", "cliente cl, compra co, matricula m", "m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_matricula.Text & "'")
+
     End Sub
 
 #Region "Metodos"
     Sub loadCBOX(ByVal Nombre As String)
         Dim n As Integer
         Dim items() As String
+
         If Nombre.Equals("Funcionario") Then
             cbox_funcionario.Items.Clear()
 
             n = con.count("Funcionario") - 1
             items = con.toArray(n, "Nombre", "Funcionario")
+            cbox_funcionario.Items.Add("")
             For i As Integer = 0 To n
                 cbox_funcionario.Items.Add(items(i))
             Next
+
             If n >= 0 Then cbox_funcionario.SelectedIndex = 0
 
-        ElseIf Nombre.Equals("Estudiante") Then
-            cbox_estudiante.Items.Clear()
+        ElseIf Nombre.Equals("Matricula") Then
+            cbox_matricula.Items.Clear()
 
-            n = con.count("Cliente") - 1
-            items = con.toArrayWhere(n, "Nombre", "Cliente", "TipoCliente = 'Estudiante'")
+            n = con.count("Estudiante") - 1
+            items = con.toArray(n, "idEstudiante", "Estudiante")
+
+            cbox_matricula.Items.Add("")
             For i As Integer = 0 To n
-                cbox_estudiante.Items.Add(items(i))
+                cbox_matricula.Items.Add(items(i))
             Next
-            If n >= 0 Then cbox_estudiante.SelectedIndex = 0
+
+            If n >= 0 Then cbox_matricula.SelectedIndex = 0
+
         End If
 
     End Sub
     Function validar() As Boolean
-        If tbox_estado.Text.Trim.Equals("") Then
-            STATUS.Text = "ERROR: Ingrese los datos."
-
+        If rbtn_aprobado.Checked = False And rbtn_reprobado.Checked = False Then
+            MsgBox("Debe seleccionar las opciones de aprobación o reprobación del examen")
+            Return False
+        ElseIf Not cbox_matricula.Items.Contains(cbox_matricula.Text) Then
+            MsgBox("La matricula '" & cbox_matricula.Text & "' no existe")
+            cbox_matricula.Text = ""
+            Return False
+        ElseIf Not cbox_funcionario.Items.Contains(cbox_funcionario.Text) Then
+            MsgBox("El funcionario: '" & cbox_funcionario.Text & "' no existe")
+            cbox_funcionario.Text = ""
+            Return False
+        ElseIf cbox_matricula.Text = "" Then
+            MsgBox("Ingrese datos de matricula")
+            Return False
+        ElseIf cbox_funcionario.Text = "" Then
+            MsgBox("Ingrese datos de funcionario")
             Return False
         End If
+
         Return True
     End Function
+
+
 #End Region
 
 #Region "VALIDACION DE ENTRADA"
 
-    Private Sub tbox_hor1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_hor1.KeyPress
+    Private Sub sbox_hor1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles sbox_hor1.KeyPress
         Herramientas.soloNumeros(e)
     End Sub
 
-    Private Sub tbox_hor2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_hor2.KeyPress
+    Private Sub sbox_hor2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles sbox_hor2.KeyPress
         Herramientas.soloNumeros(e)
     End Sub
+
+#End Region
 
     Private Sub btn_rueda_Click(sender As System.Object, e As System.EventArgs) Handles btn_rueda.Click
+
         Dim Documento As Integer = 0
         Dim Funcionario As Integer = CInt(con.selectWhereQuery("idFuncionario", "Funcionario", "Nombre = '" & cbox_funcionario.Text & "'"))
+        Dim Horario As String
+        
         If validar() Then
             Dim Fecha As String = Format(date_rueda.Value, "yyyy-MM-dd")
-            Dim Horario As String = tbox_hor1.Text & ":" & tbox_hor2.Text & ":00"
-            Dim Estado As String = tbox_estado.Text()
+            If (CInt(sbox_hor2.Text) <= 9) Then
+                Horario = sbox_hor1.Text & ":" & "0" & sbox_hor2.Text & ":00"
+            Else
+                Horario = sbox_hor1.Text & ":" & sbox_hor2.Text & ":00"
+            End If
             Dim Tipo As String = "Cambio Rueda"
-            Dim Cliente As Integer = CInt(con.selectWhereQuery("idCliente", "Cliente", "Nombre = '" & cbox_estudiante.Text & "' AND TipoCliente = 'Estudiante'"))
-            Dim Compra As Integer = CInt(con.selectWhereQuery("idCompra", "Compra", "Cliente = '" & Cliente & "'"))
-            Dim Matricula As String = con.selectWhereQuery("Codigo", "Matricula", "CodigoCompra = '" & Compra & "'")
-            Dim Estudiante As String = con.selectWhereQuery("idEstudiante", "Estudiante", "idEstudiante = '" & Matricula & "'")
+            Dim Estudiante As String = cbox_matricula.Text
+            Dim Cliente As String = con.selectWhereQuery("cl.nombre", "cliente cl, compra co, matricula m", "m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_matricula.Text & "'")
             Try
-                con.regDocumento2(Tipo, Funcionario, Fecha, Estado)
+                If rbtn_aprobado.Checked Then
+                    con.regDocumento2(Tipo, Funcionario, Fecha, "Aprobado")
+                ElseIf rbtn_reprobado.Checked Then
+                    con.regDocumento2(Tipo, Funcionario, Fecha, "Reprobado")
+                Else
+
+                End If
                 Documento = CInt(con.last("idDOCUMENTO", "Documento"))
                 con.regRueda(Documento, Horario)
                 con.regEstDoc(Estudiante, Documento)
-                STATUS.Text = "Clase Cambio Rueda de: " & cbox_estudiante.Text() & " fue agregada exitosamente."
+                STATUS.Text = "Clase Cambio Rueda de: " & Cliente & " fue agregada exitosamente."
+                date_rueda.Value = Now
+                rbtn_aprobado.Checked = False
+                rbtn_reprobado.Checked = False
+                sbox_hor1.Value = "0"
+                sbox_hor2.Value = "0"
+                cbox_matricula.Text = ""
+                cbox_funcionario.Text = ""
+
             Catch ex As Exception
-                STATUS.Text = "Clase Cambio Rueda de: " & cbox_estudiante.Text() & " no fue agregado."
+                STATUS.Text = "Clase Cambio Rueda de: " & Cliente & " no fue agregado."
             End Try
         End If
     End Sub
-#End Region
+
+    Private Sub cbox_matricula_SelectedValueChanged(sender As System.Object, e As System.EventArgs) Handles cbox_matricula.SelectedValueChanged
+        lbl_estudiante.Text = con.selectWhereQuery("cl.nombre", "cliente cl, compra co, matricula m", "m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_matricula.Text & "'")
+    End Sub
+
+    Private Sub CambioRueda_Deactivate(sender As System.Object, e As System.EventArgs) Handles MyBase.Deactivate
+        STATUS.Text = "Usuario: " & USER & "."
+    End Sub
 End Class

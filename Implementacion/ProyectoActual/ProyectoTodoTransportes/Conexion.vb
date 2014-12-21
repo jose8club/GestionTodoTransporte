@@ -273,6 +273,7 @@ Public Class Conexion
         Return res
     End Function
 
+
     Function iniciarSesion(ByVal usuario As String, ByVal contra As String) As Boolean
 
         'Verifica USUARIO/CONTRASEÑA y permite el ingreso al sistema

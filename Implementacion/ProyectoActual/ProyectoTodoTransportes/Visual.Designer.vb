@@ -30,9 +30,9 @@ Partial Class Visual
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.chbox_cert = New System.Windows.Forms.CheckBox()
         Me.cbox_estudiante = New System.Windows.Forms.ComboBox()
         Me.tbox_estado = New System.Windows.Forms.TextBox()
+        Me.chbox_cert = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'btn_visual
@@ -106,16 +106,6 @@ Partial Class Visual
         Me.Label6.TabIndex = 22
         Me.Label6.Text = "Certificado:"
         '
-        'chbox_cert
-        '
-        Me.chbox_cert.AutoSize = True
-        Me.chbox_cert.Location = New System.Drawing.Point(185, 231)
-        Me.chbox_cert.Name = "chbox_cert"
-        Me.chbox_cert.Size = New System.Drawing.Size(75, 17)
-        Me.chbox_cert.TabIndex = 29
-        Me.chbox_cert.Text = "Entregado"
-        Me.chbox_cert.UseVisualStyleBackColor = True
-        '
         'cbox_estudiante
         '
         Me.cbox_estudiante.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
@@ -132,6 +122,16 @@ Partial Class Visual
         Me.tbox_estado.Name = "tbox_estado"
         Me.tbox_estado.Size = New System.Drawing.Size(332, 20)
         Me.tbox_estado.TabIndex = 28
+        '
+        'chbox_cert
+        '
+        Me.chbox_cert.AutoSize = True
+        Me.chbox_cert.Location = New System.Drawing.Point(185, 231)
+        Me.chbox_cert.Name = "chbox_cert"
+        Me.chbox_cert.Size = New System.Drawing.Size(75, 17)
+        Me.chbox_cert.TabIndex = 29
+        Me.chbox_cert.Text = "Entregado"
+        Me.chbox_cert.UseVisualStyleBackColor = True
         '
         'Visual
         '
@@ -164,7 +164,7 @@ Partial Class Visual
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents chbox_cert As System.Windows.Forms.CheckBox
     Friend WithEvents cbox_estudiante As System.Windows.Forms.ComboBox
     Friend WithEvents tbox_estado As System.Windows.Forms.TextBox
+    Friend WithEvents chbox_cert As System.Windows.Forms.CheckBox
 End Class

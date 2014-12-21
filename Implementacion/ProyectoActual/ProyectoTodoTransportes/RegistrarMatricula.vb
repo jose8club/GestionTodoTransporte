@@ -61,7 +61,7 @@
                 con.regEstudiante(cant_Fotos, bool_certEst, bool_certAlreg, bool_antNot)
                 
                 aux_str1 = con.last("idEstudiante", "Estudiante")
-                con.regDocumento(aux_str1)
+                'con.regDocumento(aux_str1)
 
                 aux_str2 = con.last("idCompra", "Compra")
                 aux_str3 = con.last("idDocumento", "Documento")
