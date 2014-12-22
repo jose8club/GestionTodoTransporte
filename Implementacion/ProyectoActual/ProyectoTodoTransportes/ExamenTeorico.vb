@@ -71,8 +71,11 @@
             MsgBox("Ingrese datos de funcionario")
             Return False
         End If
+
         Return True
     End Function
+
+
 #End Region
 
 #Region "VALIDACION DE ENTRADA"
@@ -125,4 +128,6 @@
         rbtn_reprobado.Checked = False
         STATUS.Text = "Usuario " & USER & ""
     End Sub
+
+    
 End Class
