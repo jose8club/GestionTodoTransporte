@@ -22,16 +22,18 @@ Partial Class resGeneral
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim ColumnHeader1 As System.Windows.Forms.ColumnHeader
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.lbl_estudiante = New System.Windows.Forms.Label()
         Me.label2 = New System.Windows.Forms.Label()
         Me.cbox_pago = New System.Windows.Forms.ComboBox()
         Me.list_pago = New System.Windows.Forms.ListView()
-        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -89,36 +91,41 @@ Partial Class resGeneral
         '
         'list_pago
         '
-        Me.list_pago.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4})
+        Me.list_pago.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5})
         Me.list_pago.GridLines = True
         Me.list_pago.LabelEdit = True
         Me.list_pago.Location = New System.Drawing.Point(12, 93)
         Me.list_pago.MultiSelect = False
         Me.list_pago.Name = "list_pago"
-        Me.list_pago.Size = New System.Drawing.Size(524, 174)
+        Me.list_pago.Size = New System.Drawing.Size(570, 174)
         Me.list_pago.TabIndex = 37
         Me.list_pago.UseCompatibleStateImageBehavior = False
         Me.list_pago.View = System.Windows.Forms.View.Details
         '
         'ColumnHeader1
         '
-        Me.ColumnHeader1.Text = "Monto Pago"
-        Me.ColumnHeader1.Width = 114
+        ColumnHeader1.Text = "Numero"
+        ColumnHeader1.Width = 1
         '
         'ColumnHeader2
         '
-        Me.ColumnHeader2.Text = "Medio Pago"
+        Me.ColumnHeader2.Text = "Monto"
         Me.ColumnHeader2.Width = 132
         '
         'ColumnHeader3
         '
-        Me.ColumnHeader3.Text = "Fecha Pago"
+        Me.ColumnHeader3.Text = "Medio Pago"
         Me.ColumnHeader3.Width = 108
         '
         'ColumnHeader4
         '
-        Me.ColumnHeader4.Text = "Descuento"
-        Me.ColumnHeader4.Width = 166
+        Me.ColumnHeader4.Text = "Fecha Pago"
+        Me.ColumnHeader4.Width = 100
+        '
+        'ColumnHeader5
+        '
+        Me.ColumnHeader5.Text = "Descuento (%)"
+        Me.ColumnHeader5.Width = 202
         '
         'resGeneral
         '
@@ -140,8 +147,8 @@ Partial Class resGeneral
     Friend WithEvents cbox_pago As System.Windows.Forms.ComboBox
     Friend WithEvents lbl_estudiante As System.Windows.Forms.Label
     Friend WithEvents list_pago As System.Windows.Forms.ListView
-    Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
     Friend WithEvents ColumnHeader4 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
 End Class
