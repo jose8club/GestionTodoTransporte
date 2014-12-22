@@ -24,9 +24,9 @@ Partial Class resGeneral
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lbl_estudiante = New System.Windows.Forms.Label()
         Me.label2 = New System.Windows.Forms.Label()
         Me.cbox_pago = New System.Windows.Forms.ComboBox()
-        Me.lbl_estudiante = New System.Windows.Forms.Label()
         Me.list_pago = New System.Windows.Forms.ListView()
         Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -58,6 +58,15 @@ Partial Class resGeneral
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Pago Estudiante"
         '
+        'lbl_estudiante
+        '
+        Me.lbl_estudiante.AutoSize = True
+        Me.lbl_estudiante.Location = New System.Drawing.Point(466, 33)
+        Me.lbl_estudiante.Name = "lbl_estudiante"
+        Me.lbl_estudiante.Size = New System.Drawing.Size(39, 13)
+        Me.lbl_estudiante.TabIndex = 36
+        Me.lbl_estudiante.Text = "Label8"
+        '
         'label2
         '
         Me.label2.AutoSize = True
@@ -78,40 +87,38 @@ Partial Class resGeneral
         Me.cbox_pago.Size = New System.Drawing.Size(304, 21)
         Me.cbox_pago.TabIndex = 1
         '
-        'lbl_estudiante
-        '
-        Me.lbl_estudiante.AutoSize = True
-        Me.lbl_estudiante.Location = New System.Drawing.Point(466, 33)
-        Me.lbl_estudiante.Name = "lbl_estudiante"
-        Me.lbl_estudiante.Size = New System.Drawing.Size(39, 13)
-        Me.lbl_estudiante.TabIndex = 36
-        Me.lbl_estudiante.Text = "Label8"
-        '
         'list_pago
         '
         Me.list_pago.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4})
+        Me.list_pago.GridLines = True
         Me.list_pago.LabelEdit = True
-        Me.list_pago.Location = New System.Drawing.Point(126, 67)
+        Me.list_pago.Location = New System.Drawing.Point(12, 93)
+        Me.list_pago.MultiSelect = False
         Me.list_pago.Name = "list_pago"
-        Me.list_pago.Size = New System.Drawing.Size(509, 175)
-        Me.list_pago.TabIndex = 2
+        Me.list_pago.Size = New System.Drawing.Size(524, 174)
+        Me.list_pago.TabIndex = 37
         Me.list_pago.UseCompatibleStateImageBehavior = False
+        Me.list_pago.View = System.Windows.Forms.View.Details
         '
         'ColumnHeader1
         '
-        Me.ColumnHeader1.Text = "Monto"
+        Me.ColumnHeader1.Text = "Monto Pago"
+        Me.ColumnHeader1.Width = 114
         '
         'ColumnHeader2
         '
         Me.ColumnHeader2.Text = "Medio Pago"
+        Me.ColumnHeader2.Width = 132
         '
         'ColumnHeader3
         '
         Me.ColumnHeader3.Text = "Fecha Pago"
+        Me.ColumnHeader3.Width = 108
         '
         'ColumnHeader4
         '
         Me.ColumnHeader4.Text = "Descuento"
+        Me.ColumnHeader4.Width = 166
         '
         'resGeneral
         '
