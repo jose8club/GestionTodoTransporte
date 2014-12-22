@@ -23,42 +23,38 @@
 
             n = con.count("Usuario") - 1
             items2 = con.toArray(n, "Nombre", "Usuario")
+            cbox_funcionario.Items.Add("")
             For i As Integer = 0 To n
                 cbox_funcionario.Items.Add(items2(i))
             Next
             If n >= 0 Then cbox_funcionario.SelectedIndex = 0
 
-            setItems(cbox_funcionario.Text)
-            cargaLIST("Usuario")
-            'list_clientes.Items.Clear()
+            
         End If
     End Sub
 
-    Sub setItems(ByVal Nombre As String)
-        Dim n As Integer
-
-        n = con.countWhere("Atencion_Cliente_Potencial", "Usuario = '" & Nombre & "'") - 1
-        items = con.toArrayWhere(n, "Cliente_Potencial", "Atencion_Cliente_Potencial", "Usuario = '" & Nombre & "'")
-        'items = con.toArray3Where(n, "Nombre", "Cliente_Potencial", "Atencion_Cliente_Potencial", "Usuario = '" & Nombre & "'")
-        'For i As Integer = 0 To n
-        'items(i) = con.selectWhereQuery("Nombre", "Cliente_Potencial", "idCLIENTE_POTENCIAL = '" & items3(i) & "'")
-        'Next
-    End Sub
-
-    Sub cargaLIST(ByVal Nombre As String)
-        list_clientes.Items.Clear()
+    Sub loadLista(ByVal cliPot As String)
+        list_pago.Items.Clear()
 
         Dim n As Integer
-        If Nombre.Equals("Usuario") Then
-            n = items.Length - 1
-            For i As Integer = 0 To n
-                list_clientes.Items.Add(items(i))
-            Next
-            If list_clientes.Items.Count > 0 Then list_clientes.SelectedIndex = 0
+        Dim items() As String
+        Dim items2() As String
 
-        End If
+        n = con.count("Cliente_Potencial") - 1
+        items = con.toArrayWhere(n, "c.Nombre", "atencion_cliente_potencial a, cliente_potencial c", "a.Cliente_Potencial=c.idCliente_Potencial and a.usuario ='" & cbox_funcionario.Text & "'")
+        items2 = con.toArrayWhere(n, "c.Telefono", "atencion_cliente_potencial a, cliente_potencial c", "a.Cliente_Potencial=c.idCliente_Potencial and a.usuario ='" & cbox_funcionario.Text & "'")
+        For i As Integer = 0 To n
+            Dim Pago As New ListViewItem("", 0)
+            Pago.SubItems.Add(items(i))
+            Pago.SubItems.Add(items2(i))
+            list_pago.Items.AddRange(New ListViewItem() {Pago})
+        Next
+
     End Sub
 
 #End Region
 
+    Private Sub cbox_funcionario_SelectedValueChanged(sender As System.Object, e As System.EventArgs) Handles cbox_funcionario.SelectedValueChanged
+        loadLista(cbox_funcionario.Text)
+    End Sub
 End Class
