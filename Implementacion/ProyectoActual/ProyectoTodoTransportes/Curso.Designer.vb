@@ -36,6 +36,10 @@ Partial Class Curso
         Me.date_FechaTermino = New System.Windows.Forms.DateTimePicker()
         Me.btn_Guardar = New System.Windows.Forms.Button()
         Me.DG_HTmanana = New System.Windows.Forms.DataGridView()
+        Me.HTM_Hora = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.HTM_Minutos = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.HTM_Profesor = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.HTM_Eliminar = New System.Windows.Forms.DataGridViewImageColumn()
         Me.lbl_manana = New System.Windows.Forms.Label()
         Me.lbl_tarde = New System.Windows.Forms.Label()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
@@ -43,16 +47,14 @@ Partial Class Curso
         Me.ADD_tarde = New System.Windows.Forms.Button()
         Me.ADD_manana = New System.Windows.Forms.Button()
         Me.DG_HTtarde = New System.Windows.Forms.DataGridView()
-        Me.HTM_Hora = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.HTM_Minutos = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.HTM_Profesor = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.HTM_Eliminar = New System.Windows.Forms.DataGridViewImageColumn()
         Me.HTT_Hora = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.HTT_Minutos = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.HTT_Profesor = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.HTT_Eliminar = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         CType(Me.DG_HTmanana, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DG_HTtarde, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cbox_Area
@@ -170,6 +172,38 @@ Partial Class Curso
         Me.DG_HTmanana.Size = New System.Drawing.Size(322, 76)
         Me.DG_HTmanana.TabIndex = 59
         '
+        'HTM_Hora
+        '
+        Me.HTM_Hora.HeaderText = "Hora"
+        Me.HTM_Hora.Items.AddRange(New Object() {"08", "09", "10", "11"})
+        Me.HTM_Hora.Name = "HTM_Hora"
+        Me.HTM_Hora.Width = 50
+        '
+        'HTM_Minutos
+        '
+        Me.HTM_Minutos.HeaderText = "Minutos"
+        Me.HTM_Minutos.Items.AddRange(New Object() {"00", "10", "20", "30", "40", "50"})
+        Me.HTM_Minutos.Name = "HTM_Minutos"
+        Me.HTM_Minutos.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.HTM_Minutos.Width = 50
+        '
+        'HTM_Profesor
+        '
+        Me.HTM_Profesor.HeaderText = "Profesor"
+        Me.HTM_Profesor.Name = "HTM_Profesor"
+        Me.HTM_Profesor.Width = 174
+        '
+        'HTM_Eliminar
+        '
+        Me.HTM_Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.HTM_Eliminar.HeaderText = "Eliminar"
+        Me.HTM_Eliminar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON_finale_fw
+        Me.HTM_Eliminar.Name = "HTM_Eliminar"
+        Me.HTM_Eliminar.ReadOnly = True
+        Me.HTM_Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.HTM_Eliminar.ToolTipText = "Haz clic para eliminar."
+        Me.HTM_Eliminar.Width = 5
+        '
         'lbl_manana
         '
         Me.lbl_manana.AutoSize = True
@@ -252,38 +286,6 @@ Partial Class Curso
         Me.DG_HTtarde.Size = New System.Drawing.Size(322, 76)
         Me.DG_HTtarde.TabIndex = 66
         '
-        'HTM_Hora
-        '
-        Me.HTM_Hora.HeaderText = "Hora"
-        Me.HTM_Hora.Items.AddRange(New Object() {"08", "09", "10", "11"})
-        Me.HTM_Hora.Name = "HTM_Hora"
-        Me.HTM_Hora.Width = 50
-        '
-        'HTM_Minutos
-        '
-        Me.HTM_Minutos.HeaderText = "Minutos"
-        Me.HTM_Minutos.Items.AddRange(New Object() {"00", "10", "20", "30", "40", "50"})
-        Me.HTM_Minutos.Name = "HTM_Minutos"
-        Me.HTM_Minutos.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.HTM_Minutos.Width = 50
-        '
-        'HTM_Profesor
-        '
-        Me.HTM_Profesor.HeaderText = "Profesor"
-        Me.HTM_Profesor.Name = "HTM_Profesor"
-        Me.HTM_Profesor.Width = 174
-        '
-        'HTM_Eliminar
-        '
-        Me.HTM_Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.HTM_Eliminar.HeaderText = "Eliminar"
-        Me.HTM_Eliminar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON_finale_fw
-        Me.HTM_Eliminar.Name = "HTM_Eliminar"
-        Me.HTM_Eliminar.ReadOnly = True
-        Me.HTM_Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.HTM_Eliminar.ToolTipText = "Haz clic para eliminar."
-        Me.HTM_Eliminar.Width = 5
-        '
         'HTT_Hora
         '
         Me.HTT_Hora.HeaderText = "Hora"
@@ -316,11 +318,20 @@ Partial Class Curso
         Me.HTT_Eliminar.ToolTipText = "Haz clic para eliminar."
         Me.HTT_Eliminar.Width = 5
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(431, 152)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(240, 150)
+        Me.DataGridView1.TabIndex = 67
+        '
         'Curso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(760, 400)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.DG_HTtarde)
         Me.Controls.Add(Me.ADD_tarde)
         Me.Controls.Add(Me.lbl_tarde)
@@ -343,6 +354,7 @@ Partial Class Curso
         Me.Text = "Curso"
         CType(Me.DG_HTmanana, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DG_HTtarde, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -374,4 +386,5 @@ Partial Class Curso
     Friend WithEvents HTT_Minutos As System.Windows.Forms.DataGridViewComboBoxColumn
     Friend WithEvents HTT_Profesor As System.Windows.Forms.DataGridViewComboBoxColumn
     Friend WithEvents HTT_Eliminar As System.Windows.Forms.DataGridViewImageColumn
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
 End Class

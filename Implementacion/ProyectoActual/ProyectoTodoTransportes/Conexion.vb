@@ -16,34 +16,27 @@ Public Class Conexion
         comando.Connection = conn
     End Sub
 
-    Function doQuery(ByVal s As String) As String()
-        Dim arreglo(2) As String
+    Function doQuery(ByVal SQLQuery As String) As DataTable
+
+        'Realiza cualquier consulta y retorna los resultados en una tabla (DataTable).
+
+        Dim Data As DataTable = New DataTable
+
         Using comando As New MySqlCommand()
-            With comando
-                .CommandText = "select tipo from docente"
-                .CommandType = CommandType.Text
-                .Connection = conn
-            End With
+            comando.Connection = conn
+            comando.CommandText = SQLQuery
+
             Try
-                Dim i As Integer = 0
-                Using lector As MySqlDataReader = comando.ExecuteReader()
-                    
-                    While lector.Read()
-
-                        'arreglo(i) = lector.GetString(0)
-
-                        i = i + 1
-
-                    End While
-                End Using
-                Return arreglo
-
+                Dim SQLAdapter As New MySqlDataAdapter(comando)
+                SQLAdapter.Fill(Data)
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
             End Try
+
         End Using
 
-        Return {"0"}
+        Return Data
+
     End Function
 
     Sub beginTransaction()

@@ -80,8 +80,9 @@
 
 
     Sub loadDataViewGrid()
-        Dim a() As String = {}
-        a = datacbox.Profesores()
+        Dim Data As DataTable
+        Data = datacbox.Profesores()
+        DataGridView1.DataSource = Data
 
         DG_HTmanana.RowTemplate.Height = 22
     End Sub

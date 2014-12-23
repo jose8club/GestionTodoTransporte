@@ -6,13 +6,15 @@
         con = conexion
     End Sub
 
-    Function Profesores() As String()
+    Function Profesores() As DataTable
 
         Dim n As Integer = con.countWhere("Docente", "Tipo='PRO'")
         Dim arreglo(n) As String
+        Dim Data As DataTable
+
         'arreglo = con.doQuery("select f.nombre from funcionario as f, docente as d where d.tipo = 'PRO' And f.idFuncionario = d.idDocente")
-        arreglo = con.doQuery("Select * from docente")
-        Return arreglo
+        Data = con.doQuery("Select * from docente")
+        Return(Data)
     End Function
 
 End Class
