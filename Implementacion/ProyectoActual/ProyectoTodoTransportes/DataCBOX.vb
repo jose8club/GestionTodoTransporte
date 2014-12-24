@@ -8,13 +8,11 @@
 
     Function Profesores() As DataTable
 
-        Dim n As Integer = con.countWhere("Docente", "Tipo='PRO'")
-        Dim arreglo(n) As String
-        Dim Data As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT f.idFuncionario, f.nombre " _
+                                           & "FROM funcionario AS f, docente AS d " _
+                                           & "WHERE d.tipo = 'PRO' AND f.idFuncionario = d.idDocente")
+        Return Data
 
-        'arreglo = con.doQuery("select f.nombre from funcionario as f, docente as d where d.tipo = 'PRO' And f.idFuncionario = d.idDocente")
-        Data = con.doQuery("Select * from docente")
-        Return(Data)
     End Function
 
 End Class
