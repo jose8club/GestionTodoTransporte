@@ -2,11 +2,11 @@
     Dim con As New Conexion
     Dim USER As String = ""
     Dim STATUS As ToolStripStatusLabel
-    Dim datacbox As DataCBOX
+    Dim dc As DataCBOX
 
     Sub New(ByVal usuario As String, ByVal conexion As Conexion, ByVal estado As ToolStripStatusLabel)
         con = conexion
-        datacbox = New DataCBOX(con)
+        dc = New DataCBOX(con)
         USER = usuario
         STATUS = estado
         InitializeComponent()
@@ -20,28 +20,19 @@
 
     Sub loadCBOX(ByVal Nombre As String)
 
-        Dim items() As String
-        Dim n As Integer
-
         If Nombre.Equals("Area") Then
-            cbox_Area.Items.Clear()
 
-            cbox_Area.DataSource = datacbox.Area
+            cbox_Area.DataSource = dc.Area()
             cbox_Area.DisplayMember = "Nombre"
             cbox_Area.ValueMember = "Nombre"
 
-            If cbox_Area.Items.Count > 0 Then cbox_Area.SelectedIndex = 0
-
         ElseIf Nombre.Equals("Producto") Then
 
-            cbox_Producto.Items.Clear()
+            cbox_Producto.DataSource = dc.ProductoDeArea(cbox_Area.Text)
+            cbox_Area.DisplayMember = "Nombre"
+            cbox_Area.ValueMember = "Nombre"
 
-            n = con.countWhere("producto", "Area = '" & cbox_Area.Text & "'") - 1
-            items = con.toArrayWhere(n, "Nombre", "Producto", "Area = '" & cbox_Area.Text & "'")
-            For i As Integer = 0 To n
-                cbox_Producto.Items.Add(items(i))
-            Next
-            If n >= 0 Then cbox_Producto.SelectedIndex = 0
+
         End If
     End Sub
 
@@ -50,7 +41,6 @@
     End Sub
 
     Private Sub btn_Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Guardar.Click
-        MsgBox("-ÑIE")
         'If validar() Then
         '    Dim Codigo As String = tbox_Codigo.Text
         '    Dim Producto As String = cbox_Producto.Text
@@ -66,7 +56,7 @@
         'End If
         If validar() Then
 
-            For Each Row As DataGridViewRow In DG_HTmanana.Rows
+            For Each Row As DataGridViewRow In DG_HT.Rows
 
             Next
         End If
@@ -76,7 +66,7 @@
     Function validar() As Boolean
         'If tbox_Codigo.Text.Trim.Equals("") Then Return False
         'Return True
-        For Each Row As DataGridViewRow In DG_HTmanana.Rows
+        For Each Row As DataGridViewRow In DG_HT.Rows
             For Each Cell As DataGridViewCell In Row.Cells
                 If Cell.ColumnIndex = 3 Then
                     Continue For
@@ -99,67 +89,47 @@
     End Sub
 
     Sub loadDataGridViews()
-        Dim Data As DataTable = datacbox.Profesores()
 
-        HTM_Profesor.DataSource = Data
-        HTM_Profesor.DisplayMember = "Nombre"
-        HTM_Profesor.ValueMember = "idFuncionario"
-        DG_HTmanana.RowTemplate.Height = 22
+        HT_Profesor.DataSource = dc.Profesores()
+        HT_Profesor.DisplayMember = "Nombre"
+        HT_Profesor.ValueMember = "idFuncionario"
+        DG_HT.RowTemplate.Height = 22
+
+
     End Sub
 
-    'MAÑANA
+    'HORARIO TEORICO
 
-    Private Sub DG_HTmanana_click(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DG_HTmanana.CellClick
+    Private Sub DG_HT_click(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DG_HT.CellClick
         'Controla el despliegue de los comboboxs y el botón eliminar
 
         If e.RowIndex <> -1 Then 'Si no es el Header
 
-            If (DG_HTmanana.Rows(e.RowIndex).Cells(HTM_Profesor.Name).Selected = True Or
-                DG_HTmanana.Rows(e.RowIndex).Cells(HTM_Hora.Name).Selected Or
-                DG_HTmanana.Rows(e.RowIndex).Cells(HTM_Minutos.Name).Selected) Then
-                DG_HTmanana.BeginEdit(True)
-                DirectCast(DG_HTmanana.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
+            If (DG_HT.Rows(e.RowIndex).Cells(HT_Profesor.Name).Selected = True Or
+                DG_HT.Rows(e.RowIndex).Cells(HT_Hora.Name).Selected Or
+                DG_HT.Rows(e.RowIndex).Cells(HT_Minutos.Name).Selected) Then
+                DG_HT.BeginEdit(True)
+                DirectCast(DG_HT.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
             End If
 
-            If DG_HTmanana.Columns(e.ColumnIndex).Name = "HTM_Eliminar" Then
-                DG_HTmanana.Rows.RemoveAt(e.RowIndex)
+            If DG_HT.Columns(e.ColumnIndex).Name = "HT_Eliminar" Then
+                DG_HT.Rows.RemoveAt(e.RowIndex)
             End If
 
         End If
     End Sub
 
-    Private Sub ADD_manana_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ADD_manana.Click
-        DG_HTmanana.Rows.Add()
+    Private Sub ADD_HT_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ADD_HT.Click
+        DG_HT.Rows.Add()
     End Sub
 
-    Private Sub DG_HTmanana_RowsAdded(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowsAddedEventArgs) Handles DG_HTmanana.RowsAdded
-        DG_HTmanana.Rows(e.RowIndex).Cells(0).Value = HTM_Hora.Items(0)
-        DG_HTmanana.Rows(e.RowIndex).Cells(1).Value = HTM_Minutos.Items(0)
-        'DG_HTmanana.Rows(e.RowIndex).Cells(2).Value = HTM_Profesor.Items(0) No funciona :'(
+    Private Sub DG_HT_RowsAdded(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowsAddedEventArgs) Handles DG_HT.RowsAdded
+        DG_HT.Rows(e.RowIndex).Cells(0).Value = HT_Hora.Items(0)
+        DG_HT.Rows(e.RowIndex).Cells(1).Value = HT_Minutos.Items(0)
+        'DG_HTmanana.Rows(e.RowIndex).Cells(2).Value = HT_Profesor.Items(0) No funciona :'(
 
     End Sub
 
-    'TARDE
-
-    Private Sub DG_HTtarde_click(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
-
-        'DG_HTtarde.BeginEdit(True)
-        'If DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Profesor.Name).Selected = True Or
-        '    DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Hora.Name).Selected Or
-        '    DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Minutos.Name).Selected Then
-
-        '    DirectCast(DG_HTtarde.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
-        'End If
-
-
-        'If DG_HTtarde.Columns(e.ColumnIndex).Name = "HTT_Eliminar" Then
-        '    DG_HTtarde.Rows.RemoveAt(e.RowIndex)
-        'End If
-    End Sub
-
-    Private Sub ADD_tarde_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        '.Rows.Add()
-    End Sub
 
     
 End Class

@@ -16,8 +16,13 @@
     End Function
 
     Function Area() As DataTable
-        Dim Data As DataTable = con.doQuery("Select Nombre From Area")
+        Dim Data As DataTable = con.doQuery("SELECT Nombre FROM Area")
         Return Data
     End Function
 
+    Function ProductoDeArea(ByVal Area As String)
+        Dim Data As DataTable = con.doQuery("SELECT Nombre FROM Producto " _
+                                            & "WHERE Area = '" & Area & "'")
+        Return Data
+    End Function
 End Class
