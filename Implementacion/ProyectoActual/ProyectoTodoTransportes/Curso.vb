@@ -72,6 +72,7 @@
 
             Next
         End If
+
     End Sub
 
     Function validar() As Boolean
@@ -101,6 +102,7 @@
 
     Sub loadDataGridViews()
         Dim Data As DataTable = datacbox.Profesores()
+
         HTM_Profesor.DataSource = Data
         HTM_Profesor.DisplayMember = "Nombre"
         HTM_Profesor.ValueMember = "idFuncionario"

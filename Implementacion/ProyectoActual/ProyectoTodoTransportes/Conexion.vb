@@ -845,33 +845,5 @@ Public Class Conexion
 
 #End Region
 
-#Region "OTROS"
-
-    Function buscarPago(ByVal edad As Integer, ByVal Codigo As String) As Integer
-        Dim pago As Integer
-        Using comando As New MySqlCommand()
-            With comando
-                If edad > 17 Then
-                    .CommandText = "SELECT PrecioAdulto FROM CURSO WHERE Codigo = '" & Codigo & "'"
-                    .CommandType = CommandType.Text
-                    .Connection = conn
-                ElseIf edad <= 17 Then
-                    .CommandText = "SELECT PrecioEstudiante FROM CURSO WHERE Codigo = '" & Codigo & "'"
-                    .CommandType = CommandType.Text
-                    .Connection = conn
-                End If
-            End With
-            Try
-                comando.ExecuteNonQuery()
-                pago = Convert.ToDecimal(comando.ExecuteScalar)
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-
-        End Using
-        Return pago
-    End Function
-
-#End Region
 
 End Class
