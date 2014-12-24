@@ -63,16 +63,6 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property _10850044_780782001992008_7920030837036309954_n() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("10850044_780782001992008_7920030837036309954_n", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
         Friend ReadOnly Property a2() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("a2", resourceCulture)
@@ -103,29 +93,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property ADD_BUTTON_16x16_fw() As System.Drawing.Bitmap
+        Friend ReadOnly Property ADD_BUTTON() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("ADD_BUTTON_16x16.fw", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property ADD_BUTTON_25x25_fw() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("ADD_BUTTON_25x25.fw", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property ADD_BUTTON_fw() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("ADD_BUTTON.fw", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("ADD_BUTTON", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -143,59 +113,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property DELETE_BUTTON_16x16_fw() As System.Drawing.Bitmap
+        Friend ReadOnly Property DELETE_BUTTON() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("DELETE_BUTTON_16x16.fw", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property DELETE_BUTTON_16x1622_fw() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("DELETE_BUTTON_16x1622.fw", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property DELETE_BUTTON_FINAL_fw() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("DELETE_BUTTON_FINAL.fw", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property DELETE_BUTTON_finale_fw() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("DELETE_BUTTON_finale.fw", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property DELETE_BUTTON_trans_fw() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("DELETE_BUTTON_trans.fw", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property DELETE_fw() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("DELETE.fw", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("DELETE_BUTTON", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

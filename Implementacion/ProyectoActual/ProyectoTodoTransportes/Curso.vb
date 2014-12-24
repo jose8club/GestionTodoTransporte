@@ -50,7 +50,7 @@
     End Sub
 
     Private Sub btn_Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Guardar.Click
-
+        MsgBox("-ÑIE")
         'If validar() Then
         '    Dim Codigo As String = tbox_Codigo.Text
         '    Dim Producto As String = cbox_Producto.Text
@@ -143,22 +143,22 @@
 
     Private Sub DG_HTtarde_click(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
 
-        DG_HTtarde.BeginEdit(True)
-        If DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Profesor.Name).Selected = True Or
-            DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Hora.Name).Selected Or
-            DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Minutos.Name).Selected Then
+        'DG_HTtarde.BeginEdit(True)
+        'If DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Profesor.Name).Selected = True Or
+        '    DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Hora.Name).Selected Or
+        '    DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Minutos.Name).Selected Then
 
-            DirectCast(DG_HTtarde.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
-        End If
+        '    DirectCast(DG_HTtarde.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
+        'End If
 
 
-        If DG_HTtarde.Columns(e.ColumnIndex).Name = "HTT_Eliminar" Then
-            DG_HTtarde.Rows.RemoveAt(e.RowIndex)
-        End If
+        'If DG_HTtarde.Columns(e.ColumnIndex).Name = "HTT_Eliminar" Then
+        '    DG_HTtarde.Rows.RemoveAt(e.RowIndex)
+        'End If
     End Sub
 
     Private Sub ADD_tarde_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        DG_HTtarde.Rows.Add()
+        '.Rows.Add()
     End Sub
 
     

@@ -45,12 +45,13 @@ Partial Class Curso
         Me.HTM_Hora = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.HTM_Minutos = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.HTM_Profesor = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.HTM_Eliminar = New System.Windows.Forms.DataGridViewImageColumn()
         Me.lbl_manana = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn2 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.ADD_manana = New System.Windows.Forms.Button()
+        Me.HTM_Eliminar = New System.Windows.Forms.DataGridViewImageColumn()
         CType(Me.DG_HTmanana, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -225,17 +226,6 @@ Partial Class Curso
         Me.HTM_Profesor.Name = "HTM_Profesor"
         Me.HTM_Profesor.Width = 174
         '
-        'HTM_Eliminar
-        '
-        Me.HTM_Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.HTM_Eliminar.HeaderText = "Eliminar"
-        Me.HTM_Eliminar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_fw
-        Me.HTM_Eliminar.Name = "HTM_Eliminar"
-        Me.HTM_Eliminar.ReadOnly = True
-        Me.HTM_Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.HTM_Eliminar.ToolTipText = "Haz clic para eliminar."
-        Me.HTM_Eliminar.Width = 49
-        '
         'lbl_manana
         '
         Me.lbl_manana.AutoSize = True
@@ -282,7 +272,6 @@ Partial Class Curso
         '
         Me.DataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
         Me.DataGridViewImageColumn1.HeaderText = "Eliminar"
-        Me.DataGridViewImageColumn1.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON_16x1622_fw
         Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
         Me.DataGridViewImageColumn1.ReadOnly = True
         Me.DataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
@@ -292,15 +281,25 @@ Partial Class Curso
         '
         Me.DataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
         Me.DataGridViewImageColumn2.HeaderText = "Eliminar"
-        Me.DataGridViewImageColumn2.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON_16x16_fw
         Me.DataGridViewImageColumn2.Name = "DataGridViewImageColumn2"
         Me.DataGridViewImageColumn2.ReadOnly = True
         Me.DataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridViewImageColumn2.ToolTipText = "Haz clic para eliminar."
         '
+        'DataGridViewImageColumn3
+        '
+        Me.DataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.DataGridViewImageColumn3.HeaderText = "Eliminar"
+        Me.DataGridViewImageColumn3.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
+        Me.DataGridViewImageColumn3.Name = "DataGridViewImageColumn3"
+        Me.DataGridViewImageColumn3.ReadOnly = True
+        Me.DataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewImageColumn3.ToolTipText = "Haz clic para eliminar."
+        Me.DataGridViewImageColumn3.Width = 49
+        '
         'ADD_manana
         '
-        Me.ADD_manana.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.ADD_BUTTON_16x16_fw
+        Me.ADD_manana.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.ADD_BUTTON
         Me.ADD_manana.Location = New System.Drawing.Point(304, 133)
         Me.ADD_manana.Margin = New System.Windows.Forms.Padding(0)
         Me.ADD_manana.Name = "ADD_manana"
@@ -309,6 +308,17 @@ Partial Class Curso
         Me.ADD_manana.Text = "Agregar"
         Me.ADD_manana.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.ADD_manana.UseVisualStyleBackColor = True
+        '
+        'HTM_Eliminar
+        '
+        Me.HTM_Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.HTM_Eliminar.HeaderText = "Eliminar"
+        Me.HTM_Eliminar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
+        Me.HTM_Eliminar.Name = "HTM_Eliminar"
+        Me.HTM_Eliminar.ReadOnly = True
+        Me.HTM_Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.HTM_Eliminar.ToolTipText = "Haz clic para eliminar."
+        Me.HTM_Eliminar.Width = 49
         '
         'Curso
         '
@@ -360,4 +370,5 @@ Partial Class Curso
     Friend WithEvents HTM_Minutos As System.Windows.Forms.DataGridViewComboBoxColumn
     Friend WithEvents HTM_Profesor As System.Windows.Forms.DataGridViewComboBoxColumn
     Friend WithEvents HTM_Eliminar As System.Windows.Forms.DataGridViewImageColumn
+    Friend WithEvents DataGridViewImageColumn3 As System.Windows.Forms.DataGridViewImageColumn
 End Class
