@@ -19,20 +19,18 @@
     End Sub
 
     Sub loadCBOX(ByVal Nombre As String)
+
         Dim items() As String
         Dim n As Integer
 
         If Nombre.Equals("Area") Then
             cbox_Area.Items.Clear()
 
-            n = con.count("Area") - 1
-            items = con.toArray(n, "Nombre", "Area")
+            cbox_Area.DataSource = datacbox.Area
+            cbox_Area.DisplayMember = "Nombre"
+            cbox_Area.ValueMember = "Nombre"
 
-            For i As Integer = 0 To n
-                cbox_Area.Items.Add(items(i))
-            Next
-            If con.countWhere("Producto", "Area = 'Otros'") = 0 Then cbox_Area.Items.Remove("Otros")
-            If n >= 0 Then cbox_Area.SelectedIndex = 0
+            If cbox_Area.Items.Count > 0 Then cbox_Area.SelectedIndex = 0
 
         ElseIf Nombre.Equals("Producto") Then
 
@@ -143,7 +141,7 @@
 
     'TARDE
 
-    Private Sub DG_HTtarde_click(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DG_HTtarde.CellClick
+    Private Sub DG_HTtarde_click(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
 
         DG_HTtarde.BeginEdit(True)
         If DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Profesor.Name).Selected = True Or
@@ -159,7 +157,7 @@
         End If
     End Sub
 
-    Private Sub ADD_tarde_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ADD_tarde.Click
+    Private Sub ADD_tarde_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         DG_HTtarde.Rows.Add()
     End Sub
 
