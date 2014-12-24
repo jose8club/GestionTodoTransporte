@@ -143,8 +143,8 @@
 
     'Private Sub DG_HTtarde_click(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+    '<<<<<<< HEAD
+    '<<<<<<< HEAD
     '    DG_HTtarde.BeginEdit(True)
     '    If DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Profesor.Name).Selected = True Or
     '        DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Hora.Name).Selected Or
@@ -162,7 +162,7 @@
     'Private Sub ADD_tarde_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
     '    DG_HTtarde.Rows.Add()
     'End Sub
-=======
+    '=======
         'DG_HTtarde.BeginEdit(True)
         'If DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Profesor.Name).Selected = True Or
         '    DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Hora.Name).Selected Or
@@ -172,7 +172,7 @@
         'End If
 
 
-=======
+    '=======
         'DG_HTtarde.BeginEdit(True)
         'If DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Profesor.Name).Selected = True Or
         '    DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Hora.Name).Selected Or
@@ -182,16 +182,16 @@
         'End If
 
 
->>>>>>> origin/master
+    '>>>>>>> origin/master
         'If DG_HTtarde.Columns(e.ColumnIndex).Name = "HTT_Eliminar" Then
         '    DG_HTtarde.Rows.RemoveAt(e.RowIndex)
         'End If
-    End Sub
+    'End Sub
 
     Private Sub ADD_tarde_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         '.Rows.Add()
     End Sub
->>>>>>> origin/master
+    '>>>>>>> origin/master
 
     
 End Class
