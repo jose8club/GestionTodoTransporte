@@ -2,10 +2,12 @@
     Dim con As New Conexion
     Dim USER As String = ""
     Dim STATUS As ToolStripStatusLabel
-    Dim Profesores(,) As String
+    Dim datacbox As DataCBOX
+
     Sub New(ByVal usuario As String, ByVal conexion As Conexion, ByVal estado As ToolStripStatusLabel)
         con = conexion
         USER = usuario
+        datacbox = New DataCBOX(con)
         STATUS = estado
         InitializeComponent()
     End Sub
@@ -13,41 +15,20 @@
         rbtn_aprobado.Checked = True
         loadCBOX("Profesor")
         loadCBOX("Matricula")
-        lbl_estudiante.Text = con.selectWhereQuery("cl.nombre", "cliente cl, compra co, matricula m", "m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_matricula.Text & "'")
-
     End Sub
 
 #Region "Métodos"
     Sub loadCBOX(ByVal Nombre As String)
-        
-        Dim n As Integer
-        Dim items() As String
-
         If Nombre.Equals("Profesor") Then
-            cbox_funcionario.Items.Clear()
-
-            n = con.count("Profesor") - 1
-            items = con.toArrayWhere(n, "a.Nombre", "funcionario a, docente b", "a.idFuncionario=b.idDocente and b.tipo='PRO'")
-            cbox_funcionario.Items.Add("")
-            For i As Integer = 0 To n
-                cbox_funcionario.Items.Add(items(i))
-            Next
-
-            If n >= 0 Then cbox_funcionario.SelectedIndex = 0
-
+            cbox_funcionario.DataSource = datacbox.Profesores
+            cbox_funcionario.DisplayMember = "Nombre"
+            cbox_funcionario.ValueMember = "Nombre"
+            cbox_funcionario.SelectedIndex = -1
         ElseIf Nombre.Equals("Matricula") Then
-            cbox_matricula.Items.Clear()
-
-            n = con.count("Estudiante") - 1
-            items = con.toArray(n, "idEstudiante", "Estudiante")
-
-            cbox_matricula.Items.Add("")
-            For i As Integer = 0 To n
-                cbox_matricula.Items.Add(items(i))
-            Next
-
-            If n >= 0 Then cbox_matricula.SelectedIndex = 0
-
+            cbox_matricula.DataSource = datacbox.Estudiantes
+            cbox_matricula.DisplayMember = "idEstudiante"
+            cbox_matricula.ValueMember = "idEstudiante"
+            cbox_matricula.SelectedIndex = -1
         End If
     End Sub
 
@@ -55,14 +36,6 @@
 
         If tbox_calTeo.Text.Trim.Equals("") Then
             MsgBox("Ingrese Calificación")
-            Return False
-        ElseIf Not cbox_matricula.Items.Contains(cbox_matricula.Text) Then
-            MsgBox("La matricula '" & cbox_matricula.Text & "' no existe")
-            cbox_matricula.Text = ""
-            Return False
-        ElseIf Not cbox_funcionario.Items.Contains(cbox_funcionario.Text) Then
-            MsgBox("El funcionario: '" & cbox_funcionario.Text & "' no existe")
-            cbox_funcionario.Text = ""
             Return False
         ElseIf cbox_matricula.Text = "" Then
             MsgBox("Ingrese datos de matricula")
@@ -87,14 +60,27 @@
     Private Sub btn_exTeo_Click(sender As System.Object, e As System.EventArgs) Handles btn_exTeo.Click
         Dim Documento As Integer = 0
         Dim Calificacion As Integer = CInt(tbox_calTeo.Text)
-        Dim Funcionario As Integer = CInt(con.selectWhereQuery("idFuncionario", "Funcionario", "Nombre = '" & cbox_funcionario.Text & "'"))
-
+        Dim Funcionario As Integer = 0
+        'Dim Funcionario As Integer = CInt(con.selectWhereQuery("idFuncionario", "Funcionario", "Nombre = '" & cbox_funcionario.Text & "'"))
+        Dim Cliente As String = ""
         If validar() Then
             Dim Fecha As String = Format(date_rueda.Value, "yyyy-MM-dd")
-
+            Dim Fun As DataTable = con.doQuery("SELECT idFuncionario " _
+                                        & "FROM Funcionario" _
+                                         & " WHERE Nombre = '" & cbox_funcionario.Text & "'")
+            If Fun.Rows.Count > 0 Then
+                Funcionario = CInt(Fun.Rows(0).Item(0).ToString)
+            Else
+                Funcionario = 0
+            End If
             Dim Tipo As String = "Examen Teorico"
             Dim Estudiante As String = cbox_matricula.Text
-            Dim Cliente As String = con.selectWhereQuery("cl.nombre", "cliente cl, compra co, matricula m", "m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_matricula.Text & "'")
+            Dim Cl As DataTable = con.doQuery("SELECT cl.nombre FROM cliente cl, compra co, matricula m WHERE m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_matricula.Text & "'")
+            If Cl.Rows.Count > 0 Then
+                Cliente = Cl.Rows(0).Item(0).ToString
+            Else
+                Cliente = ""
+            End If
             Try
                 If rbtn_aprobado.Checked Then
                     con.regDocumento2(Tipo, Funcionario, Fecha, "Aprobado")
@@ -109,15 +95,29 @@
                 STATUS.Text = "Examen Teorico de: " & Cliente & " fue agregada exitosamente."
                 cbox_matricula.Text = ""
                 tbox_calTeo.Text = ""
+                lbl_estudiante.Text = ""
             Catch ex As Exception
                 STATUS.Text = "Examen Teorico de: " & Cliente & " no fue agregado."
             End Try
         End If
     End Sub
 
+
     Private Sub cbox_matricula_SelectedValueChanged(sender As System.Object, e As System.EventArgs) Handles cbox_matricula.SelectedValueChanged
-        lbl_estudiante.Text = con.selectWhereQuery("cl.nombre", "cliente cl, compra co, matricula m", "m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_matricula.Text & "'")
+
+        Dim label As DataTable = con.doQuery("SELECT cl.nombre " _
+                                        & "FROM cliente cl, compra co, matricula m" _
+                                         & " WHERE m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_matricula.Text & "'")
+
+        If label.Rows.Count > 0 Then
+            lbl_estudiante.Text = label.Rows(0).Item(0).ToString
+        Else
+            lbl_estudiante.Text = ""
+        End If
+
+
     End Sub
+
 
     Private Sub btn_reset_Click(sender As System.Object, e As System.EventArgs) Handles btn_reset.Click
         date_rueda.Value = Now
@@ -127,6 +127,7 @@
         rbtn_aprobado.Checked = False
         rbtn_reprobado.Checked = False
         STATUS.Text = "Usuario " & USER & ""
+        lbl_estudiante.Text = ""
     End Sub
 
     

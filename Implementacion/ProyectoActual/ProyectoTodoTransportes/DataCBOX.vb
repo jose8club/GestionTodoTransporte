@@ -25,4 +25,9 @@
                                             & "WHERE Area = '" & Area & "'")
         Return Data
     End Function
+
+    Function Estudiantes() As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT idEstudiante FROM Estudiante")
+        Return Data
+    End Function
 End Class
