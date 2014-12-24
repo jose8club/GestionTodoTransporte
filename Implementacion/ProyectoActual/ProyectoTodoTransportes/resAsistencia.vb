@@ -35,25 +35,30 @@
         End If
     End Sub
 
-    Sub loadLista(ByVal fun As String)
-        list_asistencias.Items.Clear()
-        Dim s As Integer
+    Sub loadListateo(ByVal est As String)
+        list_asistenciasteo.Items.Clear()
         Dim n As Integer
         Dim items() As String
-        Dim items2() As String
-        If fun.Equals("") Then
-            s = 0
-        Else
-            s = CInt(con.selectWhereQuery("min(idATENCION_CLIENTE_POTENCIAL)", "atencion_cliente_potencial", "usuario ='" & fun & "'"))
-        End If
-        n = con.count("Cliente_Potencial") - 1
-        items = con.toArrayWhere(n, "c.Nombre", "atencion_cliente_potencial a, cliente_potencial c", "a.Cliente_Potencial=c.idCliente_Potencial and a.usuario ='" & fun & "' and a.idATENCION_CLIENTE_POTENCIAL = '" & s & "'")
-        items2 = con.toArrayWhere(n, "c.Telefono", "atencion_cliente_potencial a, cliente_potencial c", "a.Cliente_Potencial=c.idCliente_Potencial and a.usuario ='" & fun & "' and a.idATENCION_CLIENTE_POTENCIAL = '" & s & "'")
+        n = con.count("Asistencia_Teoria") - 1
+        items = con.toArrayWhere(n, "a.Fecha", "asistencia a, asistencia_teoria ap", "a.Estudiante=ap.Estudiante and a.Estudiante='" & est & "'")
         For i As Integer = 0 To n
-            Dim Pago As New ListViewItem("", 0)
-            Pago.SubItems.Add(items(i))
-            Pago.SubItems.Add(items2(i))
-            list_asistencias.Items.AddRange(New ListViewItem() {Pago})
+            Dim ast As New ListViewItem("", 0)
+            ast.SubItems.Add(items(i))
+            list_asistenciasteo.Items.AddRange(New ListViewItem() {ast})
+        Next
+
+    End Sub
+
+    Sub loadListapract(ByVal est As String)
+        list_asistenciapract.Items.Clear()
+        Dim n As Integer
+        Dim items() As String
+        n = con.count("Asistencia_Practica") - 1
+        items = con.toArrayWhere(n, "a.Fecha", "asistencia a, asistencia_practica ap", "a.Estudiante=ap.Estudiante and a.Estudiante='" & est & "'")
+        For i As Integer = 0 To n
+            Dim asp As New ListViewItem("", 0)
+            asp.SubItems.Add(items(i))
+            list_asistenciapract.Items.AddRange(New ListViewItem() {asp})
         Next
 
     End Sub
@@ -61,6 +66,7 @@
 
     Private Sub cbox_estudiante_SelectedValueChanged(sender As System.Object, e As System.EventArgs) Handles cbox_estudiante.SelectedValueChanged
         lbl_estudiante.Text = con.selectWhereQuery("cl.nombre", "cliente cl, compra co, matricula m", "m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_estudiante.Text & "'")
-        loadLista(cbox_estudiante.Text)
+        loadListateo(cbox_estudiante.Text)
+        loadListapract(cbox_estudiante.Text)
     End Sub
 End Class

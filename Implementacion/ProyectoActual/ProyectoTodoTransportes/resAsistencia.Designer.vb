@@ -23,16 +23,24 @@ Partial Class resAsistencia
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim ColumnHeader1 As System.Windows.Forms.ColumnHeader
+        Dim ColumnHeader3 As System.Windows.Forms.ColumnHeader
         Me.cbox_estudiante = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.list_asistencias = New System.Windows.Forms.ListView()
-        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.lbl_estudiante = New System.Windows.Forms.Label()
+        Me.list_asistenciasteo = New System.Windows.Forms.ListView()
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.list_asistenciapract = New System.Windows.Forms.ListView()
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
+        '
+        'ColumnHeader1
+        '
+        ColumnHeader1.Text = "Numero"
+        ColumnHeader1.Width = 1
         '
         'cbox_estudiante
         '
@@ -56,44 +64,17 @@ Partial Class resAsistencia
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.list_asistenciapract)
         Me.GroupBox1.Controls.Add(Me.lbl_estudiante)
-        Me.GroupBox1.Controls.Add(Me.list_asistencias)
+        Me.GroupBox1.Controls.Add(Me.list_asistenciasteo)
         Me.GroupBox1.Controls.Add(Me.cbox_estudiante)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(22, 22)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(577, 284)
+        Me.GroupBox1.Size = New System.Drawing.Size(599, 284)
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Asistencias por Estudiante"
-        '
-        'list_asistencias
-        '
-        Me.list_asistencias.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
-        Me.list_asistencias.GridLines = True
-        Me.list_asistencias.LabelEdit = True
-        Me.list_asistencias.Location = New System.Drawing.Point(28, 93)
-        Me.list_asistencias.MultiSelect = False
-        Me.list_asistencias.Name = "list_asistencias"
-        Me.list_asistencias.Size = New System.Drawing.Size(523, 174)
-        Me.list_asistencias.TabIndex = 40
-        Me.list_asistencias.UseCompatibleStateImageBehavior = False
-        Me.list_asistencias.View = System.Windows.Forms.View.Details
-        '
-        'ColumnHeader1
-        '
-        ColumnHeader1.Text = "Numero"
-        ColumnHeader1.Width = 1
-        '
-        'ColumnHeader2
-        '
-        Me.ColumnHeader2.Text = "Asistencia Teorica"
-        Me.ColumnHeader2.Width = 253
-        '
-        'ColumnHeader3
-        '
-        Me.ColumnHeader3.Text = "Asistencia Teorica"
-        Me.ColumnHeader3.Width = 260
         '
         'lbl_estudiante
         '
@@ -103,6 +84,47 @@ Partial Class resAsistencia
         Me.lbl_estudiante.Size = New System.Drawing.Size(39, 13)
         Me.lbl_estudiante.TabIndex = 41
         Me.lbl_estudiante.Text = "Label8"
+        '
+        'list_asistenciasteo
+        '
+        Me.list_asistenciasteo.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {ColumnHeader1, Me.ColumnHeader2})
+        Me.list_asistenciasteo.GridLines = True
+        Me.list_asistenciasteo.LabelEdit = True
+        Me.list_asistenciasteo.Location = New System.Drawing.Point(28, 93)
+        Me.list_asistenciasteo.MultiSelect = False
+        Me.list_asistenciasteo.Name = "list_asistenciasteo"
+        Me.list_asistenciasteo.Size = New System.Drawing.Size(272, 174)
+        Me.list_asistenciasteo.TabIndex = 40
+        Me.list_asistenciasteo.UseCompatibleStateImageBehavior = False
+        Me.list_asistenciasteo.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader2
+        '
+        Me.ColumnHeader2.Text = "Asistencia Teorica"
+        Me.ColumnHeader2.Width = 265
+        '
+        'list_asistenciapract
+        '
+        Me.list_asistenciapract.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {ColumnHeader3, Me.ColumnHeader4})
+        Me.list_asistenciapract.GridLines = True
+        Me.list_asistenciapract.LabelEdit = True
+        Me.list_asistenciapract.Location = New System.Drawing.Point(299, 93)
+        Me.list_asistenciapract.MultiSelect = False
+        Me.list_asistenciapract.Name = "list_asistenciapract"
+        Me.list_asistenciapract.Size = New System.Drawing.Size(272, 174)
+        Me.list_asistenciapract.TabIndex = 42
+        Me.list_asistenciapract.UseCompatibleStateImageBehavior = False
+        Me.list_asistenciapract.View = System.Windows.Forms.View.Details
+        '
+        'ColumnHeader3
+        '
+        ColumnHeader3.Text = "Numero"
+        ColumnHeader3.Width = 1
+        '
+        'ColumnHeader4
+        '
+        Me.ColumnHeader4.Text = "Asistencia Practica"
+        Me.ColumnHeader4.Width = 265
         '
         'resAsistencia
         '
@@ -121,8 +143,9 @@ Partial Class resAsistencia
     Friend WithEvents cbox_estudiante As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents list_asistencias As System.Windows.Forms.ListView
+    Friend WithEvents list_asistenciasteo As System.Windows.Forms.ListView
     Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
     Friend WithEvents lbl_estudiante As System.Windows.Forms.Label
+    Friend WithEvents list_asistenciapract As System.Windows.Forms.ListView
+    Friend WithEvents ColumnHeader4 As System.Windows.Forms.ColumnHeader
 End Class
