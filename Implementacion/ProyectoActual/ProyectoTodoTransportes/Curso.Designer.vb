@@ -30,10 +30,6 @@ Partial Class Curso
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.cbox_Area = New System.Windows.Forms.ComboBox()
         Me.lbl_Licencia = New System.Windows.Forms.Label()
         Me.cbox_Producto = New System.Windows.Forms.ComboBox()
@@ -46,24 +42,16 @@ Partial Class Curso
         Me.date_FechaTermino = New System.Windows.Forms.DateTimePicker()
         Me.btn_Guardar = New System.Windows.Forms.Button()
         Me.DG_HTmanana = New System.Windows.Forms.DataGridView()
-        Me.lbl_manana = New System.Windows.Forms.Label()
-        Me.lbl_tarde = New System.Windows.Forms.Label()
-        Me.DG_HTtarde = New System.Windows.Forms.DataGridView()
-        Me.HTT_Hora = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.HTT_Minutos = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.HTT_Profesor = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.DataGridViewImageColumn2 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.HTT_Eliminar = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.ADD_tarde = New System.Windows.Forms.Button()
-        Me.ADD_manana = New System.Windows.Forms.Button()
         Me.HTM_Hora = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.HTM_Minutos = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.HTM_Profesor = New System.Windows.Forms.DataGridViewComboBoxColumn()
         Me.HTM_Eliminar = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.lbl_manana = New System.Windows.Forms.Label()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.DataGridViewImageColumn2 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.ADD_manana = New System.Windows.Forms.Button()
         CType(Me.DG_HTmanana, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DG_HTtarde, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -212,183 +200,8 @@ Partial Class Curso
         Me.DG_HTmanana.ShowCellErrors = False
         Me.DG_HTmanana.ShowEditingIcon = False
         Me.DG_HTmanana.ShowRowErrors = False
-        Me.DG_HTmanana.Size = New System.Drawing.Size(332, 76)
+        Me.DG_HTmanana.Size = New System.Drawing.Size(332, 138)
         Me.DG_HTmanana.TabIndex = 59
-        '
-        'lbl_manana
-        '
-        Me.lbl_manana.AutoSize = True
-        Me.lbl_manana.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_manana.Location = New System.Drawing.Point(44, 140)
-        Me.lbl_manana.Name = "lbl_manana"
-        Me.lbl_manana.Size = New System.Drawing.Size(52, 13)
-        Me.lbl_manana.TabIndex = 61
-        Me.lbl_manana.Text = "Mañana"
-        '
-        'lbl_tarde
-        '
-        Me.lbl_tarde.AutoSize = True
-        Me.lbl_tarde.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbl_tarde.Location = New System.Drawing.Point(44, 260)
-        Me.lbl_tarde.Name = "lbl_tarde"
-        Me.lbl_tarde.Size = New System.Drawing.Size(40, 13)
-        Me.lbl_tarde.TabIndex = 64
-        Me.lbl_tarde.Text = "Tarde"
-        '
-        'DG_HTtarde
-        '
-        Me.DG_HTtarde.AllowUserToAddRows = False
-        Me.DG_HTtarde.AllowUserToDeleteRows = False
-        Me.DG_HTtarde.AllowUserToResizeColumns = False
-        Me.DG_HTtarde.AllowUserToResizeRows = False
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.Transparent
-        Me.DG_HTtarde.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
-        Me.DG_HTtarde.BackgroundColor = System.Drawing.SystemColors.Control
-        Me.DG_HTtarde.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DG_HTtarde.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
-        Me.DG_HTtarde.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_HTtarde.ColumnHeadersVisible = False
-        Me.DG_HTtarde.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HTT_Hora, Me.HTT_Minutos, Me.HTT_Profesor, Me.HTT_Eliminar})
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DG_HTtarde.DefaultCellStyle = DataGridViewCellStyle8
-        Me.DG_HTtarde.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
-        Me.DG_HTtarde.GridColor = System.Drawing.Color.White
-        Me.DG_HTtarde.Location = New System.Drawing.Point(47, 284)
-        Me.DG_HTtarde.Name = "DG_HTtarde"
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DG_HTtarde.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
-        Me.DG_HTtarde.RowHeadersVisible = False
-        Me.DG_HTtarde.Size = New System.Drawing.Size(322, 76)
-        Me.DG_HTtarde.TabIndex = 66
-        '
-        'HTT_Hora
-        '
-        Me.HTT_Hora.HeaderText = "Hora"
-        Me.HTT_Hora.Items.AddRange(New Object() {"12", "13", "14", "15", "16", "17", "18", "19", "20", "21"})
-        Me.HTT_Hora.Name = "HTT_Hora"
-        Me.HTT_Hora.Width = 50
-        '
-        'HTT_Minutos
-        '
-        Me.HTT_Minutos.HeaderText = "Minutos"
-        Me.HTT_Minutos.Items.AddRange(New Object() {"00", "10", "20", "30", "40", "50"})
-        Me.HTT_Minutos.Name = "HTT_Minutos"
-        Me.HTT_Minutos.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.HTT_Minutos.Width = 50
-        '
-        'HTT_Profesor
-        '
-        Me.HTT_Profesor.HeaderText = "Profesor"
-        Me.HTT_Profesor.Name = "HTT_Profesor"
-        Me.HTT_Profesor.Width = 174
-        '
-        'DataGridView1
-        '
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle11
-        Me.DataGridView1.Location = New System.Drawing.Point(431, 152)
-        Me.DataGridView1.Name = "DataGridView1"
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
-        Me.DataGridView1.Size = New System.Drawing.Size(240, 150)
-        Me.DataGridView1.TabIndex = 67
-        '
-        'DataGridViewImageColumn1
-        '
-        Me.DataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DataGridViewImageColumn1.HeaderText = "Eliminar"
-        Me.DataGridViewImageColumn1.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON_16x1622_fw
-        Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
-        Me.DataGridViewImageColumn1.ReadOnly = True
-        Me.DataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewImageColumn1.ToolTipText = "Haz clic para eliminar."
-        Me.DataGridViewImageColumn1.Width = 47
-        '
-        'DataGridViewImageColumn2
-        '
-        Me.DataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DataGridViewImageColumn2.HeaderText = "Eliminar"
-        Me.DataGridViewImageColumn2.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON_16x16_fw
-        Me.DataGridViewImageColumn2.Name = "DataGridViewImageColumn2"
-        Me.DataGridViewImageColumn2.ReadOnly = True
-        Me.DataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewImageColumn2.ToolTipText = "Haz clic para eliminar."
-        Me.DataGridViewImageColumn2.Width = 5
-        '
-        'HTT_Eliminar
-        '
-        Me.HTT_Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.HTT_Eliminar.HeaderText = "Eliminar"
-        Me.HTT_Eliminar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON_finale_fw
-        Me.HTT_Eliminar.Name = "HTT_Eliminar"
-        Me.HTT_Eliminar.ReadOnly = True
-        Me.HTT_Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.HTT_Eliminar.ToolTipText = "Haz clic para eliminar."
-        Me.HTT_Eliminar.Width = 5
-        '
-        'ADD_tarde
-        '
-        Me.ADD_tarde.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.ADD_BUTTON_16x16_fw
-        Me.ADD_tarde.Location = New System.Drawing.Point(294, 255)
-        Me.ADD_tarde.Margin = New System.Windows.Forms.Padding(0)
-        Me.ADD_tarde.Name = "ADD_tarde"
-        Me.ADD_tarde.Size = New System.Drawing.Size(75, 26)
-        Me.ADD_tarde.TabIndex = 65
-        Me.ADD_tarde.Text = "Agregar"
-        Me.ADD_tarde.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.ADD_tarde.UseVisualStyleBackColor = True
-        '
-        'ADD_manana
-        '
-        Me.ADD_manana.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.ADD_BUTTON_16x16_fw
-        Me.ADD_manana.Location = New System.Drawing.Point(294, 135)
-        Me.ADD_manana.Margin = New System.Windows.Forms.Padding(0)
-        Me.ADD_manana.Name = "ADD_manana"
-        Me.ADD_manana.Size = New System.Drawing.Size(75, 26)
-        Me.ADD_manana.TabIndex = 62
-        Me.ADD_manana.Text = "Agregar"
-        Me.ADD_manana.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.ADD_manana.UseVisualStyleBackColor = True
         '
         'HTM_Hora
         '
@@ -421,7 +234,81 @@ Partial Class Curso
         Me.HTM_Eliminar.ReadOnly = True
         Me.HTM_Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.HTM_Eliminar.ToolTipText = "Haz clic para eliminar."
-        Me.HTM_Eliminar.Width = 47
+        Me.HTM_Eliminar.Width = 49
+        '
+        'lbl_manana
+        '
+        Me.lbl_manana.AutoSize = True
+        Me.lbl_manana.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_manana.Location = New System.Drawing.Point(44, 140)
+        Me.lbl_manana.Name = "lbl_manana"
+        Me.lbl_manana.Size = New System.Drawing.Size(95, 13)
+        Me.lbl_manana.TabIndex = 61
+        Me.lbl_manana.Text = "Horario Teórico"
+        '
+        'DataGridView1
+        '
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle7
+        Me.DataGridView1.Location = New System.Drawing.Point(431, 152)
+        Me.DataGridView1.Name = "DataGridView1"
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
+        Me.DataGridView1.Size = New System.Drawing.Size(240, 150)
+        Me.DataGridView1.TabIndex = 67
+        '
+        'DataGridViewImageColumn1
+        '
+        Me.DataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.DataGridViewImageColumn1.HeaderText = "Eliminar"
+        Me.DataGridViewImageColumn1.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON_16x1622_fw
+        Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
+        Me.DataGridViewImageColumn1.ReadOnly = True
+        Me.DataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewImageColumn1.ToolTipText = "Haz clic para eliminar."
+        '
+        'DataGridViewImageColumn2
+        '
+        Me.DataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.DataGridViewImageColumn2.HeaderText = "Eliminar"
+        Me.DataGridViewImageColumn2.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON_16x16_fw
+        Me.DataGridViewImageColumn2.Name = "DataGridViewImageColumn2"
+        Me.DataGridViewImageColumn2.ReadOnly = True
+        Me.DataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewImageColumn2.ToolTipText = "Haz clic para eliminar."
+        '
+        'ADD_manana
+        '
+        Me.ADD_manana.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.ADD_BUTTON_16x16_fw
+        Me.ADD_manana.Location = New System.Drawing.Point(304, 133)
+        Me.ADD_manana.Margin = New System.Windows.Forms.Padding(0)
+        Me.ADD_manana.Name = "ADD_manana"
+        Me.ADD_manana.Size = New System.Drawing.Size(75, 26)
+        Me.ADD_manana.TabIndex = 62
+        Me.ADD_manana.Text = "Agregar"
+        Me.ADD_manana.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ADD_manana.UseVisualStyleBackColor = True
         '
         'Curso
         '
@@ -429,9 +316,6 @@ Partial Class Curso
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(760, 400)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.DG_HTtarde)
-        Me.Controls.Add(Me.ADD_tarde)
-        Me.Controls.Add(Me.lbl_tarde)
         Me.Controls.Add(Me.ADD_manana)
         Me.Controls.Add(Me.lbl_manana)
         Me.Controls.Add(Me.DG_HTmanana)
@@ -450,7 +334,6 @@ Partial Class Curso
         Me.Name = "Curso"
         Me.Text = "Curso"
         CType(Me.DG_HTmanana, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DG_HTtarde, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -470,15 +353,8 @@ Partial Class Curso
     Friend WithEvents DG_HTmanana As System.Windows.Forms.DataGridView
     Friend WithEvents lbl_manana As System.Windows.Forms.Label
     Friend WithEvents ADD_manana As System.Windows.Forms.Button
-    Friend WithEvents ADD_tarde As System.Windows.Forms.Button
-    Friend WithEvents lbl_tarde As System.Windows.Forms.Label
     Friend WithEvents DataGridViewImageColumn1 As System.Windows.Forms.DataGridViewImageColumn
     Friend WithEvents DataGridViewImageColumn2 As System.Windows.Forms.DataGridViewImageColumn
-    Friend WithEvents DG_HTtarde As System.Windows.Forms.DataGridView
-    Friend WithEvents HTT_Hora As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents HTT_Minutos As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents HTT_Profesor As System.Windows.Forms.DataGridViewComboBoxColumn
-    Friend WithEvents HTT_Eliminar As System.Windows.Forms.DataGridViewImageColumn
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents HTM_Hora As System.Windows.Forms.DataGridViewComboBoxColumn
     Friend WithEvents HTM_Minutos As System.Windows.Forms.DataGridViewComboBoxColumn
