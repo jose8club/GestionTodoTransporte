@@ -22,26 +22,18 @@ Partial Class resClientePot
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ColumnHeader1 As System.Windows.Forms.ColumnHeader
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.list_pago = New System.Windows.Forms.ListView()
-        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Label3 = New System.Windows.Forms.Label()
         Me.cbox_funcionario = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'ColumnHeader1
-        '
-        ColumnHeader1.Text = "Numero"
-        ColumnHeader1.Width = 1
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.list_pago)
+        Me.GroupBox2.Controls.Add(Me.DataGridView1)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.cbox_funcionario)
         Me.GroupBox2.Controls.Add(Me.Label4)
@@ -51,29 +43,6 @@ Partial Class resClientePot
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Resumen Clientes"
-        '
-        'list_pago
-        '
-        Me.list_pago.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
-        Me.list_pago.GridLines = True
-        Me.list_pago.LabelEdit = True
-        Me.list_pago.Location = New System.Drawing.Point(12, 97)
-        Me.list_pago.MultiSelect = False
-        Me.list_pago.Name = "list_pago"
-        Me.list_pago.Size = New System.Drawing.Size(418, 174)
-        Me.list_pago.TabIndex = 38
-        Me.list_pago.UseCompatibleStateImageBehavior = False
-        Me.list_pago.View = System.Windows.Forms.View.Details
-        '
-        'ColumnHeader2
-        '
-        Me.ColumnHeader2.Text = "Nombre Cliente"
-        Me.ColumnHeader2.Width = 183
-        '
-        'ColumnHeader3
-        '
-        Me.ColumnHeader3.Text = "Telefono"
-        Me.ColumnHeader3.Width = 224
         '
         'Label3
         '
@@ -102,6 +71,14 @@ Partial Class resClientePot
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "Funcionario"
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(30, 92)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(430, 150)
+        Me.DataGridView1.TabIndex = 3
+        '
         'resClientePot
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -113,6 +90,7 @@ Partial Class resClientePot
         Me.Text = "resClientePot"
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -120,7 +98,5 @@ Partial Class resClientePot
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents cbox_funcionario As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents list_pago As System.Windows.Forms.ListView
-    Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
 End Class

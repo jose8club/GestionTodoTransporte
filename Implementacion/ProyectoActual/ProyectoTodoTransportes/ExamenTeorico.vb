@@ -2,10 +2,12 @@
     Dim con As New Conexion
     Dim USER As String = ""
     Dim STATUS As ToolStripStatusLabel
-    Dim Profesores(,) As String
+    Dim datacbox As DataCBOX
+
     Sub New(ByVal usuario As String, ByVal conexion As Conexion, ByVal estado As ToolStripStatusLabel)
         con = conexion
         USER = usuario
+        datacbox = New DataCBOX(con)
         STATUS = estado
         InitializeComponent()
     End Sub
@@ -13,41 +15,23 @@
         rbtn_aprobado.Checked = True
         loadCBOX("Profesor")
         loadCBOX("Matricula")
-        lbl_estudiante.Text = con.selectWhereQuery("cl.nombre", "cliente cl, compra co, matricula m", "m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_matricula.Text & "'")
+        
+        'lbl_estudiante.Text = con.selectWhereQuery("cl.nombre", "cliente cl, compra co, matricula m", "m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_matricula.Text & "'")
 
     End Sub
 
 #Region "Métodos"
     Sub loadCBOX(ByVal Nombre As String)
-        
-        Dim n As Integer
-        Dim items() As String
-
         If Nombre.Equals("Profesor") Then
-            cbox_funcionario.Items.Clear()
-
-            n = con.count("Profesor") - 1
-            items = con.toArrayWhere(n, "a.Nombre", "funcionario a, docente b", "a.idFuncionario=b.idDocente and b.tipo='PRO'")
-            cbox_funcionario.Items.Add("")
-            For i As Integer = 0 To n
-                cbox_funcionario.Items.Add(items(i))
-            Next
-
-            If n >= 0 Then cbox_funcionario.SelectedIndex = 0
-
+            cbox_funcionario.DataSource = datacbox.Profesores
+            cbox_funcionario.DisplayMember = "Nombre"
+            cbox_funcionario.ValueMember = "Nombre"
+            cbox_funcionario.SelectedIndex = -1
         ElseIf Nombre.Equals("Matricula") Then
-            cbox_matricula.Items.Clear()
-
-            n = con.count("Estudiante") - 1
-            items = con.toArray(n, "idEstudiante", "Estudiante")
-
-            cbox_matricula.Items.Add("")
-            For i As Integer = 0 To n
-                cbox_matricula.Items.Add(items(i))
-            Next
-
-            If n >= 0 Then cbox_matricula.SelectedIndex = 0
-
+            cbox_matricula.DataSource = datacbox.Estudiantes
+            cbox_matricula.DisplayMember = "idEstudiante"
+            cbox_matricula.ValueMember = "idEstudiante"
+            cbox_matricula.SelectedIndex = -1
         End If
     End Sub
 
@@ -115,9 +99,23 @@
         End If
     End Sub
 
+
     Private Sub cbox_matricula_SelectedValueChanged(sender As System.Object, e As System.EventArgs) Handles cbox_matricula.SelectedValueChanged
-        lbl_estudiante.Text = con.selectWhereQuery("cl.nombre", "cliente cl, compra co, matricula m", "m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_matricula.Text & "'")
+
+        Dim label As DataTable = con.doQuery("SELECT cl.nombre " _
+                                        & "FROM cliente cl, compra co, matricula m" _
+                                         & " WHERE m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_matricula.Text & "'")
+
+        If label.Rows.Count > 0 Then
+            lbl_estudiante.Text = label.Rows(0).Item(0).ToString
+        Else
+            lbl_estudiante.Text = ""
+        End If
+
+
     End Sub
+
+
 
     Private Sub btn_reset_Click(sender As System.Object, e As System.EventArgs) Handles btn_reset.Click
         date_rueda.Value = Now
