@@ -10,7 +10,8 @@
         STATUS = estado
         InitializeComponent()
     End Sub
-    Private Sub resClientePot_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub resClientePot_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        MsgBox("ñe")
         loadCBOX("Usuario")
     End Sub
 
@@ -18,19 +19,24 @@
     Sub loadCBOX(ByVal Nombre As String)
         Dim n As Integer
         Dim items2() As String
-        If Nombre.Equals("Usuario") Then
+        If Nombre.Equals("usuario") Then
             cbox_funcionario.Items.Clear()
 
-            n = con.count("Usuario") - 1
-            items2 = con.toArray(n, "Nombre", "Usuario")
+            n = con.count("usuario") - 1
+            items2 = con.toArray(n, "nombre", "usuario")
             cbox_funcionario.Items.Add("")
             For i As Integer = 0 To n
                 cbox_funcionario.Items.Add(items2(i))
             Next
             If n >= 0 Then cbox_funcionario.SelectedIndex = 0
 
-            
+
         End If
+
+        'Dim func As DataTable = con.doQuery("SELECT Nombre FROM Usuario")
+        'cbox_funcionario.DataSource = func
+        'cbox_funcionario.DisplayMember = "Nombre"
+        ''cbox_funcionario.ValueMember = "Codigo"
     End Sub
 
     Sub loadLista(ByVal fun As String)
@@ -60,6 +66,7 @@
 #End Region
 
     Private Sub cbox_funcionario_SelectedValueChanged(sender As System.Object, e As System.EventArgs) Handles cbox_funcionario.SelectedValueChanged
-        loadLista(cbox_funcionario.Text)
+        'loadLista(cbox_funcionario.Text)
     End Sub
+
 End Class
