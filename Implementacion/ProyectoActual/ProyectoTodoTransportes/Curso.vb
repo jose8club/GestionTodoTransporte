@@ -144,6 +144,7 @@
     'Private Sub DG_HTtarde_click(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     '    DG_HTtarde.BeginEdit(True)
     '    If DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Profesor.Name).Selected = True Or
     '        DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Hora.Name).Selected Or
@@ -171,6 +172,17 @@
         'End If
 
 
+=======
+        'DG_HTtarde.BeginEdit(True)
+        'If DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Profesor.Name).Selected = True Or
+        '    DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Hora.Name).Selected Or
+        '    DG_HTtarde.Rows(e.RowIndex).Cells(HTT_Minutos.Name).Selected Then
+
+        '    DirectCast(DG_HTtarde.EditingControl, DataGridViewComboBoxEditingControl).DroppedDown = True
+        'End If
+
+
+>>>>>>> origin/master
         'If DG_HTtarde.Columns(e.ColumnIndex).Name = "HTT_Eliminar" Then
         '    DG_HTtarde.Rows.RemoveAt(e.RowIndex)
         'End If
