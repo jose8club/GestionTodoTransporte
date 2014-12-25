@@ -27,6 +27,11 @@ Partial Class Curso
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.cbox_Area = New System.Windows.Forms.ComboBox()
         Me.lbl_Licencia = New System.Windows.Forms.Label()
         Me.cbox_Producto = New System.Windows.Forms.ComboBox()
@@ -48,18 +53,24 @@ Partial Class Curso
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.ADD_HT = New System.Windows.Forms.Button()
         Me.GB_HT = New System.Windows.Forms.GroupBox()
-        Me.GB_HP = New System.Windows.Forms.GroupBox()
+        Me.ADD_HP = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cbox_Instructor = New System.Windows.Forms.ComboBox()
+        Me.DG_HP = New System.Windows.Forms.DataGridView()
+        Me.HP_Profesor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HP_Lunes = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.DG_HT, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GB_HT.SuspendLayout()
+        CType(Me.DG_HP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cbox_Area
         '
         Me.cbox_Area.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbox_Area.FormattingEnabled = True
-        Me.cbox_Area.Location = New System.Drawing.Point(150, 38)
+        Me.cbox_Area.Location = New System.Drawing.Point(150, 39)
         Me.cbox_Area.Name = "cbox_Area"
-        Me.cbox_Area.Size = New System.Drawing.Size(229, 21)
+        Me.cbox_Area.Size = New System.Drawing.Size(217, 21)
         Me.cbox_Area.TabIndex = 50
         '
         'lbl_Licencia
@@ -76,7 +87,7 @@ Partial Class Curso
         Me.cbox_Producto.FormattingEnabled = True
         Me.cbox_Producto.Location = New System.Drawing.Point(150, 65)
         Me.cbox_Producto.Name = "cbox_Producto"
-        Me.cbox_Producto.Size = New System.Drawing.Size(229, 21)
+        Me.cbox_Producto.Size = New System.Drawing.Size(217, 21)
         Me.cbox_Producto.TabIndex = 48
         '
         'lbl_Producto
@@ -102,13 +113,13 @@ Partial Class Curso
         Me.tbox_Codigo.Location = New System.Drawing.Point(150, 12)
         Me.tbox_Codigo.MaxLength = 10
         Me.tbox_Codigo.Name = "tbox_Codigo"
-        Me.tbox_Codigo.Size = New System.Drawing.Size(229, 20)
+        Me.tbox_Codigo.Size = New System.Drawing.Size(217, 20)
         Me.tbox_Codigo.TabIndex = 53
         '
         'lbl_FechaTermino
         '
         Me.lbl_FechaTermino.AutoSize = True
-        Me.lbl_FechaTermino.Location = New System.Drawing.Point(399, 68)
+        Me.lbl_FechaTermino.Location = New System.Drawing.Point(384, 68)
         Me.lbl_FechaTermino.Name = "lbl_FechaTermino"
         Me.lbl_FechaTermino.Size = New System.Drawing.Size(96, 13)
         Me.lbl_FechaTermino.TabIndex = 54
@@ -117,7 +128,7 @@ Partial Class Curso
         'lbl_FechaInicio
         '
         Me.lbl_FechaInicio.AutoSize = True
-        Me.lbl_FechaInicio.Location = New System.Drawing.Point(399, 42)
+        Me.lbl_FechaInicio.Location = New System.Drawing.Point(384, 42)
         Me.lbl_FechaInicio.Name = "lbl_FechaInicio"
         Me.lbl_FechaInicio.Size = New System.Drawing.Size(83, 13)
         Me.lbl_FechaInicio.TabIndex = 55
@@ -125,14 +136,14 @@ Partial Class Curso
         '
         'date_FechaInicio
         '
-        Me.date_FechaInicio.Location = New System.Drawing.Point(507, 39)
+        Me.date_FechaInicio.Location = New System.Drawing.Point(492, 39)
         Me.date_FechaInicio.Name = "date_FechaInicio"
         Me.date_FechaInicio.Size = New System.Drawing.Size(226, 20)
         Me.date_FechaInicio.TabIndex = 56
         '
         'date_FechaTermino
         '
-        Me.date_FechaTermino.Location = New System.Drawing.Point(507, 62)
+        Me.date_FechaTermino.Location = New System.Drawing.Point(492, 62)
         Me.date_FechaTermino.Name = "date_FechaTermino"
         Me.date_FechaTermino.Size = New System.Drawing.Size(226, 20)
         Me.date_FechaTermino.TabIndex = 57
@@ -276,39 +287,129 @@ Partial Class Curso
         '
         'GB_HT
         '
+        Me.GB_HT.Controls.Add(Me.cbox_Instructor)
+        Me.GB_HT.Controls.Add(Me.Label1)
+        Me.GB_HT.Controls.Add(Me.DG_HP)
+        Me.GB_HT.Controls.Add(Me.ADD_HP)
         Me.GB_HT.Controls.Add(Me.DG_HT)
         Me.GB_HT.Controls.Add(Me.ADD_HT)
         Me.GB_HT.Location = New System.Drawing.Point(24, 125)
         Me.GB_HT.Name = "GB_HT"
-        Me.GB_HT.Size = New System.Drawing.Size(355, 207)
+        Me.GB_HT.Size = New System.Drawing.Size(709, 207)
         Me.GB_HT.TabIndex = 68
         Me.GB_HT.TabStop = False
         Me.GB_HT.Text = "Horario Teórico"
         '
-        'GB_HP
+        'ADD_HP
         '
-        Me.GB_HP.Location = New System.Drawing.Point(402, 125)
-        Me.GB_HP.Name = "GB_HP"
-        Me.GB_HP.Size = New System.Drawing.Size(331, 207)
-        Me.GB_HP.TabIndex = 69
-        Me.GB_HP.TabStop = False
-        Me.GB_HP.Text = "GroupBox1"
+        Me.ADD_HP.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.ADD_BUTTON
+        Me.ADD_HP.Location = New System.Drawing.Point(619, 161)
+        Me.ADD_HP.Margin = New System.Windows.Forms.Padding(0)
+        Me.ADD_HP.Name = "ADD_HP"
+        Me.ADD_HP.Size = New System.Drawing.Size(75, 26)
+        Me.ADD_HP.TabIndex = 64
+        Me.ADD_HP.Text = "Agregar"
+        Me.ADD_HP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ADD_HP.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(360, 168)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(54, 13)
+        Me.Label1.TabIndex = 69
+        Me.Label1.Text = "Instructor:"
+        '
+        'cbox_Instructor
+        '
+        Me.cbox_Instructor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbox_Instructor.FormattingEnabled = True
+        Me.cbox_Instructor.Location = New System.Drawing.Point(420, 164)
+        Me.cbox_Instructor.Name = "cbox_Instructor"
+        Me.cbox_Instructor.Size = New System.Drawing.Size(196, 21)
+        Me.cbox_Instructor.TabIndex = 69
+        '
+        'DG_HP
+        '
+        Me.DG_HP.AllowUserToAddRows = False
+        Me.DG_HP.AllowUserToDeleteRows = False
+        Me.DG_HP.AllowUserToResizeColumns = False
+        Me.DG_HP.AllowUserToResizeRows = False
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
+        Me.DG_HP.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
+        Me.DG_HP.BackgroundColor = System.Drawing.SystemColors.Control
+        Me.DG_HP.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.DG_HP.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DG_HP.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        Me.DG_HP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DG_HP.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HP_Profesor, Me.HP_Lunes})
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DG_HP.DefaultCellStyle = DataGridViewCellStyle8
+        Me.DG_HP.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
+        Me.DG_HP.GridColor = System.Drawing.SystemColors.Control
+        Me.DG_HP.Location = New System.Drawing.Point(362, 20)
+        Me.DG_HP.MultiSelect = False
+        Me.DG_HP.Name = "DG_HP"
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DG_HP.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
+        Me.DG_HP.RowHeadersVisible = False
+        Me.DG_HP.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DG_HP.RowsDefaultCellStyle = DataGridViewCellStyle10
+        Me.DG_HP.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DG_HP.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.DG_HP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
+        Me.DG_HP.ShowCellErrors = False
+        Me.DG_HP.ShowEditingIcon = False
+        Me.DG_HP.ShowRowErrors = False
+        Me.DG_HP.Size = New System.Drawing.Size(332, 138)
+        Me.DG_HP.TabIndex = 63
+        '
+        'HP_Profesor
+        '
+        Me.HP_Profesor.HeaderText = "Profesor"
+        Me.HP_Profesor.Name = "HP_Profesor"
+        Me.HP_Profesor.ReadOnly = True
+        '
+        'HP_Lunes
+        '
+        Me.HP_Lunes.HeaderText = "L"
+        Me.HP_Lunes.Name = "HP_Lunes"
         '
         'Curso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(760, 400)
-        Me.Controls.Add(Me.GB_HP)
         Me.Controls.Add(Me.GB_HT)
         Me.Controls.Add(Me.btn_Guardar)
         Me.Controls.Add(Me.date_FechaTermino)
         Me.Controls.Add(Me.date_FechaInicio)
         Me.Controls.Add(Me.lbl_FechaInicio)
+        Me.Controls.Add(Me.cbox_Area)
         Me.Controls.Add(Me.lbl_FechaTermino)
         Me.Controls.Add(Me.tbox_Codigo)
         Me.Controls.Add(Me.lbl_Codigo)
-        Me.Controls.Add(Me.cbox_Area)
         Me.Controls.Add(Me.lbl_Licencia)
         Me.Controls.Add(Me.cbox_Producto)
         Me.Controls.Add(Me.lbl_Producto)
@@ -317,6 +418,8 @@ Partial Class Curso
         Me.Text = "Curso"
         CType(Me.DG_HT, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GB_HT.ResumeLayout(False)
+        Me.GB_HT.PerformLayout()
+        CType(Me.DG_HP, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -338,9 +441,14 @@ Partial Class Curso
     Friend WithEvents DataGridViewImageColumn2 As System.Windows.Forms.DataGridViewImageColumn
     Friend WithEvents DataGridViewImageColumn3 As System.Windows.Forms.DataGridViewImageColumn
     Friend WithEvents GB_HT As System.Windows.Forms.GroupBox
-    Friend WithEvents GB_HP As System.Windows.Forms.GroupBox
     Friend WithEvents HT_Hora As System.Windows.Forms.DataGridViewComboBoxColumn
     Friend WithEvents HT_Minutos As System.Windows.Forms.DataGridViewComboBoxColumn
     Friend WithEvents HT_Profesor As System.Windows.Forms.DataGridViewComboBoxColumn
     Friend WithEvents HT_Eliminar As System.Windows.Forms.DataGridViewImageColumn
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents ADD_HP As System.Windows.Forms.Button
+    Friend WithEvents cbox_Instructor As System.Windows.Forms.ComboBox
+    Friend WithEvents DG_HP As System.Windows.Forms.DataGridView
+    Friend WithEvents HP_Profesor As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents HP_Lunes As System.Windows.Forms.DataGridViewCheckBoxColumn
 End Class

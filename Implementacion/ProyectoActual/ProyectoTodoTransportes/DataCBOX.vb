@@ -15,6 +15,15 @@
 
     End Function
 
+    Function Instructores() As DataTable
+
+        Dim Data As DataTable = con.doQuery("SELECT f.idFuncionario, f.nombre " _
+                                           & "FROM funcionario AS f, docente AS d " _
+                                           & "WHERE d.tipo = 'INS' AND f.idFuncionario = d.idDocente")
+        Return Data
+
+    End Function
+
     Function Area() As DataTable
         Dim Data As DataTable = con.doQuery("SELECT Nombre FROM Area")
         Return Data

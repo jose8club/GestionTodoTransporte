@@ -16,6 +16,7 @@
         loadDataGridViews()
         loadCBOX("Area")
         loadCBOX("Producto")
+        loadCBOX("Instructor")
     End Sub
 
     Sub loadCBOX(ByVal Nombre As String)
@@ -29,9 +30,24 @@
         ElseIf Nombre.Equals("Producto") Then
 
             cbox_Producto.DataSource = dc.ProductoDeArea(cbox_Area.Text)
-            cbox_Area.DisplayMember = "Nombre"
-            cbox_Area.ValueMember = "Nombre"
+            cbox_Producto.DisplayMember = "Nombre"
+            cbox_Producto.ValueMember = "Nombre"
 
+        ElseIf Nombre.Equals("Instructor") Then
+            Dim Data As DataTable = dc.Instructores()
+            Data.PrimaryKey = New DataColumn() {Data.Columns(1)}
+
+            For Each Row As DataGridViewRow In DG_HP.Rows
+                MsgBox(DG_HP.Rows(Row.Index).Cells(0).Value.ToString)
+                If Data.Rows.Contains(DG_HP.Rows(Row.Index).Cells(0).Value.ToString) Then
+                    Dim foundRow As DataRow = Data.Rows.Find(DG_HP.Rows(Row.Index).Cells(0).Value.ToString)
+                    Data.Rows.Remove(foundRow)
+                End If
+            Next
+
+            cbox_Instructor.DataSource = Data
+            cbox_Instructor.DisplayMember = "Nombre"
+            cbox_Instructor.ValueMember = "idFuncionario"
 
         End If
     End Sub
@@ -86,6 +102,8 @@
         tbox_Codigo.Text = ""
         date_FechaInicio.Value = Date.Now
         date_FechaTermino.Value = Date.Now
+
+        loadDataGridViews()
     End Sub
 
     Sub loadDataGridViews()
@@ -98,7 +116,7 @@
 
     End Sub
 
-    'HORARIO TEORICO
+#Region "HORARIO TEORICO"
 
     Private Sub DG_HT_click(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DG_HT.CellClick
         'Controla el despliegue de los comboboxs y el botón eliminar
@@ -130,5 +148,11 @@
 
     End Sub
 
-    
+#End Region
+
+    Private Sub ADD_HP_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ADD_HP.Click
+        DG_HP.Rows.Add()
+        DG_HP.Rows(DG_HP.Rows.Count - 1).Cells(0).Value = cbox_Instructor.Text
+        loadCBOX("Instructor")
+    End Sub
 End Class
