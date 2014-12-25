@@ -38,9 +38,8 @@
             Data.PrimaryKey = New DataColumn() {Data.Columns(1)}
 
             For Each Row As DataGridViewRow In DG_HP.Rows
-                MsgBox(DG_HP.Rows(Row.Index).Cells(0).Value.ToString)
-                If Data.Rows.Contains(DG_HP.Rows(Row.Index).Cells(0).Value.ToString) Then
-                    Dim foundRow As DataRow = Data.Rows.Find(DG_HP.Rows(Row.Index).Cells(0).Value.ToString)
+                If Data.Rows.Contains(DG_HP.Rows(Row.Index).Cells(1).Value.ToString) Then
+                    Dim foundRow As DataRow = Data.Rows.Find(DG_HP.Rows(Row.Index).Cells(1).Value.ToString)
                     Data.Rows.Remove(foundRow)
                 End If
             Next
@@ -48,6 +47,11 @@
             cbox_Instructor.DataSource = Data
             cbox_Instructor.DisplayMember = "Nombre"
             cbox_Instructor.ValueMember = "idFuncionario"
+
+            If cbox_Instructor.Items.Count = 0 Then
+                ADD_HP.Enabled = False
+                cbox_Instructor.Enabled = False
+            End If
 
         End If
     End Sub
@@ -70,10 +74,11 @@
         '        STATUS.Text = "Curso no" & Codigo & " fue agregado exitosamente."
         '    End Try
         'End If
+        MsgBox(DG_HP.Rows(0).Cells(0).Value.ToString)
         If validar() Then
 
             For Each Row As DataGridViewRow In DG_HT.Rows
-
+                'agregar horario teorico a la bd
             Next
         End If
 
@@ -113,7 +118,6 @@
         HT_Profesor.ValueMember = "idFuncionario"
         DG_HT.RowTemplate.Height = 22
 
-
     End Sub
 
 #Region "HORARIO TEORICO"
@@ -152,7 +156,8 @@
 
     Private Sub ADD_HP_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ADD_HP.Click
         DG_HP.Rows.Add()
-        DG_HP.Rows(DG_HP.Rows.Count - 1).Cells(0).Value = cbox_Instructor.Text
+        DG_HP.Rows(DG_HP.Rows.Count - 1).Cells(1).Value = cbox_Instructor.Text
+        DG_HP.Rows(DG_HP.Rows.Count - 1).Cells(0).Value = cbox_Instructor.SelectedValue
         loadCBOX("Instructor")
     End Sub
 End Class

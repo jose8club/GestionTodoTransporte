@@ -53,12 +53,19 @@ Partial Class Curso
         Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.ADD_HT = New System.Windows.Forms.Button()
         Me.GB_HT = New System.Windows.Forms.GroupBox()
-        Me.ADD_HP = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.cbox_Instructor = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.DG_HP = New System.Windows.Forms.DataGridView()
+        Me.ADD_HP = New System.Windows.Forms.Button()
+        Me.HP_idProfesor = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HP_Profesor = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HP_Lunes = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.HP_Martes = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.HP_Miercoles = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.HP_Jueves = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.HP_Viernes = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.HP_Sabado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.HP_Domingo = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         CType(Me.DG_HT, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GB_HT.SuspendLayout()
         CType(Me.DG_HP, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -300,17 +307,14 @@ Partial Class Curso
         Me.GB_HT.TabStop = False
         Me.GB_HT.Text = "Horario Teórico"
         '
-        'ADD_HP
+        'cbox_Instructor
         '
-        Me.ADD_HP.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.ADD_BUTTON
-        Me.ADD_HP.Location = New System.Drawing.Point(619, 161)
-        Me.ADD_HP.Margin = New System.Windows.Forms.Padding(0)
-        Me.ADD_HP.Name = "ADD_HP"
-        Me.ADD_HP.Size = New System.Drawing.Size(75, 26)
-        Me.ADD_HP.TabIndex = 64
-        Me.ADD_HP.Text = "Agregar"
-        Me.ADD_HP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.ADD_HP.UseVisualStyleBackColor = True
+        Me.cbox_Instructor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbox_Instructor.FormattingEnabled = True
+        Me.cbox_Instructor.Location = New System.Drawing.Point(420, 164)
+        Me.cbox_Instructor.Name = "cbox_Instructor"
+        Me.cbox_Instructor.Size = New System.Drawing.Size(196, 21)
+        Me.cbox_Instructor.TabIndex = 69
         '
         'Label1
         '
@@ -320,15 +324,6 @@ Partial Class Curso
         Me.Label1.Size = New System.Drawing.Size(54, 13)
         Me.Label1.TabIndex = 69
         Me.Label1.Text = "Instructor:"
-        '
-        'cbox_Instructor
-        '
-        Me.cbox_Instructor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbox_Instructor.FormattingEnabled = True
-        Me.cbox_Instructor.Location = New System.Drawing.Point(420, 164)
-        Me.cbox_Instructor.Name = "cbox_Instructor"
-        Me.cbox_Instructor.Size = New System.Drawing.Size(196, 21)
-        Me.cbox_Instructor.TabIndex = 69
         '
         'DG_HP
         '
@@ -350,7 +345,7 @@ Partial Class Curso
         DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DG_HP.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.DG_HP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DG_HP.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HP_Profesor, Me.HP_Lunes})
+        Me.DG_HP.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.HP_idProfesor, Me.HP_Profesor, Me.HP_Lunes, Me.HP_Martes, Me.HP_Miercoles, Me.HP_Jueves, Me.HP_Viernes, Me.HP_Sabado, Me.HP_Domingo})
         DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -385,6 +380,25 @@ Partial Class Curso
         Me.DG_HP.Size = New System.Drawing.Size(332, 138)
         Me.DG_HP.TabIndex = 63
         '
+        'ADD_HP
+        '
+        Me.ADD_HP.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.ADD_BUTTON
+        Me.ADD_HP.Location = New System.Drawing.Point(619, 161)
+        Me.ADD_HP.Margin = New System.Windows.Forms.Padding(0)
+        Me.ADD_HP.Name = "ADD_HP"
+        Me.ADD_HP.Size = New System.Drawing.Size(75, 26)
+        Me.ADD_HP.TabIndex = 64
+        Me.ADD_HP.Text = "Agregar"
+        Me.ADD_HP.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ADD_HP.UseVisualStyleBackColor = True
+        '
+        'HP_idProfesor
+        '
+        Me.HP_idProfesor.HeaderText = "ID"
+        Me.HP_idProfesor.Name = "HP_idProfesor"
+        Me.HP_idProfesor.ReadOnly = True
+        Me.HP_idProfesor.Visible = False
+        '
         'HP_Profesor
         '
         Me.HP_Profesor.HeaderText = "Profesor"
@@ -395,6 +409,36 @@ Partial Class Curso
         '
         Me.HP_Lunes.HeaderText = "L"
         Me.HP_Lunes.Name = "HP_Lunes"
+        '
+        'HP_Martes
+        '
+        Me.HP_Martes.HeaderText = "M"
+        Me.HP_Martes.Name = "HP_Martes"
+        '
+        'HP_Miercoles
+        '
+        Me.HP_Miercoles.HeaderText = "M"
+        Me.HP_Miercoles.Name = "HP_Miercoles"
+        '
+        'HP_Jueves
+        '
+        Me.HP_Jueves.HeaderText = "J"
+        Me.HP_Jueves.Name = "HP_Jueves"
+        '
+        'HP_Viernes
+        '
+        Me.HP_Viernes.HeaderText = "V"
+        Me.HP_Viernes.Name = "HP_Viernes"
+        '
+        'HP_Sabado
+        '
+        Me.HP_Sabado.HeaderText = "S"
+        Me.HP_Sabado.Name = "HP_Sabado"
+        '
+        'HP_Domingo
+        '
+        Me.HP_Domingo.HeaderText = "D"
+        Me.HP_Domingo.Name = "HP_Domingo"
         '
         'Curso
         '
@@ -449,6 +493,13 @@ Partial Class Curso
     Friend WithEvents ADD_HP As System.Windows.Forms.Button
     Friend WithEvents cbox_Instructor As System.Windows.Forms.ComboBox
     Friend WithEvents DG_HP As System.Windows.Forms.DataGridView
+    Friend WithEvents HP_idProfesor As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents HP_Profesor As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents HP_Lunes As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents HP_Martes As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents HP_Miercoles As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents HP_Jueves As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents HP_Viernes As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents HP_Sabado As System.Windows.Forms.DataGridViewCheckBoxColumn
+    Friend WithEvents HP_Domingo As System.Windows.Forms.DataGridViewCheckBoxColumn
 End Class
