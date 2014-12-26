@@ -12,9 +12,11 @@
         InitializeComponent()
     End Sub
     Private Sub ExamenTeorico_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
         rbtn_aprobado.Checked = True
         loadCBOX("Profesor")
         loadCBOX("Matricula")
+
     End Sub
 
 #Region "Métodos"
@@ -49,6 +51,7 @@
     End Function
 
 
+
 #End Region
 
 #Region "VALIDACION DE ENTRADA"
@@ -62,6 +65,11 @@
         Dim Calificacion As Integer = CInt(tbox_calTeo.Text)
         Dim Funcionario As Integer = 0
         Dim Cliente As String = ""
+        'Queries de registro para examen teorico'
+        Dim D As Integer = 0
+        Dim Et As Integer = 0
+        Dim Ed As Integer = 0
+
         If validar() Then
             Dim Fecha As String = Format(date_rueda.Value, "yyyy-MM-dd")
             Dim Fun As DataTable = con.doQuery("SELECT idFuncionario " _
@@ -80,22 +88,53 @@
             Else
                 Cliente = ""
             End If
+            'Columnas y parametros de la query documento'
+            Dim ColDoc() As String = {"Tipo", "Funcionario", "Fecha", "Estado"}
+            Dim ParDocAp() As String = {Tipo, Funcionario, Fecha, "Aprobado"}
+            Dim ParDocRep() As String = {Tipo, Funcionario, Fecha, "Reprobado"}
+
             Try
+                con.beginTransaction()
                 If rbtn_aprobado.Checked Then
-                    con.doQuery("INSERT INTO Documento (Tipo, Funcionario, Fecha, Estado) VALUES('" & Tipo & "', '" & Funcionario & "', '" & Fecha & "', 'Aprobado')")
+                    D = con.doInsert("Documento", ColDoc, ParDocAp)
+                    If D <> -1 Then
+                        con.commitTransaction()
+                    Else
+                        STATUS.Text = "Documento de Examen Teorico de: " & Cliente & " no fue agregado."
+                    End If
                     MsgBox("El estudiante : " & Cliente & " puede dar la clase practica con calificacion " & (Calificacion / 10) & "")
                 ElseIf rbtn_reprobado.Checked Then
-                    con.doQuery("INSERT INTO Documento (Tipo, Funcionario, Fecha, Estado) VALUES('" & Tipo & "', '" & Funcionario & "', '" & Fecha & "', 'Reprobado')")
+                    D = con.doInsert("Documento", ColDoc, ParDocRep)
+                    If D <> -1 Then
+                        con.commitTransaction()
+                    Else
+                        STATUS.Text = "Documento de Examen Teorico de: " & Cliente & " no fue agregado."
+                    End If
                     MsgBox("El estudiante : " & Cliente & " no puede dar la clase practica con calificacion " & (Calificacion / 10) & "")
                 End If
+
+
                 Dim Doc As DataTable = con.doQuery("SELECT max(idDOCUMENTO) AS idDOCUMENTO  FROM Documento")
                 If Doc.Rows.Count > 0 Then
                     Documento = CInt(Doc.Rows(0).Item(0).ToString)
                 Else
                     Documento = 0
                 End If
-                con.doQuery("INSERT INTO EXAMEN_TEORICO (Documento,Calificacion) VALUES('" & Documento & "','" & Calificacion & "')")
-                con.doQuery("INSERT INTO ESTUDIANTE_DOCUMENTO (Estudiante, Documento) VALUES('" & Estudiante & "','" & Documento & "')")
+
+                'Examen Teorico'
+                'Columnas y parametros de la query examen teorico'
+
+                Dim ColEt() As String = {"Documento", "Calificacion"}
+                Dim ParEt() As String = {Documento, Calificacion}
+                Et = con.doInsert("EXAMEN_TEORICO", ColEt, ParEt)
+
+
+                'Estudiante Documento'
+                'Columnas y parametros de la query estudiante documento'
+                Dim ColEd() As String = {"Estudiante", "Documento"}
+                Dim ParEd() As String = {Estudiante, Documento}
+                Ed = con.doInsert("ESTUDIANTE_DOCUMENTO", ColEd, ParEd)
+
                 STATUS.Text = "Examen Teorico de: " & Cliente & " fue agregada exitosamente."
                 cbox_matricula.Text = ""
                 tbox_calTeo.Text = ""
@@ -124,6 +163,7 @@
 
 
     Private Sub btn_reset_Click(sender As System.Object, e As System.EventArgs) Handles btn_reset.Click
+
         date_rueda.Value = Now
         tbox_calTeo.Text = ""
         cbox_matricula.Text = ""
@@ -134,5 +174,5 @@
         lbl_estudiante.Text = ""
     End Sub
 
-    
+
 End Class

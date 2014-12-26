@@ -93,6 +93,7 @@ Public Class Conexion
         transaccion.Rollback()
     End Sub
 
+
 #Region "DESARROLLO"
 
     Sub iSesion()
