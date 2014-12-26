@@ -61,7 +61,6 @@
         Dim Documento As Integer = 0
         Dim Calificacion As Integer = CInt(tbox_calTeo.Text)
         Dim Funcionario As Integer = 0
-        'Dim Funcionario As Integer = CInt(con.selectWhereQuery("idFuncionario", "Funcionario", "Nombre = '" & cbox_funcionario.Text & "'"))
         Dim Cliente As String = ""
         If validar() Then
             Dim Fecha As String = Format(date_rueda.Value, "yyyy-MM-dd")
@@ -83,15 +82,20 @@
             End If
             Try
                 If rbtn_aprobado.Checked Then
-                    con.regDocumento2(Tipo, Funcionario, Fecha, "Aprobado")
+                    con.doQuery("INSERT INTO Documento (Tipo, Funcionario, Fecha, Estado) VALUES('" & Tipo & "', '" & Funcionario & "', '" & Fecha & "', 'Aprobado')")
                     MsgBox("El estudiante : " & Cliente & " puede dar la clase practica con calificacion " & (Calificacion / 10) & "")
                 ElseIf rbtn_reprobado.Checked Then
-                    con.regDocumento2(Tipo, Funcionario, Fecha, "Reprobado")
+                    con.doQuery("INSERT INTO Documento (Tipo, Funcionario, Fecha, Estado) VALUES('" & Tipo & "', '" & Funcionario & "', '" & Fecha & "', 'Reprobado')")
                     MsgBox("El estudiante : " & Cliente & " no puede dar la clase practica con calificacion " & (Calificacion / 10) & "")
                 End If
-                Documento = CInt(con.last("idDOCUMENTO", "Documento"))
-                con.regExTeo(Documento, Calificacion)
-                con.regEstDoc(Estudiante, Documento)
+                Dim Doc As DataTable = con.doQuery("SELECT max(idDOCUMENTO) AS idDOCUMENTO  FROM Documento")
+                If Doc.Rows.Count > 0 Then
+                    Documento = CInt(Doc.Rows(0).Item(0).ToString)
+                Else
+                    Documento = 0
+                End If
+                con.doQuery("INSERT INTO EXAMEN_TEORICO (Documento,Calificacion) VALUES('" & Documento & "','" & Calificacion & "')")
+                con.doQuery("INSERT INTO ESTUDIANTE_DOCUMENTO (Estudiante, Documento) VALUES('" & Estudiante & "','" & Documento & "')")
                 STATUS.Text = "Examen Teorico de: " & Cliente & " fue agregada exitosamente."
                 cbox_matricula.Text = ""
                 tbox_calTeo.Text = ""
