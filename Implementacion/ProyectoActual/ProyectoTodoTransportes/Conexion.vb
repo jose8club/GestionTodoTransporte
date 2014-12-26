@@ -112,23 +112,6 @@ Public Class Conexion
         End Using
     End Sub
 
-    Function Prueba() As Boolean
-        Using comando
-            With comando
-                .Transaction = transaccion
-                .CommandText = "INSERT INTO TIPO_USUARIO (Tipo) Values(@Tipo)"
-
-                Try
-                    .Parameters.AddWithValue("@Tipo", "chao2")
-                    comando.ExecuteNonQuery()
-                Catch ex As Exception
-                    rollbackTransaction()
-                    Return False
-                End Try
-            End With
-        End Using
-        Return True
-    End Function
 #End Region
 
 #Region "HERRAMIENTAS"
