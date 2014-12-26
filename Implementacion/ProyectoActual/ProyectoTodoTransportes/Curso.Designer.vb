@@ -50,25 +50,18 @@ Partial Class Curso
         Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.DataGridViewImageColumn2 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.GB_HT = New System.Windows.Forms.GroupBox()
+        Me.check_Domingo = New System.Windows.Forms.CheckBox()
+        Me.check_Sabado = New System.Windows.Forms.CheckBox()
+        Me.check_Viernes = New System.Windows.Forms.CheckBox()
+        Me.check_Jueves = New System.Windows.Forms.CheckBox()
+        Me.check_Miercoles = New System.Windows.Forms.CheckBox()
+        Me.check_Martes = New System.Windows.Forms.CheckBox()
+        Me.check_Lunes = New System.Windows.Forms.CheckBox()
         Me.lbl_HorarioPractico = New System.Windows.Forms.Label()
         Me.lbl_HorarioTeorico = New System.Windows.Forms.Label()
         Me.cbox_Instructor = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DG_HP = New System.Windows.Forms.DataGridView()
-        Me.ADD_HP = New System.Windows.Forms.Button()
-        Me.ADD_HT = New System.Windows.Forms.Button()
-        Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.DataGridViewImageColumn4 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.btn_Guardar = New System.Windows.Forms.Button()
-        Me.tbox_Cupos = New System.Windows.Forms.TextBox()
-        Me.lbl_Cupos = New System.Windows.Forms.Label()
-        Me.check_Lunes = New System.Windows.Forms.CheckBox()
-        Me.check_Martes = New System.Windows.Forms.CheckBox()
-        Me.check_Miercoles = New System.Windows.Forms.CheckBox()
-        Me.check_Jueves = New System.Windows.Forms.CheckBox()
-        Me.check_Viernes = New System.Windows.Forms.CheckBox()
-        Me.check_Sabado = New System.Windows.Forms.CheckBox()
-        Me.check_Domingo = New System.Windows.Forms.CheckBox()
         Me.HP_idProfesor = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HP_Instructor = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HP_Lunes = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -79,6 +72,13 @@ Partial Class Curso
         Me.HP_Sabado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.HP_Domingo = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.HP_Eliminar = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.ADD_HP = New System.Windows.Forms.Button()
+        Me.ADD_HT = New System.Windows.Forms.Button()
+        Me.DataGridViewImageColumn3 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.DataGridViewImageColumn4 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.btn_Guardar = New System.Windows.Forms.Button()
+        Me.tbox_Cupos = New System.Windows.Forms.TextBox()
+        Me.lbl_Cupos = New System.Windows.Forms.Label()
         CType(Me.DG_HT, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GB_HT.SuspendLayout()
         CType(Me.DG_HP, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -299,6 +299,83 @@ Partial Class Curso
         Me.GB_HT.TabStop = False
         Me.GB_HT.Text = "Horarios"
         '
+        'check_Domingo
+        '
+        Me.check_Domingo.AutoSize = True
+        Me.check_Domingo.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.check_Domingo.Location = New System.Drawing.Point(268, 47)
+        Me.check_Domingo.Name = "check_Domingo"
+        Me.check_Domingo.Size = New System.Drawing.Size(34, 17)
+        Me.check_Domingo.TabIndex = 77
+        Me.check_Domingo.Text = "D"
+        Me.check_Domingo.UseVisualStyleBackColor = True
+        '
+        'check_Sabado
+        '
+        Me.check_Sabado.AutoSize = True
+        Me.check_Sabado.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.check_Sabado.Location = New System.Drawing.Point(230, 47)
+        Me.check_Sabado.Name = "check_Sabado"
+        Me.check_Sabado.Size = New System.Drawing.Size(33, 17)
+        Me.check_Sabado.TabIndex = 76
+        Me.check_Sabado.Text = "S"
+        Me.check_Sabado.UseVisualStyleBackColor = True
+        '
+        'check_Viernes
+        '
+        Me.check_Viernes.AutoSize = True
+        Me.check_Viernes.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.check_Viernes.Location = New System.Drawing.Point(192, 47)
+        Me.check_Viernes.Name = "check_Viernes"
+        Me.check_Viernes.Size = New System.Drawing.Size(33, 17)
+        Me.check_Viernes.TabIndex = 75
+        Me.check_Viernes.Text = "V"
+        Me.check_Viernes.UseVisualStyleBackColor = True
+        '
+        'check_Jueves
+        '
+        Me.check_Jueves.AutoSize = True
+        Me.check_Jueves.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.check_Jueves.Location = New System.Drawing.Point(154, 47)
+        Me.check_Jueves.Name = "check_Jueves"
+        Me.check_Jueves.Size = New System.Drawing.Size(31, 17)
+        Me.check_Jueves.TabIndex = 74
+        Me.check_Jueves.Text = "J"
+        Me.check_Jueves.UseVisualStyleBackColor = True
+        '
+        'check_Miercoles
+        '
+        Me.check_Miercoles.AutoSize = True
+        Me.check_Miercoles.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.check_Miercoles.Location = New System.Drawing.Point(116, 47)
+        Me.check_Miercoles.Name = "check_Miercoles"
+        Me.check_Miercoles.Size = New System.Drawing.Size(35, 17)
+        Me.check_Miercoles.TabIndex = 73
+        Me.check_Miercoles.Text = "M"
+        Me.check_Miercoles.UseVisualStyleBackColor = True
+        '
+        'check_Martes
+        '
+        Me.check_Martes.AutoSize = True
+        Me.check_Martes.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.check_Martes.Location = New System.Drawing.Point(78, 47)
+        Me.check_Martes.Name = "check_Martes"
+        Me.check_Martes.Size = New System.Drawing.Size(35, 17)
+        Me.check_Martes.TabIndex = 72
+        Me.check_Martes.Text = "M"
+        Me.check_Martes.UseVisualStyleBackColor = True
+        '
+        'check_Lunes
+        '
+        Me.check_Lunes.AutoSize = True
+        Me.check_Lunes.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.check_Lunes.Location = New System.Drawing.Point(40, 47)
+        Me.check_Lunes.Name = "check_Lunes"
+        Me.check_Lunes.Size = New System.Drawing.Size(32, 17)
+        Me.check_Lunes.TabIndex = 71
+        Me.check_Lunes.Text = "L"
+        Me.check_Lunes.UseVisualStyleBackColor = True
+        '
         'lbl_HorarioPractico
         '
         Me.lbl_HorarioPractico.AutoSize = True
@@ -391,6 +468,70 @@ Partial Class Curso
         Me.DG_HP.Size = New System.Drawing.Size(358, 117)
         Me.DG_HP.TabIndex = 63
         '
+        'HP_idProfesor
+        '
+        Me.HP_idProfesor.HeaderText = "ID"
+        Me.HP_idProfesor.Name = "HP_idProfesor"
+        Me.HP_idProfesor.ReadOnly = True
+        Me.HP_idProfesor.Visible = False
+        '
+        'HP_Instructor
+        '
+        Me.HP_Instructor.HeaderText = "Instructor"
+        Me.HP_Instructor.Name = "HP_Instructor"
+        Me.HP_Instructor.ReadOnly = True
+        Me.HP_Instructor.Width = 160
+        '
+        'HP_Lunes
+        '
+        Me.HP_Lunes.HeaderText = "L"
+        Me.HP_Lunes.Name = "HP_Lunes"
+        Me.HP_Lunes.Width = 20
+        '
+        'HP_Martes
+        '
+        Me.HP_Martes.HeaderText = "M"
+        Me.HP_Martes.Name = "HP_Martes"
+        Me.HP_Martes.Width = 20
+        '
+        'HP_Miercoles
+        '
+        Me.HP_Miercoles.HeaderText = "M"
+        Me.HP_Miercoles.Name = "HP_Miercoles"
+        Me.HP_Miercoles.Width = 20
+        '
+        'HP_Jueves
+        '
+        Me.HP_Jueves.HeaderText = "J"
+        Me.HP_Jueves.Name = "HP_Jueves"
+        Me.HP_Jueves.Width = 20
+        '
+        'HP_Viernes
+        '
+        Me.HP_Viernes.HeaderText = "V"
+        Me.HP_Viernes.Name = "HP_Viernes"
+        Me.HP_Viernes.Width = 20
+        '
+        'HP_Sabado
+        '
+        Me.HP_Sabado.HeaderText = "S"
+        Me.HP_Sabado.Name = "HP_Sabado"
+        Me.HP_Sabado.Width = 20
+        '
+        'HP_Domingo
+        '
+        Me.HP_Domingo.HeaderText = "D"
+        Me.HP_Domingo.Name = "HP_Domingo"
+        Me.HP_Domingo.Width = 20
+        '
+        'HP_Eliminar
+        '
+        Me.HP_Eliminar.HeaderText = "Eliminar"
+        Me.HP_Eliminar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
+        Me.HP_Eliminar.Name = "HP_Eliminar"
+        Me.HP_Eliminar.ReadOnly = True
+        Me.HP_Eliminar.Width = 49
+        '
         'ADD_HP
         '
         Me.ADD_HP.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.ADD_BUTTON
@@ -463,147 +604,6 @@ Partial Class Curso
         Me.lbl_Cupos.Size = New System.Drawing.Size(40, 13)
         Me.lbl_Cupos.TabIndex = 69
         Me.lbl_Cupos.Text = "Cupos:"
-        '
-        'check_Lunes
-        '
-        Me.check_Lunes.AutoSize = True
-        Me.check_Lunes.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.check_Lunes.Location = New System.Drawing.Point(40, 47)
-        Me.check_Lunes.Name = "check_Lunes"
-        Me.check_Lunes.Size = New System.Drawing.Size(32, 17)
-        Me.check_Lunes.TabIndex = 71
-        Me.check_Lunes.Text = "L"
-        Me.check_Lunes.UseVisualStyleBackColor = True
-        '
-        'check_Martes
-        '
-        Me.check_Martes.AutoSize = True
-        Me.check_Martes.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.check_Martes.Location = New System.Drawing.Point(78, 47)
-        Me.check_Martes.Name = "check_Martes"
-        Me.check_Martes.Size = New System.Drawing.Size(35, 17)
-        Me.check_Martes.TabIndex = 72
-        Me.check_Martes.Text = "M"
-        Me.check_Martes.UseVisualStyleBackColor = True
-        '
-        'check_Miercoles
-        '
-        Me.check_Miercoles.AutoSize = True
-        Me.check_Miercoles.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.check_Miercoles.Location = New System.Drawing.Point(116, 47)
-        Me.check_Miercoles.Name = "check_Miercoles"
-        Me.check_Miercoles.Size = New System.Drawing.Size(35, 17)
-        Me.check_Miercoles.TabIndex = 73
-        Me.check_Miercoles.Text = "M"
-        Me.check_Miercoles.UseVisualStyleBackColor = True
-        '
-        'check_Jueves
-        '
-        Me.check_Jueves.AutoSize = True
-        Me.check_Jueves.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.check_Jueves.Location = New System.Drawing.Point(154, 47)
-        Me.check_Jueves.Name = "check_Jueves"
-        Me.check_Jueves.Size = New System.Drawing.Size(31, 17)
-        Me.check_Jueves.TabIndex = 74
-        Me.check_Jueves.Text = "J"
-        Me.check_Jueves.UseVisualStyleBackColor = True
-        '
-        'check_Viernes
-        '
-        Me.check_Viernes.AutoSize = True
-        Me.check_Viernes.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.check_Viernes.Location = New System.Drawing.Point(192, 47)
-        Me.check_Viernes.Name = "check_Viernes"
-        Me.check_Viernes.Size = New System.Drawing.Size(33, 17)
-        Me.check_Viernes.TabIndex = 75
-        Me.check_Viernes.Text = "V"
-        Me.check_Viernes.UseVisualStyleBackColor = True
-        '
-        'check_Sabado
-        '
-        Me.check_Sabado.AutoSize = True
-        Me.check_Sabado.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.check_Sabado.Location = New System.Drawing.Point(230, 47)
-        Me.check_Sabado.Name = "check_Sabado"
-        Me.check_Sabado.Size = New System.Drawing.Size(33, 17)
-        Me.check_Sabado.TabIndex = 76
-        Me.check_Sabado.Text = "S"
-        Me.check_Sabado.UseVisualStyleBackColor = True
-        '
-        'check_Domingo
-        '
-        Me.check_Domingo.AutoSize = True
-        Me.check_Domingo.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.check_Domingo.Location = New System.Drawing.Point(268, 47)
-        Me.check_Domingo.Name = "check_Domingo"
-        Me.check_Domingo.Size = New System.Drawing.Size(34, 17)
-        Me.check_Domingo.TabIndex = 77
-        Me.check_Domingo.Text = "D"
-        Me.check_Domingo.UseVisualStyleBackColor = True
-        '
-        'HP_idProfesor
-        '
-        Me.HP_idProfesor.HeaderText = "ID"
-        Me.HP_idProfesor.Name = "HP_idProfesor"
-        Me.HP_idProfesor.ReadOnly = True
-        Me.HP_idProfesor.Visible = False
-        '
-        'HP_Instructor
-        '
-        Me.HP_Instructor.HeaderText = "Instructor"
-        Me.HP_Instructor.Name = "HP_Instructor"
-        Me.HP_Instructor.ReadOnly = True
-        Me.HP_Instructor.Width = 160
-        '
-        'HP_Lunes
-        '
-        Me.HP_Lunes.HeaderText = "L"
-        Me.HP_Lunes.Name = "HP_Lunes"
-        Me.HP_Lunes.Width = 20
-        '
-        'HP_Martes
-        '
-        Me.HP_Martes.HeaderText = "M"
-        Me.HP_Martes.Name = "HP_Martes"
-        Me.HP_Martes.Width = 20
-        '
-        'HP_Miercoles
-        '
-        Me.HP_Miercoles.HeaderText = "M"
-        Me.HP_Miercoles.Name = "HP_Miercoles"
-        Me.HP_Miercoles.Width = 20
-        '
-        'HP_Jueves
-        '
-        Me.HP_Jueves.HeaderText = "J"
-        Me.HP_Jueves.Name = "HP_Jueves"
-        Me.HP_Jueves.Width = 20
-        '
-        'HP_Viernes
-        '
-        Me.HP_Viernes.HeaderText = "V"
-        Me.HP_Viernes.Name = "HP_Viernes"
-        Me.HP_Viernes.Width = 20
-        '
-        'HP_Sabado
-        '
-        Me.HP_Sabado.HeaderText = "S"
-        Me.HP_Sabado.Name = "HP_Sabado"
-        Me.HP_Sabado.Width = 20
-        '
-        'HP_Domingo
-        '
-        Me.HP_Domingo.HeaderText = "D"
-        Me.HP_Domingo.Name = "HP_Domingo"
-        Me.HP_Domingo.Width = 20
-        '
-        'HP_Eliminar
-        '
-        Me.HP_Eliminar.HeaderText = "Eliminar"
-        Me.HP_Eliminar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
-        Me.HP_Eliminar.Name = "HP_Eliminar"
-        Me.HP_Eliminar.ReadOnly = True
-        Me.HP_Eliminar.Width = 49
         '
         'Curso
         '

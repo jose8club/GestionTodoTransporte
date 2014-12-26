@@ -25,7 +25,14 @@
             Dim Producto As String = cbox_Producto.Text
             Dim FechaInicio As String = Format(date_FechaInicio.Value, "yyyy-MM-dd")
             Dim FechaTermino As String = Format(date_FechaTermino.Value, "yyyy-MM-dd")
-            Dim Cupos As Integer = CInt(tbox_Cupos.Text)
+            Dim Cupos As String = tbox_Cupos.Text
+
+            Dim Columnas() As String = {"Codigo", "Producto", "FechaInicio", "FechaTermino", "Cupos"}
+            Dim Parametros() As String = {Codigo, Producto, FechaInicio, FechaTermino, Cupos}
+
+            con.beginTransaction()
+            con.doInsert("Curso", Columnas, Parametros)
+
 
             '    Try
             '        con.regCurso(Codigo, Producto, FechaInicio, FechaTermino, Cupos)
@@ -92,7 +99,7 @@
     End Sub
 
     Function validar() As Boolean
-
+        Return True
         STATUS.ForeColor = System.Drawing.SystemColors.ControlText
         STATUS.Text = ""
 
