@@ -45,6 +45,9 @@
         ElseIf cbox_funcionario.Text = "" Then
             MsgBox("Ingrese datos de funcionario")
             Return False
+        ElseIf rbtn_aprobado.Checked = False And rbtn_reprobado.Checked = False Then
+            MsgBox("Seleccione una opción de examenes")
+            Return False
         End If
 
         Return True
@@ -62,7 +65,7 @@
 
     Private Sub btn_exTeo_Click(sender As System.Object, e As System.EventArgs) Handles btn_exTeo.Click
         Dim Documento As Integer = 0
-        Dim Calificacion As Integer = CInt(tbox_calTeo.Text)
+
         Dim Funcionario As Integer = 0
         Dim Cliente As String = ""
         'Queries de registro para examen teorico'
@@ -71,6 +74,7 @@
         Dim Ed As Integer = 0
 
         If validar() Then
+            Dim Calificacion As Integer = CInt(tbox_calTeo.Text)
             Dim Fecha As String = Format(date_rueda.Value, "yyyy-MM-dd")
             Dim Fun As DataTable = con.doQuery("SELECT idFuncionario " _
                                         & "FROM Funcionario" _
@@ -128,7 +132,6 @@
                 Dim ParEt() As String = {Documento, Calificacion}
                 Et = con.doInsert("EXAMEN_TEORICO", ColEt, ParEt)
 
-
                 'Estudiante Documento'
                 'Columnas y parametros de la query estudiante documento'
                 Dim ColEd() As String = {"Estudiante", "Documento"}
@@ -172,6 +175,7 @@
         rbtn_reprobado.Checked = False
         STATUS.Text = "Usuario " & USER & ""
         lbl_estudiante.Text = ""
+
     End Sub
 
 

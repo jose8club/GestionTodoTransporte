@@ -24,6 +24,11 @@
 
     End Function
 
+    Function Funcionarios() As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT Nombre FROM Funcionario")
+        Return Data
+    End Function
+
     Function Area() As DataTable
         Dim Data As DataTable = con.doQuery("SELECT Nombre FROM Area")
         Return Data
