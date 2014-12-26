@@ -61,19 +61,21 @@ Partial Class RegistrarCliente
         '
         'date_FechaAtencion
         '
-        Me.date_FechaAtencion.Location = New System.Drawing.Point(182, 302)
+        Me.date_FechaAtencion.Location = New System.Drawing.Point(170, 302)
         Me.date_FechaAtencion.Name = "date_FechaAtencion"
-        Me.date_FechaAtencion.Size = New System.Drawing.Size(237, 20)
+        Me.date_FechaAtencion.Size = New System.Drawing.Size(249, 20)
         Me.date_FechaAtencion.TabIndex = 41
         '
         'btn_Guardar
         '
-        Me.btn_Guardar.Enabled = False
+        Me.btn_Guardar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.SAVE
         Me.btn_Guardar.Location = New System.Drawing.Point(515, 318)
         Me.btn_Guardar.Name = "btn_Guardar"
         Me.btn_Guardar.Size = New System.Drawing.Size(160, 40)
         Me.btn_Guardar.TabIndex = 43
-        Me.btn_Guardar.Text = "Guardar"
+        Me.btn_Guardar.Text = " Guardar"
+        Me.btn_Guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_Guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btn_Guardar.UseVisualStyleBackColor = True
         '
         'lbl_Nombre
@@ -173,6 +175,8 @@ Partial Class RegistrarCliente
         Me.tbox_CodigoCurso.Name = "tbox_CodigoCurso"
         Me.tbox_CodigoCurso.Size = New System.Drawing.Size(95, 20)
         Me.tbox_CodigoCurso.TabIndex = 38
+        Me.tbox_CodigoCurso.Text = "Código"
+        Me.tbox_CodigoCurso.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lbl_TipoAtencion
         '

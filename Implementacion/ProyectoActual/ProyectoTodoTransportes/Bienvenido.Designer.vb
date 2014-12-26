@@ -27,11 +27,11 @@ Partial Class Bienvenido
         Me.lbl_Usuario = New System.Windows.Forms.Label()
         Me.lbl_Contra = New System.Windows.Forms.Label()
         Me.tbox_Contra = New System.Windows.Forms.TextBox()
-        Me.btn_Login = New System.Windows.Forms.Button()
         Me.StatusBar = New System.Windows.Forms.StatusStrip()
         Me.Estado = New System.Windows.Forms.ToolStripStatusLabel()
         Me.STATUS = New System.Windows.Forms.ToolStripStatusLabel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.btn_Login = New System.Windows.Forms.Button()
         Me.StatusBar.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -88,15 +88,6 @@ Partial Class Bienvenido
         Me.tbox_Contra.TabIndex = 2
         Me.tbox_Contra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'btn_Login
-        '
-        Me.btn_Login.Location = New System.Drawing.Point(109, 323)
-        Me.btn_Login.Name = "btn_Login"
-        Me.btn_Login.Size = New System.Drawing.Size(180, 40)
-        Me.btn_Login.TabIndex = 3
-        Me.btn_Login.Text = "Iniciar Sesión"
-        Me.btn_Login.UseVisualStyleBackColor = True
-        '
         'StatusBar
         '
         Me.StatusBar.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Estado})
@@ -126,6 +117,18 @@ Partial Class Bienvenido
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 7
         Me.PictureBox1.TabStop = False
+        '
+        'btn_Login
+        '
+        Me.btn_Login.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.USER
+        Me.btn_Login.Location = New System.Drawing.Point(109, 323)
+        Me.btn_Login.Name = "btn_Login"
+        Me.btn_Login.Size = New System.Drawing.Size(180, 40)
+        Me.btn_Login.TabIndex = 3
+        Me.btn_Login.Text = "Iniciar Sesión"
+        Me.btn_Login.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_Login.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btn_Login.UseVisualStyleBackColor = True
         '
         'Bienvenido
         '

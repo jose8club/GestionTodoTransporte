@@ -2,9 +2,11 @@
     Dim con As New Conexion
     Dim USER As String = ""
     Dim STATUS As ToolStripStatusLabel
+    Dim dc As DataCBOX
 
     Sub New(ByVal usuario As String, ByVal conexion As Conexion, ByVal estado As ToolStripStatusLabel)
         con = conexion
+        dc = New DataCBOX(conexion)
         USER = usuario
         STATUS = estado
         InitializeComponent()
@@ -13,7 +15,10 @@
     Private Sub RegistrarCliente_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         loadCBOX("Area")
         loadCBOX("Producto")
+        loadCBOX("Tipo de Atencion")
         loadImage()
+        tbox_CodigoCurso.ForeColor = Color.Gray
+
     End Sub
 
     Private Sub btn_Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Guardar.Click
@@ -59,47 +64,53 @@
         tbox_Consultas.Text = ""
         tbox_Telefono.Text = ""
         cbox_CursoInteres.SelectedIndex = 0
+        tbox_CodigoCurso.Text = "Código"
+        tbox_CodigoCurso.ForeColor = Color.Gray
+
     End Sub
 
     Sub loadCBOX(ByVal Nombre As String)
-        Dim n As Integer
-        Dim items() As String
         If Nombre.Equals("Producto") Then
-            cbox_CursoInteres.Items.Clear()
 
-            n = con.countWhere("producto", "Area = '" & cbox_Area.Text & "'") - 1
-            items = con.toArrayWhere(n, "Nombre", "Producto", "Area = '" & cbox_Area.Text & "'")
-            For i As Integer = 0 To n
-                cbox_CursoInteres.Items.Add(items(i))
-            Next
-            If n >= 0 Then
-                cbox_CursoInteres.SelectedIndex = 0
-            End If
+            cbox_CursoInteres.DataSource = dc.ProductoDeArea(cbox_Area.Text)
+            cbox_CursoInteres.DisplayMember = "Nombre"
+            cbox_CursoInteres.ValueMember = "Nombre"
 
         ElseIf Nombre.Equals("Area") Then
-            cbox_Area.Items.Clear()
 
-            n = con.count("Area") - 1
-            items = con.toArray(n, "Nombre", "Area")
+            cbox_Area.DataSource = dc.Area
+            cbox_Area.DisplayMember = "Nombre"
+            cbox_Area.ValueMember = "Nombre"
 
-            For i As Integer = 0 To n
-                cbox_Area.Items.Add(items(i))
-            Next
+        ElseIf Nombre.Equals("Tipo de Atencion") Then
 
-            'If con.countWhere("Producto", "Area = 'Otros'") = 0 Then cbox_TipoLicencia.Items.Remove("Otros")
-
-            If n >= 0 Then
-                cbox_Area.SelectedIndex = 0
-            End If
+            Dim tipoAtencion As DataTable = New DataTable
+            Dim columnas() As DataColumn = {New DataColumn("Nombre"), New DataColumn("Valor")}
+            tipoAtencion.Columns.AddRange(columnas)
+            tipoAtencion.Rows.Add("Oficina", "OFF")
+            tipoAtencion.Rows.Add("Teléfono", "TEL")
+            cbox_TipoAtencion.DataSource = tipoAtencion
+            cbox_TipoAtencion.ValueMember = "Valor"
+            cbox_TipoAtencion.DisplayMember = "Nombre"
         End If
     End Sub
 
     Function validar() As Boolean
+        STATUS.Text = ""
+        STATUS.ForeColor = System.Drawing.SystemColors.ControlText
+
         If tbox_Telefono.Text.Trim.Equals("") Then tbox_Telefono.Text = "0"
         If tbox_Nombre.Text.Trim.Equals("") Then
-            STATUS.Text = "ERROR: Ingrese los datos."
+            STATUS.Text = "ERROR: Ingrese el nombre del cliente."
+            STATUS.ForeColor = Color.Red
             Return False
         End If
+        If tbox_CodigoCurso.Text = "Código" Then
+            STATUS.Text = "ERROR: Ingrese el código del curso asociado."
+            STATUS.ForeColor = Color.Red
+            Return False
+        End If
+
         Return True
     End Function
 
@@ -142,4 +153,18 @@
 
     End Sub
 
+    Private Sub tbox_CodigoCurso_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles tbox_CodigoCurso.GotFocus
+        If tbox_CodigoCurso.Text = "Código" Then
+            tbox_CodigoCurso.Text = ""
+            tbox_CodigoCurso.ForeColor = System.Drawing.SystemColors.ControlText
+        End If
+    End Sub
+
+
+    Private Sub tbox_CodigoCurso_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles tbox_CodigoCurso.LostFocus
+        If tbox_CodigoCurso.Text.Trim = "" Then
+            tbox_CodigoCurso.Text = "Código"
+            tbox_CodigoCurso.ForeColor = Color.Gray
+        End If
+    End Sub
 End Class
