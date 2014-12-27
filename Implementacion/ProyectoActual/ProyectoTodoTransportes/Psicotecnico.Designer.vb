@@ -38,9 +38,11 @@ Partial Class Psicotecnico
         '
         'btn_psico
         '
-        Me.btn_psico.Location = New System.Drawing.Point(427, 260)
+        Me.btn_psico.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.SAVE
+        Me.btn_psico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_psico.Location = New System.Drawing.Point(420, 260)
         Me.btn_psico.Name = "btn_psico"
-        Me.btn_psico.Size = New System.Drawing.Size(111, 23)
+        Me.btn_psico.Size = New System.Drawing.Size(131, 33)
         Me.btn_psico.TabIndex = 50
         Me.btn_psico.Text = "Guardar"
         Me.btn_psico.UseVisualStyleBackColor = True
@@ -143,9 +145,11 @@ Partial Class Psicotecnico
         '
         'btn_reset
         '
+        Me.btn_reset.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
+        Me.btn_reset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_reset.Location = New System.Drawing.Point(83, 260)
         Me.btn_reset.Name = "btn_reset"
-        Me.btn_reset.Size = New System.Drawing.Size(107, 23)
+        Me.btn_reset.Size = New System.Drawing.Size(133, 33)
         Me.btn_reset.TabIndex = 51
         Me.btn_reset.Text = "Resetear"
         Me.btn_reset.UseVisualStyleBackColor = True

@@ -106,9 +106,11 @@ Partial Class CambioRueda
         '
         'btn_rueda
         '
-        Me.btn_rueda.Location = New System.Drawing.Point(399, 249)
+        Me.btn_rueda.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.SAVE
+        Me.btn_rueda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_rueda.Location = New System.Drawing.Point(378, 249)
         Me.btn_rueda.Name = "btn_rueda"
-        Me.btn_rueda.Size = New System.Drawing.Size(118, 23)
+        Me.btn_rueda.Size = New System.Drawing.Size(139, 35)
         Me.btn_rueda.TabIndex = 21
         Me.btn_rueda.Text = "Guardar"
         Me.btn_rueda.UseVisualStyleBackColor = True
@@ -160,9 +162,11 @@ Partial Class CambioRueda
         '
         'btn_reset
         '
+        Me.btn_reset.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
+        Me.btn_reset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_reset.Location = New System.Drawing.Point(51, 249)
         Me.btn_reset.Name = "btn_reset"
-        Me.btn_reset.Size = New System.Drawing.Size(117, 23)
+        Me.btn_reset.Size = New System.Drawing.Size(135, 35)
         Me.btn_reset.TabIndex = 22
         Me.btn_reset.Text = "Resetear"
         Me.btn_reset.UseVisualStyleBackColor = True

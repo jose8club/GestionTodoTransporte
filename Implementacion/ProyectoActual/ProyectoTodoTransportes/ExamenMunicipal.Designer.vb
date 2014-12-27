@@ -40,9 +40,11 @@ Partial Class ExamenMunicipal
         '
         'btn_Municipal
         '
-        Me.btn_Municipal.Location = New System.Drawing.Point(379, 306)
+        Me.btn_Municipal.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.SAVE
+        Me.btn_Municipal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_Municipal.Location = New System.Drawing.Point(372, 306)
         Me.btn_Municipal.Name = "btn_Municipal"
-        Me.btn_Municipal.Size = New System.Drawing.Size(126, 23)
+        Me.btn_Municipal.Size = New System.Drawing.Size(133, 35)
         Me.btn_Municipal.TabIndex = 63
         Me.btn_Municipal.Text = "Guardar"
         Me.btn_Municipal.UseVisualStyleBackColor = True
@@ -162,9 +164,11 @@ Partial Class ExamenMunicipal
         '
         'btn_reset
         '
+        Me.btn_reset.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
+        Me.btn_reset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_reset.Location = New System.Drawing.Point(37, 306)
         Me.btn_reset.Name = "btn_reset"
-        Me.btn_reset.Size = New System.Drawing.Size(107, 23)
+        Me.btn_reset.Size = New System.Drawing.Size(134, 35)
         Me.btn_reset.TabIndex = 64
         Me.btn_reset.Text = "Resetear"
         Me.btn_reset.UseVisualStyleBackColor = True

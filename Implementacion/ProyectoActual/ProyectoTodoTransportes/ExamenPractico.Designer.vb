@@ -40,9 +40,11 @@ Partial Class ExamenPractico
         '
         'btn_exPract
         '
-        Me.btn_exPract.Location = New System.Drawing.Point(390, 280)
+        Me.btn_exPract.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.SAVE
+        Me.btn_exPract.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_exPract.Location = New System.Drawing.Point(387, 271)
         Me.btn_exPract.Name = "btn_exPract"
-        Me.btn_exPract.Size = New System.Drawing.Size(111, 23)
+        Me.btn_exPract.Size = New System.Drawing.Size(133, 32)
         Me.btn_exPract.TabIndex = 84
         Me.btn_exPract.Text = "Guardar"
         Me.btn_exPract.UseVisualStyleBackColor = True
@@ -130,9 +132,9 @@ Partial Class ExamenPractico
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(37, 87)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(65, 13)
+        Me.Label5.Size = New System.Drawing.Size(54, 13)
         Me.Label5.TabIndex = 74
-        Me.Label5.Text = "Funcionario:"
+        Me.Label5.Text = "Instructor:"
         '
         'Label3
         '
@@ -161,9 +163,11 @@ Partial Class ExamenPractico
         '
         'btn_reset
         '
-        Me.btn_reset.Location = New System.Drawing.Point(44, 280)
+        Me.btn_reset.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
+        Me.btn_reset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_reset.Location = New System.Drawing.Point(44, 271)
         Me.btn_reset.Name = "btn_reset"
-        Me.btn_reset.Size = New System.Drawing.Size(117, 23)
+        Me.btn_reset.Size = New System.Drawing.Size(137, 32)
         Me.btn_reset.TabIndex = 85
         Me.btn_reset.Text = "Resetear"
         Me.btn_reset.UseVisualStyleBackColor = True
