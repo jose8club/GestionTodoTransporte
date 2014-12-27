@@ -101,19 +101,9 @@
                 con.beginTransaction()
                 If rbtn_aprobado.Checked Then
                     D = con.doInsert("Documento", ColDoc, ParDocAp)
-                    If D <> -1 Then
-                        con.commitTransaction()
-                    Else
-                        STATUS.Text = "Documento de Examen Teorico de: " & Cliente & " no fue agregado."
-                    End If
                     MsgBox("El estudiante : " & Cliente & " puede dar la clase practica con calificacion " & (Calificacion / 10) & "")
                 ElseIf rbtn_reprobado.Checked Then
                     D = con.doInsert("Documento", ColDoc, ParDocRep)
-                    If D <> -1 Then
-                        con.commitTransaction()
-                    Else
-                        STATUS.Text = "Documento de Examen Teorico de: " & Cliente & " no fue agregado."
-                    End If
                     MsgBox("El estudiante : " & Cliente & " no puede dar la clase practica con calificacion " & (Calificacion / 10) & "")
                 End If
 
@@ -137,6 +127,12 @@
                 Dim ColEd() As String = {"Estudiante", "Documento"}
                 Dim ParEd() As String = {Estudiante, Documento}
                 Ed = con.doInsert("ESTUDIANTE_DOCUMENTO", ColEd, ParEd)
+
+                If D <> -1 And Et <> -1 And Ed <> -1 Then
+                    con.commitTransaction()
+                Else
+                    STATUS.Text = "Documento de Examen Practico de: " & Cliente & " no fue agregado."
+                End If
 
                 STATUS.Text = "Examen Teorico de: " & Cliente & " fue agregada exitosamente."
                 cbox_matricula.Text = ""

@@ -92,20 +92,10 @@
                 con.beginTransaction()
                 If rbtn_aprobado.Checked Then
                     D = con.doInsert("Documento", ColDoc, ParDocAp)
-                    If D <> -1 Then
-                        con.commitTransaction()
-                    Else
-                        STATUS.Text = "Documento de Examen Psicotécnico de: " & Cliente & " no fue agregado."
-                    End If
-                    MsgBox("El estudiante : " & Cliente & " puede obtener la licencia")
+                    MsgBox("El examen psicotecnico de : " & Cliente & " fue aprobado")
                 ElseIf rbtn_reprobado.Checked Then
                     D = con.doInsert("Documento", ColDoc, ParDocRep)
-                    If D <> -1 Then
-                        con.commitTransaction()
-                    Else
-                        STATUS.Text = "Documento de Practica Psicotécnico de: " & Cliente & " no fue agregado."
-                    End If
-                    MsgBox("El estudiante : " & Cliente & " no puede obtener la licencia")
+                    MsgBox("El examen psicotecnico de : " & Cliente & " fue reprobado")
                 End If
 
                 Dim Doc As DataTable = con.doQuery("SELECT max(idDOCUMENTO) AS idDOCUMENTO  FROM Documento")
@@ -127,11 +117,17 @@
                 Dim ParEd() As String = {Estudiante, Documento}
                 Ed = con.doInsert("ESTUDIANTE_DOCUMENTO", ColEd, ParEd)
 
-                STATUS.Text = "Examen Psicotécnico de: " & Cliente & " fue agregada exitosamente."
+                If D <> -1 And Ps <> -1 And Ed <> -1 Then
+                    con.commitTransaction()
+                Else
+                    STATUS.Text = "Practica Psicotécnico de: " & Cliente & " no fue agregado como debe ser."
+                End If
+
+                STATUS.Text = "Practica Psicotécnico de: " & Cliente & " fue agregada exitosamente."
                 cbox_matricula.Text = ""
                 lbl_estudiante.Text = ""
             Catch ex As Exception
-                STATUS.Text = "Examen Psicotécnico de: " & Cliente & " no fue agregado."
+                STATUS.Text = "Practica Psicotécnico de: " & Cliente & " no fue agregado."
             End Try
         End If
     End Sub

@@ -108,11 +108,7 @@
                 con.beginTransaction()
 
                 D = con.doInsert("Documento", ColDoc, ParDocAp)
-                If D <> -1 Then
-                    con.commitTransaction()
-                Else
-                    STATUS.Text = "Documento de Clase Cambio Rueda de: " & Cliente & " no fue agregado."
-                End If
+                
 
                 Dim Doc As DataTable = con.doQuery("SELECT max(idDOCUMENTO) AS idDOCUMENTO  FROM Documento")
                 If Doc.Rows.Count > 0 Then
@@ -133,6 +129,12 @@
                 Dim ColEd() As String = {"Estudiante", "Documento"}
                 Dim ParEd() As String = {Estudiante, Documento}
                 Ed = con.doInsert("ESTUDIANTE_DOCUMENTO", ColEd, ParEd)
+
+                If D <> -1 And Cr <> -1 And Ed <> -1 Then
+                    con.commitTransaction()
+                Else
+                    STATUS.Text = "Documento de Clase Cambio Rueda de: " & Cliente & " no fue agregado."
+                End If
 
                 STATUS.Text = "Clase Cambio Rueda de: " & Cliente & " fue agregada exitosamente."
                 cbox_matricula.Text = ""

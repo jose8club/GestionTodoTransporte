@@ -86,22 +86,11 @@
                 con.beginTransaction()
                 If rbtn_aprobado.Checked Then
                     D = con.doInsert("Documento", ColDoc, ParDocAp)
-                    If D <> -1 Then
-                        con.commitTransaction()
-                    Else
-                        STATUS.Text = "Documento de Examen Municipal de: " & Cliente & " no fue agregado."
-                    End If
                     MsgBox("El estudiante : " & Cliente & " puede obtener la licencia")
                 ElseIf rbtn_reprobado.Checked Then
                     D = con.doInsert("Documento", ColDoc, ParDocRep)
-                    If D <> -1 Then
-                        con.commitTransaction()
-                    Else
-                        STATUS.Text = "Documento de Examen Municipal de: " & Cliente & " no fue agregado."
-                    End If
                     MsgBox("El estudiante : " & Cliente & " no puede obtener la licencia")
                 End If
-
 
                 Dim Doc As DataTable = con.doQuery("SELECT max(idDOCUMENTO) AS idDOCUMENTO  FROM Documento")
                 If Doc.Rows.Count > 0 Then
@@ -122,6 +111,12 @@
                 Dim ColEd() As String = {"Estudiante", "Documento"}
                 Dim ParEd() As String = {Estudiante, Documento}
                 Ed = con.doInsert("ESTUDIANTE_DOCUMENTO", ColEd, ParEd)
+
+                If D <> -1 And Em <> -1 And Ed <> -1 Then
+                    con.commitTransaction()
+                Else
+                    STATUS.Text = "Documento de Examen Municipal de: " & Cliente & " no fue agregado."
+                End If
 
                 STATUS.Text = "Examen Municipal de: " & Cliente & " fue agregada exitosamente."
                 rtbox_comentario.Text = ""
