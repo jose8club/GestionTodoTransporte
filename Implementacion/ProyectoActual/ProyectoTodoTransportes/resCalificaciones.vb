@@ -13,6 +13,8 @@
     Private Sub resCalificaciones_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         loadCBOX("Matricula")
         DataGridView1.DataSource = Nothing
+        DataGridView2.DataSource = Nothing
+        DataGridView3.DataSource = Nothing
     End Sub
 
 #Region "Métodos"
@@ -26,13 +28,25 @@
     End Sub
 
     Sub loadLista(ByVal estudiante As String)
-        Dim data As DataTable = con.doQuery("select et.calificacion, ep.calificacion, c.estado " _
-                                           & "from documento a, documento b, documento c, examen_teorico et, examen_practico ep, examen_municipal em, estudiante_documento d, estudiante_documento e, estudiante_documento f " _
-                                           & "where et.Documento=a.idDOCUMENTO and a.idDOCUMENTO=d.Documento and d.Estudiante='" & estudiante & "' and " _
-                                                   & "ep.Documento=b.idDOCUMENTO and b.idDOCUMENTO=e.Documento and e.Estudiante='" & estudiante & "' and " _
-                                                   & "em.Documento=c.idDOCUMENTO and c.idDOCUMENTO=f.Documento and f.Estudiante='" & estudiante & "'")
-        If data.Rows.Count > 0 Then
-            DataGridView1.DataSource = data
+        Dim exteo As DataTable = con.doQuery("select et.calificacion " _
+                                           & "from documento a, examen_teorico et, estudiante_documento d " _
+                                           & "where et.Documento=a.idDOCUMENTO and a.idDOCUMENTO=d.Documento and d.Estudiante='" & estudiante &  "'")
+        If exteo.Rows.Count > 0 Then
+            DataGridView1.DataSource = exteo
+        End If
+
+        Dim expract As DataTable = con.doQuery("select ep.calificacion " _
+                                           & "from documento b, examen_practico ep, estudiante_documento e " _
+                                           & "where ep.Documento=b.idDOCUMENTO and b.idDOCUMENTO=e.Documento and e.Estudiante='" & estudiante & "'")
+        If expract.Rows.Count > 0 Then
+            DataGridView2.DataSource = expract
+        End If
+
+        Dim exmun As DataTable = con.doQuery("select c.estado " _
+                                           & "from documento c, examen_municipal em, estudiante_documento f " _
+                                           & "where em.Documento=c.idDOCUMENTO and c.idDOCUMENTO=f.Documento and f.Estudiante='" & estudiante & "'")
+        If exmun.Rows.Count > 0 Then
+            DataGridView3.DataSource = exmun
         End If
 
     End Sub

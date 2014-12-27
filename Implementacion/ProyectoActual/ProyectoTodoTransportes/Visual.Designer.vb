@@ -40,9 +40,11 @@ Partial Class Visual
         '
         'btn_visual
         '
+        Me.btn_visual.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.SAVE
+        Me.btn_visual.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_visual.Location = New System.Drawing.Point(403, 309)
         Me.btn_visual.Name = "btn_visual"
-        Me.btn_visual.Size = New System.Drawing.Size(111, 23)
+        Me.btn_visual.Size = New System.Drawing.Size(141, 36)
         Me.btn_visual.TabIndex = 41
         Me.btn_visual.Text = "Guardar"
         Me.btn_visual.UseVisualStyleBackColor = True
@@ -164,9 +166,11 @@ Partial Class Visual
         '
         'btn_reset
         '
+        Me.btn_reset.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
+        Me.btn_reset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_reset.Location = New System.Drawing.Point(80, 309)
         Me.btn_reset.Name = "btn_reset"
-        Me.btn_reset.Size = New System.Drawing.Size(107, 23)
+        Me.btn_reset.Size = New System.Drawing.Size(140, 36)
         Me.btn_reset.TabIndex = 42
         Me.btn_reset.Text = "Resetear"
         Me.btn_reset.UseVisualStyleBackColor = True

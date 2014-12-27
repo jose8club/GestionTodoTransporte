@@ -131,7 +131,7 @@
                 If D <> -1 And Et <> -1 And Ed <> -1 Then
                     con.commitTransaction()
                 Else
-                    STATUS.Text = "Documento de Examen Practico de: " & Cliente & " no fue agregado."
+                    STATUS.Text = "Documento de Examen Teorico de: " & Cliente & " no fue agregado."
                 End If
 
                 STATUS.Text = "Examen Teorico de: " & Cliente & " fue agregada exitosamente."
