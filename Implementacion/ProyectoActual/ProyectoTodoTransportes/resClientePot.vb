@@ -30,7 +30,9 @@
 
     Sub loadLista(ByVal fun As String)
         
-        Dim data As DataTable = con.doQuery("select c.Nombre, c.telefono from atencion_cliente_potencial a, cliente_potencial c where a.Cliente_Potencial=c.idCliente_Potencial and a.usuario ='" & fun & "' and a.idATENCION_CLIENTE_POTENCIAL=(select min(idATENCION_CLIENTE_POTENCIAL) from atencion_cliente_potencial where usuario ='" & fun & "')")
+        Dim data As DataTable = con.doQuery("select distinct c.Nombre, a.fecha, c.telefono " _
+                                            & " from atencion_cliente_potencial a, cliente_potencial c" _
+                                            & " where a.Cliente_Potencial=c.idCliente_Potencial and a.usuario ='" & fun & "'")
 
         If data.Rows.Count > 0 Then
             DataGridView1.DataSource = data

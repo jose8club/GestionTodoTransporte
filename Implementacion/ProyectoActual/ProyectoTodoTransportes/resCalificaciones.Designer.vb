@@ -53,7 +53,7 @@ Partial Class resCalificaciones
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Location = New System.Drawing.Point(23, 24)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(548, 295)
+        Me.GroupBox1.Size = New System.Drawing.Size(582, 295)
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Calificaciones Estudiantes"
@@ -103,7 +103,7 @@ Partial Class resCalificaciones
         Me.DataGridView1.Location = New System.Drawing.Point(30, 152)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(149, 112)
+        Me.DataGridView1.Size = New System.Drawing.Size(165, 112)
         Me.DataGridView1.TabIndex = 40
         '
         'lbl_estudiante
@@ -144,7 +144,7 @@ Partial Class resCalificaciones
         Me.DataGridView2.Location = New System.Drawing.Point(201, 152)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.ReadOnly = True
-        Me.DataGridView2.Size = New System.Drawing.Size(149, 112)
+        Me.DataGridView2.Size = New System.Drawing.Size(167, 112)
         Me.DataGridView2.TabIndex = 45
         '
         'DataGridView3
@@ -156,7 +156,7 @@ Partial Class resCalificaciones
         Me.DataGridView3.Location = New System.Drawing.Point(374, 152)
         Me.DataGridView3.Name = "DataGridView3"
         Me.DataGridView3.ReadOnly = True
-        Me.DataGridView3.Size = New System.Drawing.Size(149, 112)
+        Me.DataGridView3.Size = New System.Drawing.Size(165, 112)
         Me.DataGridView3.TabIndex = 46
         '
         'resCalificaciones

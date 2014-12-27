@@ -25,10 +25,10 @@ Partial Class resProfesores
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cbox_docente = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -64,10 +64,19 @@ Partial Class resProfesores
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(36, 25)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(601, 318)
+        Me.GroupBox1.Size = New System.Drawing.Size(601, 253)
         Me.GroupBox1.TabIndex = 40
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Profesores"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(187, 96)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(126, 13)
+        Me.Label3.TabIndex = 43
+        Me.Label3.Text = "Estudiantes Reprobados:"
         '
         'DataGridView2
         '
@@ -101,15 +110,6 @@ Partial Class resProfesores
         Me.Label2.Size = New System.Drawing.Size(119, 13)
         Me.Label2.TabIndex = 40
         Me.Label2.Text = "Estudiantes Aprobados:"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(187, 96)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(126, 13)
-        Me.Label3.TabIndex = 43
-        Me.Label3.Text = "Estudiantes Reprobados:"
         '
         'resProfesores
         '
