@@ -22,16 +22,15 @@ Partial Class resProfesores
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ColumnHeader1 As System.Windows.Forms.ColumnHeader
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cbox_docente = New System.Windows.Forms.ComboBox()
-        Me.list_estudiantesTeo = New System.Windows.Forms.ListView()
-        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -54,39 +53,12 @@ Partial Class resProfesores
         Me.cbox_docente.Size = New System.Drawing.Size(427, 21)
         Me.cbox_docente.TabIndex = 1
         '
-        'list_estudiantesTeo
-        '
-        Me.list_estudiantesTeo.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
-        Me.list_estudiantesTeo.GridLines = True
-        Me.list_estudiantesTeo.LabelEdit = True
-        Me.list_estudiantesTeo.Location = New System.Drawing.Point(17, 110)
-        Me.list_estudiantesTeo.MultiSelect = False
-        Me.list_estudiantesTeo.Name = "list_estudiantesTeo"
-        Me.list_estudiantesTeo.Size = New System.Drawing.Size(523, 174)
-        Me.list_estudiantesTeo.TabIndex = 39
-        Me.list_estudiantesTeo.UseCompatibleStateImageBehavior = False
-        Me.list_estudiantesTeo.View = System.Windows.Forms.View.Details
-        '
-        'ColumnHeader1
-        '
-        ColumnHeader1.Text = "Numero"
-        ColumnHeader1.Width = 1
-        '
-        'ColumnHeader2
-        '
-        Me.ColumnHeader2.Text = "Aprobados"
-        Me.ColumnHeader2.Width = 108
-        '
-        'ColumnHeader3
-        '
-        Me.ColumnHeader3.Text = "Reprobados"
-        Me.ColumnHeader3.Width = 126
-        '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.DataGridView2)
+        Me.GroupBox1.Controls.Add(Me.DataGridView1)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.cbox_docente)
-        Me.GroupBox1.Controls.Add(Me.list_estudiantesTeo)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(36, 25)
         Me.GroupBox1.Name = "GroupBox1"
@@ -104,6 +76,30 @@ Partial Class resProfesores
         Me.Label2.TabIndex = 40
         Me.Label2.Text = "Estudiantes:"
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToResizeRows = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(17, 121)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.Size = New System.Drawing.Size(245, 112)
+        Me.DataGridView1.TabIndex = 41
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AllowUserToDeleteRows = False
+        Me.DataGridView2.AllowUserToResizeRows = False
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Location = New System.Drawing.Point(268, 121)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.ReadOnly = True
+        Me.DataGridView2.Size = New System.Drawing.Size(245, 112)
+        Me.DataGridView2.TabIndex = 42
+        '
         'resProfesores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -115,14 +111,15 @@ Partial Class resProfesores
         Me.Text = "resProfesores"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents cbox_docente As System.Windows.Forms.ComboBox
-    Friend WithEvents list_estudiantesTeo As System.Windows.Forms.ListView
-    Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
-    Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
 End Class

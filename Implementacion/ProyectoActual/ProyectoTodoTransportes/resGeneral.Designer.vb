@@ -27,7 +27,9 @@ Partial Class resGeneral
         Me.lbl_estudiante = New System.Windows.Forms.Label()
         Me.label2 = New System.Windows.Forms.Label()
         Me.cbox_pago = New System.Windows.Forms.ComboBox()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -41,6 +43,7 @@ Partial Class resGeneral
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.DataGridView1)
         Me.GroupBox1.Controls.Add(Me.lbl_estudiante)
         Me.GroupBox1.Controls.Add(Me.label2)
         Me.GroupBox1.Controls.Add(Me.cbox_pago)
@@ -81,6 +84,18 @@ Partial Class resGeneral
         Me.cbox_pago.Size = New System.Drawing.Size(304, 21)
         Me.cbox_pago.TabIndex = 1
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToResizeRows = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 102)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.Size = New System.Drawing.Size(460, 112)
+        Me.DataGridView1.TabIndex = 37
+        '
         'resGeneral
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -92,6 +107,7 @@ Partial Class resGeneral
         Me.Text = "resGeneral"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -100,4 +116,5 @@ Partial Class resGeneral
     Friend WithEvents label2 As System.Windows.Forms.Label
     Friend WithEvents cbox_pago As System.Windows.Forms.ComboBox
     Friend WithEvents lbl_estudiante As System.Windows.Forms.Label
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
 End Class
