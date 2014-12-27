@@ -6,6 +6,9 @@
         If validar() Then
             Dim login As Boolean = con.iniciarSesion(tbox_Usuario.Text, tbox_Contra.Text)
             If login Then
+                Dim prueba As Prueba = New Prueba(tbox_Usuario.Text, con)
+                prueba.Show()
+                prueba.SendToBack()
                 Dim principal As Principal = New Principal(tbox_Usuario.Text, con)
                 principal.Show()
                 Me.Close()
