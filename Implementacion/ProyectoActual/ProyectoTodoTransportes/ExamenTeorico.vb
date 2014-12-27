@@ -115,6 +115,8 @@
                     Documento = 0
                 End If
 
+                MsgBox(Documento)
+                MsgBox(Calificacion)
                 'Examen Teorico'
                 'Columnas y parametros de la query examen teorico'
 
@@ -122,11 +124,15 @@
                 Dim ParEt() As String = {Documento, Calificacion}
                 Et = con.doInsert("EXAMEN_TEORICO", ColEt, ParEt)
 
+                MsgBox(Et)
+
                 'Estudiante Documento'
                 'Columnas y parametros de la query estudiante documento'
                 Dim ColEd() As String = {"Estudiante", "Documento"}
                 Dim ParEd() As String = {Estudiante, Documento}
                 Ed = con.doInsert("ESTUDIANTE_DOCUMENTO", ColEd, ParEd)
+
+                MsgBox(Ed)
 
                 If D <> -1 And Et <> -1 And Ed <> -1 Then
                     con.commitTransaction()

@@ -39,7 +39,7 @@
         ElseIf cbox_funcionario.Text = "" Then
             MsgBox("Ingrese datos de funcionario")
             Return False
-        ElseIf rbtn_aprobado.Checked = False And rbtn_aprobado.Checked = False Then
+        ElseIf rbtn_aprobado.Checked = False And rbtn_reprobado.Checked = False Then
             MsgBox("Seleccione una opción de examenes")
             Return False
         End If

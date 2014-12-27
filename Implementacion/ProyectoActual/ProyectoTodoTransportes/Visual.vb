@@ -55,7 +55,6 @@
 
 
     Private Sub btn_visual_Click(sender As System.Object, e As System.EventArgs) Handles btn_visual.Click
-        Dim bool_cert As Boolean = chbox_cert.Checked()
         Dim Documento As Integer = 0
         Dim Funcionario As Integer = 0
         Dim Cliente As String = ""
@@ -104,26 +103,17 @@
                     Documento = 0
                 End If
 
-                MsgBox(Documento)
-                MsgBox(bool_cert)
-
                 'examen visual'
                 'Columnas y parametros de la query examen visual'
                 Dim ColEv() As String = {"Documento", "Certificado"}
-                Dim ParEv() As String = {Documento, bool_cert}
+                Dim ParEv() As String = {Documento, 1}
                 Ev = con.doInsert("EXAMEN_VISUAL", ColEv, ParEv)
-
-                MsgBox(Ev)
 
                 'Estudiante Documento'
                 'Columnas y parametros de la query estudiante documento'
                 Dim ColEd() As String = {"Estudiante", "Documento"}
                 Dim ParEd() As String = {Estudiante, Documento}
                 Ed = con.doInsert("ESTUDIANTE_DOCUMENTO", ColEd, ParEd)
-
-                MsgBox(Documento)
-                MsgBox(bool_cert.ToString)
-                MsgBox(Ed)
 
                 If D <> -1 And Ev <> -1 And Ed <> -1 Then
                     con.commitTransaction()
