@@ -22,25 +22,18 @@ Partial Class resAsistencia
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ColumnHeader1 As System.Windows.Forms.ColumnHeader
-        Dim ColumnHeader3 As System.Windows.Forms.ColumnHeader
         Me.cbox_estudiante = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.lbl_estudiante = New System.Windows.Forms.Label()
-        Me.list_asistenciasteo = New System.Windows.Forms.ListView()
-        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.list_asistenciapract = New System.Windows.Forms.ListView()
-        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'ColumnHeader1
-        '
-        ColumnHeader1.Text = "Numero"
-        ColumnHeader1.Width = 1
         '
         'cbox_estudiante
         '
@@ -64,9 +57,11 @@ Partial Class resAsistencia
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.list_asistenciapract)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.DataGridView2)
+        Me.GroupBox1.Controls.Add(Me.DataGridView1)
+        Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.lbl_estudiante)
-        Me.GroupBox1.Controls.Add(Me.list_asistenciasteo)
         Me.GroupBox1.Controls.Add(Me.cbox_estudiante)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(22, 22)
@@ -85,46 +80,47 @@ Partial Class resAsistencia
         Me.lbl_estudiante.TabIndex = 41
         Me.lbl_estudiante.Text = "Label8"
         '
-        'list_asistenciasteo
+        'DataGridView2
         '
-        Me.list_asistenciasteo.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {ColumnHeader1, Me.ColumnHeader2})
-        Me.list_asistenciasteo.GridLines = True
-        Me.list_asistenciasteo.LabelEdit = True
-        Me.list_asistenciasteo.Location = New System.Drawing.Point(28, 93)
-        Me.list_asistenciasteo.MultiSelect = False
-        Me.list_asistenciasteo.Name = "list_asistenciasteo"
-        Me.list_asistenciasteo.Size = New System.Drawing.Size(272, 174)
-        Me.list_asistenciasteo.TabIndex = 40
-        Me.list_asistenciasteo.UseCompatibleStateImageBehavior = False
-        Me.list_asistenciasteo.View = System.Windows.Forms.View.Details
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AllowUserToDeleteRows = False
+        Me.DataGridView2.AllowUserToResizeRows = False
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Location = New System.Drawing.Point(190, 125)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.ReadOnly = True
+        Me.DataGridView2.Size = New System.Drawing.Size(156, 112)
+        Me.DataGridView2.TabIndex = 46
         '
-        'ColumnHeader2
+        'DataGridView1
         '
-        Me.ColumnHeader2.Text = "Asistencia Teorica"
-        Me.ColumnHeader2.Width = 265
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AllowUserToDeleteRows = False
+        Me.DataGridView1.AllowUserToResizeRows = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(29, 125)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.Size = New System.Drawing.Size(155, 112)
+        Me.DataGridView1.TabIndex = 45
         '
-        'list_asistenciapract
+        'Label2
         '
-        Me.list_asistenciapract.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {ColumnHeader3, Me.ColumnHeader4})
-        Me.list_asistenciapract.GridLines = True
-        Me.list_asistenciapract.LabelEdit = True
-        Me.list_asistenciapract.Location = New System.Drawing.Point(299, 93)
-        Me.list_asistenciapract.MultiSelect = False
-        Me.list_asistenciapract.Name = "list_asistenciapract"
-        Me.list_asistenciapract.Size = New System.Drawing.Size(272, 174)
-        Me.list_asistenciapract.TabIndex = 42
-        Me.list_asistenciapract.UseCompatibleStateImageBehavior = False
-        Me.list_asistenciapract.View = System.Windows.Forms.View.Details
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(35, 100)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(97, 13)
+        Me.Label2.TabIndex = 44
+        Me.Label2.Text = "Asistencia Teorica:"
         '
-        'ColumnHeader3
+        'Label3
         '
-        ColumnHeader3.Text = "Numero"
-        ColumnHeader3.Width = 1
-        '
-        'ColumnHeader4
-        '
-        Me.ColumnHeader4.Text = "Asistencia Practica"
-        Me.ColumnHeader4.Width = 265
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(200, 100)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(100, 13)
+        Me.Label3.TabIndex = 47
+        Me.Label3.Text = "Asistencia Práctica:"
         '
         'resAsistencia
         '
@@ -137,15 +133,17 @@ Partial Class resAsistencia
         Me.Text = "resAsistencia"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents cbox_estudiante As System.Windows.Forms.ComboBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents list_asistenciasteo As System.Windows.Forms.ListView
-    Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
     Friend WithEvents lbl_estudiante As System.Windows.Forms.Label
-    Friend WithEvents list_asistenciapract As System.Windows.Forms.ListView
-    Friend WithEvents ColumnHeader4 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class

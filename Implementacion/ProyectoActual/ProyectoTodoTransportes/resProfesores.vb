@@ -49,7 +49,7 @@
                                             & "where d.idDocumento=e.Documento and e.estudiante=m.codigo and m.CodigoCompra=co.idCOMPRA and co.cliente=c.idCLIENTE and d.estado='Reprobado' and d.funcionario='" & func & "'")
 
         If rep.Rows.Count > 0 Then
-            DataGridView2.DataSource = data
+            DataGridView2.DataSource = rep
         End If
 
     End Sub

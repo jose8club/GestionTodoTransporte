@@ -2,71 +2,57 @@
     Dim con As New Conexion
     Dim USER As String = ""
     Dim STATUS As ToolStripStatusLabel
-
+    Dim datacbox As DataCBOX
     Sub New(ByVal usuario As String, ByVal conexion As Conexion, ByVal estado As ToolStripStatusLabel)
         con = conexion
         USER = usuario
+        datacbox = New DataCBOX(con)
         STATUS = estado
         InitializeComponent()
     End Sub
     Private Sub resAsistencia_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         loadCBOX("Matricula")
-        lbl_estudiante.Text = con.selectWhereQuery("cl.nombre", "cliente cl, compra co, matricula m", "m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_estudiante.Text & "'")
+        DataGridView1.DataSource = Nothing
+        DataGridView2.DataSource = Nothing
     End Sub
 #Region "Métodos"
     Sub loadCBOX(ByVal Nombre As String)
-
-        Dim n As Integer
-        Dim items() As String
-
         If Nombre.Equals("Matricula") Then
-            cbox_estudiante.Items.Clear()
-
-            n = con.count("Estudiante") - 1
-            items = con.toArray(n, "idEstudiante", "Estudiante")
-
-            cbox_estudiante.Items.Add("")
-            For i As Integer = 0 To n
-                cbox_estudiante.Items.Add(items(i))
-            Next
-
-            If n >= 0 Then cbox_estudiante.SelectedIndex = 0
-
+            cbox_estudiante.DataSource = datacbox.Estudiantes
+            cbox_estudiante.DisplayMember = "idEstudiante"
+            cbox_estudiante.ValueMember = "idEstudiante"
+            cbox_estudiante.SelectedIndex = -1
         End If
     End Sub
 
-    Sub loadListateo(ByVal est As String)
-        list_asistenciasteo.Items.Clear()
-        Dim n As Integer
-        Dim items() As String
-        n = con.count("Asistencia_Teoria") - 1
-        items = con.toArrayWhere(n, "a.Fecha", "asistencia a, asistencia_teoria ap", "a.Estudiante=ap.Estudiante and a.Estudiante='" & est & "'")
-        For i As Integer = 0 To n
-            Dim ast As New ListViewItem("", 0)
-            ast.SubItems.Add(items(i))
-            list_asistenciasteo.Items.AddRange(New ListViewItem() {ast})
-        Next
+    Sub loadLista(ByVal est As String)
+        Dim data As DataTable = con.doQuery("select a.Fecha from asistencia a, asistencia_teoria ap where a.Estudiante=ap.Estudiante and a.Estudiante='" & est & "'")
 
+        If data.Rows.Count > 0 Then
+            DataGridView1.DataSource = data
+        End If
+
+        Dim rep As DataTable = con.doQuery("select a.Fecha from asistencia a, asistencia_practica ap where a.Estudiante=ap.Estudiante and a.Estudiante='" & est & "'")
+
+        If rep.Rows.Count > 0 Then
+            DataGridView2.DataSource = rep
+        End If
     End Sub
 
-    Sub loadListapract(ByVal est As String)
-        list_asistenciapract.Items.Clear()
-        Dim n As Integer
-        Dim items() As String
-        n = con.count("Asistencia_Practica") - 1
-        items = con.toArrayWhere(n, "a.Fecha", "asistencia a, asistencia_practica ap", "a.Estudiante=ap.Estudiante and a.Estudiante='" & est & "'")
-        For i As Integer = 0 To n
-            Dim asp As New ListViewItem("", 0)
-            asp.SubItems.Add(items(i))
-            list_asistenciapract.Items.AddRange(New ListViewItem() {asp})
-        Next
-
-    End Sub
+    
 #End Region
 
     Private Sub cbox_estudiante_SelectedValueChanged(sender As System.Object, e As System.EventArgs) Handles cbox_estudiante.SelectedValueChanged
-        lbl_estudiante.Text = con.selectWhereQuery("cl.nombre", "cliente cl, compra co, matricula m", "m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_estudiante.Text & "'")
-        loadListateo(cbox_estudiante.Text)
-        loadListapract(cbox_estudiante.Text)
+        Dim label As DataTable = con.doQuery("SELECT cl.nombre " _
+                                        & "FROM cliente cl, compra co, matricula m" _
+                                         & " WHERE m.codigocompra = co.idcompra and co.cliente = cl.idcliente and m.codigo ='" & cbox_estudiante.Text & "'")
+
+        If label.Rows.Count > 0 Then
+            lbl_estudiante.Text = label.Rows(0).Item(0).ToString
+        Else
+            lbl_estudiante.Text = ""
+        End If
+        loadLista(cbox_estudiante.Text)
+
     End Sub
 End Class

@@ -51,7 +51,6 @@
         loadLista(cbox_pago.Text)
     End Sub
 
-    Private Sub GroupBox1_Enter(sender As System.Object, e As System.EventArgs) Handles GroupBox1.Enter
 
-    End Sub
+    
 End Class

@@ -70,7 +70,7 @@ Partial Class resGeneral
         'lbl_estudiante
         '
         Me.lbl_estudiante.AutoSize = True
-        Me.lbl_estudiante.Location = New System.Drawing.Point(466, 33)
+        Me.lbl_estudiante.Location = New System.Drawing.Point(280, 33)
         Me.lbl_estudiante.Name = "lbl_estudiante"
         Me.lbl_estudiante.Size = New System.Drawing.Size(39, 13)
         Me.lbl_estudiante.TabIndex = 36
@@ -93,7 +93,7 @@ Partial Class resGeneral
         Me.cbox_pago.FormattingEnabled = True
         Me.cbox_pago.Location = New System.Drawing.Point(126, 30)
         Me.cbox_pago.Name = "cbox_pago"
-        Me.cbox_pago.Size = New System.Drawing.Size(304, 21)
+        Me.cbox_pago.Size = New System.Drawing.Size(116, 21)
         Me.cbox_pago.TabIndex = 1
         '
         'resGeneral
