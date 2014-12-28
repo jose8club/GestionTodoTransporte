@@ -51,7 +51,7 @@ Partial Class tab_resumen
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(705, 320)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "General"
+        Me.TabPage1.Text = "Pago Estudiante"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'TabPage2
@@ -88,7 +88,7 @@ Partial Class tab_resumen
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Size = New System.Drawing.Size(705, 320)
         Me.TabPage5.TabIndex = 4
-        Me.TabPage5.Text = "Clientes"
+        Me.TabPage5.Text = "Clientes Potenciales"
         Me.TabPage5.UseVisualStyleBackColor = True
         '
         'tab_resumen

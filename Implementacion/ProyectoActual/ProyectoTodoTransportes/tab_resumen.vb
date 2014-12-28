@@ -23,7 +23,7 @@
         'Se crea este método para poder editar el orden de las pestañas y no alterar el contenido
         Dim Form As Form
         Me.MainMenu.TabPages(tab).Controls.Clear()
-        If Nombre.Equals("General") Then
+        If Nombre.Equals("Pago Estudiante") Then
             Form = New resGeneral(USER, con, STATUS)
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
@@ -43,7 +43,7 @@
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
-        ElseIf Nombre.Equals("Clientes") Then
+        ElseIf Nombre.Equals("Clientes Potenciales") Then
             Form = New resClientePot(USER, con, STATUS)
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
