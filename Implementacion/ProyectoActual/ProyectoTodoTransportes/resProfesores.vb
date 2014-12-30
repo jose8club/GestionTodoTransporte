@@ -36,7 +36,7 @@
             func = 0
         End If
 
-        Dim data As DataTable = con.doQuery("select c.nombre " _
+        Dim data As DataTable = con.doQuery("select c.nombre as 'Estudiantes Aprovados' " _
                                             & "from cliente c, documento d, estudiante_documento e, matricula m, compra co " _
                                             & "where d.idDocumento=e.Documento and e.estudiante=m.codigo and m.CodigoCompra=co.idCOMPRA and co.cliente=c.idCLIENTE and d.estado='Aprobado' and d.funcionario='" & func & "'")
 
@@ -44,7 +44,7 @@
             DataGridView1.DataSource = data
         End If
 
-        Dim rep As DataTable = con.doQuery("select c.nombre " _
+        Dim rep As DataTable = con.doQuery("select c.nombre as 'Estudiantes Reprovados' " _
                                             & "from cliente c, documento d, estudiante_documento e, matricula m, compra co " _
                                             & "where d.idDocumento=e.Documento and e.estudiante=m.codigo and m.CodigoCompra=co.idCOMPRA and co.cliente=c.idCLIENTE and d.estado='Reprobado' and d.funcionario='" & func & "'")
 

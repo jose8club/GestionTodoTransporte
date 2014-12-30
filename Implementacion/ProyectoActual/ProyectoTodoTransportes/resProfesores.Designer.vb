@@ -25,10 +25,8 @@ Partial Class resProfesores
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cbox_docente = New System.Windows.Forms.ComboBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,10 +54,9 @@ Partial Class resProfesores
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.AutoSize = True
         Me.GroupBox1.Controls.Add(Me.DataGridView2)
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
-        Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.cbox_docente)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(36, 25)
@@ -69,26 +66,18 @@ Partial Class resProfesores
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Profesores"
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(187, 96)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(126, 13)
-        Me.Label3.TabIndex = 43
-        Me.Label3.Text = "Estudiantes Reprobados:"
-        '
         'DataGridView2
         '
         Me.DataGridView2.AllowUserToAddRows = False
         Me.DataGridView2.AllowUserToDeleteRows = False
         Me.DataGridView2.AllowUserToResizeRows = False
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(178, 121)
+        Me.DataGridView2.Location = New System.Drawing.Point(157, 83)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.ReadOnly = True
         Me.DataGridView2.RowHeadersVisible = False
-        Me.DataGridView2.Size = New System.Drawing.Size(156, 112)
+        Me.DataGridView2.RowHeadersWidth = 70
+        Me.DataGridView2.Size = New System.Drawing.Size(123, 112)
         Me.DataGridView2.TabIndex = 42
         '
         'DataGridView1
@@ -97,21 +86,13 @@ Partial Class resProfesores
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(17, 121)
+        Me.DataGridView1.Location = New System.Drawing.Point(17, 83)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(155, 112)
+        Me.DataGridView1.RowHeadersWidth = 70
+        Me.DataGridView1.Size = New System.Drawing.Size(124, 112)
         Me.DataGridView1.TabIndex = 41
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(23, 96)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(119, 13)
-        Me.Label2.TabIndex = 40
-        Me.Label2.Text = "Estudiantes Aprobados:"
         '
         'resProfesores
         '
@@ -127,13 +108,12 @@ Partial Class resProfesores
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents cbox_docente As System.Windows.Forms.ComboBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
-    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class

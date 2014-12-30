@@ -28,21 +28,21 @@
     End Sub
 
     Sub loadLista(ByVal estudiante As String)
-        Dim exteo As DataTable = con.doQuery("select et.calificacion " _
+        Dim exteo As DataTable = con.doQuery("select et.calificacion as 'Calificación Examen Teorico' " _
                                            & "from documento a, examen_teorico et, estudiante_documento d " _
-                                           & "where et.Documento=a.idDOCUMENTO and a.idDOCUMENTO=d.Documento and d.Estudiante='" & estudiante &  "'")
+                                           & "where et.Documento=a.idDOCUMENTO and a.idDOCUMENTO=d.Documento and d.Estudiante='" & estudiante & "'")
         If exteo.Rows.Count > 0 Then
             DataGridView1.DataSource = exteo
         End If
 
-        Dim expract As DataTable = con.doQuery("select ep.calificacion " _
+        Dim expract As DataTable = con.doQuery("select ep.calificacion as 'Calificación Examen Práctico' " _
                                            & "from documento b, examen_practico ep, estudiante_documento e " _
                                            & "where ep.Documento=b.idDOCUMENTO and b.idDOCUMENTO=e.Documento and e.Estudiante='" & estudiante & "'")
         If expract.Rows.Count > 0 Then
             DataGridView2.DataSource = expract
         End If
 
-        Dim exmun As DataTable = con.doQuery("select c.estado " _
+        Dim exmun As DataTable = con.doQuery("select c.estado as 'Calificación Examen Municipal' " _
                                            & "from documento c, examen_municipal em, estudiante_documento f " _
                                            & "where em.Documento=c.idDOCUMENTO and c.idDOCUMENTO=f.Documento and f.Estudiante='" & estudiante & "'")
         If exmun.Rows.Count > 0 Then

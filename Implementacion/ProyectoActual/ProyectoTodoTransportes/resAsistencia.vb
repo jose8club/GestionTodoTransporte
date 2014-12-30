@@ -26,13 +26,13 @@
     End Sub
 
     Sub loadLista(ByVal est As String)
-        Dim data As DataTable = con.doQuery("select a.Fecha from asistencia a, asistencia_teoria ap where a.Estudiante=ap.Estudiante and a.Estudiante='" & est & "'")
+        Dim data As DataTable = con.doQuery("select a.Fecha as 'Asistencia Clases Teoricas' from asistencia a, asistencia_teoria ap where a.Estudiante=ap.Estudiante and a.Estudiante='" & est & "'")
 
         If data.Rows.Count > 0 Then
             DataGridView1.DataSource = data
         End If
 
-        Dim rep As DataTable = con.doQuery("select a.Fecha from asistencia a, asistencia_practica ap where a.Estudiante=ap.Estudiante and a.Estudiante='" & est & "'")
+        Dim rep As DataTable = con.doQuery("select a.Fecha as 'Asistencia Clases Prácticas' from asistencia a, asistencia_practica ap where a.Estudiante=ap.Estudiante and a.Estudiante='" & est & "'")
 
         If rep.Rows.Count > 0 Then
             DataGridView2.DataSource = rep

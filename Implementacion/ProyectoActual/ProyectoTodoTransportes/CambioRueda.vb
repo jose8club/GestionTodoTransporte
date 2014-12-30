@@ -41,6 +41,12 @@
         ElseIf cbox_funcionario.Text = "" Then
             MsgBox("Ingrese datos de funcionario")
             Return False
+        ElseIf CInt(sbox_hor1.Text) <> 10 And CInt(sbox_hor1.Text) <> 12 And CInt(sbox_hor1.Text) <> 17 Then
+            MsgBox("La hora: " & sbox_hor1.Text & ":00 no es una hora dentro de las posibilidades de horarios de clases")
+            Return False
+        ElseIf CInt(sbox_hor2.Text) <> 0 Then
+            MsgBox("La hora debe ser exacta")
+            Return False
         End If
 
         Return True
@@ -58,11 +64,6 @@
     Private Sub sbox_hor2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles sbox_hor2.KeyPress
         Herramientas.soloNumeros(e)
     End Sub
-
-    Function validar(ByVal Horario As String) As Boolean
-        'Futura validación
-        Return True
-    End Function
 
 #End Region
 
@@ -87,7 +88,6 @@
             Else
                 Horario = sbox_hor1.Text & ":" & sbox_hor2.Text & ":00"
             End If
-            Dim Val As Boolean = validar(Horario)
             If Fun.Rows.Count > 0 Then
                 Funcionario = CInt(Fun.Rows(0).Item(0).ToString)
             Else

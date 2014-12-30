@@ -27,7 +27,7 @@
     End Sub
 
     Sub loadLista(ByVal estudiante As String)
-        Dim data As DataTable = con.doQuery("select p.monto, p.medio_pago, p.Fecha, p.descuento " _
+        Dim data As DataTable = con.doQuery("select p.monto as 'Monto del Pago', p.medio_pago as 'Medio de Pago', p.Fecha as 'Fecha de Pago', p.descuento as 'Descuento de Pago' " _
                                             & "from pago p, compra co, matricula m " _
                                             & "where m.codigocompra = co.idcompra and co.cliente = p.compra and m.codigo ='" & estudiante & "'")
 

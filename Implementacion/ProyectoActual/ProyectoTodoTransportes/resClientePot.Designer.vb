@@ -39,7 +39,7 @@ Partial Class resClientePot
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Location = New System.Drawing.Point(12, 22)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(632, 294)
+        Me.GroupBox2.Size = New System.Drawing.Size(632, 261)
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Resumen Clientes"
@@ -51,11 +51,11 @@ Partial Class resClientePot
         Me.DataGridView1.AllowUserToResizeColumns = False
         Me.DataGridView1.AllowUserToResizeRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(30, 92)
+        Me.DataGridView1.Location = New System.Drawing.Point(30, 114)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(339, 112)
+        Me.DataGridView1.Size = New System.Drawing.Size(305, 105)
         Me.DataGridView1.TabIndex = 3
         '
         'Label3

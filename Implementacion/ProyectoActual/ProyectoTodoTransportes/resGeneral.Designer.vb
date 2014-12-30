@@ -65,7 +65,8 @@ Partial Class resGeneral
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.Size = New System.Drawing.Size(460, 112)
+        Me.DataGridView1.RowHeadersWidth = 120
+        Me.DataGridView1.Size = New System.Drawing.Size(404, 112)
         Me.DataGridView1.TabIndex = 37
         '
         'lbl_estudiante

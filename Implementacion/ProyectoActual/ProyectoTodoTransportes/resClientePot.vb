@@ -30,7 +30,7 @@
 
     Sub loadLista(ByVal fun As String)
         
-        Dim data As DataTable = con.doQuery("select distinct c.Nombre, a.fecha, c.telefono " _
+        Dim data As DataTable = con.doQuery("select distinct c.Nombre as 'Nombre Cliente', a.fecha as 'Fecha Atención', c.telefono as 'Telefono Cliente'  " _
                                             & " from atencion_cliente_potencial a, cliente_potencial c" _
                                             & " where a.Cliente_Potencial=c.idCliente_Potencial and a.usuario ='" & fun & "'")
 
