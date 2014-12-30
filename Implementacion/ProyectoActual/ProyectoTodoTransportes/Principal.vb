@@ -86,7 +86,7 @@
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
         ElseIf Nombre.Equals("Clases") Then
-            Form = New tab_Clases(USER, con, ESTADO)
+            Form = New newExamen(USER, con, ESTADO)
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()

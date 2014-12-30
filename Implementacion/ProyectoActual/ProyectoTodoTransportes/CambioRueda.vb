@@ -165,4 +165,6 @@
         cbox_funcionario.Text = ""
         STATUS.Text = "Usuario " & USER & ""
     End Sub
+
+
 End Class
