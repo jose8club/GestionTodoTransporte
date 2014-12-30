@@ -26,7 +26,7 @@ Partial Class ExamenEscuela
         Me.cbox_matricula = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbox_funcionario = New System.Windows.Forms.ComboBox()
-        Me.date_visual = New System.Windows.Forms.DateTimePicker()
+        Me.date_prueba = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btn_reset = New System.Windows.Forms.Button()
@@ -52,16 +52,11 @@ Partial Class ExamenEscuela
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.chbox_cert = New System.Windows.Forms.CheckBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.rbtn_reprobadoPsico = New System.Windows.Forms.RadioButton()
-        Me.rbtn_aprobadoPsico = New System.Windows.Forms.RadioButton()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.sbox_hor2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sbox_hor1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
         'lbl_estudiante
@@ -82,7 +77,7 @@ Partial Class ExamenEscuela
         Me.cbox_matricula.Location = New System.Drawing.Point(148, 49)
         Me.cbox_matricula.Name = "cbox_matricula"
         Me.cbox_matricula.Size = New System.Drawing.Size(99, 21)
-        Me.cbox_matricula.TabIndex = 41
+        Me.cbox_matricula.TabIndex = 94
         '
         'Label2
         '
@@ -102,14 +97,14 @@ Partial Class ExamenEscuela
         Me.cbox_funcionario.Location = New System.Drawing.Point(148, 91)
         Me.cbox_funcionario.Name = "cbox_funcionario"
         Me.cbox_funcionario.Size = New System.Drawing.Size(219, 21)
-        Me.cbox_funcionario.TabIndex = 43
+        Me.cbox_funcionario.TabIndex = 95
         '
-        'date_visual
+        'date_prueba
         '
-        Me.date_visual.Location = New System.Drawing.Point(535, 9)
-        Me.date_visual.Name = "date_visual"
-        Me.date_visual.Size = New System.Drawing.Size(219, 20)
-        Me.date_visual.TabIndex = 44
+        Me.date_prueba.Location = New System.Drawing.Point(535, 46)
+        Me.date_prueba.Name = "date_prueba"
+        Me.date_prueba.Size = New System.Drawing.Size(219, 20)
+        Me.date_prueba.TabIndex = 96
         '
         'Label5
         '
@@ -123,7 +118,7 @@ Partial Class ExamenEscuela
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(426, 12)
+        Me.Label3.Location = New System.Drawing.Point(426, 49)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(40, 13)
         Me.Label3.TabIndex = 38
@@ -133,10 +128,10 @@ Partial Class ExamenEscuela
         '
         Me.btn_reset.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
         Me.btn_reset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_reset.Location = New System.Drawing.Point(429, 346)
+        Me.btn_reset.Location = New System.Drawing.Point(429, 311)
         Me.btn_reset.Name = "btn_reset"
         Me.btn_reset.Size = New System.Drawing.Size(135, 35)
-        Me.btn_reset.TabIndex = 47
+        Me.btn_reset.TabIndex = 108
         Me.btn_reset.Text = "Resetear"
         Me.btn_reset.UseVisualStyleBackColor = True
         '
@@ -144,10 +139,10 @@ Partial Class ExamenEscuela
         '
         Me.btn_guradar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.SAVE
         Me.btn_guradar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_guradar.Location = New System.Drawing.Point(615, 346)
+        Me.btn_guradar.Location = New System.Drawing.Point(615, 311)
         Me.btn_guradar.Name = "btn_guradar"
         Me.btn_guradar.Size = New System.Drawing.Size(139, 35)
-        Me.btn_guradar.TabIndex = 46
+        Me.btn_guradar.TabIndex = 107
         Me.btn_guradar.Text = "Guardar"
         Me.btn_guradar.UseVisualStyleBackColor = True
         '
@@ -162,7 +157,7 @@ Partial Class ExamenEscuela
         '
         'cbox_tipo
         '
-        Me.cbox_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbox_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple
         Me.cbox_tipo.FormattingEnabled = True
         Me.cbox_tipo.Location = New System.Drawing.Point(148, 13)
         Me.cbox_tipo.Name = "cbox_tipo"
@@ -172,10 +167,10 @@ Partial Class ExamenEscuela
         'rbtn_reprobado
         '
         Me.rbtn_reprobado.AutoSize = True
-        Me.rbtn_reprobado.Location = New System.Drawing.Point(676, 53)
+        Me.rbtn_reprobado.Location = New System.Drawing.Point(676, 90)
         Me.rbtn_reprobado.Name = "rbtn_reprobado"
         Me.rbtn_reprobado.Size = New System.Drawing.Size(78, 17)
-        Me.rbtn_reprobado.TabIndex = 96
+        Me.rbtn_reprobado.TabIndex = 98
         Me.rbtn_reprobado.Text = "Reprobado"
         Me.rbtn_reprobado.UseVisualStyleBackColor = True
         '
@@ -183,10 +178,10 @@ Partial Class ExamenEscuela
         '
         Me.rbtn_aprobado.AutoSize = True
         Me.rbtn_aprobado.Checked = True
-        Me.rbtn_aprobado.Location = New System.Drawing.Point(535, 54)
+        Me.rbtn_aprobado.Location = New System.Drawing.Point(535, 91)
         Me.rbtn_aprobado.Name = "rbtn_aprobado"
         Me.rbtn_aprobado.Size = New System.Drawing.Size(71, 17)
-        Me.rbtn_aprobado.TabIndex = 95
+        Me.rbtn_aprobado.TabIndex = 97
         Me.rbtn_aprobado.TabStop = True
         Me.rbtn_aprobado.Text = "Aprobado"
         Me.rbtn_aprobado.UseVisualStyleBackColor = True
@@ -194,7 +189,7 @@ Partial Class ExamenEscuela
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(426, 58)
+        Me.Label7.Location = New System.Drawing.Point(426, 95)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(43, 13)
         Me.Label7.TabIndex = 97
@@ -220,7 +215,7 @@ Partial Class ExamenEscuela
         Me.rtbox_comentario.Location = New System.Drawing.Point(183, 103)
         Me.rtbox_comentario.Name = "rtbox_comentario"
         Me.rtbox_comentario.Size = New System.Drawing.Size(200, 93)
-        Me.rtbox_comentario.TabIndex = 100
+        Me.rtbox_comentario.TabIndex = 101
         Me.rtbox_comentario.Text = ""
         '
         'Label15
@@ -237,7 +232,7 @@ Partial Class ExamenEscuela
         Me.tbox_calTeo.Location = New System.Drawing.Point(183, 32)
         Me.tbox_calTeo.Name = "tbox_calTeo"
         Me.tbox_calTeo.Size = New System.Drawing.Size(56, 20)
-        Me.tbox_calTeo.TabIndex = 88
+        Me.tbox_calTeo.TabIndex = 99
         '
         'Label4
         '
@@ -253,7 +248,7 @@ Partial Class ExamenEscuela
         Me.tbox_calPract.Location = New System.Drawing.Point(183, 64)
         Me.tbox_calPract.Name = "tbox_calPract"
         Me.tbox_calPract.Size = New System.Drawing.Size(56, 20)
-        Me.tbox_calPract.TabIndex = 85
+        Me.tbox_calPract.TabIndex = 100
         '
         'Label6
         '
@@ -271,7 +266,7 @@ Partial Class ExamenEscuela
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.Label10)
-        Me.GroupBox2.Location = New System.Drawing.Point(429, 96)
+        Me.GroupBox2.Location = New System.Drawing.Point(429, 146)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(325, 72)
         Me.GroupBox2.TabIndex = 99
@@ -284,7 +279,7 @@ Partial Class ExamenEscuela
         Me.sbox_hor2.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.sbox_hor2.Name = "sbox_hor2"
         Me.sbox_hor2.Size = New System.Drawing.Size(45, 20)
-        Me.sbox_hor2.TabIndex = 25
+        Me.sbox_hor2.TabIndex = 103
         '
         'sbox_hor1
         '
@@ -292,7 +287,7 @@ Partial Class ExamenEscuela
         Me.sbox_hor1.Maximum = New Decimal(New Integer() {23, 0, 0, 0})
         Me.sbox_hor1.Name = "sbox_hor1"
         Me.sbox_hor1.Size = New System.Drawing.Size(44, 20)
-        Me.sbox_hor1.TabIndex = 24
+        Me.sbox_hor1.TabIndex = 102
         '
         'Label8
         '
@@ -326,7 +321,7 @@ Partial Class ExamenEscuela
         '
         Me.GroupBox3.Controls.Add(Me.chbox_cert)
         Me.GroupBox3.Controls.Add(Me.Label11)
-        Me.GroupBox3.Location = New System.Drawing.Point(429, 176)
+        Me.GroupBox3.Location = New System.Drawing.Point(429, 224)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(325, 67)
         Me.GroupBox3.TabIndex = 100
@@ -339,7 +334,7 @@ Partial Class ExamenEscuela
         Me.chbox_cert.Location = New System.Drawing.Point(136, 31)
         Me.chbox_cert.Name = "chbox_cert"
         Me.chbox_cert.Size = New System.Drawing.Size(75, 17)
-        Me.chbox_cert.TabIndex = 102
+        Me.chbox_cert.TabIndex = 104
         Me.chbox_cert.Text = "Entregado"
         Me.chbox_cert.UseVisualStyleBackColor = True
         '
@@ -352,55 +347,11 @@ Partial Class ExamenEscuela
         Me.Label11.TabIndex = 101
         Me.Label11.Text = "Certificado:"
         '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.Add(Me.rbtn_reprobadoPsico)
-        Me.GroupBox4.Controls.Add(Me.rbtn_aprobadoPsico)
-        Me.GroupBox4.Controls.Add(Me.Label12)
-        Me.GroupBox4.Location = New System.Drawing.Point(429, 250)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(325, 90)
-        Me.GroupBox4.TabIndex = 101
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Examen Psicotécnico"
-        '
-        'rbtn_reprobadoPsico
-        '
-        Me.rbtn_reprobadoPsico.AutoSize = True
-        Me.rbtn_reprobadoPsico.Location = New System.Drawing.Point(234, 37)
-        Me.rbtn_reprobadoPsico.Name = "rbtn_reprobadoPsico"
-        Me.rbtn_reprobadoPsico.Size = New System.Drawing.Size(78, 17)
-        Me.rbtn_reprobadoPsico.TabIndex = 99
-        Me.rbtn_reprobadoPsico.Text = "Reprobado"
-        Me.rbtn_reprobadoPsico.UseVisualStyleBackColor = True
-        '
-        'rbtn_aprobadoPsico
-        '
-        Me.rbtn_aprobadoPsico.AutoSize = True
-        Me.rbtn_aprobadoPsico.Checked = True
-        Me.rbtn_aprobadoPsico.Location = New System.Drawing.Point(119, 37)
-        Me.rbtn_aprobadoPsico.Name = "rbtn_aprobadoPsico"
-        Me.rbtn_aprobadoPsico.Size = New System.Drawing.Size(71, 17)
-        Me.rbtn_aprobadoPsico.TabIndex = 98
-        Me.rbtn_aprobadoPsico.TabStop = True
-        Me.rbtn_aprobadoPsico.Text = "Aprobado"
-        Me.rbtn_aprobadoPsico.UseVisualStyleBackColor = True
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(15, 39)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(43, 13)
-        Me.Label12.TabIndex = 100
-        Me.Label12.Text = "Estado:"
-        '
         'ExamenEscuela
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(826, 473)
-        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -415,7 +366,7 @@ Partial Class ExamenEscuela
         Me.Controls.Add(Me.cbox_matricula)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cbox_funcionario)
-        Me.Controls.Add(Me.date_visual)
+        Me.Controls.Add(Me.date_prueba)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -429,8 +380,6 @@ Partial Class ExamenEscuela
         CType(Me.sbox_hor1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -439,7 +388,7 @@ Partial Class ExamenEscuela
     Friend WithEvents cbox_matricula As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents cbox_funcionario As System.Windows.Forms.ComboBox
-    Friend WithEvents date_visual As System.Windows.Forms.DateTimePicker
+    Friend WithEvents date_prueba As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents btn_reset As System.Windows.Forms.Button
@@ -465,8 +414,4 @@ Partial Class ExamenEscuela
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents chbox_cert As System.Windows.Forms.CheckBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
-    Friend WithEvents rbtn_reprobadoPsico As System.Windows.Forms.RadioButton
-    Friend WithEvents rbtn_aprobadoPsico As System.Windows.Forms.RadioButton
-    Friend WithEvents Label12 As System.Windows.Forms.Label
 End Class
