@@ -101,7 +101,7 @@
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
         ElseIf Nombre.Equals("Examenes Escuela") Then
-            Form = New Examen(USER, con, ESTADO)
+            Form = New ExamenEscuela(USER, con, ESTADO)
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()

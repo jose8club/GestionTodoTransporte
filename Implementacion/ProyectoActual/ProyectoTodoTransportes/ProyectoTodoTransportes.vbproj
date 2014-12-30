@@ -89,6 +89,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DataCBOX.vb" />
+    <Compile Include="ExamenEscuela.Designer.vb">
+      <DependentUpon>ExamenEscuela.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ExamenEscuela.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ExamenMunicipal.Designer.vb">
       <DependentUpon>ExamenMunicipal.vb</DependentUpon>
     </Compile>
@@ -288,6 +294,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CambioRueda.resx">
       <DependentUpon>CambioRueda.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExamenEscuela.resx">
+      <DependentUpon>ExamenEscuela.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExamenMunicipal.resx">
       <DependentUpon>ExamenMunicipal.vb</DependentUpon>
