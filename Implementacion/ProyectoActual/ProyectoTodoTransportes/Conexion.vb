@@ -73,6 +73,7 @@ Public Class Conexion
                 r = comando.LastInsertedId()
             Catch ex As Exception
                 rollbackTransaction()
+                MsgBox(ex.Message.ToString)
                 Return r
             End Try
 

@@ -13,6 +13,7 @@
     End Sub
 
     Private Sub RegistrarCliente_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        STATUS.Text = ""
         loadCBOX("Area")
         loadCBOX("Producto")
         loadCBOX("Tipo de Atencion")
@@ -27,20 +28,39 @@
 
         If validar() Then
             Dim Nombre As String = tbox_Nombre.Text
-            Dim Telefono As Integer = CInt(tbox_Telefono.Text)
+            Dim Telefono As String = tbox_Telefono.Text
             Dim Curso As String = cbox_CursoInteres.Text
             Dim Extra As String = tbox_Consultas.Text
             Dim Fecha As String = Format(date_FechaAtencion.Value, "yyyy-MM-dd")
-            Try
-                Dim ID As Integer = con.regClientePotencial(Nombre, Telefono, Curso, Extra)
-                con.regAtencion(USER, ID, Fecha, "OFF")
-                'Manejar transacción COMMIT - ROLLBACK
+            Dim TipoAtencion As String = cbox_TipoAtencion.SelectedValue.ToString
 
-                STATUS.Text = "Cliente " & Nombre & "fue agregado exitosamente."
+            Try
+                con.beginTransaction()
+
+                Dim Columnas() As String = {"Nombre", "Telefono", "Producto", "Extra"}
+                Dim Parametros() As String = {Nombre, Telefono, Curso, Extra}
+
+                Dim id As Integer = con.doInsert("Cliente_Potencial", Columnas, Parametros)
+
+                If id <> -1 Then
+                    Columnas = {"Usuario", "Cliente_Potencial", "Fecha", "Tipo"}
+                    Parametros = {USER, id, Fecha, TipoAtencion}
+
+                    id = con.doInsert("Atencion_cliente_potencial", Columnas, Parametros)
+                    If id <> -1 Then
+                        con.commitTransaction()
+                    Else
+                        con.rollbackTransaction()
+                    End If
+                End If
+
+                STATUS.Text = "Cliente '" & Nombre & "' fue agregado exitosamente."
+                STATUS.ForeColor = Color.Blue
+
                 reset()
 
             Catch ex As Exception
-                STATUS.Text = "ERROR!"
+                STATUS.Text = "ERROR!" + ex.Message.ToString
             End Try
         End If
     End Sub
