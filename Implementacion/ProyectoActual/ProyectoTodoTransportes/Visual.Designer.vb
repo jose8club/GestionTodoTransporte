@@ -42,7 +42,7 @@ Partial Class Visual
         '
         Me.btn_visual.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.SAVE
         Me.btn_visual.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_visual.Location = New System.Drawing.Point(403, 309)
+        Me.btn_visual.Location = New System.Drawing.Point(385, 277)
         Me.btn_visual.Name = "btn_visual"
         Me.btn_visual.Size = New System.Drawing.Size(141, 36)
         Me.btn_visual.TabIndex = 41
@@ -52,7 +52,7 @@ Partial Class Visual
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(77, 270)
+        Me.Label6.Location = New System.Drawing.Point(59, 238)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(60, 13)
         Me.Label6.TabIndex = 22
@@ -61,7 +61,7 @@ Partial Class Visual
         'chbox_cert
         '
         Me.chbox_cert.AutoSize = True
-        Me.chbox_cert.Location = New System.Drawing.Point(201, 269)
+        Me.chbox_cert.Location = New System.Drawing.Point(183, 237)
         Me.chbox_cert.Name = "chbox_cert"
         Me.chbox_cert.Size = New System.Drawing.Size(75, 17)
         Me.chbox_cert.TabIndex = 40
@@ -71,7 +71,7 @@ Partial Class Visual
         'lbl_estudiante
         '
         Me.lbl_estudiante.AutoSize = True
-        Me.lbl_estudiante.Location = New System.Drawing.Point(324, 76)
+        Me.lbl_estudiante.Location = New System.Drawing.Point(306, 44)
         Me.lbl_estudiante.Name = "lbl_estudiante"
         Me.lbl_estudiante.Size = New System.Drawing.Size(39, 13)
         Me.lbl_estudiante.TabIndex = 35
@@ -83,7 +83,7 @@ Partial Class Visual
         Me.cbox_matricula.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cbox_matricula.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple
         Me.cbox_matricula.FormattingEnabled = True
-        Me.cbox_matricula.Location = New System.Drawing.Point(201, 73)
+        Me.cbox_matricula.Location = New System.Drawing.Point(183, 41)
         Me.cbox_matricula.Name = "cbox_matricula"
         Me.cbox_matricula.Size = New System.Drawing.Size(99, 21)
         Me.cbox_matricula.TabIndex = 34
@@ -91,7 +91,7 @@ Partial Class Visual
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(77, 76)
+        Me.Label2.Location = New System.Drawing.Point(59, 44)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(110, 13)
         Me.Label2.TabIndex = 33
@@ -103,14 +103,14 @@ Partial Class Visual
         Me.cbox_funcionario.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cbox_funcionario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple
         Me.cbox_funcionario.FormattingEnabled = True
-        Me.cbox_funcionario.Location = New System.Drawing.Point(201, 123)
+        Me.cbox_funcionario.Location = New System.Drawing.Point(183, 91)
         Me.cbox_funcionario.Name = "cbox_funcionario"
         Me.cbox_funcionario.Size = New System.Drawing.Size(343, 21)
         Me.cbox_funcionario.TabIndex = 36
         '
         'date_visual
         '
-        Me.date_visual.Location = New System.Drawing.Point(201, 174)
+        Me.date_visual.Location = New System.Drawing.Point(183, 142)
         Me.date_visual.Name = "date_visual"
         Me.date_visual.Size = New System.Drawing.Size(347, 20)
         Me.date_visual.TabIndex = 37
@@ -118,7 +118,7 @@ Partial Class Visual
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(77, 126)
+        Me.Label5.Location = New System.Drawing.Point(59, 94)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(65, 13)
         Me.Label5.TabIndex = 32
@@ -127,7 +127,7 @@ Partial Class Visual
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(77, 180)
+        Me.Label3.Location = New System.Drawing.Point(59, 148)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(40, 13)
         Me.Label3.TabIndex = 31
@@ -136,7 +136,7 @@ Partial Class Visual
         'rbtn_reprobado
         '
         Me.rbtn_reprobado.AutoSize = True
-        Me.rbtn_reprobado.Location = New System.Drawing.Point(325, 222)
+        Me.rbtn_reprobado.Location = New System.Drawing.Point(307, 190)
         Me.rbtn_reprobado.Name = "rbtn_reprobado"
         Me.rbtn_reprobado.Size = New System.Drawing.Size(78, 17)
         Me.rbtn_reprobado.TabIndex = 39
@@ -147,7 +147,7 @@ Partial Class Visual
         'rbtn_aprobado
         '
         Me.rbtn_aprobado.AutoSize = True
-        Me.rbtn_aprobado.Location = New System.Drawing.Point(201, 222)
+        Me.rbtn_aprobado.Location = New System.Drawing.Point(183, 190)
         Me.rbtn_aprobado.Name = "rbtn_aprobado"
         Me.rbtn_aprobado.Size = New System.Drawing.Size(71, 17)
         Me.rbtn_aprobado.TabIndex = 38
@@ -158,7 +158,7 @@ Partial Class Visual
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(77, 224)
+        Me.Label1.Location = New System.Drawing.Point(59, 192)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(43, 13)
         Me.Label1.TabIndex = 38
@@ -168,7 +168,7 @@ Partial Class Visual
         '
         Me.btn_reset.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
         Me.btn_reset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_reset.Location = New System.Drawing.Point(80, 309)
+        Me.btn_reset.Location = New System.Drawing.Point(62, 277)
         Me.btn_reset.Name = "btn_reset"
         Me.btn_reset.Size = New System.Drawing.Size(140, 36)
         Me.btn_reset.TabIndex = 42

@@ -30,6 +30,21 @@
             Form.TopLevel = False
             TabControl1.TabPages(2).Controls.Add(Form)
             Form.Show()
+        ElseIf Nombre.Equals("Practica Psicotecnico") Then
+            Form = New Psicotecnico(USER, con, STATUS)
+            Form.TopLevel = False
+            TabControl1.TabPages(3).Controls.Add(Form)
+            Form.Show()
+        ElseIf Nombre.Equals("Clase Cambio Rueda") Then
+            Form = New CambioRueda(USER, con, STATUS)
+            Form.TopLevel = False
+            TabControl1.TabPages(4).Controls.Add(Form)
+            Form.Show()
+        ElseIf Nombre.Equals("Examen Visual") Then
+            Form = New Visual(USER, con, STATUS)
+            Form.TopLevel = False
+            TabControl1.TabPages(5).Controls.Add(Form)
+            Form.Show()
         End If
     End Sub
 
@@ -41,6 +56,12 @@
             loadTAB("Examen Practico")
         ElseIf tab = 2 Then
             loadTAB("Examen Municipal")
+        ElseIf tab = 3 Then
+            loadTAB("Practica Psicotecnico")
+        ElseIf tab = 4 Then
+            loadTAB("Clase Cambio Rueda")
+        ElseIf tab = 5 Then
+            loadTAB("Examen Visual")
         End If
     End Sub
 End Class

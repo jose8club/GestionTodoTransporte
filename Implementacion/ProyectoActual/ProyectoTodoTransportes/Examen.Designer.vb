@@ -26,6 +26,9 @@ Partial Class Examen
         Me.Teorico = New System.Windows.Forms.TabPage()
         Me.Practico = New System.Windows.Forms.TabPage()
         Me.Municipal = New System.Windows.Forms.TabPage()
+        Me.Psicotécnico = New System.Windows.Forms.TabPage()
+        Me.Rueda = New System.Windows.Forms.TabPage()
+        Me.Visual = New System.Windows.Forms.TabPage()
         Me.TabControl1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -34,6 +37,9 @@ Partial Class Examen
         Me.TabControl1.Controls.Add(Me.Teorico)
         Me.TabControl1.Controls.Add(Me.Practico)
         Me.TabControl1.Controls.Add(Me.Municipal)
+        Me.TabControl1.Controls.Add(Me.Psicotécnico)
+        Me.TabControl1.Controls.Add(Me.Rueda)
+        Me.TabControl1.Controls.Add(Me.Visual)
         Me.TabControl1.Location = New System.Drawing.Point(21, 12)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -55,7 +61,7 @@ Partial Class Examen
         Me.Practico.Location = New System.Drawing.Point(4, 22)
         Me.Practico.Name = "Practico"
         Me.Practico.Padding = New System.Windows.Forms.Padding(3)
-        Me.Practico.Size = New System.Drawing.Size(675, 317)
+        Me.Practico.Size = New System.Drawing.Size(726, 372)
         Me.Practico.TabIndex = 1
         Me.Practico.Text = "Examen Practico"
         Me.Practico.UseVisualStyleBackColor = True
@@ -64,10 +70,37 @@ Partial Class Examen
         '
         Me.Municipal.Location = New System.Drawing.Point(4, 22)
         Me.Municipal.Name = "Municipal"
-        Me.Municipal.Size = New System.Drawing.Size(675, 317)
+        Me.Municipal.Size = New System.Drawing.Size(726, 372)
         Me.Municipal.TabIndex = 2
         Me.Municipal.Text = "Examen Municipal"
         Me.Municipal.UseVisualStyleBackColor = True
+        '
+        'Psicotécnico
+        '
+        Me.Psicotécnico.Location = New System.Drawing.Point(4, 22)
+        Me.Psicotécnico.Name = "Psicotécnico"
+        Me.Psicotécnico.Size = New System.Drawing.Size(726, 372)
+        Me.Psicotécnico.TabIndex = 3
+        Me.Psicotécnico.Text = "Practica Psicotecnico"
+        Me.Psicotécnico.UseVisualStyleBackColor = True
+        '
+        'Rueda
+        '
+        Me.Rueda.Location = New System.Drawing.Point(4, 22)
+        Me.Rueda.Name = "Rueda"
+        Me.Rueda.Size = New System.Drawing.Size(726, 372)
+        Me.Rueda.TabIndex = 4
+        Me.Rueda.Text = "Clase Cambio Rueda"
+        Me.Rueda.UseVisualStyleBackColor = True
+        '
+        'Visual
+        '
+        Me.Visual.Location = New System.Drawing.Point(4, 22)
+        Me.Visual.Name = "Visual"
+        Me.Visual.Size = New System.Drawing.Size(726, 372)
+        Me.Visual.TabIndex = 5
+        Me.Visual.Text = "Examen Visual"
+        Me.Visual.UseVisualStyleBackColor = True
         '
         'Examen
         '
@@ -86,4 +119,7 @@ Partial Class Examen
     Friend WithEvents Teorico As System.Windows.Forms.TabPage
     Friend WithEvents Practico As System.Windows.Forms.TabPage
     Friend WithEvents Municipal As System.Windows.Forms.TabPage
+    Friend WithEvents Psicotécnico As System.Windows.Forms.TabPage
+    Friend WithEvents Rueda As System.Windows.Forms.TabPage
+    Friend WithEvents Visual As System.Windows.Forms.TabPage
 End Class
