@@ -87,6 +87,7 @@ Partial Class resProfesores
         Me.DataGridView2.Location = New System.Drawing.Point(178, 121)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.ReadOnly = True
+        Me.DataGridView2.RowHeadersVisible = False
         Me.DataGridView2.Size = New System.Drawing.Size(156, 112)
         Me.DataGridView2.TabIndex = 42
         '
@@ -99,6 +100,7 @@ Partial Class resProfesores
         Me.DataGridView1.Location = New System.Drawing.Point(17, 121)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.Size = New System.Drawing.Size(155, 112)
         Me.DataGridView1.TabIndex = 41
         '

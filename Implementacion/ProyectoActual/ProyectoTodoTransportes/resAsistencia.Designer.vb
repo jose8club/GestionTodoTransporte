@@ -25,11 +25,11 @@ Partial Class resAsistencia
         Me.cbox_estudiante = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.lbl_estudiante = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lbl_estudiante = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -71,14 +71,14 @@ Partial Class resAsistencia
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Asistencias por Estudiante"
         '
-        'lbl_estudiante
+        'Label3
         '
-        Me.lbl_estudiante.AutoSize = True
-        Me.lbl_estudiante.Location = New System.Drawing.Point(368, 49)
-        Me.lbl_estudiante.Name = "lbl_estudiante"
-        Me.lbl_estudiante.Size = New System.Drawing.Size(39, 13)
-        Me.lbl_estudiante.TabIndex = 41
-        Me.lbl_estudiante.Text = "Label8"
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(200, 100)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(100, 13)
+        Me.Label3.TabIndex = 47
+        Me.Label3.Text = "Asistencia Práctica:"
         '
         'DataGridView2
         '
@@ -89,6 +89,7 @@ Partial Class resAsistencia
         Me.DataGridView2.Location = New System.Drawing.Point(190, 125)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.ReadOnly = True
+        Me.DataGridView2.RowHeadersVisible = False
         Me.DataGridView2.Size = New System.Drawing.Size(156, 112)
         Me.DataGridView2.TabIndex = 46
         '
@@ -101,6 +102,7 @@ Partial Class resAsistencia
         Me.DataGridView1.Location = New System.Drawing.Point(29, 125)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
+        Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.Size = New System.Drawing.Size(155, 112)
         Me.DataGridView1.TabIndex = 45
         '
@@ -113,14 +115,14 @@ Partial Class resAsistencia
         Me.Label2.TabIndex = 44
         Me.Label2.Text = "Asistencia Teorica:"
         '
-        'Label3
+        'lbl_estudiante
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(200, 100)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(100, 13)
-        Me.Label3.TabIndex = 47
-        Me.Label3.Text = "Asistencia Práctica:"
+        Me.lbl_estudiante.AutoSize = True
+        Me.lbl_estudiante.Location = New System.Drawing.Point(368, 49)
+        Me.lbl_estudiante.Name = "lbl_estudiante"
+        Me.lbl_estudiante.Size = New System.Drawing.Size(39, 13)
+        Me.lbl_estudiante.TabIndex = 41
+        Me.lbl_estudiante.Text = "Label8"
         '
         'resAsistencia
         '
