@@ -68,6 +68,10 @@
     End Function
 
     Private Sub cbox_TipoExamen_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_TipoExamen.SelectedIndexChanged
+        cbox_RegistroMatricula.Text = ""
+        cbox_funcionario.Text = ""
+        tbox_Calificacion.Text = ""
+
         tbox_Comentario.Visible = False
         tbox_Calificacion.Visible = False
         check_Certificado.Visible = False
@@ -241,4 +245,17 @@
         End If
     End Sub
 
+    Private Sub btn_reset_Click(sender As System.Object, e As System.EventArgs) Handles btn_reset.Click
+        date_Fecha.Value = Now
+        sbox_Hora.Value = "0"
+        sbox_Minutos.Value = "0"
+        tbox_Calificacion.Text = ""
+        'check_Certificado.Checked = False
+        cbox_RegistroMatricula.Text = ""
+        cbox_TipoExamen.Text = ""
+        cbox_funcionario.Text = ""
+        rbtn_Aprobado.Checked = False
+        rbtn_Reprobado.Checked = False
+        STATUS.Text = "Usuario " & USER & ""
+    End Sub
 End Class

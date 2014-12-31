@@ -43,6 +43,7 @@ Partial Class newExamen
         Me.sbox_Hora = New System.Windows.Forms.NumericUpDown()
         Me.lbl_hrs = New System.Windows.Forms.Label()
         Me.lbl_dospuntos = New System.Windows.Forms.Label()
+        Me.btn_reset = New System.Windows.Forms.Button()
         CType(Me.sbox_Minutos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sbox_Hora, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -239,11 +240,23 @@ Partial Class newExamen
         Me.lbl_dospuntos.TabIndex = 83
         Me.lbl_dospuntos.Text = ":"
         '
+        'btn_reset
+        '
+        Me.btn_reset.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
+        Me.btn_reset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_reset.Location = New System.Drawing.Point(70, 333)
+        Me.btn_reset.Name = "btn_reset"
+        Me.btn_reset.Size = New System.Drawing.Size(152, 40)
+        Me.btn_reset.TabIndex = 109
+        Me.btn_reset.Text = "Resetear"
+        Me.btn_reset.UseVisualStyleBackColor = True
+        '
         'newExamen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(760, 400)
+        Me.Controls.Add(Me.btn_reset)
         Me.Controls.Add(Me.sbox_Minutos)
         Me.Controls.Add(Me.sbox_Hora)
         Me.Controls.Add(Me.lbl_hrs)
@@ -295,4 +308,5 @@ Partial Class newExamen
     Friend WithEvents sbox_Hora As System.Windows.Forms.NumericUpDown
     Friend WithEvents lbl_hrs As System.Windows.Forms.Label
     Friend WithEvents lbl_dospuntos As System.Windows.Forms.Label
+    Friend WithEvents btn_reset As System.Windows.Forms.Button
 End Class
