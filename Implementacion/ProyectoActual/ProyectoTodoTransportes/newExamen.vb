@@ -48,7 +48,7 @@
         ElseIf s.Equals("Funcionario") Then
             cbox_funcionario.DataSource = dc.Funcionarios
             cbox_funcionario.DisplayMember = "Nombre"
-            cbox_funcionario.ValueMember = "Nombre"
+            cbox_funcionario.ValueMember = "idFuncionario"
             cbox_funcionario.SelectedIndex = -1
         End If
     End Sub
@@ -120,7 +120,124 @@
         If validar() Then
             Dim Codigo As String = cbox_RegistroMatricula.Text
             Dim Fecha As String = Format(date_Fecha.Value, "yyyy-MM-dd")
+            Dim Estado As String = ""
+            Dim Comentario As String = tbox_Comentario.Text
+            Dim Calificacion As String = tbox_Calificacion.Text
+            Dim Certificado As Boolean = check_Certificado.Checked
+            Dim Funcionario As String = cbox_funcionario.SelectedValue
+            Dim Horario As String = ""
+            Dim Tipo As String = cbox_TipoExamen.SelectedValue
 
+            Dim ID As Integer = 0
+            Dim Columnas() As String = {}
+            Dim Parametros() As String = {}
+
+            If (CInt(sbox_Minutos.Text) <= 9) Then
+                Horario = sbox_Hora.Text & ":" & "0" & sbox_Minutos.Text & ":00"
+            Else
+                Horario = sbox_Hora.Text & ":" & sbox_Minutos.Text & ":00"
+            End If
+
+            If rbtn_Aprobado.Checked Then Estado = "Aprobado" Else Estado = "Reprobado"
+
+            MsgBox("Estado: " & Estado.ToString & ", Certificado: " & Certificado.ToString & ", Funcionario: " & Funcionario & _
+                   "Horario: " & Horario)
+            Try
+                con.beginTransaction()
+
+                Columnas = {"Tipo", "Funcionario", "Fecha", "Estado"}
+                Parametros = {Tipo, Funcionario, Fecha, Estado}
+                ID = con.doInsert("Documento", Columnas, Parametros)
+                Dim AUX As Integer = ID
+
+                If cbox_TipoExamen.SelectedValue.Equals("Examen Teórico") Then
+                    'insert
+                    If ID <> -1 Then
+                        Columnas = {"Documento", "Calificacion"}
+                        Parametros = {AUX, Calificacion}
+                        ID = con.doInsert("Examen_Teorico", Columnas, Parametros)
+                        If ID <> -1 Then
+                            Columnas = {"Estudiante", "Documento"}
+                            Parametros = {Codigo, AUX}
+                            ID = con.doInsert("Estudiante_Documento", Columnas, Parametros)
+                        End If
+                    End If
+
+                ElseIf cbox_TipoExamen.SelectedValue.Equals("Examen Práctico") Then
+                    'insert
+                    If ID <> -1 Then
+                        Columnas = {"Documento", "Calificacion"}
+                        Parametros = {AUX, Calificacion}
+                        ID = con.doInsert("Examen_Practico", Columnas, Parametros)
+                        If ID <> -1 Then
+                            Columnas = {"Estudiante", "Documento"}
+                            Parametros = {Codigo, AUX}
+                            ID = con.doInsert("Estudiante_Documento", Columnas, Parametros)
+                        End If
+                    End If
+                ElseIf cbox_TipoExamen.SelectedValue.Equals("Examen Municipal") Then
+                    'insert
+                    If ID <> -1 Then
+                        Columnas = {"Documento", "Comentario"}
+                        Parametros = {AUX, Comentario}
+                        ID = con.doInsert("Examen_Municipal", Columnas, Parametros)
+                        If ID <> -1 Then
+                            Columnas = {"Estudiante", "Documento"}
+                            Parametros = {Codigo, AUX}
+                            ID = con.doInsert("Estudiante_Documento", Columnas, Parametros)
+                        End If
+                    End If
+                ElseIf cbox_TipoExamen.SelectedValue.Equals("Examen Visual") Then
+                    'insert
+                    If ID <> -1 Then
+                        Columnas = {"Documento", "Certificado"}
+                        Parametros = {AUX, Certificado}
+                        ID = con.doInsert("Examen_Visual", Columnas, Parametros)
+                        If AUX <> -1 Then
+                            Columnas = {"Estudiante", "Documento"}
+                            Parametros = {Codigo, AUX}
+                            ID = con.doInsert("Estudiante_Documento", Columnas, Parametros)
+                        End If
+                    End If
+                ElseIf cbox_TipoExamen.SelectedValue.Equals("Examen Psicotécnico") Then
+                    'insert
+                    If ID <> -1 Then
+                        Columnas = {"Documento"}
+                        Parametros = {AUX}
+                        ID = con.doInsert("Examen_Psicotecnico", Columnas, Parametros)
+                        If ID <> -1 Then
+                            Columnas = {"Estudiante", "Documento"}
+                            Parametros = {Codigo, AUX}
+                            ID = con.doInsert("Estudiante_Documento", Columnas, Parametros)
+                        End If
+                    End If
+                ElseIf cbox_TipoExamen.SelectedValue.Equals("Cambio Rueda") Then
+
+                    If ID <> -1 Then
+                        Columnas = {"Documento", "Horario"}
+                        Parametros = {AUX, Horario}
+                        ID = con.doInsert("Cambio_Rueda", Columnas, Parametros)
+                        If ID <> -1 Then
+                            Columnas = {"Estudiante", "Documento"}
+                            Parametros = {Codigo, AUX}
+                            ID = con.doInsert("Estudiante_Documento", Columnas, Parametros)
+                        End If
+                    End If
+                End If
+
+                If ID <> -1 Then
+                    con.commitTransaction()
+                    STATUS.Text = "Operación realizada con éxito."
+                    STATUS.ForeColor = Color.Blue
+                Else
+                    STATUS.Text = "Hubo un error al realizar la operación."
+                    STATUS.ForeColor = Color.Red
+                End If
+
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+           
         End If
     End Sub
 

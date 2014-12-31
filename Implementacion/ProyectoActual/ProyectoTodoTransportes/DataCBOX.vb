@@ -25,7 +25,7 @@
     End Function
 
     Function Funcionarios() As DataTable
-        Dim Data As DataTable = con.doQuery("SELECT Nombre FROM Funcionario")
+        Dim Data As DataTable = con.doQuery("SELECT * FROM Funcionario")
         Return Data
     End Function
 
@@ -41,7 +41,7 @@
     End Function
 
     Function Estudiantes() As DataTable
-        Dim Data As DataTable = con.doQuery("SELECT idEstudiante FROM Estudiante")
+        Dim Data As DataTable = con.doQuery("SELECT * FROM Estudiante")
         Return Data
     End Function
 End Class

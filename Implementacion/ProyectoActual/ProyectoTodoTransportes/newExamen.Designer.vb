@@ -88,9 +88,8 @@ Partial Class newExamen
         Me.lbl_NombreEstudiante.AutoSize = True
         Me.lbl_NombreEstudiante.Location = New System.Drawing.Point(305, 80)
         Me.lbl_NombreEstudiante.Name = "lbl_NombreEstudiante"
-        Me.lbl_NombreEstudiante.Size = New System.Drawing.Size(39, 13)
+        Me.lbl_NombreEstudiante.Size = New System.Drawing.Size(0, 13)
         Me.lbl_NombreEstudiante.TabIndex = 4
-        Me.lbl_NombreEstudiante.Text = "Label2"
         '
         'btn_Guardar
         '
