@@ -49,6 +49,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Accessibility">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\MySQL\Connector NET 6.8.3\Assemblies\v4.0\MySql.Data.dll</HintPath>
@@ -88,6 +91,12 @@
     <Compile Include="CambioRueda.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CustomTextBoxClass.Designer.vb">
+      <DependentUpon>CustomTextBoxClass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CustomTextBoxClass.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataCBOX.vb" />
     <Compile Include="ExamenEscuela.Designer.vb">
       <DependentUpon>ExamenEscuela.vb</DependentUpon>
@@ -118,6 +127,15 @@
     </Compile>
     <Compile Include="Horarios.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Matricula.Designer.vb">
+      <DependentUpon>Matricula.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Matricula.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MultiColumnComboBox.vb">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -165,6 +183,9 @@
     </Compile>
     <Compile Include="resProfesores.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuggestTextBoxClass.vb">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="tab_Clases.Designer.vb">
       <DependentUpon>tab_Clases.vb</DependentUpon>
@@ -275,12 +296,6 @@
     <Compile Include="RegistrarCliente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegistrarMatricula.Designer.vb">
-      <DependentUpon>RegistrarMatricula.vb</DependentUpon>
-    </Compile>
-    <Compile Include="RegistrarMatricula.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Vehiculos.Designer.vb">
       <DependentUpon>Vehiculos.vb</DependentUpon>
     </Compile>
@@ -315,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Horarios.resx">
       <DependentUpon>Horarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Matricula.resx">
+      <DependentUpon>Matricula.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="newExamen.resx">
       <DependentUpon>newExamen.vb</DependentUpon>
@@ -390,9 +408,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarCliente.resx">
       <DependentUpon>RegistrarCliente.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RegistrarMatricula.resx">
-      <DependentUpon>RegistrarMatricula.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vehiculos.resx">
       <DependentUpon>Vehiculos.vb</DependentUpon>

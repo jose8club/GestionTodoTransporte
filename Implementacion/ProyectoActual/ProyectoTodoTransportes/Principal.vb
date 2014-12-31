@@ -61,7 +61,7 @@
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
         ElseIf Nombre.Equals("Matrícula") Then
-            Form = New RegistrarMatricula(USER, con, ESTADO)
+            Form = New Matricula(USER, con, ESTADO)
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()

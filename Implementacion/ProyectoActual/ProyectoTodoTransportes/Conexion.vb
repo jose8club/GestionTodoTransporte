@@ -873,4 +873,27 @@ Public Class Conexion
 #End Region
 
 
+    Sub CargarDatos(ByRef Sugs As AutoCompleteStringCollection, ByVal tabla As String, ByVal columnas As String())
+
+        Using comando As New MySqlCommand()
+            With comando
+                .CommandText = "SELECT DISTINCT [@Cols] FROM [@Tabla]"
+                .Parameters.AddWithValue("@Cols", [String].Join(",", columnas))
+                .Parameters.AddWithValue("@Tabla", tabla)
+                .CommandType = CommandType.Text
+                .Connection = conn
+            End With
+
+            Try 'arreglar
+                Using lector As MySqlDataReader = comando.ExecuteReader()
+                    While lector.Read()
+                        Sugs.Add(lector.GetString(0))
+                    End While
+                End Using
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End Using
+    End Sub
+
 End Class
