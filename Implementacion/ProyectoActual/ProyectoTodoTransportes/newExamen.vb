@@ -46,7 +46,22 @@
             cbox_TipoExamen.ValueMember = "Nombre"
 
         ElseIf s.Equals("Funcionario") Then
-            'IF TEORICO IF PRACTICO ???
+            'If cbox_TipoExamen.Text.Equals("Examen Teórico") Then
+            '    cbox_funcionario.DataSource = dc.Profesores
+            '    cbox_funcionario.DisplayMember = "Nombre"
+            '    cbox_funcionario.ValueMember = "Nombre"
+            '    cbox_funcionario.SelectedIndex = -1
+            'ElseIf cbox_TipoExamen.Text.Equals("Examen Práctico") Then
+            '    cbox_funcionario.DataSource = dc.Instructores
+            '    cbox_funcionario.DisplayMember = "Nombre"
+            '    cbox_funcionario.ValueMember = "Nombre"
+            '    cbox_funcionario.SelectedIndex = -1
+            'Else
+            '    cbox_funcionario.DataSource = dc.Funcionarios
+            '    cbox_funcionario.DisplayMember = "Nombre"
+            '    cbox_funcionario.ValueMember = "idFuncionario"
+            '    cbox_funcionario.SelectedIndex = -1
+            'End If
             cbox_funcionario.DataSource = dc.Funcionarios
             cbox_funcionario.DisplayMember = "Nombre"
             cbox_funcionario.ValueMember = "idFuncionario"
@@ -58,6 +73,7 @@
         STATUS.Text = ""
         STATUS.ForeColor = System.Drawing.SystemColors.ControlText
 
+        'Funcionarios
         Dim dr As DataTable = cbox_funcionario.DataSource
         Dim lista As New List(Of String)(dr.Rows.Count)
         For Each Row As DataRow In dr.Rows
@@ -67,17 +83,56 @@
         MsgBox(lista.Contains(cbox_funcionario.Text.Trim)) 'arroja el valor si contiene o no (borrar)
 
         If Not lista.Contains(cbox_funcionario.Text.Trim) Then
+            MsgBox("Ingrese funcionario correcto")
+            Return False
+        End If
+
+        'Estudiantes
+        Dim de As DataTable = cbox_RegistroMatricula.DataSource
+        Dim est As New List(Of String)(de.Rows.Count)
+        For Each Row As DataRow In de.Rows
+            est.Add(Row(1))
+        Next
+
+        MsgBox(est.Contains(cbox_RegistroMatricula.Text.Trim)) 'arroja el valor si contiene o no (borrar)
+
+        If Not est.Contains(cbox_RegistroMatricula.Text.Trim) Then
+            MsgBox("Ingrese estudiante correcto")
             Return False
         End If
 
 
         'ATENTO A ESTE RETURN
-        Return False
+        'Return False
         'ATENTO ^^^^^(lo hice para probar el validador de arriba e ignorar los demás)
 
         If cbox_RegistroMatricula.Text.Trim = "" Then
             STATUS.Text = "ERROR: Ingrese el campo 'Registro de Matrícula'"
             STATUS.ForeColor = Color.Red
+            Return False
+        ElseIf cbox_TipoExamen.Text = "" Then
+            MsgBox("Ingrese tipo de examen")
+            Return False
+        ElseIf cbox_funcionario.Text = "" Then
+            MsgBox("Ingrese datos de funcionario")
+            Return False
+        ElseIf check_Certificado.Checked = False And cbox_TipoExamen.Text.Equals("Examen Visual") Then
+            MsgBox("Debe de haber un certificado oftalmologico que almacenar")
+            Return False
+        ElseIf rbtn_Aprobado.Checked = False And rbtn_Reprobado.Checked = False And Not cbox_TipoExamen.Text.Equals("Cambio Rueda") Then
+            MsgBox("Seleccione una opción de aprobación")
+            Return False
+        ElseIf tbox_Calificacion.Text.Trim.Equals("") And cbox_TipoExamen.Text.Equals("Examen Teorico") Then
+            MsgBox("Ingrese Calificación Teorica")
+            Return False
+        ElseIf tbox_Calificacion.Text.Trim.Equals("") And cbox_TipoExamen.Text.Equals("Examen Practico") Then
+            MsgBox("Ingrese Calificación Practica")
+            Return False
+        ElseIf CInt(sbox_Hora.Text) <> 10 And CInt(sbox_Hora.Text) <> 12 And CInt(sbox_Hora.Text) <> 17 And cbox_TipoExamen.Text.Equals("Cambio Rueda") Then
+            MsgBox("La hora: " & sbox_Hora.Text & ":00 no es una hora dentro de las posibilidades de horarios de clases")
+            Return False
+        ElseIf CInt(sbox_Minutos.Text) <> 0 And cbox_TipoExamen.Text.Equals("Cambio Rueda") Then
+            MsgBox("La hora debe ser exacta")
             Return False
         End If
 
@@ -88,6 +143,7 @@
         cbox_RegistroMatricula.Text = ""
         cbox_funcionario.Text = ""
         tbox_Calificacion.Text = ""
+        lbl_NombreEstudiante.Text = ""
 
         tbox_Comentario.Visible = False
         tbox_Calificacion.Visible = False
@@ -265,11 +321,13 @@
     End Sub
 
     Private Sub btn_reset_Click(sender As System.Object, e As System.EventArgs) Handles btn_reset.Click
+        STATUS.ForeColor = Color.Black
         date_Fecha.Value = Now
         sbox_Hora.Value = "0"
         sbox_Minutos.Value = "0"
+        lbl_NombreEstudiante.Text = ""
         tbox_Calificacion.Text = ""
-        'check_Certificado.Checked = False
+        check_Certificado.Checked = False
         cbox_RegistroMatricula.Text = ""
         cbox_TipoExamen.Text = ""
         cbox_funcionario.Text = ""
@@ -277,4 +335,5 @@
         rbtn_Reprobado.Checked = False
         STATUS.Text = "Usuario " & USER & ""
     End Sub
+
 End Class
