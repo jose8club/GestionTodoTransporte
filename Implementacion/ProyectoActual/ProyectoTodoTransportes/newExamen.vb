@@ -46,6 +46,7 @@
             cbox_TipoExamen.ValueMember = "Nombre"
 
         ElseIf s.Equals("Funcionario") Then
+            'IF TEORICO IF PRACTICO ???
             cbox_funcionario.DataSource = dc.Funcionarios
             cbox_funcionario.DisplayMember = "Nombre"
             cbox_funcionario.ValueMember = "idFuncionario"
@@ -57,7 +58,23 @@
         STATUS.Text = ""
         STATUS.ForeColor = System.Drawing.SystemColors.ControlText
 
-        Return True
+        Dim dr As DataTable = cbox_funcionario.DataSource
+        Dim lista As New List(Of String)(dr.Rows.Count)
+        For Each Row As DataRow In dr.Rows
+            lista.Add(Row(1))
+        Next
+
+        MsgBox(lista.Contains(cbox_funcionario.Text.Trim)) 'arroja el valor si contiene o no (borrar)
+
+        If Not lista.Contains(cbox_funcionario.Text.Trim) Then
+            Return False
+        End If
+
+
+        'ATENTO A ESTE RETURN
+        Return False
+        'ATENTO ^^^^^(lo hice para probar el validador de arriba e ignorar los demás)
+
         If cbox_RegistroMatricula.Text.Trim = "" Then
             STATUS.Text = "ERROR: Ingrese el campo 'Registro de Matrícula'"
             STATUS.ForeColor = Color.Red
@@ -122,6 +139,8 @@
 
     Private Sub btn_Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Guardar.Click
         If validar() Then
+            cbox_funcionario.Text = cbox_funcionario.Text.Trim
+
             Dim Codigo As String = cbox_RegistroMatricula.Text
             Dim Fecha As String = Format(date_Fecha.Value, "yyyy-MM-dd")
             Dim Estado As String = ""
@@ -241,7 +260,7 @@
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
             End Try
-           
+
         End If
     End Sub
 
