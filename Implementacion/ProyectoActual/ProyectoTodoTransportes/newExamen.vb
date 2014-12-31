@@ -46,26 +46,23 @@
             cbox_TipoExamen.ValueMember = "Nombre"
 
         ElseIf s.Equals("Funcionario") Then
-            'If cbox_TipoExamen.Text.Equals("Examen Teórico") Then
-            '    cbox_funcionario.DataSource = dc.Profesores
-            '    cbox_funcionario.DisplayMember = "Nombre"
-            '    cbox_funcionario.ValueMember = "Nombre"
-            '    cbox_funcionario.SelectedIndex = -1
-            'ElseIf cbox_TipoExamen.Text.Equals("Examen Práctico") Then
-            '    cbox_funcionario.DataSource = dc.Instructores
-            '    cbox_funcionario.DisplayMember = "Nombre"
-            '    cbox_funcionario.ValueMember = "Nombre"
-            '    cbox_funcionario.SelectedIndex = -1
-            'Else
-            '    cbox_funcionario.DataSource = dc.Funcionarios
-            '    cbox_funcionario.DisplayMember = "Nombre"
-            '    cbox_funcionario.ValueMember = "idFuncionario"
-            '    cbox_funcionario.SelectedIndex = -1
-            'End If
-            cbox_funcionario.DataSource = dc.Funcionarios
-            cbox_funcionario.DisplayMember = "Nombre"
-            cbox_funcionario.ValueMember = "idFuncionario"
-            cbox_funcionario.SelectedIndex = -1
+            If cbox_TipoExamen.SelectedValue.Equals("Examen Teórico") Then
+                cbox_funcionario.DataSource = dc.Profesores
+                cbox_funcionario.DisplayMember = "Nombre"
+                cbox_funcionario.ValueMember = "idFuncionario"
+                cbox_funcionario.SelectedIndex = -1
+            ElseIf cbox_TipoExamen.SelectedValue.Equals("Examen Práctico") Then
+                cbox_funcionario.DataSource = dc.Instructores
+                cbox_funcionario.DisplayMember = "Nombre"
+                cbox_funcionario.ValueMember = "idFuncionario"
+                cbox_funcionario.SelectedIndex = -1
+            Else
+                cbox_funcionario.DataSource = dc.Funcionarios
+                cbox_funcionario.DisplayMember = "Nombre"
+                cbox_funcionario.ValueMember = "idFuncionario"
+                cbox_funcionario.SelectedIndex = -1
+            End If
+            
         End If
     End Sub
 
@@ -88,18 +85,18 @@
         End If
 
         'Estudiantes
-        Dim de As DataTable = cbox_RegistroMatricula.DataSource
-        Dim est As New List(Of String)(de.Rows.Count)
-        For Each Row As DataRow In de.Rows
-            est.Add(Row(1))
-        Next
+        'Dim de As DataTable = cbox_RegistroMatricula.DataSource
+        'Dim est As New List(Of String)(de.Rows.Count)
+        'For Each Row As DataRow In de.Rows
+        '    est.Add(Row(1))
+        'Next
 
-        MsgBox(est.Contains(cbox_RegistroMatricula.Text.Trim)) 'arroja el valor si contiene o no (borrar)
+        'MsgBox(est.Contains(cbox_RegistroMatricula.Text.Trim)) 'arroja el valor si contiene o no (borrar)
 
-        If Not est.Contains(cbox_RegistroMatricula.Text.Trim) Then
-            MsgBox("Ingrese estudiante correcto")
-            Return False
-        End If
+        'If Not est.Contains(cbox_RegistroMatricula.Text.Trim) Then
+        '    MsgBox("Ingrese estudiante correcto")
+        '    Return False
+        'End If
 
 
         'ATENTO A ESTE RETURN
@@ -122,11 +119,11 @@
         ElseIf rbtn_Aprobado.Checked = False And rbtn_Reprobado.Checked = False And Not cbox_TipoExamen.Text.Equals("Cambio Rueda") Then
             MsgBox("Seleccione una opción de aprobación")
             Return False
-        ElseIf tbox_Calificacion.Text.Trim.Equals("") And cbox_TipoExamen.Text.Equals("Examen Teorico") Then
-            MsgBox("Ingrese Calificación Teorica")
+        ElseIf tbox_Calificacion.Text.Trim.Equals("") And cbox_TipoExamen.SelectedValue.Equals("Examen Teórico") Then
+            MsgBox("Ingrese Calificación")
             Return False
-        ElseIf tbox_Calificacion.Text.Trim.Equals("") And cbox_TipoExamen.Text.Equals("Examen Practico") Then
-            MsgBox("Ingrese Calificación Practica")
+        ElseIf tbox_Calificacion.Text.Trim.Equals("") And cbox_TipoExamen.SelectedValue.Equals("Examen Práctico") Then
+            MsgBox("Ingrese Calificación")
             Return False
         ElseIf CInt(sbox_Hora.Text) <> 10 And CInt(sbox_Hora.Text) <> 12 And CInt(sbox_Hora.Text) <> 17 And cbox_TipoExamen.Text.Equals("Cambio Rueda") Then
             MsgBox("La hora: " & sbox_Hora.Text & ":00 no es una hora dentro de las posibilidades de horarios de clases")
@@ -156,24 +153,30 @@
 
         If cbox_TipoExamen.SelectedValue.Equals("Examen Teórico") Then
             Label.Text = "Calificación:"
+            loadCBOX("Funcionario")
             tbox_Calificacion.Visible = True
 
         ElseIf cbox_TipoExamen.SelectedValue.Equals("Examen Práctico") Then
             Label.Text = "Calificación:"
+            loadCBOX("Funcionario")
             tbox_Calificacion.Visible = True
 
         ElseIf cbox_TipoExamen.SelectedValue.Equals("Examen Municipal") Then
             Label.Text = "Comentario:"
+            loadCBOX("Funcionario")
             tbox_Comentario.Visible = True
 
         ElseIf cbox_TipoExamen.SelectedValue.Equals("Examen Visual") Then
             Label.Text = "Certificado:"
+            loadCBOX("Funcionario")
             check_Certificado.Visible = True
 
         ElseIf cbox_TipoExamen.SelectedValue.Equals("Examen Psicotécnico") Then
             Label.Text = ""
+            loadCBOX("Funcionario")
         ElseIf cbox_TipoExamen.SelectedValue.Equals("Cambio Rueda") Then
             Label.Text = "Horario:"
+            loadCBOX("Funcionario")
             sbox_Hora.Visible = True
             sbox_Minutos.Visible = True
             lbl_dospuntos.Visible = True
@@ -202,7 +205,7 @@
             Dim Estado As String = ""
             Dim Comentario As String = tbox_Comentario.Text
             Dim Calificacion As String = tbox_Calificacion.Text
-            Dim Certificado As Boolean = check_Certificado.Checked
+            'Dim Certificado As Boolean = check_Certificado.Checked
             Dim Funcionario As String = cbox_funcionario.SelectedValue
             Dim Horario As String = ""
             Dim Tipo As String = cbox_TipoExamen.SelectedValue
@@ -219,7 +222,7 @@
 
             If rbtn_Aprobado.Checked Then Estado = "Aprobado" Else Estado = "Reprobado"
 
-            MsgBox("Estado: " & Estado.ToString & ", Certificado: " & Certificado.ToString & ", Funcionario: " & Funcionario & _
+            MsgBox("Estado: " & Estado.ToString & ", Certificado: " & 1 & ", Funcionario: " & Funcionario & _
                    "Horario: " & Horario)
             Try
                 con.beginTransaction()
@@ -270,7 +273,7 @@
                     'insert
                     If ID <> -1 Then
                         Columnas = {"Documento", "Certificado"}
-                        Parametros = {AUX, Certificado}
+                        Parametros = {AUX, 1}
                         ID = con.doInsert("Examen_Visual", Columnas, Parametros)
                         If AUX <> -1 Then
                             Columnas = {"Estudiante", "Documento"}

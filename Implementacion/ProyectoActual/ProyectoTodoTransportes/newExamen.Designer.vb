@@ -77,6 +77,8 @@ Partial Class newExamen
         '
         'cbox_RegistroMatricula
         '
+        Me.cbox_RegistroMatricula.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cbox_RegistroMatricula.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cbox_RegistroMatricula.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple
         Me.cbox_RegistroMatricula.FormattingEnabled = True
         Me.cbox_RegistroMatricula.Location = New System.Drawing.Point(208, 77)
