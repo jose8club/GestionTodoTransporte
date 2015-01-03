@@ -76,6 +76,12 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Asistencias.Designer.vb">
+      <DependentUpon>Asistencias.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Asistencias.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Bienvenido.designer.vb">
       <DependentUpon>Bienvenido.vb</DependentUpon>
     </Compile>
@@ -295,6 +301,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Asistencias.resx">
+      <DependentUpon>Asistencias.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Bienvenido.resx">
       <DependentUpon>Bienvenido.vb</DependentUpon>
     </EmbeddedResource>

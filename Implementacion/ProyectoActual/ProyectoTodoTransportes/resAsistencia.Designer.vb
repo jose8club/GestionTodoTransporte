@@ -25,6 +25,8 @@ Partial Class resAsistencia
         Me.cbox_estudiante = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btn_aspractica = New System.Windows.Forms.Button()
+        Me.btn_asteorica = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.lbl_estudiante = New System.Windows.Forms.Label()
@@ -55,6 +57,8 @@ Partial Class resAsistencia
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btn_aspractica)
+        Me.GroupBox1.Controls.Add(Me.btn_asteorica)
         Me.GroupBox1.Controls.Add(Me.DataGridView2)
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
         Me.GroupBox1.Controls.Add(Me.lbl_estudiante)
@@ -66,6 +70,24 @@ Partial Class resAsistencia
         Me.GroupBox1.TabIndex = 4
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Asistencias por Estudiante"
+        '
+        'btn_aspractica
+        '
+        Me.btn_aspractica.Location = New System.Drawing.Point(163, 244)
+        Me.btn_aspractica.Name = "btn_aspractica"
+        Me.btn_aspractica.Size = New System.Drawing.Size(118, 23)
+        Me.btn_aspractica.TabIndex = 48
+        Me.btn_aspractica.Text = "Asistencia Practica"
+        Me.btn_aspractica.UseVisualStyleBackColor = True
+        '
+        'btn_asteorica
+        '
+        Me.btn_asteorica.Location = New System.Drawing.Point(28, 244)
+        Me.btn_asteorica.Name = "btn_asteorica"
+        Me.btn_asteorica.Size = New System.Drawing.Size(118, 23)
+        Me.btn_asteorica.TabIndex = 47
+        Me.btn_asteorica.Text = "Asistencia Teorica"
+        Me.btn_asteorica.UseVisualStyleBackColor = True
         '
         'DataGridView2
         '
@@ -124,4 +146,6 @@ Partial Class resAsistencia
     Friend WithEvents lbl_estudiante As System.Windows.Forms.Label
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents btn_aspractica As System.Windows.Forms.Button
+    Friend WithEvents btn_asteorica As System.Windows.Forms.Button
 End Class
