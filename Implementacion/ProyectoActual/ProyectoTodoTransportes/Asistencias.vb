@@ -48,12 +48,12 @@
             cbox_estudiante.SelectedIndex = -1
         ElseIf Nombre.Equals("Clase Teorica") Then
             cbox_clasedia.DataSource = datacbox.ClaseTeorica
-            cbox_clasedia.DisplayMember = "Curso"
+            cbox_clasedia.DisplayMember = "idClase"
             cbox_clasedia.ValueMember = "idClase"
             cbox_clasedia.SelectedIndex = -1
         ElseIf Nombre.Equals("Clase Practica") Then
             cbox_clasedia.DataSource = datacbox.ClasePractica
-            cbox_clasedia.DisplayMember = "Curso"
+            cbox_clasedia.DisplayMember = "idClase"
             cbox_clasedia.ValueMember = "idClase"
             cbox_clasedia.SelectedIndex = -1
         End If
@@ -78,32 +78,32 @@
         End If
 
         'Estudiantes
-        Dim de As DataTable = cbox_estudiante.DataSource
-        Dim est As New List(Of String)(de.Rows.Count)
-        For Each Row As DataRow In de.Rows
-            est.Add(Row(1))
-        Next
+        'Dim de As DataTable = cbox_estudiante.DataSource
+        'Dim est As New List(Of String)(de.Rows.Count)
+        'For Each Row As DataRow In de.Rows
+        '    est.Add(Row(1))
+        'Next
 
-        MsgBox(est.Contains(cbox_estudiante.Text.Trim)) 'arroja el valor si contiene o no (borrar)
+        'MsgBox(est.Contains(cbox_estudiante.Text.Trim)) 'arroja el valor si contiene o no (borrar)
 
-        If Not est.Contains(cbox_estudiante.Text.Trim) Then
-            MsgBox("Ingrese estudiante correcto")
-            Return False
-        End If
+        'If Not est.Contains(cbox_estudiante.Text.Trim) Then
+        '    MsgBox("Ingrese estudiante correcto")
+        '    Return False
+        'End If
 
         'Curso
-        Dim dc As DataTable = cbox_clasedia.DataSource
-        Dim cl As New List(Of String)(dc.Rows.Count)
-        For Each Row As DataRow In dc.Rows
-            cl.Add(Row(1))
-        Next
+        'Dim dc As DataTable = cbox_clasedia.DataSource
+        'Dim cl As New List(Of String)(dc.Rows.Count)
+        'For Each Row As DataRow In dc.Rows
+        '    cl.Add(Row(1))
+        'Next
 
-        MsgBox(cl.Contains(cbox_clasedia.Text.Trim)) 'arroja el valor si contiene o no (borrar)
+        'MsgBox(cl.Contains(cbox_clasedia.Text.Trim)) 'arroja el valor si contiene o no (borrar)
 
-        If Not cl.Contains(cbox_clasedia.Text.Trim) Then
-            MsgBox("Ingrese dia correcto")
-            Return False
-        End If
+        'If Not cl.Contains(cbox_clasedia.Text.Trim) Then
+        '    MsgBox("Ingrese dia correcto")
+        '    Return False
+        'End If
 
         If cbox_estudiante.Text.Trim = "" Then
             lbl_estatus.Text = "ERROR: Ingrese el campo 'Estudiante'"
@@ -112,13 +112,16 @@
         ElseIf cbox_docente.Text = "" Then
             MsgBox("Ingrese datos de funcionario")
             Return False
+        ElseIf tbox_numero.Text = "" Or CInt(tbox_numero.Text) < 0 Then
+            MsgBox("Ingrese numero de asistencia")
+            Return False
         ElseIf cbox_clasedia.Text = "" Then
             MsgBox("Ingrese curso")
             Return False
         ElseIf CInt(sbox_hor2.Text) <> 0 Then
             MsgBox("La hora debe ser exacta")
             Return False
-        ElseIf CInt(sbox_hor1.Text) > 8 Then
+        ElseIf CInt(sbox_hor1.Text) < 8 Then
             MsgBox("La hora debe ser en horarios de oficina")
             Return False
         End If
@@ -180,6 +183,7 @@
             Dim Estudiante As String = cbox_estudiante.SelectedValue
             Dim Curso As Integer = cbox_clasedia.SelectedValue
             Dim Horario As String = ""
+            Dim Asis As Integer = CInt(tbox_numero.Text)
 
             Dim ID As Integer = 0
             Dim Columnas() As String = {}
@@ -194,8 +198,8 @@
             Try
                 con.beginTransaction()
 
-                Columnas = {"Estudiante", "Fecha", "Horario"}
-                Parametros = {Estudiante, Fecha, Horario}
+                Columnas = {"idAsistencia", "Estudiante", "Fecha", "Horario"}
+                Parametros = {Asis, Estudiante, Fecha, Horario}
                 ID = con.doInsert("Asistencia", Columnas, Parametros)
                 Dim AUX As Integer = ID
 
@@ -207,7 +211,7 @@
                         ID = con.doInsert("Teoria_Estudiante", Columnas, Parametros)
                         If ID <> -1 Then
                             Columnas = {"Asistencia", "Teoria", "Estudiante"}
-                            Parametros = {AUX, Curso, Estudiante}
+                            Parametros = {Asis, Curso, Estudiante}
                             ID = con.doInsert("Asistencia_Teoria", Columnas, Parametros)
                         End If
                     End If
@@ -220,11 +224,26 @@
                         ID = con.doInsert("Practica_Estudiante", Columnas, Parametros)
                         If ID <> -1 Then
                             Columnas = {"Asistencia", "Estudiante", "Practica", "Auto", "Instructor"}
-                            Parametros = {AUX, Estudiante, Curso, Auto, Funcionario}
+                            Parametros = {Asis, Estudiante, Curso, Auto, Funcionario}
                             ID = con.doInsert("Asistencia_Practica", Columnas, Parametros)
                         End If
                     End If
 
+                End If
+
+                If ID <> -1 Then
+                    con.commitTransaction()
+                    lbl_estatus.Text = "Operación realizada con éxito."
+                    lbl_estatus.ForeColor = Color.Blue
+                    cbox_estudiante.Text = ""
+                    lbl_estudiante.Text = ""
+                    tbox_numero.Text = ""
+                    date_Fecha.Value = Now
+                    sbox_hor1.Text = "0"
+                    sbox_hor2.Text = "0"
+                Else
+                    lbl_estatus.Text = "Hubo un error al realizar la operación."
+                    lbl_estatus.ForeColor = Color.Red
                 End If
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
@@ -233,4 +252,18 @@
     End Sub
 
     
+    Private Sub btn_resetear_Click(sender As System.Object, e As System.EventArgs) Handles btn_resetear.Click
+        cbox_estudiante.Text = ""
+        lbl_estudiante.Text = ""
+        tbox_numero.Text = ""
+        date_Fecha.Value = Now
+        sbox_hor1.Text = "0"
+        sbox_hor2.Text = "0"
+        cbox_docente.Text = ""
+        cbox_clasedia.Text = ""
+        lbl_matricula.Text = ""
+        lbl_marca.Text = ""
+        lbl_estatus.Text = "Usuario: " & USER
+        lbl_estatus.ForeColor = Color.Black
+    End Sub
 End Class

@@ -43,6 +43,8 @@ Partial Class Asistencias
         Me.lbl_estatus = New System.Windows.Forms.ToolStripLabel()
         Me.cbox_clasedia = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.tbox_numero = New System.Windows.Forms.TextBox()
         CType(Me.sbox_hor2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sbox_hor1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.lbl_estado.SuspendLayout()
@@ -80,7 +82,7 @@ Partial Class Asistencias
         'lbl_Fecha
         '
         Me.lbl_Fecha.AutoSize = True
-        Me.lbl_Fecha.Location = New System.Drawing.Point(27, 86)
+        Me.lbl_Fecha.Location = New System.Drawing.Point(27, 117)
         Me.lbl_Fecha.Name = "lbl_Fecha"
         Me.lbl_Fecha.Size = New System.Drawing.Size(40, 13)
         Me.lbl_Fecha.TabIndex = 63
@@ -88,14 +90,14 @@ Partial Class Asistencias
         '
         'date_Fecha
         '
-        Me.date_Fecha.Location = New System.Drawing.Point(104, 79)
+        Me.date_Fecha.Location = New System.Drawing.Point(104, 110)
         Me.date_Fecha.Name = "date_Fecha"
         Me.date_Fecha.Size = New System.Drawing.Size(210, 20)
         Me.date_Fecha.TabIndex = 62
         '
         'sbox_hor2
         '
-        Me.sbox_hor2.Location = New System.Drawing.Point(224, 123)
+        Me.sbox_hor2.Location = New System.Drawing.Point(224, 154)
         Me.sbox_hor2.Maximum = New Decimal(New Integer() {59, 0, 0, 0})
         Me.sbox_hor2.Name = "sbox_hor2"
         Me.sbox_hor2.Size = New System.Drawing.Size(45, 20)
@@ -103,7 +105,7 @@ Partial Class Asistencias
         '
         'sbox_hor1
         '
-        Me.sbox_hor1.Location = New System.Drawing.Point(104, 123)
+        Me.sbox_hor1.Location = New System.Drawing.Point(104, 154)
         Me.sbox_hor1.Maximum = New Decimal(New Integer() {23, 0, 0, 0})
         Me.sbox_hor1.Name = "sbox_hor1"
         Me.sbox_hor1.Size = New System.Drawing.Size(44, 20)
@@ -112,7 +114,7 @@ Partial Class Asistencias
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(290, 125)
+        Me.Label8.Location = New System.Drawing.Point(290, 156)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(24, 13)
         Me.Label8.TabIndex = 106
@@ -122,7 +124,7 @@ Partial Class Asistencias
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(181, 119)
+        Me.Label9.Location = New System.Drawing.Point(181, 150)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(15, 24)
         Me.Label9.TabIndex = 105
@@ -131,7 +133,7 @@ Partial Class Asistencias
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(27, 130)
+        Me.Label10.Location = New System.Drawing.Point(27, 161)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(44, 13)
         Me.Label10.TabIndex = 104
@@ -140,7 +142,7 @@ Partial Class Asistencias
         'lbl_vehiculo
         '
         Me.lbl_vehiculo.AutoSize = True
-        Me.lbl_vehiculo.Location = New System.Drawing.Point(27, 268)
+        Me.lbl_vehiculo.Location = New System.Drawing.Point(27, 299)
         Me.lbl_vehiculo.Name = "lbl_vehiculo"
         Me.lbl_vehiculo.Size = New System.Drawing.Size(51, 13)
         Me.lbl_vehiculo.TabIndex = 109
@@ -149,7 +151,7 @@ Partial Class Asistencias
         'lbl_marca
         '
         Me.lbl_marca.AutoSize = True
-        Me.lbl_marca.Location = New System.Drawing.Point(240, 268)
+        Me.lbl_marca.Location = New System.Drawing.Point(240, 299)
         Me.lbl_marca.Name = "lbl_marca"
         Me.lbl_marca.Size = New System.Drawing.Size(39, 13)
         Me.lbl_marca.TabIndex = 111
@@ -161,7 +163,7 @@ Partial Class Asistencias
         Me.cbox_docente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cbox_docente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple
         Me.cbox_docente.FormattingEnabled = True
-        Me.cbox_docente.Location = New System.Drawing.Point(104, 168)
+        Me.cbox_docente.Location = New System.Drawing.Point(104, 199)
         Me.cbox_docente.Name = "cbox_docente"
         Me.cbox_docente.Size = New System.Drawing.Size(210, 20)
         Me.cbox_docente.TabIndex = 113
@@ -169,7 +171,7 @@ Partial Class Asistencias
         'lbl_docente
         '
         Me.lbl_docente.AutoSize = True
-        Me.lbl_docente.Location = New System.Drawing.Point(27, 171)
+        Me.lbl_docente.Location = New System.Drawing.Point(27, 202)
         Me.lbl_docente.Name = "lbl_docente"
         Me.lbl_docente.Size = New System.Drawing.Size(51, 13)
         Me.lbl_docente.TabIndex = 112
@@ -200,7 +202,7 @@ Partial Class Asistencias
         'lbl_matricula
         '
         Me.lbl_matricula.AutoSize = True
-        Me.lbl_matricula.Location = New System.Drawing.Point(101, 268)
+        Me.lbl_matricula.Location = New System.Drawing.Point(101, 299)
         Me.lbl_matricula.Name = "lbl_matricula"
         Me.lbl_matricula.Size = New System.Drawing.Size(39, 13)
         Me.lbl_matricula.TabIndex = 116
@@ -228,7 +230,7 @@ Partial Class Asistencias
         Me.cbox_clasedia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cbox_clasedia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple
         Me.cbox_clasedia.FormattingEnabled = True
-        Me.cbox_clasedia.Location = New System.Drawing.Point(106, 215)
+        Me.cbox_clasedia.Location = New System.Drawing.Point(106, 246)
         Me.cbox_clasedia.Name = "cbox_clasedia"
         Me.cbox_clasedia.Size = New System.Drawing.Size(208, 20)
         Me.cbox_clasedia.TabIndex = 118
@@ -236,17 +238,35 @@ Partial Class Asistencias
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(29, 218)
+        Me.Label2.Location = New System.Drawing.Point(29, 249)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(37, 13)
         Me.Label2.TabIndex = 120
         Me.Label2.Text = "Curso:"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(30, 79)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(47, 13)
+        Me.Label3.TabIndex = 121
+        Me.Label3.Text = "Numero:"
+        '
+        'tbox_numero
+        '
+        Me.tbox_numero.Location = New System.Drawing.Point(106, 76)
+        Me.tbox_numero.Name = "tbox_numero"
+        Me.tbox_numero.Size = New System.Drawing.Size(100, 20)
+        Me.tbox_numero.TabIndex = 122
         '
         'Asistencias
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(391, 400)
+        Me.Controls.Add(Me.tbox_numero)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cbox_clasedia)
         Me.Controls.Add(Me.lbl_estado)
@@ -300,4 +320,6 @@ Partial Class Asistencias
     Friend WithEvents lbl_estatus As System.Windows.Forms.ToolStripLabel
     Friend WithEvents cbox_clasedia As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents tbox_numero As System.Windows.Forms.TextBox
 End Class
