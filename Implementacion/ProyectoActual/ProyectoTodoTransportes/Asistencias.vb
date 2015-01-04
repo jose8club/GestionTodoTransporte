@@ -200,37 +200,31 @@
                 Dim AUX As Integer = ID
 
                 If tipo.Equals("Asistencia Teorica") Then
+
                     If ID <> -1 Then
-                        Columnas = {"Clase", "Profesor"}
-                        Parametros = {Curso, Funcionario}
-                        ID = con.doInsert("Teoria", Columnas, Parametros)
+                        Columnas = {"Teoria", "Estudiante"}
+                        Parametros = {Curso, Estudiante}
+                        ID = con.doInsert("Teoria_Estudiante", Columnas, Parametros)
                         If ID <> -1 Then
-                            Columnas = {"Teoria", "Estudiante"}
-                            Parametros = {ID, Estudiante}
-                            ID = con.doInsert("Teoria_Estudiante", Columnas, Parametros)
-                            If ID <> -1 Then
-                                Columnas = {"Asistencia", "Teoria", "Estudiante"}
-                                Parametros = {AUX, ID, Estudiante}
-                                ID = con.doInsert("Asistencia_Teoria", Columnas, Parametros)
-                            End If
+                            Columnas = {"Asistencia", "Teoria", "Estudiante"}
+                            Parametros = {AUX, Curso, Estudiante}
+                            ID = con.doInsert("Asistencia_Teoria", Columnas, Parametros)
                         End If
                     End If
+
                 ElseIf tipo.Equals("Asistencia Práctica") Then
+                    
                     If ID <> -1 Then
-                        Columnas = {"Clase", "Instructor"}
-                        Parametros = {Curso, Funcionario}
-                        ID = con.doInsert("Practica", Columnas, Parametros)
+                        Columnas = {"Practica", "Estudiante"}
+                        Parametros = {Curso, Estudiante}
+                        ID = con.doInsert("Practica_Estudiante", Columnas, Parametros)
                         If ID <> -1 Then
-                            Columnas = {"Practica", "Estudiante"}
-                            Parametros = {ID, Estudiante}
-                            ID = con.doInsert("Practica_Estudiante", Columnas, Parametros)
-                            If ID <> -1 Then
-                                Columnas = {"Asistencia", "Estudiante", "Practica", "Auto", "Instructor"}
-                                Parametros = {AUX, Estudiante, ID, Auto, Funcionario}
-                                ID = con.doInsert("Asistencia_Practica", Columnas, Parametros)
-                            End If
+                            Columnas = {"Asistencia", "Estudiante", "Practica", "Auto", "Instructor"}
+                            Parametros = {AUX, Estudiante, Curso, Auto, Funcionario}
+                            ID = con.doInsert("Asistencia_Practica", Columnas, Parametros)
                         End If
                     End If
+
                 End If
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
