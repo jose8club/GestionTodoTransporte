@@ -44,4 +44,16 @@
         Dim Data As DataTable = con.doQuery("SELECT * FROM Estudiante")
         Return Data
     End Function
+
+    Function ClaseTeorica() As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT c.idClase, c.Horario FROM Clase c, Teoria t WHERE c.idClase=t.Clase")
+        Return Data
+    End Function
+
+    Function ClasePractica() As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT c.idClase, c.Horario FROM Clase c, Practica p WHERE c.idClase=p.Clase")
+        Return Data
+    End Function
+
+    
 End Class

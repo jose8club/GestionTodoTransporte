@@ -73,20 +73,26 @@ Partial Class resAsistencia
         '
         'btn_aspractica
         '
+        Me.btn_aspractica.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.ADD_BUTTON
+        Me.btn_aspractica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_aspractica.Location = New System.Drawing.Point(163, 244)
         Me.btn_aspractica.Name = "btn_aspractica"
         Me.btn_aspractica.Size = New System.Drawing.Size(118, 23)
         Me.btn_aspractica.TabIndex = 48
         Me.btn_aspractica.Text = "Asistencia Practica"
+        Me.btn_aspractica.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_aspractica.UseVisualStyleBackColor = True
         '
         'btn_asteorica
         '
+        Me.btn_asteorica.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.ADD_BUTTON
+        Me.btn_asteorica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btn_asteorica.Location = New System.Drawing.Point(28, 244)
         Me.btn_asteorica.Name = "btn_asteorica"
         Me.btn_asteorica.Size = New System.Drawing.Size(118, 23)
         Me.btn_asteorica.TabIndex = 47
         Me.btn_asteorica.Text = "Asistencia Teorica"
+        Me.btn_asteorica.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_asteorica.UseVisualStyleBackColor = True
         '
         'DataGridView2
