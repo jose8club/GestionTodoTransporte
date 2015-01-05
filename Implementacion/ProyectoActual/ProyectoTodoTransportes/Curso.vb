@@ -26,6 +26,7 @@
     End Sub
 
     Private Sub btn_Guardar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btn_Guardar.Click
+
         If validar() Then
             Dim Codigo As String = tbox_Codigo.Text
             Dim Producto As String = cbox_Producto.Text
@@ -35,6 +36,9 @@
 
             Dim Columnas() As String = {"Codigo", "Producto", "FechaInicio", "FechaTermino", "Cupos"}
             Dim Parametros() As String = {Codigo, Producto, FechaInicio, FechaTermino, Cupos}
+
+            Dim cantidad_dias As Integer = (date_FechaTermino.Value - date_FechaInicio.Value).TotalDays + 1
+            Dim dia_inicial As Integer = date_FechaInicio.Value.DayOfWeek
             Try
                 con.beginTransaction()
                 Dim ID As Integer = con.doInsert("Curso", Columnas, Parametros)
@@ -48,142 +52,149 @@
                         Columnas = {"Curso", "Horario", "DIA"}
                         Dim Columnas2() As String = {"Clase", "Profesor"}
 
-                        If ID <> -1 And check_Lunes.Checked Then
-                            Parametros = {Codigo, Hora, 1}
-                            ID = con.doInsert("Clase", Columnas, Parametros)
-                            If ID <> -1 Then
-                                Parametros = {ID, Profesor}
-                                ID = con.doInsert("Teoria", Columnas2, Parametros)
+                        For i As Integer = dia_inicial To dia_inicial + cantidad_dias - 1
+                            If ID <> -1 And check_Lunes.Checked And (i Mod 7 = 1) Then
+                                Parametros = {Codigo, Hora, 1}
+                                ID = con.doInsert("Clase", Columnas, Parametros)
+                                If ID <> -1 Then
+                                    Parametros = {ID, Profesor}
+                                    ID = con.doInsert("Teoria", Columnas2, Parametros)
+                                End If
                             End If
-                        End If
 
-                        If ID <> -1 And check_Martes.Checked Then
-                            Parametros = {Codigo, Hora, 2}
-                            ID = con.doInsert("Clase", Columnas, Parametros)
-                            If ID <> -1 Then
-                                Parametros = {ID, Profesor}
-                                ID = con.doInsert("Teoria", Columnas2, Parametros)
+                            If ID <> -1 And check_Martes.Checked And (i Mod 7 = 2) Then
+                                Parametros = {Codigo, Hora, 2}
+                                ID = con.doInsert("Clase", Columnas, Parametros)
+                                If ID <> -1 Then
+                                    Parametros = {ID, Profesor}
+                                    ID = con.doInsert("Teoria", Columnas2, Parametros)
+                                End If
                             End If
-                        End If
 
-                        If ID <> -1 And check_Miercoles.Checked Then
-                            Parametros = {Codigo, Hora, 3}
-                            ID = con.doInsert("Clase", Columnas, Parametros)
-                            If ID <> -1 Then
-                                Parametros = {ID, Profesor}
-                                ID = con.doInsert("Teoria", Columnas2, Parametros)
+                            If ID <> -1 And check_Miercoles.Checked And (i Mod 7 = 3) Then
+                                Parametros = {Codigo, Hora, 3}
+                                ID = con.doInsert("Clase", Columnas, Parametros)
+                                If ID <> -1 Then
+                                    Parametros = {ID, Profesor}
+                                    ID = con.doInsert("Teoria", Columnas2, Parametros)
+                                End If
                             End If
-                        End If
 
-                        If ID <> -1 And check_Jueves.Checked Then
-                            Parametros = {Codigo, Hora, 4}
-                            ID = con.doInsert("Clase", Columnas, Parametros)
-                            If ID <> -1 Then
-                                Parametros = {ID, Profesor}
-                                ID = con.doInsert("Teoria", Columnas2, Parametros)
+                            If ID <> -1 And check_Jueves.Checked And (i Mod 7 = 4) Then
+                                Parametros = {Codigo, Hora, 4}
+                                ID = con.doInsert("Clase", Columnas, Parametros)
+                                If ID <> -1 Then
+                                    Parametros = {ID, Profesor}
+                                    ID = con.doInsert("Teoria", Columnas2, Parametros)
+                                End If
                             End If
-                        End If
 
-                        If ID <> -1 And check_Viernes.Checked Then
-                            Parametros = {Codigo, Hora, 5}
-                            ID = con.doInsert("Clase", Columnas, Parametros)
-                            If ID <> -1 Then
-                                Parametros = {ID, Profesor}
-                                ID = con.doInsert("Teoria", Columnas2, Parametros)
+                            If ID <> -1 And check_Viernes.Checked And (i Mod 7 = 5) Then
+                                Parametros = {Codigo, Hora, 5}
+                                ID = con.doInsert("Clase", Columnas, Parametros)
+                                If ID <> -1 Then
+                                    Parametros = {ID, Profesor}
+                                    ID = con.doInsert("Teoria", Columnas2, Parametros)
+                                End If
                             End If
-                        End If
 
-                        If ID <> -1 And check_Sabado.Checked Then
-                            Parametros = {Codigo, Hora, 6}
-                            ID = con.doInsert("Clase", Columnas, Parametros)
-                            If ID <> -1 Then
-                                Parametros = {ID, Profesor}
-                                ID = con.doInsert("Teoria", Columnas2, Parametros)
+                            If ID <> -1 And check_Sabado.Checked And (i Mod 7 = 6) Then
+                                Parametros = {Codigo, Hora, 6}
+                                ID = con.doInsert("Clase", Columnas, Parametros)
+                                If ID <> -1 Then
+                                    Parametros = {ID, Profesor}
+                                    ID = con.doInsert("Teoria", Columnas2, Parametros)
+                                End If
                             End If
-                        End If
+                        Next
                     Next
 
                     For Each Row As DataGridViewRow In DG_HP.Rows
                         Dim InstructorID As Integer = Row.Cells(0).Value
 
                         Dim Columnas2() As String = {"Clase", "Instructor"}
-                        If check_Lunes.Checked And Row.Cells(2).Value Then
-                            For i As Integer = 9 To 22
-                                If ID <> -1 Then
-                                    Parametros = {Codigo, i & ":00:00", 1}
-                                    ID = con.doInsert("Clase", Columnas, Parametros)
-                                    If ID <> -1 Then
-                                        Parametros = {ID, InstructorID}
-                                        ID = con.doInsert("Practica", Columnas2, Parametros)
-                                    End If
-                                End If
-                            Next
-                        End If
 
-                        If check_Martes.Checked And Row.Cells(3).Value Then
-                            For i As Integer = 9 To 22
-                                If ID <> -1 Then
-                                    Parametros = {Codigo, i & ":00:00", 2}
-                                    ID = con.doInsert("Clase", Columnas, Parametros)
-                                    If ID <> -1 Then
-                                        Parametros = {ID, InstructorID}
-                                        ID = con.doInsert("Practica", Columnas2, Parametros)
-                                    End If
-                                End If
-                            Next
-                        End If
+                        For j As Integer = dia_inicial To dia_inicial + cantidad_dias - 1
 
-                        If check_Miercoles.Checked And Row.Cells(4).Value Then
-                            For i As Integer = 9 To 22
-                                If ID <> -1 Then
-                                    Parametros = {Codigo, i & ":00:00", 3}
-                                    ID = con.doInsert("Clase", Columnas, Parametros)
+                            If check_Lunes.Checked And Row.Cells(2).Value And (j Mod 7 = 1) Then
+                                For i As Integer = 9 To 22
                                     If ID <> -1 Then
-                                        Parametros = {ID, InstructorID}
-                                        ID = con.doInsert("Practica", Columnas2, Parametros)
+                                        Parametros = {Codigo, i & ":00:00", 1}
+                                        ID = con.doInsert("Clase", Columnas, Parametros)
+                                        If ID <> -1 Then
+                                            Parametros = {ID, InstructorID}
+                                            ID = con.doInsert("Practica", Columnas2, Parametros)
+                                        End If
                                     End If
-                                End If
-                            Next
-                        End If
+                                Next
+                            End If
 
-                        If check_Jueves.Checked And Row.Cells(5).Value Then
-                            For i As Integer = 9 To 22
-                                If ID <> -1 Then
-                                    Parametros = {Codigo, i & ":00:00", 4}
-                                    ID = con.doInsert("Clase", Columnas, Parametros)
+                            If check_Martes.Checked And Row.Cells(3).Value And (j Mod 7 = 2) Then
+                                For i As Integer = 9 To 22
                                     If ID <> -1 Then
-                                        Parametros = {ID, InstructorID}
-                                        ID = con.doInsert("Practica", Columnas2, Parametros)
+                                        Parametros = {Codigo, i & ":00:00", 2}
+                                        ID = con.doInsert("Clase", Columnas, Parametros)
+                                        If ID <> -1 Then
+                                            Parametros = {ID, InstructorID}
+                                            ID = con.doInsert("Practica", Columnas2, Parametros)
+                                        End If
                                     End If
-                                End If
-                            Next
-                        End If
+                                Next
+                            End If
 
-                        If check_Viernes.Checked And Row.Cells(6).Value Then
-                            For i As Integer = 9 To 22
-                                If ID <> -1 Then
-                                    Parametros = {Codigo, i & ":00:00", 5}
-                                    ID = con.doInsert("Clase", Columnas, Parametros)
+                            If check_Miercoles.Checked And Row.Cells(4).Value And (j Mod 7 = 3) Then
+                                For i As Integer = 9 To 22
                                     If ID <> -1 Then
-                                        Parametros = {ID, InstructorID}
-                                        ID = con.doInsert("Practica", Columnas2, Parametros)
+                                        Parametros = {Codigo, i & ":00:00", 3}
+                                        ID = con.doInsert("Clase", Columnas, Parametros)
+                                        If ID <> -1 Then
+                                            Parametros = {ID, InstructorID}
+                                            ID = con.doInsert("Practica", Columnas2, Parametros)
+                                        End If
                                     End If
-                                End If
-                            Next
-                        End If
+                                Next
+                            End If
 
-                        If check_Sabado.Checked And Row.Cells(7).Value Then
-                            For i As Integer = 9 To 22
-                                If ID <> -1 Then
-                                    Parametros = {Codigo, i & ":00:00", 6}
-                                    ID = con.doInsert("Clase", Columnas, Parametros)
+                            If check_Jueves.Checked And Row.Cells(5).Value And (j Mod 7 = 4) Then
+                                For i As Integer = 9 To 22
                                     If ID <> -1 Then
-                                        Parametros = {ID, InstructorID}
-                                        ID = con.doInsert("Practica", Columnas2, Parametros)
+                                        Parametros = {Codigo, i & ":00:00", 4}
+                                        ID = con.doInsert("Clase", Columnas, Parametros)
+                                        If ID <> -1 Then
+                                            Parametros = {ID, InstructorID}
+                                            ID = con.doInsert("Practica", Columnas2, Parametros)
+                                        End If
                                     End If
-                                End If
-                            Next
-                        End If
+                                Next
+                            End If
+
+                            If check_Viernes.Checked And Row.Cells(6).Value And (j Mod 7 = 5) Then
+                                For i As Integer = 9 To 22
+                                    If ID <> -1 Then
+                                        Parametros = {Codigo, i & ":00:00", 5}
+                                        ID = con.doInsert("Clase", Columnas, Parametros)
+                                        If ID <> -1 Then
+                                            Parametros = {ID, InstructorID}
+                                            ID = con.doInsert("Practica", Columnas2, Parametros)
+                                        End If
+                                    End If
+                                Next
+                            End If
+
+                            If check_Sabado.Checked And Row.Cells(7).Value And (j Mod 7 = 6) Then
+                                For i As Integer = 9 To 22
+                                    If ID <> -1 Then
+                                        Parametros = {Codigo, i & ":00:00", 6}
+                                        ID = con.doInsert("Clase", Columnas, Parametros)
+                                        If ID <> -1 Then
+                                            Parametros = {ID, InstructorID}
+                                            ID = con.doInsert("Practica", Columnas2, Parametros)
+                                        End If
+                                    End If
+                                Next
+                            End If
+
+                        Next
                     Next
                 End If
 
@@ -198,7 +209,7 @@
             Catch ex As Exception
                 STATUS.Text = ex.Message.ToString
             End Try
-            
+
 
             reset()
         End If
@@ -238,7 +249,7 @@
 
         For Each Row As DataGridViewRow In DG_HP.Rows
             If Not (Row.Cells(2).Value Or Row.Cells(3).Value Or Row.Cells(4).Value Or Row.Cells(5).Value Or
-                Row.Cells(6).Value Or Row.Cells(7).Value Or Row.Cells(8).Value) Then
+                Row.Cells(6).Value Or Row.Cells(7).Value) Then
                 STATUS.Text = "ERROR: El instructor " & Row.Cells(1).Value & " no tiene días asignados en Horario Práctico"
                 STATUS.ForeColor = Color.Red
                 Return False
@@ -260,6 +271,9 @@
         date_FechaInicio.Value = Date.Now
         date_FechaTermino.Value = Date.Now
 
+        DG_HT.Rows.Clear()
+        DG_HP.Rows.Clear()
+
         loadCBOX("Area")
         loadCBOX("Producto")
         loadCBOX("Instructor")
@@ -270,9 +284,6 @@
         check_Jueves.Checked = True
         check_Viernes.Checked = True
         check_Sabado.Checked = False
-
-        DG_HT.Rows.Clear()
-        DG_HP.Rows.Clear()
 
         loadDataGridViews()
     End Sub
