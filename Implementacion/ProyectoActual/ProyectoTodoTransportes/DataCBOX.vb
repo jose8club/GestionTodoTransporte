@@ -46,14 +46,18 @@
     End Function
 
     Function ClaseTeorica() As DataTable
-        Dim Data As DataTable = con.doQuery("SELECT c.idClase, c.Curso FROM Clase c, Teoria t WHERE c.idClase=t.Clase")
+        Dim Data As DataTable = con.doQuery("SELECT c.idClase, c.Curso FROM Clase c, Teoria t WHERE t.clase=c.idClase ")
         Return Data
     End Function
 
     Function ClasePractica() As DataTable
-        Dim Data As DataTable = con.doQuery("SELECT c.idClase, c.Curso FROM Clase c, Practica p WHERE c.idClase=p.Clase")
+        Dim Data As DataTable = con.doQuery("SELECT c.idClase, c.Curso FROM Clase c, Practica p WHERE p.clase=c.idClase ")
         Return Data
     End Function
 
+    Function Horarios(ByVal Curso As String) As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT Horario FROM Clase WHERE Curso = '" & Curso & "'")
+        Return Data
+    End Function
     
 End Class
