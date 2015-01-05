@@ -22,15 +22,16 @@ Partial Class Matricula
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.DatosPersonalesGbx = New System.Windows.Forms.GroupBox()
-        Me.NombreCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass()
-        Me.EmailCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass()
+        Me.NombreCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
+        Me.EmailCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
         Me.EmailLbl = New System.Windows.Forms.Label()
         Me.ClienteCbBx = New System.Windows.Forms.ComboBox()
         Me.ClienteLbl = New System.Windows.Forms.Label()
-        Me.DVCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass()
-        Me.RutCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass()
-        Me.TelCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass()
+        Me.DVCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
+        Me.RutCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
+        Me.TelCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
         Me.TelefonoLbl = New System.Windows.Forms.Label()
         Me.FNacDTiPckr = New System.Windows.Forms.DateTimePicker()
         Me.FNacLbl = New System.Windows.Forms.Label()
@@ -163,6 +164,7 @@ Partial Class Matricula
         'DVCTxBx
         '
         Me.DVCTxBx.Location = New System.Drawing.Point(247, 53)
+        Me.DVCTxBx.MaxLength = 1
         Me.DVCTxBx.Name = "DVCTxBx"
         Me.DVCTxBx.Size = New System.Drawing.Size(20, 20)
         Me.DVCTxBx.TabIndex = 3
@@ -171,7 +173,7 @@ Partial Class Matricula
         'RutCTxBx
         '
         Me.RutCTxBx.Location = New System.Drawing.Point(124, 53)
-        Me.RutCTxBx.MaxLength = 9
+        Me.RutCTxBx.MaxLength = 10
         Me.RutCTxBx.Name = "RutCTxBx"
         Me.RutCTxBx.Size = New System.Drawing.Size(100, 20)
         Me.RutCTxBx.TabIndex = 2
