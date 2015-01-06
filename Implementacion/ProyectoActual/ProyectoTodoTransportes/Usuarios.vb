@@ -17,8 +17,8 @@ Public Class Usuarios
     Private Sub Usuarios_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         cbox_TipoUsuario.DataSource = dc.TipoUsuario
-        cbox_TipoUsuario.ValueMember = "Nombre"
-        cbox_TipoUsuario.DisplayMember = "Nombre"
+        cbox_TipoUsuario.ValueMember = "Tipo"
+        cbox_TipoUsuario.DisplayMember = "Tipo"
 
         Dim Funcionario As DataTable = con.doQuery("SELECT IDFuncionario, Nombre FROM Funcionario")
         cbox_Funcionario.DataSource = Funcionario
