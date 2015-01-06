@@ -203,7 +203,7 @@ Partial Class NewAsistencia
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 116
-        Me.Button1.Text = "Filtrar"
+        Me.Button1.Text = "Buscar"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'NewAsistencia

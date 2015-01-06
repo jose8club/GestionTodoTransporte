@@ -91,7 +91,7 @@
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
         ElseIf Nombre.Equals("Examen Psicotecnico") Then
-            Form = New Psicotecnico(USER, con, ESTADO)
+            Form = New NewAsistencia(USER, con, ESTADO)
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()

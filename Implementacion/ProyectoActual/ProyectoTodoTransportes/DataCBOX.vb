@@ -10,7 +10,7 @@
 
         Dim Data As DataTable = con.doQuery("SELECT f.idFuncionario, f.nombre " _
                                            & "FROM funcionario AS f, docente AS d " _
-                                           & "WHERE d.tipo = 'PRO' AND f.idFuncionario = d.idDocente")
+                                           & "WHERE d.tipo = 'P' AND f.idFuncionario = d.idDocente")
         Return Data
 
     End Function
@@ -19,7 +19,7 @@
 
         Dim Data As DataTable = con.doQuery("SELECT f.idFuncionario, f.nombre " _
                                            & "FROM funcionario AS f, docente AS d " _
-                                           & "WHERE d.tipo = 'INS' AND f.idFuncionario = d.idDocente")
+                                           & "WHERE d.tipo = 'I' AND f.idFuncionario = d.idDocente")
         Return Data
 
     End Function
