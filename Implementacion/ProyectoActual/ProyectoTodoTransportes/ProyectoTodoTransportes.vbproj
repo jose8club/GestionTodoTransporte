@@ -94,37 +94,7 @@
     <Compile Include="Bienvenido.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CambioRueda.Designer.vb">
-      <DependentUpon>CambioRueda.vb</DependentUpon>
-    </Compile>
-    <Compile Include="CambioRueda.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="DataCBOX.vb" />
-    <Compile Include="ExamenEscuela.Designer.vb">
-      <DependentUpon>ExamenEscuela.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ExamenEscuela.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ExamenMunicipal.Designer.vb">
-      <DependentUpon>ExamenMunicipal.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ExamenMunicipal.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ExamenPractico.Designer.vb">
-      <DependentUpon>ExamenPractico.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ExamenPractico.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ExamenTeorico.Designer.vb">
-      <DependentUpon>ExamenTeorico.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ExamenTeorico.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Horarios.Designer.vb">
       <DependentUpon>Horarios.vb</DependentUpon>
     </Compile>
@@ -190,18 +160,6 @@
     <Compile Include="tab_Clases.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ClasePractica.Designer.vb">
-      <DependentUpon>ClasePractica.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ClasePractica.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ClaseTeorica.Designer.vb">
-      <DependentUpon>ClaseTeorica.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ClaseTeorica.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Conexion.vb" />
     <Compile Include="Curso.Designer.vb">
       <DependentUpon>Curso.vb</DependentUpon>
@@ -227,22 +185,10 @@
     <Compile Include="editDocente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Examen.Designer.vb">
-      <DependentUpon>Examen.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Examen.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Funcionario.Designer.vb">
       <DependentUpon>Funcionario.vb</DependentUpon>
     </Compile>
     <Compile Include="Funcionario.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Psicotecnico.Designer.vb">
-      <DependentUpon>Psicotecnico.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Psicotecnico.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="tab_Config.Designer.vb">
@@ -305,12 +251,6 @@
     <Compile Include="Vehiculos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Visual.Designer.vb">
-      <DependentUpon>Visual.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Visual.vb">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Asistencia.resx">
@@ -321,21 +261,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bienvenido.resx">
       <DependentUpon>Bienvenido.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CambioRueda.resx">
-      <DependentUpon>CambioRueda.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ExamenEscuela.resx">
-      <DependentUpon>ExamenEscuela.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ExamenMunicipal.resx">
-      <DependentUpon>ExamenMunicipal.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ExamenPractico.resx">
-      <DependentUpon>ExamenPractico.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ExamenTeorico.resx">
-      <DependentUpon>ExamenTeorico.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Horarios.resx">
       <DependentUpon>Horarios.vb</DependentUpon>
@@ -367,12 +292,6 @@
     <EmbeddedResource Include="tab_Clases.resx">
       <DependentUpon>tab_Clases.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ClasePractica.resx">
-      <DependentUpon>ClasePractica.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ClaseTeorica.resx">
-      <DependentUpon>ClaseTeorica.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Curso.resx">
       <DependentUpon>Curso.vb</DependentUpon>
     </EmbeddedResource>
@@ -385,14 +304,8 @@
     <EmbeddedResource Include="editDocente.resx">
       <DependentUpon>editDocente.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Examen.resx">
-      <DependentUpon>Examen.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Funcionario.resx">
       <DependentUpon>Funcionario.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Psicotecnico.resx">
-      <DependentUpon>Psicotecnico.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tab_Config.resx">
       <DependentUpon>tab_Config.vb</DependentUpon>
@@ -423,9 +336,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vehiculos.resx">
       <DependentUpon>Vehiculos.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Visual.resx">
-      <DependentUpon>Visual.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

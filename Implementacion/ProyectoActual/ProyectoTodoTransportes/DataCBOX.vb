@@ -64,4 +64,9 @@
         Dim Data As DataTable = con.doQuery("SELECT * FROM auto_escuela")
         Return Data
     End Function
+
+    Function TipoUsuario() As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT * FROM tipo_usuario")
+        Return Data
+    End Function
 End Class
