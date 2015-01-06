@@ -85,11 +85,12 @@
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
-        ElseIf Nombre.Equals("Clases") Then
+        ElseIf Nombre.Equals("Examenes") Then
             Form = New newExamen(USER, con, ESTADO)
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
+<<<<<<< HEAD
         ElseIf Nombre.Equals("Examen Psicotecnico") Then
             Form = New NewAsistencia(USER, con, ESTADO)
             Form.TopLevel = False
@@ -105,18 +106,10 @@
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
+=======
+>>>>>>> origin/master
         ElseIf Nombre.Equals("Cursos") Then
             Form = New Curso(USER, con, ESTADO)
-            Form.TopLevel = False
-            Me.MainMenu.TabPages(tab).Controls.Add(Form)
-            Form.Show()
-        ElseIf Nombre.Equals("Cambio Rueda") Then
-            Form = New CambioRueda(USER, con, ESTADO)
-            Form.TopLevel = False
-            Me.MainMenu.TabPages(tab).Controls.Add(Form)
-            Form.Show()
-        ElseIf Nombre.Equals("Horarios") Then
-            Form = New Horarios(USER, con, ESTADO)
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
