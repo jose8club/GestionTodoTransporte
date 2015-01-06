@@ -90,24 +90,6 @@
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
-<<<<<<< HEAD
-        ElseIf Nombre.Equals("Examen Psicotecnico") Then
-            Form = New NewAsistencia(USER, con, ESTADO)
-            Form.TopLevel = False
-            Me.MainMenu.TabPages(tab).Controls.Add(Form)
-            Form.Show()
-        ElseIf Nombre.Equals("Examen Visual") Then
-            Form = New Visual(USER, con, ESTADO)
-            Form.TopLevel = False
-            Me.MainMenu.TabPages(tab).Controls.Add(Form)
-            Form.Show()
-        ElseIf Nombre.Equals("Examenes Escuela") Then
-            Form = New ExamenEscuela(USER, con, ESTADO)
-            Form.TopLevel = False
-            Me.MainMenu.TabPages(tab).Controls.Add(Form)
-            Form.Show()
-=======
->>>>>>> origin/master
         ElseIf Nombre.Equals("Cursos") Then
             Form = New Curso(USER, con, ESTADO)
             Form.TopLevel = False
