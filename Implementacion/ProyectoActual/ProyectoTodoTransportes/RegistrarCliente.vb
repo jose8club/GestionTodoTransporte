@@ -139,19 +139,26 @@
 
         If s.Equals("Clase B") Then
             PictureBox.Image = My.Resources.b
-        ElseIf s.Equals("A-2: Taxis y Minibuses") Then
+        ElseIf s.Equals("A-2") Then
             PictureBox.Image = My.Resources.a2
-        ElseIf s.Equals("A-3: Buses") Then
+        ElseIf s.Equals("A-3") Then
             PictureBox.Image = My.Resources.a3
-        ElseIf s.Equals("A-4: Camiones") Then
+        ElseIf s.Equals("A-4") Then
             PictureBox.Image = My.Resources.a4
+        ElseIf s.Equals("A-5") Then
+            PictureBox.Image = My.Resources.LOGO
         ElseIf s.Equals("Retroexcavadora") Then
             PictureBox.Image = My.Resources.retro
         ElseIf s.Equals("Grua Horquilla") Then
             PictureBox.Image = My.Resources.grua
-        ElseIf s.Equals("A-5: Camiones Articulados") Then
+        ElseIf s.Equals("Otro") Then
+            PictureBox.Image = My.Resources.LOGO
+        ElseIf s.Equals("Dual") Then
+            PictureBox.Image = My.Resources.LOGO
+        Else
             PictureBox.Image = My.Resources.LOGO
         End If
+
     End Sub
 
 #End Region

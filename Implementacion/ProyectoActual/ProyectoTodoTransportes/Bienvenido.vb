@@ -21,7 +21,7 @@
     Private Sub Bienvenido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'MOMENTANEO POR DESARROLLO
         tbox_Usuario.Text = "Desarrollador"
-        tbox_Contra.Text = "1234asd"
+        tbox_Contra.Text = "desarrollador"
     End Sub
 
     Function validar() As Boolean
