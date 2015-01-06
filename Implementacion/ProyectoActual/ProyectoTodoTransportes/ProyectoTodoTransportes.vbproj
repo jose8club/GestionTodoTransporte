@@ -136,6 +136,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="NewAsistencia.Designer.vb">
+      <DependentUpon>NewAsistencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="NewAsistencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="newExamen.Designer.vb">
       <DependentUpon>newExamen.vb</DependentUpon>
     </Compile>
@@ -333,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Horarios.resx">
       <DependentUpon>Horarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewAsistencia.resx">
+      <DependentUpon>NewAsistencia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="newExamen.resx">
       <DependentUpon>newExamen.vb</DependentUpon>

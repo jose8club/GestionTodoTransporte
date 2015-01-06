@@ -85,22 +85,22 @@
         End If
 
         'Estudiantes
-        'Dim de As DataTable = cbox_RegistroMatricula.DataSource
-        'Dim est As New List(Of String)(de.Rows.Count)
-        'For Each Row As DataRow In de.Rows
-        '    est.Add(Row(1))
-        'Next
+        Dim de As DataTable = cbox_RegistroMatricula.DataSource
+        Dim est As New List(Of String)(de.Rows.Count)
+        For Each row As DataRow In de.Rows
+            est.Add(row(0))
+        Next
 
-        'MsgBox(est.Contains(cbox_RegistroMatricula.Text.Trim)) 'arroja el valor si contiene o no (borrar)
+        MsgBox(est.Contains(cbox_RegistroMatricula.Text.Trim)) 'arroja el valor si contiene o no (borrar)
 
-        'If Not est.Contains(cbox_RegistroMatricula.Text.Trim) Then
-        '    MsgBox("Ingrese estudiante correcto")
-        '    Return False
-        'End If
+        If Not est.Contains(cbox_RegistroMatricula.Text.Trim) Then
+            MsgBox("ingrese estudiante correcto")
+            Return False
+        End If
 
 
         'ATENTO A ESTE RETURN
-        'Return False
+        Return False
         'ATENTO ^^^^^(lo hice para probar el validador de arriba e ignorar los demás)
 
         If cbox_RegistroMatricula.Text.Trim = "" Then

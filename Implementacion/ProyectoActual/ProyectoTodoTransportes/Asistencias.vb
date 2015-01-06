@@ -47,12 +47,12 @@
             cbox_estudiante.ValueMember = "idEstudiante"
             cbox_estudiante.SelectedIndex = -1
         ElseIf Nombre.Equals("Clase Teorica") Then
-            'cbox_clasedia.DataSource = datacbox.ClaseTeorica
+            cbox_clasedia.DataSource = datacbox.ClaseTeorica
             cbox_clasedia.DisplayMember = "idClase"
             cbox_clasedia.ValueMember = "idClase"
             cbox_clasedia.SelectedIndex = -1
         ElseIf Nombre.Equals("Clase Practica") Then
-            'cbox_clasedia.DataSource = datacbox.ClasePractica
+            cbox_clasedia.DataSource = datacbox.ClasePractica
             cbox_clasedia.DisplayMember = "idClase"
             cbox_clasedia.ValueMember = "idClase"
             cbox_clasedia.SelectedIndex = -1
