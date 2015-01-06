@@ -2,11 +2,13 @@
     Dim con As New Conexion
     Dim USER As String = ""
     Dim STATUS As ToolStripStatusLabel
+    Dim dc As DataCBOX
 
     Sub New(ByVal usuario As String, ByVal conexion As Conexion, ByVal estado As ToolStripStatusLabel)
         con = conexion
         USER = usuario
         STATUS = estado
+        dc = New DataCBOX(con)
         InitializeComponent()
     End Sub
 
@@ -37,44 +39,61 @@
             Dim Nombre As String = tbox_Nombre.Text
             Dim Telefono As Integer = CInt(tbox_Telefono.Text)
             Dim Vehiculo As String = cbox_Vehiculo.Text
-
-            Dim id As Integer
+            Dim Tipo As String
+            If rad_Profesor.Checked Then
+                Tipo = "P"
+            Else
+                Tipo = "I"
+            End If
 
             Try
-                con.regFuncionario(Nombre, "Docente")
+                con.beginTransaction()
 
-                id = CInt(con.last("idFuncionario", "Funcionario"))
+                Dim Columnas() As String = {"Nombre", "Tipo"}
+                Dim Parametros() As String = {Nombre, "Docente"}
 
-                If rad_Profesor.Checked Then
-                    con.regDocente(id, Telefono, "PRO")
-                    con.regProfesor(id)
-                Else
-                    con.regDocente(id, Telefono, "INS")
-                    con.regInstructor(id, Vehiculo)
+                Dim ID As Integer = con.doInsert("Funcionario", Columnas, Parametros)
+
+                If ID <> -1 Then
+                    Columnas = {"idDocente", "Telefono", "Tipo"}
+                    Parametros = {ID, Telefono, Tipo}
+                    ID = con.doInsert("Docente", Columnas, Parametros)
                 End If
 
-                STATUS.Text = "Docente " & Nombre & " agregado con éxito"
-                reset()
+                If Tipo.Equals("P") And ID <> -1 Then
+                    Columnas = {"idProfesor"}
+                    Parametros = {ID}
+                    ID = con.doInsert("Profesor", Columnas, Parametros)
+                ElseIf Tipo.Equals("I") And ID <> -1 Then
+                    Columnas = {"idInstructor", "Auto"}
+                    Parametros = {ID, Vehiculo}
+                    ID = con.doInsert("Instructor", Columnas, Parametros)
+                End If
+
+                If ID <> -1 Then
+                    con.commitTransaction()
+                    STATUS.Text = "Docente " & Nombre & " agregado con éxito"
+                    STATUS.ForeColor = Color.Blue
+                Else
+                    STATUS.Text = "Hubo un error en la operación."
+                    STATUS.ForeColor = Color.Red
+                End If
 
             Catch ex As Exception
                 STATUS.Text = ex.Message.ToString
             End Try
+
+            reset()
         End If
     End Sub
 
 #Region "Metodos"
 
     Sub cargaCBOX(ByVal Nombre As String)
-        Dim n As Integer
-        Dim items() As String
-
         If Nombre.Equals("Matrícula") Then
-            n = con.count("Auto_Escuela") - 1
-            items = con.toArray(n, "Matricula", "Auto_Escuela")
-            For i As Integer = 0 To n
-                cbox_Vehiculo.Items.Add(items(i))
-            Next
-            If n >= 0 Then cbox_Vehiculo.SelectedIndex = 0
+            cbox_Vehiculo.DataSource = dc.Vehiculos
+            cbox_Vehiculo.DisplayMember = "Matricula"
+            cbox_Vehiculo.ValueMember = "Matricula"
         End If
     End Sub
 
@@ -91,9 +110,8 @@
     Sub reset()
         tbox_Nombre.Text = ""
         tbox_Telefono.Text = ""
-        cbox_Vehiculo.SelectedIndex = 0
+        cargaCBOX("Matrícula")
         rad_Profesor.Checked = True
-
     End Sub
 
 #End Region

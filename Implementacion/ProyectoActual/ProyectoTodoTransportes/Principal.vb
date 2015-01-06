@@ -113,7 +113,7 @@
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
-        ElseIf Nombre.Equals("Resumen") Then
+        ElseIf Nombre.Equals("Resumenes") Then
             Form = New tab_resumen(USER, con, ESTADO)
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)

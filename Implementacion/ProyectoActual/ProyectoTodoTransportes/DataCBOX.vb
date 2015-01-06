@@ -59,5 +59,9 @@
         Dim Data As DataTable = con.doQuery("SELECT Horario FROM Clase WHERE Curso = '" & Curso & "'")
         Return Data
     End Function
-    
+
+    Function Vehiculos() As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT * FROM auto_escuela")
+        Return Data
+    End Function
 End Class
