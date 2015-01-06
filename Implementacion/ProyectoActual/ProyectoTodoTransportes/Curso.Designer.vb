@@ -55,6 +55,15 @@ Partial Class Curso
         Me.cbox_Instructor = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DG_HP = New System.Windows.Forms.DataGridView()
+        Me.HP_idProfesor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HP_Instructor = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HP_Lunes = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.HP_Martes = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.HP_Miercoles = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.HP_Jueves = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.HP_Viernes = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.HP_Sabado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.HP_Eliminar = New System.Windows.Forms.DataGridViewImageColumn()
         Me.ADD_HP = New System.Windows.Forms.Button()
         Me.ADD_HT = New System.Windows.Forms.Button()
         Me.check_Sabado = New System.Windows.Forms.CheckBox()
@@ -69,15 +78,6 @@ Partial Class Curso
         Me.tbox_Cupos = New System.Windows.Forms.TextBox()
         Me.lbl_Cupos = New System.Windows.Forms.Label()
         Me.lbl_Dias = New System.Windows.Forms.Label()
-        Me.HP_idProfesor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HP_Instructor = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HP_Lunes = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.HP_Martes = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.HP_Miercoles = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.HP_Jueves = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.HP_Viernes = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.HP_Sabado = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.HP_Eliminar = New System.Windows.Forms.DataGridViewImageColumn()
         CType(Me.DG_HT, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GB_HT.SuspendLayout()
         CType(Me.DG_HP, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -383,6 +383,65 @@ Partial Class Curso
         Me.DG_HP.Size = New System.Drawing.Size(358, 117)
         Me.DG_HP.TabIndex = 63
         '
+        'HP_idProfesor
+        '
+        Me.HP_idProfesor.HeaderText = "ID"
+        Me.HP_idProfesor.Name = "HP_idProfesor"
+        Me.HP_idProfesor.ReadOnly = True
+        Me.HP_idProfesor.Visible = False
+        '
+        'HP_Instructor
+        '
+        Me.HP_Instructor.HeaderText = "Instructor"
+        Me.HP_Instructor.Name = "HP_Instructor"
+        Me.HP_Instructor.ReadOnly = True
+        Me.HP_Instructor.Width = 300
+        '
+        'HP_Lunes
+        '
+        Me.HP_Lunes.HeaderText = "L"
+        Me.HP_Lunes.Name = "HP_Lunes"
+        Me.HP_Lunes.Width = 20
+        '
+        'HP_Martes
+        '
+        Me.HP_Martes.HeaderText = "M"
+        Me.HP_Martes.Name = "HP_Martes"
+        Me.HP_Martes.Width = 20
+        '
+        'HP_Miercoles
+        '
+        Me.HP_Miercoles.HeaderText = "M"
+        Me.HP_Miercoles.Name = "HP_Miercoles"
+        Me.HP_Miercoles.Width = 20
+        '
+        'HP_Jueves
+        '
+        Me.HP_Jueves.HeaderText = "J"
+        Me.HP_Jueves.Name = "HP_Jueves"
+        Me.HP_Jueves.Width = 20
+        '
+        'HP_Viernes
+        '
+        Me.HP_Viernes.HeaderText = "V"
+        Me.HP_Viernes.Name = "HP_Viernes"
+        Me.HP_Viernes.Width = 20
+        '
+        'HP_Sabado
+        '
+        Me.HP_Sabado.HeaderText = "S"
+        Me.HP_Sabado.Name = "HP_Sabado"
+        Me.HP_Sabado.Visible = False
+        Me.HP_Sabado.Width = 20
+        '
+        'HP_Eliminar
+        '
+        Me.HP_Eliminar.HeaderText = "Eliminar"
+        Me.HP_Eliminar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
+        Me.HP_Eliminar.Name = "HP_Eliminar"
+        Me.HP_Eliminar.ReadOnly = True
+        Me.HP_Eliminar.Width = 49
+        '
         'ADD_HP
         '
         Me.ADD_HP.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.ADD_BUTTON
@@ -524,65 +583,6 @@ Partial Class Curso
         Me.lbl_Dias.Size = New System.Drawing.Size(94, 13)
         Me.lbl_Dias.TabIndex = 78
         Me.lbl_Dias.Text = "Días que se dicta:"
-        '
-        'HP_idProfesor
-        '
-        Me.HP_idProfesor.HeaderText = "ID"
-        Me.HP_idProfesor.Name = "HP_idProfesor"
-        Me.HP_idProfesor.ReadOnly = True
-        Me.HP_idProfesor.Visible = False
-        '
-        'HP_Instructor
-        '
-        Me.HP_Instructor.HeaderText = "Instructor"
-        Me.HP_Instructor.Name = "HP_Instructor"
-        Me.HP_Instructor.ReadOnly = True
-        Me.HP_Instructor.Width = 300
-        '
-        'HP_Lunes
-        '
-        Me.HP_Lunes.HeaderText = "L"
-        Me.HP_Lunes.Name = "HP_Lunes"
-        Me.HP_Lunes.Width = 20
-        '
-        'HP_Martes
-        '
-        Me.HP_Martes.HeaderText = "M"
-        Me.HP_Martes.Name = "HP_Martes"
-        Me.HP_Martes.Width = 20
-        '
-        'HP_Miercoles
-        '
-        Me.HP_Miercoles.HeaderText = "M"
-        Me.HP_Miercoles.Name = "HP_Miercoles"
-        Me.HP_Miercoles.Width = 20
-        '
-        'HP_Jueves
-        '
-        Me.HP_Jueves.HeaderText = "J"
-        Me.HP_Jueves.Name = "HP_Jueves"
-        Me.HP_Jueves.Width = 20
-        '
-        'HP_Viernes
-        '
-        Me.HP_Viernes.HeaderText = "V"
-        Me.HP_Viernes.Name = "HP_Viernes"
-        Me.HP_Viernes.Width = 20
-        '
-        'HP_Sabado
-        '
-        Me.HP_Sabado.HeaderText = "S"
-        Me.HP_Sabado.Name = "HP_Sabado"
-        Me.HP_Sabado.Visible = False
-        Me.HP_Sabado.Width = 20
-        '
-        'HP_Eliminar
-        '
-        Me.HP_Eliminar.HeaderText = "Eliminar"
-        Me.HP_Eliminar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
-        Me.HP_Eliminar.Name = "HP_Eliminar"
-        Me.HP_Eliminar.ReadOnly = True
-        Me.HP_Eliminar.Width = 49
         '
         'Curso
         '
