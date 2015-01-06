@@ -26,7 +26,7 @@ Partial Class NewAsistencia
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cbox_curso = New System.Windows.Forms.ComboBox()
         Me.lbl_docente = New System.Windows.Forms.Label()
-        Me.cbox_profesor = New System.Windows.Forms.ComboBox()
+        Me.cbox_docente = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cbox_dia = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -78,14 +78,14 @@ Partial Class NewAsistencia
         Me.lbl_docente.TabIndex = 5
         Me.lbl_docente.Text = "Docente:"
         '
-        'cbox_profesor
+        'cbox_docente
         '
-        Me.cbox_profesor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple
-        Me.cbox_profesor.FormattingEnabled = True
-        Me.cbox_profesor.Location = New System.Drawing.Point(213, 78)
-        Me.cbox_profesor.Name = "cbox_profesor"
-        Me.cbox_profesor.Size = New System.Drawing.Size(168, 21)
-        Me.cbox_profesor.TabIndex = 4
+        Me.cbox_docente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple
+        Me.cbox_docente.FormattingEnabled = True
+        Me.cbox_docente.Location = New System.Drawing.Point(213, 78)
+        Me.cbox_docente.Name = "cbox_docente"
+        Me.cbox_docente.Size = New System.Drawing.Size(168, 21)
+        Me.cbox_docente.TabIndex = 4
         '
         'Label4
         '
@@ -224,7 +224,7 @@ Partial Class NewAsistencia
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cbox_dia)
         Me.Controls.Add(Me.lbl_docente)
-        Me.Controls.Add(Me.cbox_profesor)
+        Me.Controls.Add(Me.cbox_docente)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.cbox_curso)
         Me.Controls.Add(Me.Label1)
@@ -240,7 +240,7 @@ Partial Class NewAsistencia
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents cbox_curso As System.Windows.Forms.ComboBox
     Friend WithEvents lbl_docente As System.Windows.Forms.Label
-    Friend WithEvents cbox_profesor As System.Windows.Forms.ComboBox
+    Friend WithEvents cbox_docente As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents cbox_dia As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label

@@ -13,11 +13,17 @@
     End Sub
     Private Sub NewAsistencia_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         If rbtn_teorica.Checked = True Then
+            cbox_dia.Enabled = False
+            cbox_horario.Enabled = False
             lbl_docente.Text = "Profesor"
             loadCBOX("Curso Teorico")
+            loadCBOX("Profesores")
         ElseIf rbtn_practica.Checked = False Then
+            cbox_dia.Enabled = False
+            cbox_horario.Enabled = False
             lbl_docente.Text = "Instructor"
             loadCBOX("Curso Practico")
+            loadCBOX("Instructores")
         End If
     End Sub
 
@@ -32,6 +38,16 @@
             cbox_curso.DisplayMember = "Curso"
             cbox_curso.ValueMember = "idClase"
             cbox_curso.SelectedIndex = -1
+        ElseIf s.Equals("Profesores") Then
+            cbox_docente.DataSource = dc.Profesores
+            cbox_docente.DisplayMember = "Nombre"
+            cbox_docente.ValueMember = "idFuncionario"
+            cbox_docente.SelectedIndex = -1
+        ElseIf s.Equals("Instructores") Then
+            cbox_docente.DataSource = dc.Instructores
+            cbox_docente.DisplayMember = "Nombre"
+            cbox_docente.ValueMember = "idFuncionario"
+            cbox_docente.SelectedIndex = -1
         End If
     End Sub
 
@@ -39,7 +55,7 @@
 
     End Sub
 
-    Private Sub cbox_profesor_SelectedValueChanged(sender As System.Object, e As System.EventArgs) Handles cbox_profesor.SelectedValueChanged
+    Private Sub cbox_profesor_SelectedValueChanged(sender As System.Object, e As System.EventArgs) Handles cbox_docente.SelectedValueChanged
 
     End Sub
 
