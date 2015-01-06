@@ -100,7 +100,7 @@
 
 
         'ATENTO A ESTE RETURN
-        Return False
+        'Return False
         'ATENTO ^^^^^(lo hice para probar el validador de arriba e ignorar los demás)
 
         If cbox_RegistroMatricula.Text.Trim = "" Then
@@ -286,7 +286,7 @@
                     If ID <> -1 Then
                         Columnas = {"Documento"}
                         Parametros = {AUX}
-                        ID = con.doInsert("Examen_Psicotecnico", Columnas, Parametros)
+                        ID = con.doInsert("Psicotecnico", Columnas, Parametros)
                         If ID <> -1 Then
                             Columnas = {"Estudiante", "Documento"}
                             Parametros = {Codigo, AUX}
