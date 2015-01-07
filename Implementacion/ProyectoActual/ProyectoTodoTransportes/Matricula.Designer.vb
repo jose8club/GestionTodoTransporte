@@ -24,14 +24,9 @@ Partial Class Matricula
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.DatosPersonalesGbx = New System.Windows.Forms.GroupBox()
-        Me.NombreCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
-        Me.EmailCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
         Me.EmailLbl = New System.Windows.Forms.Label()
         Me.ClienteCbBx = New System.Windows.Forms.ComboBox()
         Me.ClienteLbl = New System.Windows.Forms.Label()
-        Me.DVCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
-        Me.RutCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
-        Me.TelCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
         Me.TelefonoLbl = New System.Windows.Forms.Label()
         Me.FNacDTiPckr = New System.Windows.Forms.DateTimePicker()
         Me.FNacLbl = New System.Windows.Forms.Label()
@@ -42,12 +37,10 @@ Partial Class Matricula
         Me.CuposTxtLbl = New System.Windows.Forms.Label()
         Me.CuposLbl = New System.Windows.Forms.Label()
         Me.Label = New System.Windows.Forms.Label()
-        Me.HorarioTxtLbl = New System.Windows.Forms.Label()
-        Me.HorarioBtn = New System.Windows.Forms.Button()
         Me.DiasGBx = New System.Windows.Forms.GroupBox()
         Me.LuSaRaBtn = New System.Windows.Forms.RadioButton()
         Me.LuViRaBtn = New System.Windows.Forms.RadioButton()
-        Me.DiaCbBx = New System.Windows.Forms.ComboBox()
+        Me.HraPracticaCbBx = New System.Windows.Forms.ComboBox()
         Me.HraPractica = New System.Windows.Forms.Label()
         Me.HraTeoriaCbBx = New System.Windows.Forms.ComboBox()
         Me.HraTeoria = New System.Windows.Forms.Label()
@@ -86,6 +79,12 @@ Partial Class Matricula
         Me.NRegLbl = New System.Windows.Forms.Label()
         Me.NRegTxBx = New System.Windows.Forms.TextBox()
         Me.LimpiarBtn = New System.Windows.Forms.Button()
+        Me.NombreCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
+        Me.EmailCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
+        Me.DVCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
+        Me.RutCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
+        Me.TelCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.DatosPersonalesGbx.SuspendLayout()
         Me.DatosCursoGBx.SuspendLayout()
         Me.DiasGBx.SuspendLayout()
@@ -117,24 +116,6 @@ Partial Class Matricula
         Me.DatosPersonalesGbx.TabStop = False
         Me.DatosPersonalesGbx.Text = "Datos Personales"
         '
-        'NombreCTxBx
-        '
-        Me.NombreCTxBx.Location = New System.Drawing.Point(125, 27)
-        Me.NombreCTxBx.MaxLength = 255
-        Me.NombreCTxBx.Name = "NombreCTxBx"
-        Me.NombreCTxBx.Size = New System.Drawing.Size(277, 20)
-        Me.NombreCTxBx.TabIndex = 1
-        Me.NombreCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.ALPHA
-        '
-        'EmailCTxBx
-        '
-        Me.EmailCTxBx.Location = New System.Drawing.Point(124, 131)
-        Me.EmailCTxBx.MaxLength = 255
-        Me.EmailCTxBx.Name = "EmailCTxBx"
-        Me.EmailCTxBx.Size = New System.Drawing.Size(278, 20)
-        Me.EmailCTxBx.TabIndex = 6
-        Me.EmailCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.ALPHA
-        '
         'EmailLbl
         '
         Me.EmailLbl.AutoSize = True
@@ -160,33 +141,6 @@ Partial Class Matricula
         Me.ClienteLbl.Size = New System.Drawing.Size(106, 13)
         Me.ClienteLbl.TabIndex = 13
         Me.ClienteLbl.Text = "Franquicia Tributaria:"
-        '
-        'DVCTxBx
-        '
-        Me.DVCTxBx.Location = New System.Drawing.Point(247, 53)
-        Me.DVCTxBx.MaxLength = 1
-        Me.DVCTxBx.Name = "DVCTxBx"
-        Me.DVCTxBx.Size = New System.Drawing.Size(20, 20)
-        Me.DVCTxBx.TabIndex = 3
-        Me.DVCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.ALPHA_NUMERIC
-        '
-        'RutCTxBx
-        '
-        Me.RutCTxBx.Location = New System.Drawing.Point(124, 53)
-        Me.RutCTxBx.MaxLength = 10
-        Me.RutCTxBx.Name = "RutCTxBx"
-        Me.RutCTxBx.Size = New System.Drawing.Size(100, 20)
-        Me.RutCTxBx.TabIndex = 2
-        Me.RutCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.NUMERIC
-        '
-        'TelCTxBx
-        '
-        Me.TelCTxBx.Location = New System.Drawing.Point(124, 105)
-        Me.TelCTxBx.MaxLength = 15
-        Me.TelCTxBx.Name = "TelCTxBx"
-        Me.TelCTxBx.Size = New System.Drawing.Size(100, 20)
-        Me.TelCTxBx.TabIndex = 5
-        Me.TelCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.NUMERIC
         '
         'TelefonoLbl
         '
@@ -243,13 +197,12 @@ Partial Class Matricula
         '
         'DatosCursoGBx
         '
+        Me.DatosCursoGBx.Controls.Add(Me.Label1)
         Me.DatosCursoGBx.Controls.Add(Me.CuposTxtLbl)
         Me.DatosCursoGBx.Controls.Add(Me.CuposLbl)
         Me.DatosCursoGBx.Controls.Add(Me.Label)
-        Me.DatosCursoGBx.Controls.Add(Me.HorarioTxtLbl)
-        Me.DatosCursoGBx.Controls.Add(Me.HorarioBtn)
         Me.DatosCursoGBx.Controls.Add(Me.DiasGBx)
-        Me.DatosCursoGBx.Controls.Add(Me.DiaCbBx)
+        Me.DatosCursoGBx.Controls.Add(Me.HraPracticaCbBx)
         Me.DatosCursoGBx.Controls.Add(Me.HraPractica)
         Me.DatosCursoGBx.Controls.Add(Me.HraTeoriaCbBx)
         Me.DatosCursoGBx.Controls.Add(Me.HraTeoria)
@@ -267,7 +220,7 @@ Partial Class Matricula
         'CuposTxtLbl
         '
         Me.CuposTxtLbl.AutoSize = True
-        Me.CuposTxtLbl.Location = New System.Drawing.Point(340, 30)
+        Me.CuposTxtLbl.Location = New System.Drawing.Point(370, 30)
         Me.CuposTxtLbl.Name = "CuposTxtLbl"
         Me.CuposTxtLbl.Size = New System.Drawing.Size(23, 13)
         Me.CuposTxtLbl.TabIndex = 28
@@ -276,7 +229,7 @@ Partial Class Matricula
         'CuposLbl
         '
         Me.CuposLbl.AutoSize = True
-        Me.CuposLbl.Location = New System.Drawing.Point(299, 30)
+        Me.CuposLbl.Location = New System.Drawing.Point(329, 30)
         Me.CuposLbl.Name = "CuposLbl"
         Me.CuposLbl.Size = New System.Drawing.Size(40, 13)
         Me.CuposLbl.TabIndex = 27
@@ -285,29 +238,11 @@ Partial Class Matricula
         'Label
         '
         Me.Label.AutoSize = True
-        Me.Label.Location = New System.Drawing.Point(340, 84)
+        Me.Label.Location = New System.Drawing.Point(218, 84)
         Me.Label.Name = "Label"
         Me.Label.Size = New System.Drawing.Size(26, 13)
         Me.Label.TabIndex = 26
         Me.Label.Text = "Hrs."
-        '
-        'HorarioTxtLbl
-        '
-        Me.HorarioTxtLbl.AutoSize = True
-        Me.HorarioTxtLbl.Location = New System.Drawing.Point(296, 84)
-        Me.HorarioTxtLbl.Name = "HorarioTxtLbl"
-        Me.HorarioTxtLbl.Size = New System.Drawing.Size(38, 13)
-        Me.HorarioTxtLbl.TabIndex = 25
-        Me.HorarioTxtLbl.Text = "XX:XX"
-        '
-        'HorarioBtn
-        '
-        Me.HorarioBtn.Location = New System.Drawing.Point(218, 79)
-        Me.HorarioBtn.Name = "HorarioBtn"
-        Me.HorarioBtn.Size = New System.Drawing.Size(75, 23)
-        Me.HorarioBtn.TabIndex = 12
-        Me.HorarioBtn.Text = "Horario"
-        Me.HorarioBtn.UseVisualStyleBackColor = True
         '
         'DiasGBx
         '
@@ -343,19 +278,18 @@ Partial Class Matricula
         Me.LuViRaBtn.Text = "Lunes  - Viernes"
         Me.LuViRaBtn.UseVisualStyleBackColor = True
         '
-        'DiaCbBx
+        'HraPracticaCbBx
         '
-        Me.DiaCbBx.AutoCompleteCustomSource.AddRange(New String() {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado"})
-        Me.DiaCbBx.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.DiaCbBx.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
-        Me.DiaCbBx.Enabled = False
-        Me.DiaCbBx.FormattingEnabled = True
-        Me.DiaCbBx.Items.AddRange(New Object() {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado"})
-        Me.DiaCbBx.Location = New System.Drawing.Point(124, 81)
-        Me.DiaCbBx.Name = "DiaCbBx"
-        Me.DiaCbBx.Size = New System.Drawing.Size(88, 21)
-        Me.DiaCbBx.TabIndex = 11
-        Me.DiaCbBx.Text = "Día"
+        Me.HraPracticaCbBx.AutoCompleteCustomSource.AddRange(New String() {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado"})
+        Me.HraPracticaCbBx.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.HraPracticaCbBx.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.HraPracticaCbBx.Enabled = False
+        Me.HraPracticaCbBx.FormattingEnabled = True
+        Me.HraPracticaCbBx.Items.AddRange(New Object() {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado"})
+        Me.HraPracticaCbBx.Location = New System.Drawing.Point(124, 81)
+        Me.HraPracticaCbBx.Name = "HraPracticaCbBx"
+        Me.HraPracticaCbBx.Size = New System.Drawing.Size(88, 21)
+        Me.HraPracticaCbBx.TabIndex = 11
         '
         'HraPractica
         '
@@ -388,7 +322,7 @@ Partial Class Matricula
         '
         Me.CursoCbBx.Enabled = False
         Me.CursoCbBx.FormattingEnabled = True
-        Me.CursoCbBx.Location = New System.Drawing.Point(231, 27)
+        Me.CursoCbBx.Location = New System.Drawing.Point(261, 27)
         Me.CursoCbBx.Name = "CursoCbBx"
         Me.CursoCbBx.Size = New System.Drawing.Size(62, 21)
         Me.CursoCbBx.TabIndex = 9
@@ -396,7 +330,7 @@ Partial Class Matricula
         'CursoLbl
         '
         Me.CursoLbl.AutoSize = True
-        Me.CursoLbl.Location = New System.Drawing.Point(188, 30)
+        Me.CursoLbl.Location = New System.Drawing.Point(218, 30)
         Me.CursoLbl.Name = "CursoLbl"
         Me.CursoLbl.Size = New System.Drawing.Size(37, 13)
         Me.CursoLbl.TabIndex = 17
@@ -407,7 +341,7 @@ Partial Class Matricula
         Me.ProductoCbBx.FormattingEnabled = True
         Me.ProductoCbBx.Location = New System.Drawing.Point(124, 27)
         Me.ProductoCbBx.Name = "ProductoCbBx"
-        Me.ProductoCbBx.Size = New System.Drawing.Size(46, 21)
+        Me.ProductoCbBx.Size = New System.Drawing.Size(88, 21)
         Me.ProductoCbBx.TabIndex = 8
         '
         'ProductoLbl
@@ -722,6 +656,60 @@ Partial Class Matricula
         Me.LimpiarBtn.Text = "Limpiar"
         Me.LimpiarBtn.UseVisualStyleBackColor = True
         '
+        'NombreCTxBx
+        '
+        Me.NombreCTxBx.Location = New System.Drawing.Point(125, 27)
+        Me.NombreCTxBx.MaxLength = 255
+        Me.NombreCTxBx.Name = "NombreCTxBx"
+        Me.NombreCTxBx.Size = New System.Drawing.Size(277, 20)
+        Me.NombreCTxBx.TabIndex = 1
+        Me.NombreCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.ALPHA
+        '
+        'EmailCTxBx
+        '
+        Me.EmailCTxBx.Location = New System.Drawing.Point(124, 131)
+        Me.EmailCTxBx.MaxLength = 255
+        Me.EmailCTxBx.Name = "EmailCTxBx"
+        Me.EmailCTxBx.Size = New System.Drawing.Size(278, 20)
+        Me.EmailCTxBx.TabIndex = 6
+        Me.EmailCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.TEXT
+        '
+        'DVCTxBx
+        '
+        Me.DVCTxBx.Location = New System.Drawing.Point(247, 53)
+        Me.DVCTxBx.MaxLength = 1
+        Me.DVCTxBx.Name = "DVCTxBx"
+        Me.DVCTxBx.Size = New System.Drawing.Size(20, 20)
+        Me.DVCTxBx.TabIndex = 3
+        Me.DVCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.ALPHA_NUMERIC
+        '
+        'RutCTxBx
+        '
+        Me.RutCTxBx.Location = New System.Drawing.Point(124, 53)
+        Me.RutCTxBx.MaxLength = 10
+        Me.RutCTxBx.Name = "RutCTxBx"
+        Me.RutCTxBx.Size = New System.Drawing.Size(100, 20)
+        Me.RutCTxBx.TabIndex = 2
+        Me.RutCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.NUMERIC
+        '
+        'TelCTxBx
+        '
+        Me.TelCTxBx.Location = New System.Drawing.Point(124, 105)
+        Me.TelCTxBx.MaxLength = 15
+        Me.TelCTxBx.Name = "TelCTxBx"
+        Me.TelCTxBx.Size = New System.Drawing.Size(100, 20)
+        Me.TelCTxBx.TabIndex = 5
+        Me.TelCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.NUMERIC
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(218, 57)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(26, 13)
+        Me.Label1.TabIndex = 29
+        Me.Label1.Text = "Hrs."
+        '
         'Matricula
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -781,7 +769,7 @@ Partial Class Matricula
     Friend WithEvents DiasGBx As System.Windows.Forms.GroupBox
     Friend WithEvents LuSaRaBtn As System.Windows.Forms.RadioButton
     Friend WithEvents LuViRaBtn As System.Windows.Forms.RadioButton
-    Friend WithEvents DiaCbBx As System.Windows.Forms.ComboBox
+    Friend WithEvents HraPracticaCbBx As System.Windows.Forms.ComboBox
     Friend WithEvents HraPractica As System.Windows.Forms.Label
     Friend WithEvents DocumentosGbx As System.Windows.Forms.GroupBox
     Friend WithEvents FotosLbl As System.Windows.Forms.Label
@@ -813,9 +801,8 @@ Partial Class Matricula
     Friend WithEvents DctoSpinBx As System.Windows.Forms.NumericUpDown
     Friend WithEvents LimpiarBtn As System.Windows.Forms.Button
     Friend WithEvents Label As System.Windows.Forms.Label
-    Friend WithEvents HorarioTxtLbl As System.Windows.Forms.Label
-    Friend WithEvents HorarioBtn As System.Windows.Forms.Button
     Friend WithEvents CuposTxtLbl As System.Windows.Forms.Label
     Friend WithEvents CuposLbl As System.Windows.Forms.Label
     Friend WithEvents NombreCTxBx As ProyectoTodoTransportes.CustomTextBoxClass
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class

@@ -66,7 +66,7 @@ Partial Class Principal
         Me.MainMenu.Multiline = True
         Me.MainMenu.Name = "MainMenu"
         Me.MainMenu.SelectedIndex = 0
-        Me.MainMenu.Size = New System.Drawing.Size(918, 408)
+        Me.MainMenu.Size = New System.Drawing.Size(918, 460)
         Me.MainMenu.SizeMode = System.Windows.Forms.TabSizeMode.Fixed
         Me.MainMenu.TabIndex = 0
         '
@@ -76,7 +76,7 @@ Partial Class Principal
         Me.TabPage1.Location = New System.Drawing.Point(154, 4)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(760, 400)
+        Me.TabPage1.Size = New System.Drawing.Size(760, 452)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Atención al Cliente"
         '
@@ -86,7 +86,7 @@ Partial Class Principal
         Me.TabPage2.Location = New System.Drawing.Point(154, 4)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage2.Size = New System.Drawing.Size(760, 400)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Matrícula"
         '
@@ -95,7 +95,7 @@ Partial Class Principal
         Me.TabPage3.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage3.Location = New System.Drawing.Point(154, 4)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage3.Size = New System.Drawing.Size(760, 400)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Profesores"
         '
@@ -104,7 +104,7 @@ Partial Class Principal
         Me.TabPage4.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage4.Location = New System.Drawing.Point(154, 4)
         Me.TabPage4.Name = "TabPage4"
-        Me.TabPage4.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage4.Size = New System.Drawing.Size(760, 400)
         Me.TabPage4.TabIndex = 3
         Me.TabPage4.Text = "Encuesta de Calidad"
         '
@@ -113,7 +113,7 @@ Partial Class Principal
         Me.TabPage5.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage5.Location = New System.Drawing.Point(154, 4)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage5.Size = New System.Drawing.Size(760, 400)
         Me.TabPage5.TabIndex = 4
         Me.TabPage5.Text = "Vehículos"
         '
@@ -122,7 +122,7 @@ Partial Class Principal
         Me.TabPage6.BackColor = System.Drawing.SystemColors.Control
         Me.TabPage6.Location = New System.Drawing.Point(154, 4)
         Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage6.Size = New System.Drawing.Size(760, 400)
         Me.TabPage6.TabIndex = 5
         Me.TabPage6.Text = "Configuración"
         '
@@ -130,7 +130,7 @@ Partial Class Principal
         '
         Me.TabPage7.Location = New System.Drawing.Point(154, 4)
         Me.TabPage7.Name = "TabPage7"
-        Me.TabPage7.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage7.Size = New System.Drawing.Size(760, 400)
         Me.TabPage7.TabIndex = 6
         Me.TabPage7.Text = "Clases"
         Me.TabPage7.UseVisualStyleBackColor = True
@@ -139,7 +139,7 @@ Partial Class Principal
         '
         Me.TabPage8.Location = New System.Drawing.Point(154, 4)
         Me.TabPage8.Name = "TabPage8"
-        Me.TabPage8.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage8.Size = New System.Drawing.Size(760, 400)
         Me.TabPage8.TabIndex = 7
         Me.TabPage8.Text = "Examen Psicotecnico"
         Me.TabPage8.UseVisualStyleBackColor = True
@@ -148,7 +148,7 @@ Partial Class Principal
         '
         Me.TabPage9.Location = New System.Drawing.Point(154, 4)
         Me.TabPage9.Name = "TabPage9"
-        Me.TabPage9.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage9.Size = New System.Drawing.Size(760, 400)
         Me.TabPage9.TabIndex = 8
         Me.TabPage9.Text = "Examen Visual"
         Me.TabPage9.UseVisualStyleBackColor = True
@@ -157,7 +157,7 @@ Partial Class Principal
         '
         Me.TabPage10.Location = New System.Drawing.Point(154, 4)
         Me.TabPage10.Name = "TabPage10"
-        Me.TabPage10.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage10.Size = New System.Drawing.Size(760, 400)
         Me.TabPage10.TabIndex = 9
         Me.TabPage10.Text = "Examenes Escuela"
         Me.TabPage10.UseVisualStyleBackColor = True
@@ -166,7 +166,7 @@ Partial Class Principal
         '
         Me.TabPage11.Location = New System.Drawing.Point(154, 4)
         Me.TabPage11.Name = "TabPage11"
-        Me.TabPage11.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage11.Size = New System.Drawing.Size(760, 400)
         Me.TabPage11.TabIndex = 10
         Me.TabPage11.Text = "Cursos"
         Me.TabPage11.UseVisualStyleBackColor = True
@@ -175,7 +175,7 @@ Partial Class Principal
         '
         Me.TabPage12.Location = New System.Drawing.Point(154, 4)
         Me.TabPage12.Name = "TabPage12"
-        Me.TabPage12.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage12.Size = New System.Drawing.Size(760, 400)
         Me.TabPage12.TabIndex = 11
         Me.TabPage12.Text = "Cambio Rueda"
         Me.TabPage12.UseVisualStyleBackColor = True
@@ -184,7 +184,7 @@ Partial Class Principal
         '
         Me.TabPage13.Location = New System.Drawing.Point(154, 4)
         Me.TabPage13.Name = "TabPage13"
-        Me.TabPage13.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage13.Size = New System.Drawing.Size(760, 400)
         Me.TabPage13.TabIndex = 12
         Me.TabPage13.Text = "Horarios"
         Me.TabPage13.UseVisualStyleBackColor = True
@@ -193,7 +193,7 @@ Partial Class Principal
         '
         Me.TabPage14.Location = New System.Drawing.Point(154, 4)
         Me.TabPage14.Name = "TabPage14"
-        Me.TabPage14.Size = New System.Drawing.Size(754, 393)
+        Me.TabPage14.Size = New System.Drawing.Size(760, 400)
         Me.TabPage14.TabIndex = 13
         Me.TabPage14.Text = "Resumen"
         Me.TabPage14.UseVisualStyleBackColor = True
@@ -201,7 +201,7 @@ Partial Class Principal
         'lbl_Estado
         '
         Me.lbl_Estado.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ESTADO})
-        Me.lbl_Estado.Location = New System.Drawing.Point(0, 428)
+        Me.lbl_Estado.Location = New System.Drawing.Point(0, 489)
         Me.lbl_Estado.Name = "lbl_Estado"
         Me.lbl_Estado.Size = New System.Drawing.Size(945, 22)
         Me.lbl_Estado.TabIndex = 1
@@ -210,14 +210,14 @@ Partial Class Principal
         'ESTADO
         '
         Me.ESTADO.Name = "ESTADO"
-        Me.ESTADO.Size = New System.Drawing.Size(124, 17)
+        Me.ESTADO.Size = New System.Drawing.Size(121, 17)
         Me.ESTADO.Text = "ToolStripStatusLabel1"
         '
         'Principal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(945, 450)
+        Me.ClientSize = New System.Drawing.Size(945, 511)
         Me.Controls.Add(Me.lbl_Estado)
         Me.Controls.Add(Me.MainMenu)
         Me.Name = "Principal"

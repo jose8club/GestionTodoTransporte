@@ -4,7 +4,7 @@
 Public Class Conexion
 
     Dim cs As String = "Database=ttpt;Data Source=localhost;" _
-     & "User Id=testUser;Password=12Test34@"
+     & "User Id=root;Password=root"
     Dim conn As New MySqlConnection(cs)
     Dim adaptador As MySqlDataAdapter
     Dim lector As MySqlDataReader

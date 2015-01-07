@@ -44,4 +44,57 @@
         Dim Data As DataTable = con.doQuery("SELECT * FROM Estudiante")
         Return Data
     End Function
+
+    Function Clientes() As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT * FROM TIPO_CLIENTE")
+        Return Data
+    End Function
+
+    Function Productos() As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT * FROM PRODUCTO")
+        Return Data
+    End Function
+
+    Function CursosDeProducto(ByVal Producto As String) As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT Codigo FROM Curso " _
+                                            & "WHERE Producto = '" & Producto & "'")
+        Return Data
+    End Function
+
+    Function HTeoriaDeCurso(ByVal Curso As String) As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT DISTINCT(horario) As 'Horario' FROM Clase " _
+                                            & "WHERE Curso = '" & Curso & "' AND Tipo = 'T'")
+        Return Data
+    End Function
+
+    Function HPracticaDeCurso(ByVal Curso As String) As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT DISTINCT(horario) As 'Horario' FROM Clase " _
+                                            & "WHERE Curso = '" & Curso & "' AND Tipo = 'P'")
+        Return Data
+    End Function
+
+    Function DocPago() As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT 'Boleta' as Value union select 'Factura' as Value ")
+        Return Data
+    End Function
+
+    Function MedioPago() As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT * FROM MEDIO_PAGO")
+        Return Data
+    End Function
+
+    Function Cupos(ByVal Curso As String) As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT Cupos FROM Curso " _
+                                            & "WHERE Codigo = '" & Curso & "'")
+        Return Data
+    End Function
+
+    Function MontoAPagar(ByVal Cliente As String, ByVal Producto As String) As DataTable
+        Dim Data As DataTable = con.doQuery("SELECT Monto FROM Precio " _
+                                            & "WHERE Producto = '" & Producto & "' AND Tipo_Cliente = '" & Cliente & "'")
+        Return Data
+    End Function
+
 End Class
+
+
