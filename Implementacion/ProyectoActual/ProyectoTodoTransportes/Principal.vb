@@ -76,7 +76,7 @@
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
         ElseIf Nombre.Equals("Vehículos") Then
-            Form = New Vehiculos(USER, con, ESTADO)
+            Form = New newFlota(USER, con, ESTADO)
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
