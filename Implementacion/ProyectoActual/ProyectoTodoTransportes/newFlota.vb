@@ -85,7 +85,7 @@
 
     Private Sub tbox_mat1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_mat1.KeyPress
         Herramientas.soloTexto(e)
-        tbox_mat1.Text = UCase(tbox_mat1.Text)
+
     End Sub
 
     Private Sub tbox_mat2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_mat2.KeyPress
@@ -93,13 +93,62 @@
             Herramientas.soloNumeros(e)
         ElseIf cbox_anio.SelectedValue.Equals("Post 2007") Then
             Herramientas.soloTexto(e)
-            tbox_mat2.Text = UCase(tbox_mat2.Text)
+
         End If
     End Sub
 
     Private Sub tbox_mat3_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_mat3.KeyPress
         Herramientas.soloNumeros(e)
     End Sub
+
+    Function validar1() As Boolean
+        STATUS.Text = ""
+        STATUS.ForeColor = System.Drawing.SystemColors.ControlText
+
+        'Estado
+        Dim de As DataTable = cbox_estado.DataSource
+        Dim est As New List(Of String)(de.Rows.Count)
+        For Each row As DataRow In de.Rows
+            est.Add(row(0))
+        Next
+
+        MsgBox(est.Contains(cbox_estado.Text.Trim)) 'arroja el valor si contiene o no (borrar)
+
+        If Not est.Contains(cbox_estado.Text.Trim) Then
+            MsgBox("ingrese estado correcto")
+            Return False
+        End If
+
+        'Instructor
+        Dim int As DataTable = cbox_instructor.DataSource
+        Dim inst As New List(Of String)(int.Rows.Count)
+        For Each row As DataRow In int.Rows
+            inst.Add(row(1))
+        Next
+
+        MsgBox(inst.Contains(cbox_instructor.Text.Trim)) 'arroja el valor si contiene o no (borrar)
+
+        If Not inst.Contains(cbox_instructor.Text.Trim) Then
+            MsgBox("ingrese instructor correcto")
+            Return False
+        End If
+
+        If cbox_estado.Text = "" Then
+            MsgBox("Ingrese estado")
+            Return False
+        ElseIf cbox_instructor.Text = "" Then
+            MsgBox("Ingrese instructor")
+            Return False
+        ElseIf tbox_modelo.Text = "" Then
+            MsgBox("Ingrese modelo")
+            Return False
+        ElseIf tbox_mat1.Text = "" Or tbox_mat2.Text = "" Or tbox_mat3.Text = "" Then
+            MsgBox("Ingrese modelo")
+            Return False
+        End If
+
+        Return True
+    End Function
 
     Function validar2() As Boolean
         STATUS.Text = ""
@@ -202,6 +251,51 @@
                     STATUS.Text = "Hubo un error al realizar la operación."
                     STATUS.ForeColor = Color.Red
                 End If
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+            End Try
+        End If
+    End Sub
+
+    Private Sub btn_agregar_Click(sender As System.Object, e As System.EventArgs) Handles btn_agregar.Click
+        Dim Matricula As String = ""
+        If validar1() Then
+            If cbox_anio.SelectedValue.Equals("Pre 2007") Then
+                Matricula = UCase(tbox_mat1.Text) & (tbox_mat2.Text) & (tbox_mat3.Text)
+                MsgBox(Matricula)
+            ElseIf cbox_anio.SelectedValue.Equals("Post 2007") Then
+                Matricula = UCase(tbox_mat1.Text) & UCase(tbox_mat2.Text) & (tbox_mat3.Text)
+                MsgBox(Matricula)
+            End If
+            Dim Modelo As String = tbox_modelo.Text
+            MsgBox(Modelo)
+            Dim Estado As String = cbox_estado.SelectedValue
+            MsgBox(Estado)
+
+            Dim ID As Integer = 0
+            Dim Columnas() As String = {}
+            Dim Parametros() As String = {}
+            Try
+                Columnas = {"Matricula", "Modelo", "Estado"}
+                Parametros = {Matricula, Modelo, Estado}
+                ID = con.doInsert("auto_escuela", Columnas, Parametros)
+                MsgBox(ID)
+
+
+                If ID <> -1 Then
+                    con.commitTransaction()
+                    STATUS.Text = "Operación realizada con éxito."
+                    STATUS.ForeColor = Color.Blue
+                Else
+                    STATUS.Text = "Hubo un error al realizar la operación."
+                    STATUS.ForeColor = Color.Red
+                End If
+                tbox_mat1.Text = ""
+                tbox_mat2.Text = ""
+                tbox_mat3.Text = ""
+                cbox_estado.Text = ""
+                cbox_instructor.Text = ""
+                tbox_modelo.Text = ""
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
             End Try
