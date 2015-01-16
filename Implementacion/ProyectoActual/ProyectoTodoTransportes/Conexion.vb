@@ -82,6 +82,50 @@ Public Class Conexion
         Return r
     End Function
 
+    'Function doUpdate(ByVal Tabla As String, ByVal Columnas() As String, ByVal Parametros() As String, ByVal por() As String, ByVal por() As String) As Integer
+
+    '    Realiza cualquier insert y retorna la PK (Si es autoincrementable)
+    '    Dim r As Integer = -1
+
+    '    Using comando As New MySqlCommand()
+    '        comando.Connection = conn
+    '        comando.CommandType = CommandType.Text
+    '        comando.Transaction = transaccion
+
+    '        Dim SQLQuery As String = "UPDATE " & Tabla & " SET "
+    '        Dim Values As String = ""
+    '        For i As Integer = 0 To Columnas.Length - 1
+    '            If i < Columnas.Length - 1 Then
+    '                SQLQuery = SQLQuery & Columnas(i) & " = " & Parametros(i) & ", "
+
+    '            End If
+    '        Next
+    '        For i As Integer = 0 To por.Length - 1
+    '            If i < Columnas.Length - 1 Then
+    '                SQLQuery = SQLQuery & Columnas(i) & " = " & Parametros(i) & ", "
+
+    '            End If
+    '        Next
+    '        comando.CommandText = SQLQuery
+
+    '        For i As Integer = 0 To Parametros.Length - 1
+    '            comando.Parameters.AddWithValue("@param" & i, Parametros(i))
+    '        Next
+
+    '        Try
+    '            comando.ExecuteNonQuery()
+    '            r = comando.LastInsertedId()
+    '        Catch ex As Exception
+    '            rollbackTransaction()
+    '            MsgBox(ex.Message.ToString)
+    '            Return r
+    '        End Try
+
+    '    End Using
+
+    '    Return r
+    'End Function
+
     Sub beginTransaction()
         transaccion = conn.BeginTransaction
     End Sub
