@@ -112,13 +112,16 @@ Partial Class newFlota
         'tbox_mat3
         '
         Me.tbox_mat3.Location = New System.Drawing.Point(288, 33)
+        Me.tbox_mat3.MaxLength = 2
         Me.tbox_mat3.Name = "tbox_mat3"
+        Me.tbox_mat3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.tbox_mat3.Size = New System.Drawing.Size(53, 20)
         Me.tbox_mat3.TabIndex = 5
         '
         'tbox_mat2
         '
         Me.tbox_mat2.Location = New System.Drawing.Point(212, 33)
+        Me.tbox_mat2.MaxLength = 2
         Me.tbox_mat2.Name = "tbox_mat2"
         Me.tbox_mat2.Size = New System.Drawing.Size(53, 20)
         Me.tbox_mat2.TabIndex = 4
@@ -172,6 +175,7 @@ Partial Class newFlota
         'tbox_mat1
         '
         Me.tbox_mat1.Location = New System.Drawing.Point(135, 34)
+        Me.tbox_mat1.MaxLength = 2
         Me.tbox_mat1.Name = "tbox_mat1"
         Me.tbox_mat1.Size = New System.Drawing.Size(53, 20)
         Me.tbox_mat1.TabIndex = 3

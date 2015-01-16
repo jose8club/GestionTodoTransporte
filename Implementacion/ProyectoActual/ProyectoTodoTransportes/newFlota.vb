@@ -85,6 +85,7 @@
 
     Private Sub tbox_mat1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_mat1.KeyPress
         Herramientas.soloTexto(e)
+        tbox_mat1.Text = UCase(tbox_mat1.Text)
     End Sub
 
     Private Sub tbox_mat2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_mat2.KeyPress
@@ -92,6 +93,7 @@
             Herramientas.soloNumeros(e)
         ElseIf cbox_anio.SelectedValue.Equals("Post 2007") Then
             Herramientas.soloTexto(e)
+            tbox_mat2.Text = UCase(tbox_mat2.Text)
         End If
     End Sub
 
@@ -99,5 +101,75 @@
         Herramientas.soloNumeros(e)
     End Sub
 
+    Function validar2() As Boolean
+        STATUS.Text = ""
+        STATUS.ForeColor = System.Drawing.SystemColors.ControlText
+
+        'Matricula
+        Dim dr As DataTable = cbox_matricula.DataSource
+        Dim lista As New List(Of String)(dr.Rows.Count)
+        For Each Row As DataRow In dr.Rows
+            lista.Add(Row(1))
+        Next
+
+        MsgBox(lista.Contains(cbox_matricula.Text.Trim)) 'arroja el valor si contiene o no (borrar)
+
+        If Not lista.Contains(cbox_matricula.Text.Trim) Then
+            MsgBox("Ingrese patente correcta")
+            Return False
+        End If
+
+        'Estado
+        Dim de As DataTable = cbox_estado2.DataSource
+        Dim est As New List(Of String)(de.Rows.Count)
+        For Each row As DataRow In de.Rows
+            est.Add(row(0))
+        Next
+
+        MsgBox(est.Contains(cbox_estado2.Text.Trim)) 'arroja el valor si contiene o no (borrar)
+
+        If Not est.Contains(cbox_estado2.Text.Trim) Then
+            MsgBox("ingrese estado correcto")
+            Return False
+        End If
+
+        Return True
+    End Function
+
 #End Region
+
+
+    Private Sub btn_guardar_Click(sender As System.Object, e As System.EventArgs) Handles btn_guardar.Click
+        If validar2() Then
+            cbox_matricula.Text = cbox_matricula.Text.Trim
+            Dim Matricula As String = cbox_matricula.SelectedValue
+            Dim Estado As String = cbox_estado2.SelectedValue
+            Dim Instructor As String = cbox_instructor2.SelectedValue
+
+            Dim ID As Integer = 0
+            Dim Columnas() As String = {}
+            Dim Parametros() As String = {}
+
+            Try
+                con.beginTransaction()
+                Dim modi As DataTable = con.doQuery("UPDATE auto_escuela SET Estado= '" & Estado & "' WHERE Matricula= '" & Matricula & "'")
+                If modi.Rows.Count > 0 Then
+                    ID = 0
+                Else
+                    ID = -1
+                End If
+                If ID <> -1 Then
+                    con.commitTransaction()
+                    MsgBox("Auto: " & Matricula & ", Estado: " & Estado & ".")
+                    STATUS.Text = "Operación realizada con éxito."
+                    STATUS.ForeColor = Color.Blue
+                Else
+                    STATUS.Text = "Hubo un error al realizar la operación."
+                    STATUS.ForeColor = Color.Red
+                End If
+            Catch ex As Exception
+
+            End Try
+        End If
+    End Sub
 End Class
