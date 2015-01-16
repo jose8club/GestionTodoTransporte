@@ -109,7 +109,7 @@
         Dim dr As DataTable = cbox_matricula.DataSource
         Dim lista As New List(Of String)(dr.Rows.Count)
         For Each Row As DataRow In dr.Rows
-            lista.Add(Row(1))
+            lista.Add(Row(0))
         Next
 
         MsgBox(lista.Contains(cbox_matricula.Text.Trim)) 'arroja el valor si contiene o no (borrar)
@@ -133,6 +133,32 @@
             Return False
         End If
 
+        'Instructor
+        Dim int As DataTable = cbox_instructor2.DataSource
+        Dim inst As New List(Of String)(int.Rows.Count)
+        For Each row As DataRow In int.Rows
+            inst.Add(row(1))
+        Next
+
+        MsgBox(inst.Contains(cbox_instructor2.Text.Trim)) 'arroja el valor si contiene o no (borrar)
+
+        If Not inst.Contains(cbox_instructor2.Text.Trim) Then
+            MsgBox("ingrese instructor correcto")
+            Return False
+        End If
+
+        If cbox_matricula.Text.Trim = "" Then
+            MsgBox("Ingrese datos de matricula de auto")
+            Return False
+        ElseIf cbox_estado2.Text = "" Then
+            MsgBox("Ingrese estado")
+            Return False
+        ElseIf cbox_instructor2.Text = "" Then
+            MsgBox("Ingrese instructor")
+            Return False
+        End If
+
+
         Return True
     End Function
 
@@ -154,10 +180,19 @@
                 con.beginTransaction()
                 Dim modi As DataTable = con.doQuery("UPDATE auto_escuela SET Estado= '" & Estado & "' WHERE Matricula= '" & Matricula & "'")
                 If modi.Rows.Count > 0 Then
-                    ID = 0
-                Else
                     ID = -1
+                Else
+                    ID = 0
                 End If
+                If ID <> -1 Then
+                    Dim inst As DataTable = con.doQuery("UPDATE instructor SET Auto= '" & Matricula & "' WHERE idInstructor= '" & Instructor & "'")
+                    If inst.Rows.Count > 0 Then
+                        ID = -1
+                    Else
+                        ID = 0
+                    End If
+                End If
+
                 If ID <> -1 Then
                     con.commitTransaction()
                     MsgBox("Auto: " & Matricula & ", Estado: " & Estado & ".")
@@ -168,7 +203,7 @@
                     STATUS.ForeColor = Color.Red
                 End If
             Catch ex As Exception
-
+                MsgBox(ex.Message.ToString)
             End Try
         End If
     End Sub
