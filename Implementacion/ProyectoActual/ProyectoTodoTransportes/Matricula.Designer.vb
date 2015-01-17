@@ -34,6 +34,7 @@ Partial Class Matricula
         Me.RutLbl = New System.Windows.Forms.Label()
         Me.NombreLbl = New System.Windows.Forms.Label()
         Me.DatosCursoGBx = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.CuposTxtLbl = New System.Windows.Forms.Label()
         Me.CuposLbl = New System.Windows.Forms.Label()
         Me.Label = New System.Windows.Forms.Label()
@@ -58,7 +59,6 @@ Partial Class Matricula
         Me.Label25 = New System.Windows.Forms.Label()
         Me.DctoSpinBx = New System.Windows.Forms.NumericUpDown()
         Me.ValorTxtLbl = New System.Windows.Forms.Label()
-        Me.PagoRealizLbl = New System.Windows.Forms.Label()
         Me.DctoLbl = New System.Windows.Forms.Label()
         Me.MedioPagoLbl = New System.Windows.Forms.Label()
         Me.DocPagoLbl = New System.Windows.Forms.Label()
@@ -71,20 +71,14 @@ Partial Class Matricula
         Me.CertEstudiosChBx = New System.Windows.Forms.CheckBox()
         Me.FotocopiaLicenciaChBx = New System.Windows.Forms.CheckBox()
         Me.FotocopiaCIChBx = New System.Windows.Forms.CheckBox()
-        Me.CertNotarialLbl = New System.Windows.Forms.Label()
-        Me.CertEStudiosLbl = New System.Windows.Forms.Label()
-        Me.FotocopiaLicenciaLbl = New System.Windows.Forms.Label()
-        Me.FotocopiaCILbl = New System.Windows.Forms.Label()
-        Me.FotosLbl = New System.Windows.Forms.Label()
         Me.NRegLbl = New System.Windows.Forms.Label()
-        Me.NRegTxBx = New System.Windows.Forms.TextBox()
         Me.LimpiarBtn = New System.Windows.Forms.Button()
+        Me.NRegCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
         Me.NombreCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
         Me.EmailCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
         Me.DVCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
         Me.RutCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
         Me.TelCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.DatosPersonalesGbx.SuspendLayout()
         Me.DatosCursoGBx.SuspendLayout()
         Me.DiasGBx.SuspendLayout()
@@ -112,7 +106,7 @@ Partial Class Matricula
         Me.DatosPersonalesGbx.Location = New System.Drawing.Point(12, 38)
         Me.DatosPersonalesGbx.Name = "DatosPersonalesGbx"
         Me.DatosPersonalesGbx.Size = New System.Drawing.Size(408, 198)
-        Me.DatosPersonalesGbx.TabIndex = 0
+        Me.DatosPersonalesGbx.TabIndex = 1
         Me.DatosPersonalesGbx.TabStop = False
         Me.DatosPersonalesGbx.Text = "Datos Personales"
         '
@@ -131,7 +125,7 @@ Partial Class Matricula
         Me.ClienteCbBx.Location = New System.Drawing.Point(124, 157)
         Me.ClienteCbBx.Name = "ClienteCbBx"
         Me.ClienteCbBx.Size = New System.Drawing.Size(200, 21)
-        Me.ClienteCbBx.TabIndex = 7
+        Me.ClienteCbBx.TabIndex = 6
         '
         'ClienteLbl
         '
@@ -156,7 +150,7 @@ Partial Class Matricula
         Me.FNacDTiPckr.Location = New System.Drawing.Point(124, 79)
         Me.FNacDTiPckr.Name = "FNacDTiPckr"
         Me.FNacDTiPckr.Size = New System.Drawing.Size(200, 20)
-        Me.FNacDTiPckr.TabIndex = 4
+        Me.FNacDTiPckr.TabIndex = 3
         Me.FNacDTiPckr.Value = New Date(2014, 12, 1, 4, 28, 27, 0)
         '
         'FNacLbl
@@ -165,7 +159,7 @@ Partial Class Matricula
         Me.FNacLbl.Location = New System.Drawing.Point(6, 82)
         Me.FNacLbl.Name = "FNacLbl"
         Me.FNacLbl.Size = New System.Drawing.Size(111, 13)
-        Me.FNacLbl.TabIndex = 6
+        Me.FNacLbl.TabIndex = 1002
         Me.FNacLbl.Text = "Fecha de Nacimiento:"
         '
         'Label3
@@ -183,7 +177,7 @@ Partial Class Matricula
         Me.RutLbl.Location = New System.Drawing.Point(6, 56)
         Me.RutLbl.Name = "RutLbl"
         Me.RutLbl.Size = New System.Drawing.Size(42, 13)
-        Me.RutLbl.TabIndex = 2
+        Me.RutLbl.TabIndex = 1001
         Me.RutLbl.Text = "R.U.T.:"
         '
         'NombreLbl
@@ -192,7 +186,7 @@ Partial Class Matricula
         Me.NombreLbl.Location = New System.Drawing.Point(6, 30)
         Me.NombreLbl.Name = "NombreLbl"
         Me.NombreLbl.Size = New System.Drawing.Size(47, 13)
-        Me.NombreLbl.TabIndex = 0
+        Me.NombreLbl.TabIndex = 1000
         Me.NombreLbl.Text = "Nombre:"
         '
         'DatosCursoGBx
@@ -216,6 +210,15 @@ Partial Class Matricula
         Me.DatosCursoGBx.TabIndex = 2
         Me.DatosCursoGBx.TabStop = False
         Me.DatosCursoGBx.Text = "Datos del Curso"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(218, 57)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(26, 13)
+        Me.Label1.TabIndex = 29
+        Me.Label1.Text = "Hrs."
         '
         'CuposTxtLbl
         '
@@ -252,7 +255,7 @@ Partial Class Matricula
         Me.DiasGBx.Location = New System.Drawing.Point(9, 108)
         Me.DiasGBx.Name = "DiasGBx"
         Me.DiasGBx.Size = New System.Drawing.Size(393, 51)
-        Me.DiasGBx.TabIndex = 23
+        Me.DiasGBx.TabIndex = 4
         Me.DiasGBx.TabStop = False
         Me.DiasGBx.Text = "Días"
         '
@@ -262,7 +265,7 @@ Partial Class Matricula
         Me.LuSaRaBtn.Location = New System.Drawing.Point(232, 21)
         Me.LuSaRaBtn.Name = "LuSaRaBtn"
         Me.LuSaRaBtn.Size = New System.Drawing.Size(100, 17)
-        Me.LuSaRaBtn.TabIndex = 14
+        Me.LuSaRaBtn.TabIndex = 1
         Me.LuSaRaBtn.TabStop = True
         Me.LuSaRaBtn.Text = "Lunes - Sábado"
         Me.LuSaRaBtn.UseVisualStyleBackColor = True
@@ -273,7 +276,7 @@ Partial Class Matricula
         Me.LuViRaBtn.Location = New System.Drawing.Point(48, 21)
         Me.LuViRaBtn.Name = "LuViRaBtn"
         Me.LuViRaBtn.Size = New System.Drawing.Size(101, 17)
-        Me.LuViRaBtn.TabIndex = 13
+        Me.LuViRaBtn.TabIndex = 0
         Me.LuViRaBtn.TabStop = True
         Me.LuViRaBtn.Text = "Lunes  - Viernes"
         Me.LuViRaBtn.UseVisualStyleBackColor = True
@@ -289,7 +292,7 @@ Partial Class Matricula
         Me.HraPracticaCbBx.Location = New System.Drawing.Point(124, 81)
         Me.HraPracticaCbBx.Name = "HraPracticaCbBx"
         Me.HraPracticaCbBx.Size = New System.Drawing.Size(88, 21)
-        Me.HraPracticaCbBx.TabIndex = 11
+        Me.HraPracticaCbBx.TabIndex = 3
         '
         'HraPractica
         '
@@ -307,7 +310,7 @@ Partial Class Matricula
         Me.HraTeoriaCbBx.Location = New System.Drawing.Point(124, 54)
         Me.HraTeoriaCbBx.Name = "HraTeoriaCbBx"
         Me.HraTeoriaCbBx.Size = New System.Drawing.Size(88, 21)
-        Me.HraTeoriaCbBx.TabIndex = 10
+        Me.HraTeoriaCbBx.TabIndex = 2
         '
         'HraTeoria
         '
@@ -325,7 +328,7 @@ Partial Class Matricula
         Me.CursoCbBx.Location = New System.Drawing.Point(261, 27)
         Me.CursoCbBx.Name = "CursoCbBx"
         Me.CursoCbBx.Size = New System.Drawing.Size(62, 21)
-        Me.CursoCbBx.TabIndex = 9
+        Me.CursoCbBx.TabIndex = 1
         '
         'CursoLbl
         '
@@ -342,7 +345,7 @@ Partial Class Matricula
         Me.ProductoCbBx.Location = New System.Drawing.Point(124, 27)
         Me.ProductoCbBx.Name = "ProductoCbBx"
         Me.ProductoCbBx.Size = New System.Drawing.Size(88, 21)
-        Me.ProductoCbBx.TabIndex = 8
+        Me.ProductoCbBx.TabIndex = 0
         '
         'ProductoLbl
         '
@@ -364,7 +367,6 @@ Partial Class Matricula
         Me.DatosPagoGBx.Controls.Add(Me.Label25)
         Me.DatosPagoGBx.Controls.Add(Me.DctoSpinBx)
         Me.DatosPagoGBx.Controls.Add(Me.ValorTxtLbl)
-        Me.DatosPagoGBx.Controls.Add(Me.PagoRealizLbl)
         Me.DatosPagoGBx.Controls.Add(Me.DctoLbl)
         Me.DatosPagoGBx.Controls.Add(Me.MedioPagoLbl)
         Me.DatosPagoGBx.Controls.Add(Me.DocPagoLbl)
@@ -373,7 +375,7 @@ Partial Class Matricula
         Me.DatosPagoGBx.Location = New System.Drawing.Point(427, 206)
         Me.DatosPagoGBx.Name = "DatosPagoGBx"
         Me.DatosPagoGBx.Size = New System.Drawing.Size(259, 209)
-        Me.DatosPagoGBx.TabIndex = 3
+        Me.DatosPagoGBx.TabIndex = 4
         Me.DatosPagoGBx.TabStop = False
         Me.DatosPagoGBx.Text = "Pago"
         '
@@ -392,15 +394,17 @@ Partial Class Matricula
         Me.CodPagoTxBx.MaxLength = 6
         Me.CodPagoTxBx.Name = "CodPagoTxBx"
         Me.CodPagoTxBx.Size = New System.Drawing.Size(125, 20)
-        Me.CodPagoTxBx.TabIndex = 24
+        Me.CodPagoTxBx.TabIndex = 4
         '
         'PagoRealizChBx
         '
         Me.PagoRealizChBx.AutoSize = True
-        Me.PagoRealizChBx.Location = New System.Drawing.Point(172, 161)
+        Me.PagoRealizChBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.PagoRealizChBx.Location = New System.Drawing.Point(6, 160)
         Me.PagoRealizChBx.Name = "PagoRealizChBx"
-        Me.PagoRealizChBx.Size = New System.Drawing.Size(15, 14)
-        Me.PagoRealizChBx.TabIndex = 23
+        Me.PagoRealizChBx.Size = New System.Drawing.Size(189, 17)
+        Me.PagoRealizChBx.TabIndex = 3
+        Me.PagoRealizChBx.Text = "Pago realizado:                              "
         Me.PagoRealizChBx.UseVisualStyleBackColor = True
         '
         'MedioPagoChBx
@@ -409,7 +413,7 @@ Partial Class Matricula
         Me.MedioPagoChBx.Location = New System.Drawing.Point(128, 134)
         Me.MedioPagoChBx.Name = "MedioPagoChBx"
         Me.MedioPagoChBx.Size = New System.Drawing.Size(125, 21)
-        Me.MedioPagoChBx.TabIndex = 22
+        Me.MedioPagoChBx.TabIndex = 2
         '
         'DocPagoCbBx
         '
@@ -421,7 +425,7 @@ Partial Class Matricula
         Me.DocPagoCbBx.Location = New System.Drawing.Point(128, 105)
         Me.DocPagoCbBx.Name = "DocPagoCbBx"
         Me.DocPagoCbBx.Size = New System.Drawing.Size(125, 21)
-        Me.DocPagoCbBx.TabIndex = 21
+        Me.DocPagoCbBx.TabIndex = 1
         '
         'APagarTxtLbl
         '
@@ -446,7 +450,7 @@ Partial Class Matricula
         Me.DctoSpinBx.Location = New System.Drawing.Point(158, 56)
         Me.DctoSpinBx.Name = "DctoSpinBx"
         Me.DctoSpinBx.Size = New System.Drawing.Size(42, 20)
-        Me.DctoSpinBx.TabIndex = 20
+        Me.DctoSpinBx.TabIndex = 0
         '
         'ValorTxtLbl
         '
@@ -456,15 +460,6 @@ Partial Class Matricula
         Me.ValorTxtLbl.Size = New System.Drawing.Size(31, 13)
         Me.ValorTxtLbl.TabIndex = 6
         Me.ValorTxtLbl.Text = "$$$$"
-        '
-        'PagoRealizLbl
-        '
-        Me.PagoRealizLbl.AutoSize = True
-        Me.PagoRealizLbl.Location = New System.Drawing.Point(7, 161)
-        Me.PagoRealizLbl.Name = "PagoRealizLbl"
-        Me.PagoRealizLbl.Size = New System.Drawing.Size(80, 13)
-        Me.PagoRealizLbl.TabIndex = 5
-        Me.PagoRealizLbl.Text = "Pago realizado:"
         '
         'DctoLbl
         '
@@ -516,7 +511,7 @@ Partial Class Matricula
         Me.GuardarBtn.Location = New System.Drawing.Point(611, 421)
         Me.GuardarBtn.Name = "GuardarBtn"
         Me.GuardarBtn.Size = New System.Drawing.Size(75, 23)
-        Me.GuardarBtn.TabIndex = 25
+        Me.GuardarBtn.TabIndex = 5
         Me.GuardarBtn.Text = "Guardar"
         Me.GuardarBtn.UseVisualStyleBackColor = True
         '
@@ -527,107 +522,67 @@ Partial Class Matricula
         Me.DocumentosGbx.Controls.Add(Me.CertEstudiosChBx)
         Me.DocumentosGbx.Controls.Add(Me.FotocopiaLicenciaChBx)
         Me.DocumentosGbx.Controls.Add(Me.FotocopiaCIChBx)
-        Me.DocumentosGbx.Controls.Add(Me.CertNotarialLbl)
-        Me.DocumentosGbx.Controls.Add(Me.CertEStudiosLbl)
-        Me.DocumentosGbx.Controls.Add(Me.FotocopiaLicenciaLbl)
-        Me.DocumentosGbx.Controls.Add(Me.FotocopiaCILbl)
-        Me.DocumentosGbx.Controls.Add(Me.FotosLbl)
         Me.DocumentosGbx.Location = New System.Drawing.Point(427, 38)
         Me.DocumentosGbx.Name = "DocumentosGbx"
         Me.DocumentosGbx.Size = New System.Drawing.Size(253, 162)
-        Me.DocumentosGbx.TabIndex = 1
+        Me.DocumentosGbx.TabIndex = 3
         Me.DocumentosGbx.TabStop = False
         Me.DocumentosGbx.Text = "Documentos"
         '
         'FotosChBx
         '
         Me.FotosChBx.AutoSize = True
-        Me.FotosChBx.Location = New System.Drawing.Point(172, 30)
+        Me.FotosChBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FotosChBx.Location = New System.Drawing.Point(10, 28)
         Me.FotosChBx.Name = "FotosChBx"
-        Me.FotosChBx.Size = New System.Drawing.Size(15, 14)
-        Me.FotosChBx.TabIndex = 15
+        Me.FotosChBx.Size = New System.Drawing.Size(184, 17)
+        Me.FotosChBx.TabIndex = 0
+        Me.FotosChBx.Text = "Fotos:                                           "
         Me.FotosChBx.UseVisualStyleBackColor = True
         '
         'CertNotarialChBx
         '
         Me.CertNotarialChBx.AutoSize = True
-        Me.CertNotarialChBx.Location = New System.Drawing.Point(172, 134)
+        Me.CertNotarialChBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.CertNotarialChBx.Location = New System.Drawing.Point(6, 120)
         Me.CertNotarialChBx.Name = "CertNotarialChBx"
-        Me.CertNotarialChBx.Size = New System.Drawing.Size(15, 14)
-        Me.CertNotarialChBx.TabIndex = 19
+        Me.CertNotarialChBx.Size = New System.Drawing.Size(190, 17)
+        Me.CertNotarialChBx.TabIndex = 4
+        Me.CertNotarialChBx.Text = "Certificado Notarial:                        "
         Me.CertNotarialChBx.UseVisualStyleBackColor = True
         '
         'CertEstudiosChBx
         '
         Me.CertEstudiosChBx.AutoSize = True
-        Me.CertEstudiosChBx.Location = New System.Drawing.Point(172, 108)
+        Me.CertEstudiosChBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.CertEstudiosChBx.Location = New System.Drawing.Point(10, 97)
         Me.CertEstudiosChBx.Name = "CertEstudiosChBx"
-        Me.CertEstudiosChBx.Size = New System.Drawing.Size(15, 14)
-        Me.CertEstudiosChBx.TabIndex = 18
+        Me.CertEstudiosChBx.Size = New System.Drawing.Size(185, 17)
+        Me.CertEstudiosChBx.TabIndex = 3
+        Me.CertEstudiosChBx.Text = "Certificado Estudios:                     "
         Me.CertEstudiosChBx.UseVisualStyleBackColor = True
         '
         'FotocopiaLicenciaChBx
         '
         Me.FotocopiaLicenciaChBx.AutoSize = True
-        Me.FotocopiaLicenciaChBx.Location = New System.Drawing.Point(172, 82)
+        Me.FotocopiaLicenciaChBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FotocopiaLicenciaChBx.Location = New System.Drawing.Point(10, 74)
         Me.FotocopiaLicenciaChBx.Name = "FotocopiaLicenciaChBx"
-        Me.FotocopiaLicenciaChBx.Size = New System.Drawing.Size(15, 14)
-        Me.FotocopiaLicenciaChBx.TabIndex = 17
+        Me.FotocopiaLicenciaChBx.Size = New System.Drawing.Size(185, 17)
+        Me.FotocopiaLicenciaChBx.TabIndex = 2
+        Me.FotocopiaLicenciaChBx.Text = "Fotocopia Licencia:                      "
         Me.FotocopiaLicenciaChBx.UseVisualStyleBackColor = True
         '
         'FotocopiaCIChBx
         '
         Me.FotocopiaCIChBx.AutoSize = True
-        Me.FotocopiaCIChBx.Location = New System.Drawing.Point(172, 56)
+        Me.FotocopiaCIChBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.FotocopiaCIChBx.Location = New System.Drawing.Point(10, 51)
         Me.FotocopiaCIChBx.Name = "FotocopiaCIChBx"
-        Me.FotocopiaCIChBx.Size = New System.Drawing.Size(15, 14)
-        Me.FotocopiaCIChBx.TabIndex = 16
+        Me.FotocopiaCIChBx.Size = New System.Drawing.Size(185, 17)
+        Me.FotocopiaCIChBx.TabIndex = 1
+        Me.FotocopiaCIChBx.Text = "Fotocopia C.I.:                              "
         Me.FotocopiaCIChBx.UseVisualStyleBackColor = True
-        '
-        'CertNotarialLbl
-        '
-        Me.CertNotarialLbl.AutoSize = True
-        Me.CertNotarialLbl.Location = New System.Drawing.Point(7, 134)
-        Me.CertNotarialLbl.Name = "CertNotarialLbl"
-        Me.CertNotarialLbl.Size = New System.Drawing.Size(99, 13)
-        Me.CertNotarialLbl.TabIndex = 5
-        Me.CertNotarialLbl.Text = "Certificado Notarial:"
-        '
-        'CertEStudiosLbl
-        '
-        Me.CertEStudiosLbl.AutoSize = True
-        Me.CertEStudiosLbl.Location = New System.Drawing.Point(7, 108)
-        Me.CertEStudiosLbl.Name = "CertEStudiosLbl"
-        Me.CertEStudiosLbl.Size = New System.Drawing.Size(103, 13)
-        Me.CertEStudiosLbl.TabIndex = 4
-        Me.CertEStudiosLbl.Text = "Certificado Estudios:"
-        '
-        'FotocopiaLicenciaLbl
-        '
-        Me.FotocopiaLicenciaLbl.AutoSize = True
-        Me.FotocopiaLicenciaLbl.Location = New System.Drawing.Point(7, 82)
-        Me.FotocopiaLicenciaLbl.Name = "FotocopiaLicenciaLbl"
-        Me.FotocopiaLicenciaLbl.Size = New System.Drawing.Size(100, 13)
-        Me.FotocopiaLicenciaLbl.TabIndex = 3
-        Me.FotocopiaLicenciaLbl.Text = "Fotocopia Licencia:"
-        '
-        'FotocopiaCILbl
-        '
-        Me.FotocopiaCILbl.AutoSize = True
-        Me.FotocopiaCILbl.Location = New System.Drawing.Point(6, 56)
-        Me.FotocopiaCILbl.Name = "FotocopiaCILbl"
-        Me.FotocopiaCILbl.Size = New System.Drawing.Size(76, 13)
-        Me.FotocopiaCILbl.TabIndex = 2
-        Me.FotocopiaCILbl.Text = "Fotocopia C.I.:"
-        '
-        'FotosLbl
-        '
-        Me.FotosLbl.AutoSize = True
-        Me.FotosLbl.Location = New System.Drawing.Point(6, 30)
-        Me.FotosLbl.Name = "FotosLbl"
-        Me.FotosLbl.Size = New System.Drawing.Size(36, 13)
-        Me.FotosLbl.TabIndex = 1
-        Me.FotosLbl.Text = "Fotos:"
         '
         'NRegLbl
         '
@@ -639,22 +594,23 @@ Partial Class Matricula
         Me.NRegLbl.TabIndex = 5
         Me.NRegLbl.Text = "N° Registro:"
         '
-        'NRegTxBx
-        '
-        Me.NRegTxBx.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NRegTxBx.Location = New System.Drawing.Point(586, 12)
-        Me.NRegTxBx.Name = "NRegTxBx"
-        Me.NRegTxBx.Size = New System.Drawing.Size(100, 20)
-        Me.NRegTxBx.TabIndex = 0
-        '
         'LimpiarBtn
         '
         Me.LimpiarBtn.Location = New System.Drawing.Point(12, 421)
         Me.LimpiarBtn.Name = "LimpiarBtn"
         Me.LimpiarBtn.Size = New System.Drawing.Size(75, 23)
-        Me.LimpiarBtn.TabIndex = 26
+        Me.LimpiarBtn.TabIndex = 6
         Me.LimpiarBtn.Text = "Limpiar"
         Me.LimpiarBtn.UseVisualStyleBackColor = True
+        '
+        'NRegCTxBx
+        '
+        Me.NRegCTxBx.Location = New System.Drawing.Point(580, 12)
+        Me.NRegCTxBx.MaxLength = 6
+        Me.NRegCTxBx.Name = "NRegCTxBx"
+        Me.NRegCTxBx.Size = New System.Drawing.Size(100, 20)
+        Me.NRegCTxBx.TabIndex = 0
+        Me.NRegCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.ALPHA_NUMERIC
         '
         'NombreCTxBx
         '
@@ -662,7 +618,7 @@ Partial Class Matricula
         Me.NombreCTxBx.MaxLength = 255
         Me.NombreCTxBx.Name = "NombreCTxBx"
         Me.NombreCTxBx.Size = New System.Drawing.Size(277, 20)
-        Me.NombreCTxBx.TabIndex = 1
+        Me.NombreCTxBx.TabIndex = 0
         Me.NombreCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.ALPHA
         '
         'EmailCTxBx
@@ -671,7 +627,7 @@ Partial Class Matricula
         Me.EmailCTxBx.MaxLength = 255
         Me.EmailCTxBx.Name = "EmailCTxBx"
         Me.EmailCTxBx.Size = New System.Drawing.Size(278, 20)
-        Me.EmailCTxBx.TabIndex = 6
+        Me.EmailCTxBx.TabIndex = 5
         Me.EmailCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.TEXT
         '
         'DVCTxBx
@@ -680,7 +636,7 @@ Partial Class Matricula
         Me.DVCTxBx.MaxLength = 1
         Me.DVCTxBx.Name = "DVCTxBx"
         Me.DVCTxBx.Size = New System.Drawing.Size(20, 20)
-        Me.DVCTxBx.TabIndex = 3
+        Me.DVCTxBx.TabIndex = 2
         Me.DVCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.ALPHA_NUMERIC
         '
         'RutCTxBx
@@ -689,7 +645,7 @@ Partial Class Matricula
         Me.RutCTxBx.MaxLength = 10
         Me.RutCTxBx.Name = "RutCTxBx"
         Me.RutCTxBx.Size = New System.Drawing.Size(100, 20)
-        Me.RutCTxBx.TabIndex = 2
+        Me.RutCTxBx.TabIndex = 1
         Me.RutCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.NUMERIC
         '
         'TelCTxBx
@@ -698,25 +654,16 @@ Partial Class Matricula
         Me.TelCTxBx.MaxLength = 15
         Me.TelCTxBx.Name = "TelCTxBx"
         Me.TelCTxBx.Size = New System.Drawing.Size(100, 20)
-        Me.TelCTxBx.TabIndex = 5
+        Me.TelCTxBx.TabIndex = 4
         Me.TelCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.NUMERIC
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(218, 57)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(26, 13)
-        Me.Label1.TabIndex = 29
-        Me.Label1.Text = "Hrs."
         '
         'Matricula
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(698, 456)
+        Me.Controls.Add(Me.NRegCTxBx)
         Me.Controls.Add(Me.LimpiarBtn)
-        Me.Controls.Add(Me.NRegTxBx)
         Me.Controls.Add(Me.NRegLbl)
         Me.Controls.Add(Me.GuardarBtn)
         Me.Controls.Add(Me.DatosPagoGBx)
@@ -772,12 +719,6 @@ Partial Class Matricula
     Friend WithEvents HraPracticaCbBx As System.Windows.Forms.ComboBox
     Friend WithEvents HraPractica As System.Windows.Forms.Label
     Friend WithEvents DocumentosGbx As System.Windows.Forms.GroupBox
-    Friend WithEvents FotosLbl As System.Windows.Forms.Label
-    Friend WithEvents CertNotarialLbl As System.Windows.Forms.Label
-    Friend WithEvents CertEStudiosLbl As System.Windows.Forms.Label
-    Friend WithEvents FotocopiaLicenciaLbl As System.Windows.Forms.Label
-    Friend WithEvents FotocopiaCILbl As System.Windows.Forms.Label
-    Friend WithEvents PagoRealizLbl As System.Windows.Forms.Label
     Friend WithEvents DctoLbl As System.Windows.Forms.Label
     Friend WithEvents MedioPagoLbl As System.Windows.Forms.Label
     Friend WithEvents DocPagoLbl As System.Windows.Forms.Label
@@ -789,7 +730,6 @@ Partial Class Matricula
     Friend WithEvents FotocopiaLicenciaChBx As System.Windows.Forms.CheckBox
     Friend WithEvents FotocopiaCIChBx As System.Windows.Forms.CheckBox
     Friend WithEvents NRegLbl As System.Windows.Forms.Label
-    Friend WithEvents NRegTxBx As System.Windows.Forms.TextBox
     Friend WithEvents ValorTxtLbl As System.Windows.Forms.Label
     Friend WithEvents CodPagoLbl As System.Windows.Forms.Label
     Friend WithEvents CodPagoTxBx As System.Windows.Forms.TextBox
@@ -805,4 +745,5 @@ Partial Class Matricula
     Friend WithEvents CuposLbl As System.Windows.Forms.Label
     Friend WithEvents NombreCTxBx As ProyectoTodoTransportes.CustomTextBoxClass
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents NRegCTxBx As ProyectoTodoTransportes.CustomTextBoxClass
 End Class

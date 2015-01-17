@@ -109,29 +109,29 @@ Public Class Matricula
     End Sub
 
     Private Sub GuardarBtn_Click(sender As System.Object, e As System.EventArgs) Handles GuardarBtn.Click
-        'con.doQuery
-        MsgBox("MATRICULAR('" & Me.NombreCTxBx.Text & "', '" & _
-                                 Me.RutCTxBx.Text & "-" & _
-                                 Me.DVCTxBx.Text & "','" & _
-                                 Date.ParseExact(Me.FNacDTiPckr.Text, "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture).ToString & "','" & _
-                                 Me.TelCTxBx.Text & "','" & _
-                                 Me.EmailCTxBx.Text & "','" & _
-                                 Me.ClienteCbBx.Text & "','" & _
-                                 Me.ProductoCbBx.Text & "','" & _
-                                 Date.ParseExact(Date.Today.ToString, "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture).ToString & "','" & _
-                                 Me.USER & "','" & _
-                                 Me.CursoCbBx.Text & "','" & _
-                                 Me.HraTeoriaCbBx.Text & "','" & _
-                                 Me.HraPracticaCbBx.Text & "','" & _
-                                 Me.LuViRaBtn.Enabled.ToString & "','" & _
-                                 Me.FotosChBx.Checked.ToString & "','" & _
-                                 Me.CertEstudiosChBx.Checked.ToString & "','" & _
-                                 Me.CertNotarialChBx.Checked.ToString & "','" & _
-                                 Me.DctoSpinBx.Value.ToString & "','" & _
-                                 Me.DocPagoCbBx.Text & "','" & _
-                                 Me.MedioPagoChBx.Text & "','" & _
-                                 Me.PagoRealizChBx.Checked.ToString & "','" & _
-                                 Me.CodPagoTxBx.Text & "')")
+        'Format(Date.Today.ToString, "HH:mm:ss") & "','" & _
+        con.doQuery("call MATRICULAR('" & Me.NRegCTxBx.Text & "', '" & _
+                                     Me.NombreCTxBx.Text & "', '" & _
+                                     Me.RutCTxBx.Text & "-" & Me.DVCTxBx.Text & "','" & _
+                                     Format(Me.FNacDTiPckr.Value, "yyyy-MM-dd") & "','" & _
+                                     Me.TelCTxBx.Text & "','" & _
+                                     Me.EmailCTxBx.Text & "','" & _
+                                     Me.ClienteCbBx.Text & "','" & _
+                                     Me.ProductoCbBx.Text & "','" & _
+                                     Format(Date.Today, "yyyy-MM-dd") & "','" & _
+                                     Me.USER & "','" & _
+                                     Me.CursoCbBx.Text & "','" & _
+                                     Me.HraTeoriaCbBx.Text & "','" & _
+                                     Me.HraPracticaCbBx.Text & "'," & _
+                                     Me.LuViRaBtn.Enabled.ToString.ToLower() & "," & _
+                                     Me.FotosChBx.Checked.ToString.ToLower() & "," & _
+                                     Me.CertEstudiosChBx.Checked.ToString.ToLower() & "," & _
+                                     Me.CertNotarialChBx.Checked.ToString.ToLower() & ",'" & _
+                                     Me.DctoSpinBx.Value.ToString & "','" & _
+                                     Me.DocPagoCbBx.Text & "','" & _
+                                     Me.MedioPagoChBx.Text & "'," & _
+                                     Me.PagoRealizChBx.Checked.ToString.ToLower() & ",'" & _
+                                     Me.CodPagoTxBx.Text & "');")
     End Sub
 
     Private Sub ProductoCbBx_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ProductoCbBx.SelectedIndexChanged
@@ -155,4 +155,5 @@ Public Class Matricula
         End If
         APagarTxtLbl.Text = MontoAPagar
     End Sub
+
 End Class
