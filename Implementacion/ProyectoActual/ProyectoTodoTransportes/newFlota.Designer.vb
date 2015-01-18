@@ -27,13 +27,10 @@ Partial Class newFlota
         Me.Label7 = New System.Windows.Forms.Label()
         Me.tbox_modelo = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.tbox_mat3 = New System.Windows.Forms.TextBox()
-        Me.tbox_mat2 = New System.Windows.Forms.TextBox()
         Me.btn_resetear01 = New System.Windows.Forms.Button()
         Me.btn_agregar = New System.Windows.Forms.Button()
         Me.cbox_instructor = New System.Windows.Forms.ComboBox()
         Me.cbox_estado = New System.Windows.Forms.ComboBox()
-        Me.tbox_mat1 = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -48,23 +45,26 @@ Partial Class newFlota
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.cbox_anio = New System.Windows.Forms.ComboBox()
+        Me.tbox_mat1 = New System.Windows.Forms.MaskedTextBox()
+        Me.tbox_mat2 = New System.Windows.Forms.MaskedTextBox()
+        Me.tbox_mat3 = New System.Windows.Forms.MaskedTextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.tbox_mat3)
+        Me.GroupBox1.Controls.Add(Me.tbox_mat2)
+        Me.GroupBox1.Controls.Add(Me.tbox_mat1)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.tbox_modelo)
         Me.GroupBox1.Controls.Add(Me.Label6)
-        Me.GroupBox1.Controls.Add(Me.tbox_mat3)
-        Me.GroupBox1.Controls.Add(Me.tbox_mat2)
         Me.GroupBox1.Controls.Add(Me.btn_resetear01)
         Me.GroupBox1.Controls.Add(Me.btn_agregar)
         Me.GroupBox1.Controls.Add(Me.cbox_instructor)
         Me.GroupBox1.Controls.Add(Me.cbox_estado)
-        Me.GroupBox1.Controls.Add(Me.tbox_mat1)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -109,23 +109,6 @@ Partial Class newFlota
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "Modelo:"
         '
-        'tbox_mat3
-        '
-        Me.tbox_mat3.Location = New System.Drawing.Point(288, 33)
-        Me.tbox_mat3.MaxLength = 2
-        Me.tbox_mat3.Name = "tbox_mat3"
-        Me.tbox_mat3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.tbox_mat3.Size = New System.Drawing.Size(53, 20)
-        Me.tbox_mat3.TabIndex = 5
-        '
-        'tbox_mat2
-        '
-        Me.tbox_mat2.Location = New System.Drawing.Point(212, 33)
-        Me.tbox_mat2.MaxLength = 2
-        Me.tbox_mat2.Name = "tbox_mat2"
-        Me.tbox_mat2.Size = New System.Drawing.Size(53, 20)
-        Me.tbox_mat2.TabIndex = 4
-        '
         'btn_resetear01
         '
         Me.btn_resetear01.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
@@ -160,6 +143,7 @@ Partial Class newFlota
         Me.cbox_instructor.Name = "cbox_instructor"
         Me.cbox_instructor.Size = New System.Drawing.Size(206, 21)
         Me.cbox_instructor.TabIndex = 8
+        Me.cbox_instructor.Visible = False
         '
         'cbox_estado
         '
@@ -172,14 +156,6 @@ Partial Class newFlota
         Me.cbox_estado.Size = New System.Drawing.Size(206, 21)
         Me.cbox_estado.TabIndex = 6
         '
-        'tbox_mat1
-        '
-        Me.tbox_mat1.Location = New System.Drawing.Point(135, 34)
-        Me.tbox_mat1.MaxLength = 2
-        Me.tbox_mat1.Name = "tbox_mat1"
-        Me.tbox_mat1.Size = New System.Drawing.Size(53, 20)
-        Me.tbox_mat1.TabIndex = 3
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -188,6 +164,7 @@ Partial Class newFlota
         Me.Label3.Size = New System.Drawing.Size(54, 13)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Instructor:"
+        Me.Label3.Visible = False
         '
         'Label2
         '
@@ -328,6 +305,28 @@ Partial Class newFlota
         Me.cbox_anio.Size = New System.Drawing.Size(121, 21)
         Me.cbox_anio.TabIndex = 3
         '
+        'tbox_mat1
+        '
+        Me.tbox_mat1.Location = New System.Drawing.Point(135, 30)
+        Me.tbox_mat1.Name = "tbox_mat1"
+        Me.tbox_mat1.Size = New System.Drawing.Size(54, 20)
+        Me.tbox_mat1.TabIndex = 15
+        Me.tbox_mat1.ValidatingType = GetType(Date)
+        '
+        'tbox_mat2
+        '
+        Me.tbox_mat2.Location = New System.Drawing.Point(211, 30)
+        Me.tbox_mat2.Name = "tbox_mat2"
+        Me.tbox_mat2.Size = New System.Drawing.Size(54, 20)
+        Me.tbox_mat2.TabIndex = 16
+        '
+        'tbox_mat3
+        '
+        Me.tbox_mat3.Location = New System.Drawing.Point(287, 30)
+        Me.tbox_mat3.Name = "tbox_mat3"
+        Me.tbox_mat3.Size = New System.Drawing.Size(54, 20)
+        Me.tbox_mat3.TabIndex = 17
+        '
         'newFlota
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -350,12 +349,10 @@ Partial Class newFlota
     End Sub
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents tbox_mat3 As System.Windows.Forms.TextBox
     Friend WithEvents btn_resetear01 As System.Windows.Forms.Button
     Friend WithEvents btn_agregar As System.Windows.Forms.Button
     Friend WithEvents cbox_instructor As System.Windows.Forms.ComboBox
     Friend WithEvents cbox_estado As System.Windows.Forms.ComboBox
-    Friend WithEvents tbox_mat1 As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
@@ -365,7 +362,6 @@ Partial Class newFlota
     Friend WithEvents cbox_matricula As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents tbox_mat2 As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
@@ -374,4 +370,7 @@ Partial Class newFlota
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents cbox_anio As System.Windows.Forms.ComboBox
+    Friend WithEvents tbox_mat3 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents tbox_mat2 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents tbox_mat1 As System.Windows.Forms.MaskedTextBox
 End Class

@@ -1,4 +1,9 @@
 ﻿Public Class newFlota
+
+    'Legislacion de matriculas automovilisticas de Chile
+    'http://es.wikipedia.org/wiki/Matr%C3%ADculas_automovil%C3%ADsticas_de_Chile
+
+
     Dim con As New Conexion
     Dim USER As String = ""
     Dim STATUS As ToolStripStatusLabel
@@ -58,7 +63,7 @@
             cbox_matricula.DisplayMember = "Matricula"
             cbox_matricula.ValueMember = "Matricula"
             cbox_matricula.SelectedIndex = -1
-            
+
         ElseIf s.Equals("Instructor") Then
             cbox_instructor.DataSource = dc.Instructores
             cbox_instructor.DisplayMember = "Nombre"
@@ -83,12 +88,12 @@
 
 #Region "VALIDACION DE ENTRADA"
 
-    Private Sub tbox_mat1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_mat1.KeyPress
+    Private Sub tbox_mat1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
         Herramientas.soloTexto(e)
 
     End Sub
 
-    Private Sub tbox_mat2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_mat2.KeyPress
+    Private Sub tbox_mat2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
         If cbox_anio.SelectedValue.Equals("Pre 2007") Then
             Herramientas.soloNumeros(e)
         ElseIf cbox_anio.SelectedValue.Equals("Post 2007") Then
@@ -97,7 +102,7 @@
         End If
     End Sub
 
-    Private Sub tbox_mat3_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_mat3.KeyPress
+    Private Sub tbox_mat3_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
         Herramientas.soloNumeros(e)
     End Sub
 
@@ -120,38 +125,35 @@
         End If
 
         'Instructor
-        Dim int As DataTable = cbox_instructor.DataSource
-        Dim inst As New List(Of String)(int.Rows.Count)
-        For Each row As DataRow In int.Rows
-            inst.Add(row(1))
-        Next
+        'Dim int As DataTable = cbox_instructor.DataSource
+        'Dim inst As New List(Of String)(int.Rows.Count)
+        'For Each row As DataRow In int.Rows
+        '    inst.Add(row(1))
+        'Next
 
-        MsgBox(inst.Contains(cbox_instructor.Text.Trim)) 'arroja el valor si contiene o no (borrar)
+        'MsgBox(inst.Contains(cbox_instructor.Text.Trim)) 'arroja el valor si contiene o no (borrar)
 
-        If Not inst.Contains(cbox_instructor.Text.Trim) Then
-            MsgBox("ingrese instructor correcto")
-            Return False
-        End If
+        'If Not inst.Contains(cbox_instructor.Text.Trim) Then
+        '    MsgBox("ingrese instructor correcto")
+        '    Return False
+        'End If
 
         If cbox_estado.Text = "" Then
             MsgBox("Ingrese estado")
-            Return False
-        ElseIf cbox_instructor.Text = "" Then
-            MsgBox("Ingrese instructor")
             Return False
         ElseIf tbox_modelo.Text = "" Then
             MsgBox("Ingrese modelo")
             Return False
         ElseIf tbox_mat1.Text = "" Or tbox_mat2.Text = "" Or tbox_mat3.Text = "" Then
-            MsgBox("Ingrese modelo")
+            MsgBox("Ingrese matricula")
             Return False
         ElseIf cbox_anio.SelectedValue.Equals("Post 2007") Then
-            If tbox_mat1.Text.Substring(1, 1).Equals("a") Or tbox_mat1.Text.Substring(2, 1).Equals("a") Or
-                tbox_mat2.Text.Substring(1, 1).Equals("a") Or tbox_mat2.Text.Substring(2, 1).Equals("a") Then
+            If tbox_mat1.Text.Substring(0, 1).Equals("a") Or tbox_mat1.Text.Substring(1, 1).Equals("a") Or
+                tbox_mat2.Text.Substring(0, 1).Equals("a") Or tbox_mat2.Text.Substring(1, 1).Equals("a") Then
                 MsgBox("letra 'a' no está permitida en la nueva legislacion del 2007")
                 Return False
             End If
-            
+
         End If
 
         Return True
@@ -240,14 +242,14 @@
                 Else
                     ID = 0
                 End If
-                If ID <> -1 Then
-                    Dim inst As DataTable = con.doQuery("UPDATE instructor SET Auto= '" & Matricula & "' WHERE idInstructor= '" & Instructor & "'")
-                    If inst.Rows.Count > 0 Then
-                        ID = -1
-                    Else
-                        ID = 0
-                    End If
-                End If
+                'If ID <> -1 Then
+                '    Dim inst As DataTable = con.doQuery("UPDATE instructor SET Auto= '" & Matricula & "' WHERE idInstructor= '" & Instructor & "'")
+                '    If inst.Rows.Count > 0 Then
+                '        ID = -1
+                '    Else
+                '        ID = 0
+                '    End If
+                'End If
 
                 If ID <> -1 Then
                     con.commitTransaction()
@@ -269,20 +271,21 @@
         If validar1() Then
             If cbox_anio.SelectedValue.Equals("Pre 2007") Then
                 Matricula = UCase(tbox_mat1.Text) & (tbox_mat2.Text) & (tbox_mat3.Text)
-                MsgBox(Matricula)
+
             ElseIf cbox_anio.SelectedValue.Equals("Post 2007") Then
                 Matricula = UCase(tbox_mat1.Text) & UCase(tbox_mat2.Text) & (tbox_mat3.Text)
-                MsgBox(Matricula)
+
             End If
             Dim Modelo As String = tbox_modelo.Text
-            MsgBox(Modelo)
+
             Dim Estado As String = cbox_estado.SelectedValue
-            MsgBox(Estado)
+
 
             Dim ID As Integer = 0
             Dim Columnas() As String = {}
             Dim Parametros() As String = {}
             Try
+                con.beginTransaction()
                 Columnas = {"Matricula", "Modelo", "Estado"}
                 Parametros = {Matricula, Modelo, Estado}
                 ID = con.doInsert("auto_escuela", Columnas, Parametros)
@@ -300,12 +303,43 @@
                 tbox_mat1.Text = ""
                 tbox_mat2.Text = ""
                 tbox_mat3.Text = ""
-                cbox_estado.Text = ""
-                cbox_instructor.Text = ""
                 tbox_modelo.Text = ""
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
             End Try
+        End If
+    End Sub
+
+    Private Sub btn_resetear01_Click(sender As System.Object, e As System.EventArgs) Handles btn_resetear01.Click
+        tbox_mat1.Text = ""
+        tbox_mat2.Text = ""
+        tbox_mat3.Text = ""
+        cbox_estado.Text = ""
+        tbox_modelo.Text = ""
+    End Sub
+
+    Private Sub tbox_mat1_KeyUp(sender As System.Object, e As System.Windows.Forms.KeyEventArgs)
+        If cbox_anio.SelectedValue.Equals("Post 2007") Then
+            If e.KeyCode = Keys.A Or e.KeyCode = Keys.E Or e.KeyCode = Keys.I Or
+                e.KeyCode = Keys.M Or e.KeyCode = Keys.N Or e.KeyCode = Keys.Q Then
+                tbox_mat1.Text = ""
+
+            End If
+
+
+        End If
+    End Sub
+
+   
+    Private Sub tbox_mat2_KeyUp(sender As System.Object, e As System.Windows.Forms.KeyEventArgs)
+        If cbox_anio.SelectedValue.Equals("Post 2007") Then
+            If e.KeyCode = Keys.A Or e.KeyCode = Keys.E Or e.KeyCode = Keys.I Or
+                e.KeyCode = Keys.M Or e.KeyCode = Keys.N Or e.KeyCode = Keys.Q Then
+                tbox_mat2.Text = ""
+
+            End If
+
+
         End If
     End Sub
 End Class
