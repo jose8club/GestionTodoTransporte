@@ -145,6 +145,13 @@
         ElseIf tbox_mat1.Text = "" Or tbox_mat2.Text = "" Or tbox_mat3.Text = "" Then
             MsgBox("Ingrese modelo")
             Return False
+        ElseIf cbox_anio.SelectedValue.Equals("Post 2007") Then
+            If tbox_mat1.Text.Substring(1, 1).Equals("a") Or tbox_mat1.Text.Substring(2, 1).Equals("a") Or
+                tbox_mat2.Text.Substring(1, 1).Equals("a") Or tbox_mat2.Text.Substring(2, 1).Equals("a") Then
+                MsgBox("letra 'a' no está permitida en la nueva legislacion del 2007")
+                Return False
+            End If
+            
         End If
 
         Return True
