@@ -97,9 +97,6 @@
     <Compile Include="Bienvenido.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customtbox.vb">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="DataCBOX.vb" />
     <Compile Include="Horarios.Designer.vb">
       <DependentUpon>Horarios.vb</DependentUpon>

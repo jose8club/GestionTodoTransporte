@@ -88,12 +88,11 @@
 
 #Region "VALIDACION DE ENTRADA"
 
-    Private Sub tbox_mat1_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+    Private Sub tbox_mat1_KeyPress_1(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_mat1.KeyPress
         Herramientas.soloTexto(e)
-
     End Sub
 
-    Private Sub tbox_mat2_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+    Private Sub tbox_mat2_KeyPress_1(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_mat2.KeyPress
         If cbox_anio.SelectedValue.Equals("Pre 2007") Then
             Herramientas.soloNumeros(e)
         ElseIf cbox_anio.SelectedValue.Equals("Post 2007") Then
@@ -102,8 +101,32 @@
         End If
     End Sub
 
-    Private Sub tbox_mat3_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs)
+    Private Sub tbox_mat3_KeyPress_1(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_mat3.KeyPress
         Herramientas.soloNumeros(e)
+    End Sub
+
+    Private Sub tbox_mat1_KeyUp_1(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles tbox_mat1.KeyUp
+        If cbox_anio.SelectedValue.Equals("Post 2007") Then
+            If e.KeyCode = Keys.A Or e.KeyCode = Keys.E Or e.KeyCode = Keys.I Or
+                e.KeyCode = Keys.M Or e.KeyCode = Keys.N Or e.KeyCode = Keys.Q Then
+                e.Handled = True
+
+            End If
+
+
+        End If
+    End Sub
+
+    Private Sub tbox_mat2_KeyUp_1(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles tbox_mat2.KeyUp
+        If cbox_anio.SelectedValue.Equals("Post 2007") Then
+            If e.KeyCode = Keys.A Or e.KeyCode = Keys.E Or e.KeyCode = Keys.I Or
+                e.KeyCode = Keys.M Or e.KeyCode = Keys.N Or e.KeyCode = Keys.Q Then
+                e.Handled = True
+
+            End If
+
+
+        End If
     End Sub
 
     Function validar1() As Boolean
@@ -289,9 +312,7 @@
                 Columnas = {"Matricula", "Modelo", "Estado"}
                 Parametros = {Matricula, Modelo, Estado}
                 ID = con.doInsert("auto_escuela", Columnas, Parametros)
-                MsgBox(ID)
-
-
+                
                 If ID <> -1 Then
                     con.commitTransaction()
                     STATUS.Text = "Operación realizada con éxito."
@@ -318,28 +339,8 @@
         tbox_modelo.Text = ""
     End Sub
 
-    Private Sub tbox_mat1_KeyUp(sender As System.Object, e As System.Windows.Forms.KeyEventArgs)
-        If cbox_anio.SelectedValue.Equals("Post 2007") Then
-            If e.KeyCode = Keys.A Or e.KeyCode = Keys.E Or e.KeyCode = Keys.I Or
-                e.KeyCode = Keys.M Or e.KeyCode = Keys.N Or e.KeyCode = Keys.Q Then
-                tbox_mat1.Text = ""
-
-            End If
+    
 
 
-        End If
-    End Sub
-
-   
-    Private Sub tbox_mat2_KeyUp(sender As System.Object, e As System.Windows.Forms.KeyEventArgs)
-        If cbox_anio.SelectedValue.Equals("Post 2007") Then
-            If e.KeyCode = Keys.A Or e.KeyCode = Keys.E Or e.KeyCode = Keys.I Or
-                e.KeyCode = Keys.M Or e.KeyCode = Keys.N Or e.KeyCode = Keys.Q Then
-                tbox_mat2.Text = ""
-
-            End If
-
-
-        End If
-    End Sub
+    
 End Class
