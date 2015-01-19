@@ -45,9 +45,9 @@ Partial Class newFlota
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.cbox_anio = New System.Windows.Forms.ComboBox()
-        Me.tbox_mat1 = New System.Windows.Forms.MaskedTextBox()
-        Me.tbox_mat2 = New System.Windows.Forms.MaskedTextBox()
-        Me.tbox_mat3 = New System.Windows.Forms.MaskedTextBox()
+        Me.tbox_mat1 = New System.Windows.Forms.TextBox()
+        Me.tbox_mat2 = New System.Windows.Forms.TextBox()
+        Me.tbox_mat3 = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -98,7 +98,7 @@ Partial Class newFlota
         Me.tbox_modelo.Location = New System.Drawing.Point(135, 86)
         Me.tbox_modelo.Name = "tbox_modelo"
         Me.tbox_modelo.Size = New System.Drawing.Size(206, 20)
-        Me.tbox_modelo.TabIndex = 7
+        Me.tbox_modelo.TabIndex = 8
         '
         'Label6
         '
@@ -116,7 +116,7 @@ Partial Class newFlota
         Me.btn_resetear01.Location = New System.Drawing.Point(419, 153)
         Me.btn_resetear01.Name = "btn_resetear01"
         Me.btn_resetear01.Size = New System.Drawing.Size(87, 23)
-        Me.btn_resetear01.TabIndex = 10
+        Me.btn_resetear01.TabIndex = 11
         Me.btn_resetear01.Text = "Resetear"
         Me.btn_resetear01.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_resetear01.UseVisualStyleBackColor = True
@@ -128,7 +128,7 @@ Partial Class newFlota
         Me.btn_agregar.Location = New System.Drawing.Point(321, 153)
         Me.btn_agregar.Name = "btn_agregar"
         Me.btn_agregar.Size = New System.Drawing.Size(79, 23)
-        Me.btn_agregar.TabIndex = 9
+        Me.btn_agregar.TabIndex = 10
         Me.btn_agregar.Text = "Agregar"
         Me.btn_agregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_agregar.UseVisualStyleBackColor = True
@@ -142,7 +142,7 @@ Partial Class newFlota
         Me.cbox_instructor.Location = New System.Drawing.Point(135, 116)
         Me.cbox_instructor.Name = "cbox_instructor"
         Me.cbox_instructor.Size = New System.Drawing.Size(206, 21)
-        Me.cbox_instructor.TabIndex = 8
+        Me.cbox_instructor.TabIndex = 9
         Me.cbox_instructor.Visible = False
         '
         'cbox_estado
@@ -154,7 +154,7 @@ Partial Class newFlota
         Me.cbox_estado.Location = New System.Drawing.Point(135, 59)
         Me.cbox_estado.Name = "cbox_estado"
         Me.cbox_estado.Size = New System.Drawing.Size(206, 21)
-        Me.cbox_estado.TabIndex = 6
+        Me.cbox_estado.TabIndex = 7
         '
         'Label3
         '
@@ -210,7 +210,7 @@ Partial Class newFlota
         Me.cbox_instructor2.Location = New System.Drawing.Point(135, 96)
         Me.cbox_instructor2.Name = "cbox_instructor2"
         Me.cbox_instructor2.Size = New System.Drawing.Size(206, 21)
-        Me.cbox_instructor2.TabIndex = 13
+        Me.cbox_instructor2.TabIndex = 14
         '
         'Label9
         '
@@ -228,7 +228,7 @@ Partial Class newFlota
         Me.btn_resetear02.Location = New System.Drawing.Point(419, 132)
         Me.btn_resetear02.Name = "btn_resetear02"
         Me.btn_resetear02.Size = New System.Drawing.Size(87, 23)
-        Me.btn_resetear02.TabIndex = 15
+        Me.btn_resetear02.TabIndex = 16
         Me.btn_resetear02.Text = "Resetear"
         Me.btn_resetear02.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_resetear02.UseVisualStyleBackColor = True
@@ -240,7 +240,7 @@ Partial Class newFlota
         Me.btn_guardar.Location = New System.Drawing.Point(321, 132)
         Me.btn_guardar.Name = "btn_guardar"
         Me.btn_guardar.Size = New System.Drawing.Size(79, 23)
-        Me.btn_guardar.TabIndex = 14
+        Me.btn_guardar.TabIndex = 15
         Me.btn_guardar.Text = "Guardar"
         Me.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_guardar.UseVisualStyleBackColor = True
@@ -254,7 +254,7 @@ Partial Class newFlota
         Me.cbox_estado2.Location = New System.Drawing.Point(135, 60)
         Me.cbox_estado2.Name = "cbox_estado2"
         Me.cbox_estado2.Size = New System.Drawing.Size(206, 21)
-        Me.cbox_estado2.TabIndex = 12
+        Me.cbox_estado2.TabIndex = 13
         '
         'cbox_matricula
         '
@@ -265,7 +265,7 @@ Partial Class newFlota
         Me.cbox_matricula.Location = New System.Drawing.Point(135, 33)
         Me.cbox_matricula.Name = "cbox_matricula"
         Me.cbox_matricula.Size = New System.Drawing.Size(206, 21)
-        Me.cbox_matricula.TabIndex = 11
+        Me.cbox_matricula.TabIndex = 12
         '
         'Label4
         '
@@ -308,24 +308,26 @@ Partial Class newFlota
         'tbox_mat1
         '
         Me.tbox_mat1.Location = New System.Drawing.Point(135, 30)
+        Me.tbox_mat1.MaxLength = 2
         Me.tbox_mat1.Name = "tbox_mat1"
         Me.tbox_mat1.Size = New System.Drawing.Size(54, 20)
-        Me.tbox_mat1.TabIndex = 15
-        Me.tbox_mat1.ValidatingType = GetType(Date)
+        Me.tbox_mat1.TabIndex = 4
         '
         'tbox_mat2
         '
         Me.tbox_mat2.Location = New System.Drawing.Point(211, 30)
+        Me.tbox_mat2.MaxLength = 2
         Me.tbox_mat2.Name = "tbox_mat2"
         Me.tbox_mat2.Size = New System.Drawing.Size(54, 20)
-        Me.tbox_mat2.TabIndex = 16
+        Me.tbox_mat2.TabIndex = 5
         '
         'tbox_mat3
         '
         Me.tbox_mat3.Location = New System.Drawing.Point(287, 30)
+        Me.tbox_mat3.MaxLength = 2
         Me.tbox_mat3.Name = "tbox_mat3"
         Me.tbox_mat3.Size = New System.Drawing.Size(54, 20)
-        Me.tbox_mat3.TabIndex = 17
+        Me.tbox_mat3.TabIndex = 5
         '
         'newFlota
         '
@@ -370,7 +372,7 @@ Partial Class newFlota
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents cbox_anio As System.Windows.Forms.ComboBox
-    Friend WithEvents tbox_mat3 As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents tbox_mat2 As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents tbox_mat1 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents tbox_mat3 As System.Windows.Forms.TextBox
+    Friend WithEvents tbox_mat2 As System.Windows.Forms.TextBox
+    Friend WithEvents tbox_mat1 As System.Windows.Forms.TextBox
 End Class
