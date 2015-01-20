@@ -18,6 +18,7 @@
         InitializeComponent()
     End Sub
     Private Sub newFlota_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        'esto para que solo usuario pueda ingresar
         loadCBOX("año")
         comp = con.doQuery("SELECT Tipo FROM Usuario WHERE Nombre ='" & USER & "'")
         If comp.Rows.Count > 0 Then
@@ -88,46 +89,6 @@
 
 #Region "VALIDACION DE ENTRADA"
 
-    Private Sub tbox_mat1_KeyPress_1(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_mat1.KeyPress
-        Herramientas.soloTexto(e)
-    End Sub
-
-    Private Sub tbox_mat2_KeyPress_1(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_mat2.KeyPress
-        If cbox_anio.SelectedValue.Equals("Pre 2007") Then
-            Herramientas.soloNumeros(e)
-        ElseIf cbox_anio.SelectedValue.Equals("Post 2007") Then
-            Herramientas.soloTexto(e)
-
-        End If
-    End Sub
-
-    Private Sub tbox_mat3_KeyPress_1(sender As System.Object, e As System.Windows.Forms.KeyPressEventArgs) Handles tbox_mat3.KeyPress
-        Herramientas.soloNumeros(e)
-    End Sub
-
-    Private Sub tbox_mat1_KeyUp_1(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles tbox_mat1.KeyUp
-        If cbox_anio.SelectedValue.Equals("Post 2007") Then
-            If e.KeyCode = Keys.A Or e.KeyCode = Keys.E Or e.KeyCode = Keys.I Or
-                e.KeyCode = Keys.M Or e.KeyCode = Keys.N Or e.KeyCode = Keys.Q Then
-                e.Handled = True
-
-            End If
-
-
-        End If
-    End Sub
-
-    Private Sub tbox_mat2_KeyUp_1(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles tbox_mat2.KeyUp
-        If cbox_anio.SelectedValue.Equals("Post 2007") Then
-            If e.KeyCode = Keys.A Or e.KeyCode = Keys.E Or e.KeyCode = Keys.I Or
-                e.KeyCode = Keys.M Or e.KeyCode = Keys.N Or e.KeyCode = Keys.Q Then
-                e.Handled = True
-
-            End If
-
-
-        End If
-    End Sub
 
     Function validar1() As Boolean
         STATUS.Text = ""
@@ -170,12 +131,7 @@
         ElseIf tbox_mat1.Text = "" Or tbox_mat2.Text = "" Or tbox_mat3.Text = "" Then
             MsgBox("Ingrese matricula")
             Return False
-        ElseIf cbox_anio.SelectedValue.Equals("Post 2007") Then
-            If tbox_mat1.Text.Substring(0, 1).Equals("a") Or tbox_mat1.Text.Substring(1, 1).Equals("a") Or
-                tbox_mat2.Text.Substring(0, 1).Equals("a") Or tbox_mat2.Text.Substring(1, 1).Equals("a") Then
-                MsgBox("letra 'a' no está permitida en la nueva legislacion del 2007")
-                Return False
-            End If
+        
 
         End If
 
@@ -312,7 +268,7 @@
                 Columnas = {"Matricula", "Modelo", "Estado"}
                 Parametros = {Matricula, Modelo, Estado}
                 ID = con.doInsert("auto_escuela", Columnas, Parametros)
-                
+
                 If ID <> -1 Then
                     con.commitTransaction()
                     STATUS.Text = "Operación realizada con éxito."
@@ -339,8 +295,26 @@
         tbox_modelo.Text = ""
     End Sub
 
-    
 
 
-    
+    Private Sub cbox_anio_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cbox_anio.SelectedIndexChanged
+        If cbox_anio.SelectedValue.Equals("Pre 2007") Then
+            'Formato AA-10.00
+            tbox_mat1.Text = ""
+            tbox_mat2.Text = ""
+            tbox_mat3.Text = ""
+            tbox_mat1.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
+            tbox_mat2.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
+            tbox_mat3.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO 
+        ElseIf cbox_anio.SelectedValue.Equals("Post 2007") Then
+            'Formato BB-BB.10
+            tbox_mat1.Text = ""
+            tbox_mat2.Text = ""
+            tbox_mat3.Text = ""
+            tbox_mat1.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
+            tbox_mat2.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
+            tbox_mat3.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
+        End If
+
+    End Sub
 End Class

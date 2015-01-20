@@ -1,18 +1,16 @@
 ﻿Imports System.Windows.Forms
 
 Public Class Custom2
-    Inherits System.Windows.Forms.MaskedTextBox
+    Inherits TextBox
 
     Public Sub New()
-        Me.Mask.Max()
+        Me.MaxLength = 2
     End Sub
 
     Enum Tipologia As Integer
-        EXPNUMERO1 = 0
-        EXPNUMERO2 = 1
-        EXPLETRA1 = 2
-        EXPLETRA2 = 3
-        TEXTO = 4
+        NUMERO = 0
+        LETRA = 1
+        TEXTO = 2
     End Enum
 
     Public _T As Tipologia
@@ -29,51 +27,26 @@ Public Class Custom2
 
     Protected Overrides Sub OnKeyPress(e As System.Windows.Forms.KeyPressEventArgs)
         Select Case _T
-            'antes 2007
-            Case Tipologia.EXPNUMERO1
+
+            Case Tipologia.NUMERO
                 If Char.IsDigit(e.KeyChar) Then
                     e.Handled = False
                 ElseIf Char.IsControl(e.KeyChar) Then
-                    e.Handled = True
-                ElseIf e.KeyChar = ChrW(Keys.NumPad0) Then
-                    e.Handled = True
-                Else
-                    e.Handled = True
-                End If
-
-                'despues 2007
-            Case Tipologia.EXPNUMERO2
-                If Char.IsDigit(e.KeyChar) Then
                     e.Handled = False
-                ElseIf Char.IsControl(e.KeyChar) Then
-                    e.Handled = True
                 Else
                     e.Handled = True
                 End If
 
-                'antes 2007
-            Case Tipologia.EXPLETRA1
+
+            Case Tipologia.LETRA
                 If Not Char.IsDigit(e.KeyChar) Then
                     e.Handled = False
                 ElseIf Char.IsControl(e.KeyChar) Then
-                    e.Handled = True
-                ElseIf e.KeyChar = ChrW(Keys.I) Or e.KeyChar = ChrW(Keys.Q) Or e.KeyChar = ChrW(Keys.O) Then
-                    e.Handled = True
+                    e.Handled = False
                 Else
                     e.Handled = True
                 End If
 
-                'despues 2007
-            Case Tipologia.EXPLETRA2
-                If Not Char.IsDigit(e.KeyChar) Then
-                    e.Handled = False
-                ElseIf Char.IsControl(e.KeyChar) Then
-                    e.Handled = True
-                ElseIf e.KeyChar = ChrW(Keys.A) Or e.KeyChar = ChrW(Keys.M) Or e.KeyChar = ChrW(Keys.N) Or e.KeyChar = ChrW(Keys.Q) Or e.KeyChar = ChrW(Keys.O) Then
-                    e.Handled = True
-                Else
-                    e.Handled = True
-                End If
         End Select
         MyBase.OnKeyPress(e)
     End Sub
