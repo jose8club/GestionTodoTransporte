@@ -1,4 +1,5 @@
-﻿Public Class newFlota
+﻿
+Public Class newFlota
 
     'Legislacion de matriculas automovilisticas de Chile
     'http://es.wikipedia.org/wiki/Matr%C3%ADculas_automovil%C3%ADsticas_de_Chile
@@ -10,6 +11,7 @@
     Dim dc As DataCBOX
     Dim comp As DataTable
     Dim usuario As String = ""
+    Dim l As Expresion
     Sub New(ByVal usuario As String, ByVal conexion As Conexion, ByVal estado As ToolStripStatusLabel)
         con = conexion
         USER = usuario
@@ -89,7 +91,6 @@
 
 #Region "VALIDACION DE ENTRADA"
 
-
     Function validar1() As Boolean
         STATUS.Text = ""
         STATUS.ForeColor = System.Drawing.SystemColors.ControlText
@@ -131,7 +132,7 @@
         ElseIf tbox_mat1.Text = "" Or tbox_mat2.Text = "" Or tbox_mat3.Text = "" Then
             MsgBox("Ingrese matricula")
             Return False
-        
+
 
         End If
 
@@ -247,44 +248,63 @@
 
     Private Sub btn_agregar_Click(sender As System.Object, e As System.EventArgs) Handles btn_agregar.Click
         Dim Matricula As String = ""
-        If validar1() Then
+        l = New Expresion
+
+        Try
             If cbox_anio.SelectedValue.Equals("Pre 2007") Then
-                Matricula = UCase(tbox_mat1.Text) & (tbox_mat2.Text) & (tbox_mat3.Text)
+                l.Validando("expletrauno", tbox_mat1)
+                l.Validando("expnumdos", tbox_mat2)
+                l.Validando("expnumuno", tbox_mat3)
 
             ElseIf cbox_anio.SelectedValue.Equals("Post 2007") Then
-                Matricula = UCase(tbox_mat1.Text) & UCase(tbox_mat2.Text) & (tbox_mat3.Text)
-
+                l.Validando("expletrados", tbox_mat1)
+                l.Validando("expletrados", tbox_mat2)
+                l.Validando("expnumdos", tbox_mat3)
             End If
-            Dim Modelo As String = tbox_modelo.Text
+            If validar1() And (tbox_mat1.ForeColor <> Color.Red Or tbox_mat2.ForeColor <> Color.Red Or tbox_mat3.ForeColor <> Color.Red) Then
+                If cbox_anio.SelectedValue.Equals("Pre 2007") Then
+                    Matricula = UCase(tbox_mat1.Text) & (tbox_mat2.Text) & (tbox_mat3.Text)
 
-            Dim Estado As String = cbox_estado.SelectedValue
+                ElseIf cbox_anio.SelectedValue.Equals("Post 2007") Then
+                    Matricula = UCase(tbox_mat1.Text) & UCase(tbox_mat2.Text) & (tbox_mat3.Text)
 
-
-            Dim ID As Integer = 0
-            Dim Columnas() As String = {}
-            Dim Parametros() As String = {}
-            Try
-                con.beginTransaction()
-                Columnas = {"Matricula", "Modelo", "Estado"}
-                Parametros = {Matricula, Modelo, Estado}
-                ID = con.doInsert("auto_escuela", Columnas, Parametros)
-
-                If ID <> -1 Then
-                    con.commitTransaction()
-                    STATUS.Text = "Operación realizada con éxito."
-                    STATUS.ForeColor = Color.Blue
-                Else
-                    STATUS.Text = "Hubo un error al realizar la operación."
-                    STATUS.ForeColor = Color.Red
                 End If
-                tbox_mat1.Text = ""
-                tbox_mat2.Text = ""
-                tbox_mat3.Text = ""
-                tbox_modelo.Text = ""
-            Catch ex As Exception
-                MsgBox(ex.Message.ToString)
-            End Try
-        End If
+                Dim Modelo As String = tbox_modelo.Text
+
+                Dim Estado As String = cbox_estado.SelectedValue
+
+
+                Dim ID As Integer = 0
+                Dim Columnas() As String = {}
+                Dim Parametros() As String = {}
+                Try
+                    con.beginTransaction()
+                    Columnas = {"Matricula", "Modelo", "Estado"}
+                    Parametros = {Matricula, Modelo, Estado}
+                    ID = con.doInsert("auto_escuela", Columnas, Parametros)
+
+                    If ID <> -1 Then
+                        con.commitTransaction()
+                        STATUS.Text = "Operación realizada con éxito."
+                        STATUS.ForeColor = Color.Blue
+                    Else
+                        STATUS.Text = "Hubo un error al realizar la operación."
+                        STATUS.ForeColor = Color.Red
+                    End If
+                    tbox_mat1.Text = ""
+                    tbox_mat2.Text = ""
+                    tbox_mat3.Text = ""
+                    tbox_modelo.Text = ""
+                Catch ex As Exception
+                    MsgBox(ex.Message.ToString)
+                End Try
+            End If
+        Catch ex As Exception
+
+        End Try
+
+
+
     End Sub
 
     Private Sub btn_resetear01_Click(sender As System.Object, e As System.EventArgs) Handles btn_resetear01.Click
@@ -305,7 +325,7 @@
             tbox_mat3.Text = ""
             tbox_mat1.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
             tbox_mat2.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
-            tbox_mat3.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO 
+            tbox_mat3.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
         ElseIf cbox_anio.SelectedValue.Equals("Post 2007") Then
             'Formato BB-BB.10
             tbox_mat1.Text = ""
