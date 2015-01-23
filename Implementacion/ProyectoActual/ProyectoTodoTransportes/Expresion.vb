@@ -13,7 +13,7 @@ Public Class Expresion
                     Dim expreg As New System.Text.RegularExpressions.Regex(s)
                     Return (expreg.IsMatch(vali))
                 Case "expletrados"
-                    Dim s As String = "^[^(amnñoqAMNÑOQ0123456789)]{0,2}$"
+                    Dim s As String = "^[^(aeioumnñqAEIOUMNÑQ0123456789)]{0,2}$"
                     Dim expreg As New System.Text.RegularExpressions.Regex(s)
                     Return (expreg.IsMatch(vali))
                 Case "expnumuno"
