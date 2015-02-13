@@ -79,6 +79,7 @@ Partial Class Matricula
         Me.DVCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
         Me.RutCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
         Me.TelCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
+        Me.QueryTb = New System.Windows.Forms.TextBox()
         Me.DatosPersonalesGbx.SuspendLayout()
         Me.DatosCursoGBx.SuspendLayout()
         Me.DiasGBx.SuspendLayout()
@@ -642,7 +643,7 @@ Partial Class Matricula
         'RutCTxBx
         '
         Me.RutCTxBx.Location = New System.Drawing.Point(124, 53)
-        Me.RutCTxBx.MaxLength = 10
+        Me.RutCTxBx.MaxLength = 9
         Me.RutCTxBx.Name = "RutCTxBx"
         Me.RutCTxBx.Size = New System.Drawing.Size(100, 20)
         Me.RutCTxBx.TabIndex = 1
@@ -657,11 +658,19 @@ Partial Class Matricula
         Me.TelCTxBx.TabIndex = 4
         Me.TelCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.NUMERIC
         '
+        'QueryTb
+        '
+        Me.QueryTb.Location = New System.Drawing.Point(93, 429)
+        Me.QueryTb.Name = "QueryTb"
+        Me.QueryTb.Size = New System.Drawing.Size(512, 20)
+        Me.QueryTb.TabIndex = 7
+        '
         'Matricula
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(698, 456)
+        Me.Controls.Add(Me.QueryTb)
         Me.Controls.Add(Me.NRegCTxBx)
         Me.Controls.Add(Me.LimpiarBtn)
         Me.Controls.Add(Me.NRegLbl)
@@ -746,4 +755,5 @@ Partial Class Matricula
     Friend WithEvents NombreCTxBx As ProyectoTodoTransportes.CustomTextBoxClass
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents NRegCTxBx As ProyectoTodoTransportes.CustomTextBoxClass
+    Friend WithEvents QueryTb As System.Windows.Forms.TextBox
 End Class

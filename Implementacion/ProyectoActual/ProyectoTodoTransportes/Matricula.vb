@@ -104,13 +104,14 @@ Public Class Matricula
         Me.APagarTxtLbl.Text = "$$$$"
         Me.DocPagoCbBx.Text = ""
         Me.MedioPagoChBx.Text = ""
-        Me.PagoRealizChBx.Enabled = ""
+        Me.PagoRealizChBx.Enabled = False
         Me.CodPagoTxBx.Text = ""
     End Sub
 
     Private Sub GuardarBtn_Click(sender As System.Object, e As System.EventArgs) Handles GuardarBtn.Click
         'Format(Date.Today.ToString, "HH:mm:ss") & "','" & _
-        con.doQuery("call MATRICULAR('" & Me.NRegCTxBx.Text & "', '" & _
+        'con.doQuery(
+        Dim Query As String = "call MATRICULAR('" & Me.NRegCTxBx.Text & "', '" & _
                                      Me.NombreCTxBx.Text & "', '" & _
                                      Me.RutCTxBx.Text & "-" & Me.DVCTxBx.Text & "','" & _
                                      Format(Me.FNacDTiPckr.Value, "yyyy-MM-dd") & "','" & _
@@ -131,7 +132,9 @@ Public Class Matricula
                                      Me.DocPagoCbBx.Text & "','" & _
                                      Me.MedioPagoChBx.Text & "'," & _
                                      Me.PagoRealizChBx.Checked.ToString.ToLower() & ",'" & _
-                                     Me.CodPagoTxBx.Text & "');")
+                                     Me.CodPagoTxBx.Text & "');" ')
+        Me.LimpiarBtn.PerformClick()
+        Me.QueryTb.Text = Query
     End Sub
 
     Private Sub ProductoCbBx_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ProductoCbBx.SelectedIndexChanged
