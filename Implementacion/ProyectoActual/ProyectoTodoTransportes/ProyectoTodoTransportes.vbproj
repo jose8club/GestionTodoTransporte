@@ -125,9 +125,7 @@
     <Compile Include="newFlota.Designer.vb">
       <DependentUpon>newFlota.vb</DependentUpon>
     </Compile>
-    <Compile Include="newFlota.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="newFlota.vb" />
     <Compile Include="Prueba.Designer.vb">
       <DependentUpon>Prueba.vb</DependentUpon>
     </Compile>
@@ -158,12 +156,6 @@
     <Compile Include="resGeneral.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="resProfesores.Designer.vb">
-      <DependentUpon>resProfesores.vb</DependentUpon>
-    </Compile>
-    <Compile Include="resProfesores.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Conexion.vb" />
     <Compile Include="Curso.Designer.vb">
       <DependentUpon>Curso.vb</DependentUpon>
@@ -183,10 +175,16 @@
     <Compile Include="Encuesta.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="editDocente.Designer.vb">
-      <DependentUpon>editDocente.vb</DependentUpon>
+    <Compile Include="ResumenCurso.Designer.vb">
+      <DependentUpon>ResumenCurso.vb</DependentUpon>
     </Compile>
-    <Compile Include="editDocente.vb">
+    <Compile Include="ResumenCurso.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResumenDocente.Designer.vb">
+      <DependentUpon>ResumenDocente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ResumenDocente.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Funcionario.Designer.vb">
@@ -195,22 +193,22 @@
     <Compile Include="Funcionario.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ResumenTabs.Designer.vb">
+      <DependentUpon>ResumenTabs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ResumenTabs.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="tab_Config.Designer.vb">
       <DependentUpon>tab_Config.vb</DependentUpon>
     </Compile>
     <Compile Include="tab_Config.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="tab_Docente.Designer.vb">
-      <DependentUpon>tab_Docente.vb</DependentUpon>
+    <Compile Include="DocenteTabs.Designer.vb">
+      <DependentUpon>DocenteTabs.vb</DependentUpon>
     </Compile>
-    <Compile Include="tab_Docente.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="tab_resumen.Designer.vb">
-      <DependentUpon>tab_resumen.vb</DependentUpon>
-    </Compile>
-    <Compile Include="tab_resumen.vb">
+    <Compile Include="DocenteTabs.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Usuarios.Designer.vb">
@@ -293,9 +291,6 @@
     <EmbeddedResource Include="resGeneral.resx">
       <DependentUpon>resGeneral.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="resProfesores.resx">
-      <DependentUpon>resProfesores.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Curso.resx">
       <DependentUpon>Curso.vb</DependentUpon>
     </EmbeddedResource>
@@ -305,20 +300,23 @@
     <EmbeddedResource Include="Encuesta.resx">
       <DependentUpon>Encuesta.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="editDocente.resx">
-      <DependentUpon>editDocente.vb</DependentUpon>
+    <EmbeddedResource Include="ResumenCurso.resx">
+      <DependentUpon>ResumenCurso.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResumenDocente.resx">
+      <DependentUpon>ResumenDocente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Funcionario.resx">
       <DependentUpon>Funcionario.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ResumenTabs.resx">
+      <DependentUpon>ResumenTabs.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="tab_Config.resx">
       <DependentUpon>tab_Config.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="tab_Docente.resx">
-      <DependentUpon>tab_Docente.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="tab_resumen.resx">
-      <DependentUpon>tab_resumen.vb</DependentUpon>
+    <EmbeddedResource Include="DocenteTabs.resx">
+      <DependentUpon>DocenteTabs.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuarios.resx">
       <DependentUpon>Usuarios.vb</DependentUpon>

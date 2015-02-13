@@ -66,7 +66,7 @@
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
         ElseIf Nombre.Equals("Profesores") Then
-            Form = New tab_Docente(USER, con, ESTADO)
+            Form = New DocenteTabs(USER, con, ESTADO)
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
@@ -75,11 +75,11 @@
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
-        ElseIf Nombre.Equals("Vehículos") Then
-            Form = New newFlota(USER, con, ESTADO)
-            Form.TopLevel = False
-            Me.MainMenu.TabPages(tab).Controls.Add(Form)
-            Form.Show()
+            'ElseIf Nombre.Equals("Vehículos") Then
+            '    Form = New newFlota(USER, con, ESTADO)
+            '    Form.TopLevel = False
+            '    Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            '    Form.Show()
         ElseIf Nombre.Equals("Configuración") Then
             Form = New tab_Config(USER, con, ESTADO)
             Form.TopLevel = False
@@ -95,8 +95,8 @@
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
-        ElseIf Nombre.Equals("Resumenes") Then
-            Form = New tab_resumen(USER, con, ESTADO)
+        ElseIf Nombre.Equals("Resumen") Then
+            Form = New ResumenTabs(USER, con, ESTADO)
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()

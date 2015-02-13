@@ -44,19 +44,19 @@ Partial Class newFlota
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.cbox_anio = New System.Windows.Forms.ComboBox()
-        Me.tbox_mat1 = New CustomTxtBox.Custom2()
-        Me.tbox_mat2 = New CustomTxtBox.Custom2()
-        Me.tbox_mat3 = New CustomTxtBox.Custom2()
+        'Me.cbox_anio = New System.Windows.Forms.ComboBox()
+        'Me.tbox_mat1 = New CustomTxtBox.Custom2()
+        'Me.tbox_mat2 = New CustomTxtBox.Custom2()
+        'Me.tbox_mat3 = New CustomTxtBox.Custom2()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.tbox_mat3)
-        Me.GroupBox1.Controls.Add(Me.tbox_mat2)
-        Me.GroupBox1.Controls.Add(Me.tbox_mat1)
+        'Me.GroupBox1.Controls.Add(Me.tbox_mat3)
+        'Me.GroupBox1.Controls.Add(Me.tbox_mat2)
+        'Me.GroupBox1.Controls.Add(Me.tbox_mat1)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.tbox_modelo)
@@ -307,30 +307,30 @@ Partial Class newFlota
         '
         'tbox_mat1
         '
-        Me.tbox_mat1.Location = New System.Drawing.Point(135, 30)
-        Me.tbox_mat1.MaxLength = 2
-        Me.tbox_mat1.Name = "tbox_mat1"
-        Me.tbox_mat1.Size = New System.Drawing.Size(48, 20)
-        Me.tbox_mat1.TabIndex = 15
-        Me.tbox_mat1.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
+        'Me.tbox_mat1.Location = New System.Drawing.Point(135, 30)
+        'Me.tbox_mat1.MaxLength = 2
+        'Me.tbox_mat1.Name = "tbox_mat1"
+        'Me.tbox_mat1.Size = New System.Drawing.Size(48, 20)
+        'Me.tbox_mat1.TabIndex = 15
+        'Me.tbox_mat1.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
         '
         'tbox_mat2
         '
-        Me.tbox_mat2.Location = New System.Drawing.Point(211, 30)
-        Me.tbox_mat2.MaxLength = 2
-        Me.tbox_mat2.Name = "tbox_mat2"
-        Me.tbox_mat2.Size = New System.Drawing.Size(51, 20)
-        Me.tbox_mat2.TabIndex = 16
-        Me.tbox_mat2.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
+        'Me.tbox_mat2.Location = New System.Drawing.Point(211, 30)
+        'Me.tbox_mat2.MaxLength = 2
+        'Me.tbox_mat2.Name = "tbox_mat2"
+        'Me.tbox_mat2.Size = New System.Drawing.Size(51, 20)
+        'Me.tbox_mat2.TabIndex = 16
+        'Me.tbox_mat2.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
         '
         'tbox_mat3
         '
-        Me.tbox_mat3.Location = New System.Drawing.Point(290, 30)
-        Me.tbox_mat3.MaxLength = 2
-        Me.tbox_mat3.Name = "tbox_mat3"
-        Me.tbox_mat3.Size = New System.Drawing.Size(51, 20)
-        Me.tbox_mat3.TabIndex = 17
-        Me.tbox_mat3.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
+        'Me.tbox_mat3.Location = New System.Drawing.Point(290, 30)
+        'Me.tbox_mat3.MaxLength = 2
+        'Me.tbox_mat3.Name = "tbox_mat3"
+        'Me.tbox_mat3.Size = New System.Drawing.Size(51, 20)
+        'Me.tbox_mat3.TabIndex = 17
+        'Me.tbox_mat3.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
         '
         'newFlota
         '
@@ -375,7 +375,7 @@ Partial Class newFlota
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents cbox_anio As System.Windows.Forms.ComboBox
-    Friend WithEvents tbox_mat2 As CustomTxtBox.Custom2
-    Friend WithEvents tbox_mat1 As CustomTxtBox.Custom2
-    Friend WithEvents tbox_mat3 As CustomTxtBox.Custom2
+    'Friend WithEvents tbox_mat2 As CustomTxtBox.Custom2
+    'Friend WithEvents tbox_mat1 As CustomTxtBox.Custom2
+    'Friend WithEvents tbox_mat3 As CustomTxtBox.Custom2
 End Class
