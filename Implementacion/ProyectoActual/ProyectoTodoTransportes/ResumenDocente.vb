@@ -72,6 +72,7 @@
                 lbl_Telefono.Text = "Teléfono:                 " & telefono.Rows(0).Item(0).ToString
             End If
 
+
             Dim cursos As DataTable = New DataTable
             Dim vehiculo As DataTable = New DataTable
 
@@ -79,8 +80,10 @@
             If aux.Rows(0).Item(0).Equals("I") Then
                 cursos = con.doQuery("SELECT Curso FROM Clase c, Practica p  WHERE c.idClase = p.Clase AND p.Instructor = '" & list_Docente.SelectedValue & "' GROUP BY Curso ORDER BY Curso ASC")
                 vehiculo = con.doQuery("SELECT Auto FROM Instructor WHERE idInstructor = '" & list_Docente.SelectedValue & "'")
+                lbl_tipo.Text = "Tipo:                        Instructor"
             Else
                 cursos = con.doQuery("SELECT Curso FROM Clase c, Teoria t  WHERE c.idClase = t.Clase AND t.Profesor = '" & list_Docente.SelectedValue & "' GROUP BY Curso ORDER BY Curso ASC")
+                lbl_tipo.Text = "Tipo:                        Profesor"
             End If
 
             list_Cursos.DataSource = cursos
@@ -103,19 +106,4 @@
 
     End Sub
 
-    Private Sub lbl_patente_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lbl_patente.Click
-
-    End Sub
-
-    Private Sub Label1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.Click
-
-    End Sub
-
-    Private Sub list_Cursos_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles list_Cursos.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub lbl_Telefono_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles lbl_Telefono.Click
-
-    End Sub
 End Class

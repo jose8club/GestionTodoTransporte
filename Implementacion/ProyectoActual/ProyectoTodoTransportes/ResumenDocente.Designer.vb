@@ -30,6 +30,7 @@ Partial Class ResumenDocente
         Me.list_Cursos = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.lbl_patente = New System.Windows.Forms.Label()
+        Me.lbl_tipo = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'list_Docente
@@ -79,15 +80,15 @@ Partial Class ResumenDocente
         'list_Cursos
         '
         Me.list_Cursos.FormattingEnabled = True
-        Me.list_Cursos.Location = New System.Drawing.Point(457, 63)
+        Me.list_Cursos.Location = New System.Drawing.Point(459, 90)
         Me.list_Cursos.Name = "list_Cursos"
-        Me.list_Cursos.Size = New System.Drawing.Size(141, 134)
+        Me.list_Cursos.Size = New System.Drawing.Size(141, 121)
         Me.list_Cursos.TabIndex = 5
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(358, 63)
+        Me.Label1.Location = New System.Drawing.Point(360, 90)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(93, 13)
         Me.Label1.TabIndex = 6
@@ -96,17 +97,27 @@ Partial Class ResumenDocente
         'lbl_patente
         '
         Me.lbl_patente.AutoSize = True
-        Me.lbl_patente.Location = New System.Drawing.Point(358, 200)
+        Me.lbl_patente.Location = New System.Drawing.Point(360, 214)
         Me.lbl_patente.Name = "lbl_patente"
         Me.lbl_patente.Size = New System.Drawing.Size(95, 13)
         Me.lbl_patente.TabIndex = 7
         Me.lbl_patente.Text = "Patente vehículo: "
+        '
+        'lbl_tipo
+        '
+        Me.lbl_tipo.AutoSize = True
+        Me.lbl_tipo.Location = New System.Drawing.Point(358, 65)
+        Me.lbl_tipo.Name = "lbl_tipo"
+        Me.lbl_tipo.Size = New System.Drawing.Size(31, 13)
+        Me.lbl_tipo.TabIndex = 8
+        Me.lbl_tipo.Text = "Tipo:"
         '
         'ResumenDocente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(676, 292)
+        Me.Controls.Add(Me.lbl_tipo)
         Me.Controls.Add(Me.lbl_patente)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.list_Cursos)
@@ -130,4 +141,5 @@ Partial Class ResumenDocente
     Friend WithEvents list_Cursos As System.Windows.Forms.ListBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents lbl_patente As System.Windows.Forms.Label
+    Friend WithEvents lbl_tipo As System.Windows.Forms.Label
 End Class
