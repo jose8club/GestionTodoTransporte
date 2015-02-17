@@ -44,19 +44,19 @@ Partial Class newFlota
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        'Me.cbox_anio = New System.Windows.Forms.ComboBox()
-        'Me.tbox_mat1 = New CustomTxtBox.Custom2()
-        'Me.tbox_mat2 = New CustomTxtBox.Custom2()
-        'Me.tbox_mat3 = New CustomTxtBox.Custom2()
+        Me.tbox_mat1 = New CustomTxtBox.Custom2()
+        Me.tbox_mat2 = New CustomTxtBox.Custom2()
+        Me.tbox_mat3 = New CustomTxtBox.Custom2()
+        Me.cbox_anios = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
-        'Me.GroupBox1.Controls.Add(Me.tbox_mat3)
-        'Me.GroupBox1.Controls.Add(Me.tbox_mat2)
-        'Me.GroupBox1.Controls.Add(Me.tbox_mat1)
+        Me.GroupBox1.Controls.Add(Me.tbox_mat3)
+        Me.GroupBox1.Controls.Add(Me.tbox_mat2)
+        Me.GroupBox1.Controls.Add(Me.tbox_mat1)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.tbox_modelo)
@@ -294,50 +294,48 @@ Partial Class newFlota
         Me.Label10.TabIndex = 2
         Me.Label10.Text = "Año Procedencia:"
         '
-        'cbox_anio
-        '
-        Me.cbox_anio.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cbox_anio.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cbox_anio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbox_anio.FormattingEnabled = True
-        Me.cbox_anio.Location = New System.Drawing.Point(260, 9)
-        Me.cbox_anio.Name = "cbox_anio"
-        Me.cbox_anio.Size = New System.Drawing.Size(121, 21)
-        Me.cbox_anio.TabIndex = 3
-        '
         'tbox_mat1
         '
-        'Me.tbox_mat1.Location = New System.Drawing.Point(135, 30)
-        'Me.tbox_mat1.MaxLength = 2
-        'Me.tbox_mat1.Name = "tbox_mat1"
-        'Me.tbox_mat1.Size = New System.Drawing.Size(48, 20)
-        'Me.tbox_mat1.TabIndex = 15
-        'Me.tbox_mat1.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
+        Me.tbox_mat1.Location = New System.Drawing.Point(135, 30)
+        Me.tbox_mat1.MaxLength = 2
+        Me.tbox_mat1.Name = "tbox_mat1"
+        Me.tbox_mat1.Size = New System.Drawing.Size(51, 20)
+        Me.tbox_mat1.TabIndex = 15
+        Me.tbox_mat1.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
         '
         'tbox_mat2
         '
-        'Me.tbox_mat2.Location = New System.Drawing.Point(211, 30)
-        'Me.tbox_mat2.MaxLength = 2
-        'Me.tbox_mat2.Name = "tbox_mat2"
-        'Me.tbox_mat2.Size = New System.Drawing.Size(51, 20)
-        'Me.tbox_mat2.TabIndex = 16
-        'Me.tbox_mat2.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
+        Me.tbox_mat2.Location = New System.Drawing.Point(211, 30)
+        Me.tbox_mat2.MaxLength = 2
+        Me.tbox_mat2.Name = "tbox_mat2"
+        Me.tbox_mat2.Size = New System.Drawing.Size(51, 20)
+        Me.tbox_mat2.TabIndex = 16
+        Me.tbox_mat2.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
         '
         'tbox_mat3
         '
-        'Me.tbox_mat3.Location = New System.Drawing.Point(290, 30)
-        'Me.tbox_mat3.MaxLength = 2
-        'Me.tbox_mat3.Name = "tbox_mat3"
-        'Me.tbox_mat3.Size = New System.Drawing.Size(51, 20)
-        'Me.tbox_mat3.TabIndex = 17
-        'Me.tbox_mat3.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
+        Me.tbox_mat3.Location = New System.Drawing.Point(288, 30)
+        Me.tbox_mat3.MaxLength = 2
+        Me.tbox_mat3.Name = "tbox_mat3"
+        Me.tbox_mat3.Size = New System.Drawing.Size(51, 20)
+        Me.tbox_mat3.TabIndex = 17
+        Me.tbox_mat3.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
+        '
+        'cbox_anios
+        '
+        Me.cbox_anios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbox_anios.FormattingEnabled = True
+        Me.cbox_anios.Location = New System.Drawing.Point(260, 9)
+        Me.cbox_anios.Name = "cbox_anios"
+        Me.cbox_anios.Size = New System.Drawing.Size(136, 21)
+        Me.cbox_anios.TabIndex = 3
         '
         'newFlota
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(837, 417)
-        Me.Controls.Add(Me.cbox_anio)
+        Me.Controls.Add(Me.cbox_anios)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -375,6 +373,10 @@ Partial Class newFlota
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents cbox_anio As System.Windows.Forms.ComboBox
+    Friend WithEvents tbox_mat3 As CustomTxtBox.Custom2
+    Friend WithEvents tbox_mat2 As CustomTxtBox.Custom2
+    Friend WithEvents tbox_mat1 As CustomTxtBox.Custom2
+    Friend WithEvents cbox_anios As System.Windows.Forms.ComboBox
     'Friend WithEvents tbox_mat2 As CustomTxtBox.Custom2
     'Friend WithEvents tbox_mat1 As CustomTxtBox.Custom2
     'Friend WithEvents tbox_mat3 As CustomTxtBox.Custom2

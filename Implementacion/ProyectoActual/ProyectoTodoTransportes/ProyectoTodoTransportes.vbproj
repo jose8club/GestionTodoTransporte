@@ -125,7 +125,9 @@
     <Compile Include="newFlota.Designer.vb">
       <DependentUpon>newFlota.vb</DependentUpon>
     </Compile>
-    <Compile Include="newFlota.vb" />
+    <Compile Include="newFlota.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Prueba.Designer.vb">
       <DependentUpon>Prueba.vb</DependentUpon>
     </Compile>
