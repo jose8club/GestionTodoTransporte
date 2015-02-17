@@ -132,7 +132,7 @@
             MsgBox("La hora debe ser exacta")
             Return False
         ElseIf aprovado(cbox_RegistroMatricula.SelectedValue.ToString, cbox_TipoExamen.SelectedValue.ToString) Then
-            MsgBox("Estudiante aprovado en " & cbox_TipoExamen.SelectedValue.ToString & ".")
+            MsgBox("Estudiante aprovado en " & cbox_TipoExamen.SelectedValue.ToString & ". No se puede realizar operacion")
             Return False
         End If
 
@@ -144,7 +144,7 @@
 
         Dim d As DataTable = con.doQuery("SELECT d.Estado " _
                                     & "FROM Documento d, Estudiante_Documento e, Estudiante f" _
-                                     & " WHERE e.")
+                                     & " WHERE d.idDOCUMENTO=e.Documento and e.Estudiante=f.idESTUDIANTE and d.Estado='Aprobado' and f.idESTUDIANTE= '" & Matricula & "' and d.Tipo = '" & Examen & "'")
 
         If d.Rows.Count > 0 Then
             resultado = d.Rows(0).Item(0).ToString
@@ -152,12 +152,10 @@
             resultado = ""
         End If
         If resultado = "Aprobado" Then
-            Return False
-        Else
             Return True
+        Else
+            Return False
         End If
-        
-
     End Function
 
     Private Sub cbox_TipoExamen_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_TipoExamen.SelectedIndexChanged
