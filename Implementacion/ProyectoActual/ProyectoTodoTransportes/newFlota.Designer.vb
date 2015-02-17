@@ -23,6 +23,9 @@ Partial Class newFlota
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.tbox_mat3 = New CustomTxtBox.Custom2()
+        Me.tbox_mat2 = New CustomTxtBox.Custom2()
+        Me.tbox_mat1 = New CustomTxtBox.Custom2()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.tbox_modelo = New System.Windows.Forms.TextBox()
@@ -44,9 +47,6 @@ Partial Class newFlota
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.tbox_mat1 = New CustomTxtBox.Custom2()
-        Me.tbox_mat2 = New CustomTxtBox.Custom2()
-        Me.tbox_mat3 = New CustomTxtBox.Custom2()
         Me.cbox_anios = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -74,6 +74,33 @@ Partial Class newFlota
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Agregar Vehiculo"
+        '
+        'tbox_mat3
+        '
+        Me.tbox_mat3.Location = New System.Drawing.Point(288, 30)
+        Me.tbox_mat3.MaxLength = 2
+        Me.tbox_mat3.Name = "tbox_mat3"
+        Me.tbox_mat3.Size = New System.Drawing.Size(51, 20)
+        Me.tbox_mat3.TabIndex = 17
+        Me.tbox_mat3.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
+        '
+        'tbox_mat2
+        '
+        Me.tbox_mat2.Location = New System.Drawing.Point(211, 30)
+        Me.tbox_mat2.MaxLength = 2
+        Me.tbox_mat2.Name = "tbox_mat2"
+        Me.tbox_mat2.Size = New System.Drawing.Size(51, 20)
+        Me.tbox_mat2.TabIndex = 16
+        Me.tbox_mat2.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
+        '
+        'tbox_mat1
+        '
+        Me.tbox_mat1.Location = New System.Drawing.Point(135, 30)
+        Me.tbox_mat1.MaxLength = 2
+        Me.tbox_mat1.Name = "tbox_mat1"
+        Me.tbox_mat1.Size = New System.Drawing.Size(51, 20)
+        Me.tbox_mat1.TabIndex = 15
+        Me.tbox_mat1.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
         '
         'Label8
         '
@@ -293,33 +320,6 @@ Partial Class newFlota
         Me.Label10.Size = New System.Drawing.Size(92, 13)
         Me.Label10.TabIndex = 2
         Me.Label10.Text = "Año Procedencia:"
-        '
-        'tbox_mat1
-        '
-        Me.tbox_mat1.Location = New System.Drawing.Point(135, 30)
-        Me.tbox_mat1.MaxLength = 2
-        Me.tbox_mat1.Name = "tbox_mat1"
-        Me.tbox_mat1.Size = New System.Drawing.Size(51, 20)
-        Me.tbox_mat1.TabIndex = 15
-        Me.tbox_mat1.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
-        '
-        'tbox_mat2
-        '
-        Me.tbox_mat2.Location = New System.Drawing.Point(211, 30)
-        Me.tbox_mat2.MaxLength = 2
-        Me.tbox_mat2.Name = "tbox_mat2"
-        Me.tbox_mat2.Size = New System.Drawing.Size(51, 20)
-        Me.tbox_mat2.TabIndex = 16
-        Me.tbox_mat2.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
-        '
-        'tbox_mat3
-        '
-        Me.tbox_mat3.Location = New System.Drawing.Point(288, 30)
-        Me.tbox_mat3.MaxLength = 2
-        Me.tbox_mat3.Name = "tbox_mat3"
-        Me.tbox_mat3.Size = New System.Drawing.Size(51, 20)
-        Me.tbox_mat3.TabIndex = 17
-        Me.tbox_mat3.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
         '
         'cbox_anios
         '
