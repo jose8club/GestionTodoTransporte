@@ -75,11 +75,11 @@
             Form.TopLevel = False
             Me.MainMenu.TabPages(tab).Controls.Add(Form)
             Form.Show()
-            'ElseIf Nombre.Equals("Vehículos") Then
-            '    Form = New newFlota(USER, con, ESTADO)
-            '    Form.TopLevel = False
-            '    Me.MainMenu.TabPages(tab).Controls.Add(Form)
-            '    Form.Show()
+        ElseIf Nombre.Equals("Vehículos") Then
+            Form = New newFlota(USER, con, ESTADO)
+            Form.TopLevel = False
+            Me.MainMenu.TabPages(tab).Controls.Add(Form)
+            Form.Show()
         ElseIf Nombre.Equals("Configuración") Then
             Form = New tab_Config(USER, con, ESTADO)
             Form.TopLevel = False
