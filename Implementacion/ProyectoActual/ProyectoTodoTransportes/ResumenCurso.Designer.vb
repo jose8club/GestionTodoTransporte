@@ -28,6 +28,12 @@ Partial Class ResumenCurso
         Me.check_Maquinaria = New System.Windows.Forms.CheckBox()
         Me.check_Profesional = New System.Windows.Forms.CheckBox()
         Me.check_Particular = New System.Windows.Forms.CheckBox()
+        Me.lbl_Area = New System.Windows.Forms.Label()
+        Me.lbl_Producto = New System.Windows.Forms.Label()
+        Me.list_Profesores = New System.Windows.Forms.ListBox()
+        Me.lbl_Profesores = New System.Windows.Forms.Label()
+        Me.lbl_Alumnos = New System.Windows.Forms.Label()
+        Me.list_Alumnos = New System.Windows.Forms.ListBox()
         Me.SuspendLayout()
         '
         'tbox_search
@@ -85,11 +91,69 @@ Partial Class ResumenCurso
         Me.check_Particular.Text = "Cursos Particulares"
         Me.check_Particular.UseVisualStyleBackColor = True
         '
+        'lbl_Area
+        '
+        Me.lbl_Area.AutoSize = True
+        Me.lbl_Area.Location = New System.Drawing.Point(314, 42)
+        Me.lbl_Area.Name = "lbl_Area"
+        Me.lbl_Area.Size = New System.Drawing.Size(39, 13)
+        Me.lbl_Area.TabIndex = 8
+        Me.lbl_Area.Text = "Label1"
+        '
+        'lbl_Producto
+        '
+        Me.lbl_Producto.AutoSize = True
+        Me.lbl_Producto.Location = New System.Drawing.Point(314, 75)
+        Me.lbl_Producto.Name = "lbl_Producto"
+        Me.lbl_Producto.Size = New System.Drawing.Size(39, 13)
+        Me.lbl_Producto.TabIndex = 9
+        Me.lbl_Producto.Text = "Label1"
+        '
+        'list_Profesores
+        '
+        Me.list_Profesores.FormattingEnabled = True
+        Me.list_Profesores.Location = New System.Drawing.Point(432, 107)
+        Me.list_Profesores.Name = "list_Profesores"
+        Me.list_Profesores.Size = New System.Drawing.Size(148, 82)
+        Me.list_Profesores.TabIndex = 10
+        '
+        'lbl_Profesores
+        '
+        Me.lbl_Profesores.AutoSize = True
+        Me.lbl_Profesores.Location = New System.Drawing.Point(314, 107)
+        Me.lbl_Profesores.Name = "lbl_Profesores"
+        Me.lbl_Profesores.Size = New System.Drawing.Size(112, 13)
+        Me.lbl_Profesores.TabIndex = 11
+        Me.lbl_Profesores.Text = "Profesores Asociados:"
+        '
+        'lbl_Alumnos
+        '
+        Me.lbl_Alumnos.AutoSize = True
+        Me.lbl_Alumnos.Location = New System.Drawing.Point(314, 200)
+        Me.lbl_Alumnos.Name = "lbl_Alumnos"
+        Me.lbl_Alumnos.Size = New System.Drawing.Size(102, 13)
+        Me.lbl_Alumnos.TabIndex = 13
+        Me.lbl_Alumnos.Text = "Alumnos Asociados:"
+        '
+        'list_Alumnos
+        '
+        Me.list_Alumnos.FormattingEnabled = True
+        Me.list_Alumnos.Location = New System.Drawing.Point(432, 200)
+        Me.list_Alumnos.Name = "list_Alumnos"
+        Me.list_Alumnos.Size = New System.Drawing.Size(148, 108)
+        Me.list_Alumnos.TabIndex = 12
+        '
         'ResumenCurso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(678, 368)
+        Me.Controls.Add(Me.lbl_Alumnos)
+        Me.Controls.Add(Me.list_Alumnos)
+        Me.Controls.Add(Me.lbl_Profesores)
+        Me.Controls.Add(Me.list_Profesores)
+        Me.Controls.Add(Me.lbl_Producto)
+        Me.Controls.Add(Me.lbl_Area)
         Me.Controls.Add(Me.check_Particular)
         Me.Controls.Add(Me.check_Profesional)
         Me.Controls.Add(Me.check_Maquinaria)
@@ -109,4 +173,10 @@ Partial Class ResumenCurso
     Friend WithEvents check_Maquinaria As System.Windows.Forms.CheckBox
     Friend WithEvents check_Profesional As System.Windows.Forms.CheckBox
     Friend WithEvents check_Particular As System.Windows.Forms.CheckBox
+    Friend WithEvents lbl_Area As System.Windows.Forms.Label
+    Friend WithEvents lbl_Producto As System.Windows.Forms.Label
+    Friend WithEvents list_Profesores As System.Windows.Forms.ListBox
+    Friend WithEvents lbl_Profesores As System.Windows.Forms.Label
+    Friend WithEvents lbl_Alumnos As System.Windows.Forms.Label
+    Friend WithEvents list_Alumnos As System.Windows.Forms.ListBox
 End Class
