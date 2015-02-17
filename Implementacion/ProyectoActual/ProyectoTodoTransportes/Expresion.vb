@@ -9,7 +9,7 @@ Public Class Expresion
         If valcero(vali) = True Then
             Select Case a
                 Case "expletrauno"
-                    Dim s As String = "^[^(jñoqJÑOQ0123456789)]{0,2}$"
+                    Dim s As String = "^[^(ijñoqIJÑOQ0123456789)]{0,1}[^(ijñoqmwIJÑOQMW0123456789)]{0,1}$"
                     Dim expreg As New System.Text.RegularExpressions.Regex(s)
                     Return (expreg.IsMatch(vali))
                 Case "expletrados"

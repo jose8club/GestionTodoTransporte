@@ -131,9 +131,33 @@
         ElseIf CInt(sbox_Minutos.Text) <> 0 And cbox_TipoExamen.Text.Equals("Cambio Rueda") Then
             MsgBox("La hora debe ser exacta")
             Return False
+        ElseIf aprovado(cbox_RegistroMatricula.SelectedValue.ToString, cbox_TipoExamen.SelectedValue.ToString) Then
+            MsgBox("Estudiante aprovado en " & cbox_TipoExamen.SelectedValue.ToString & ".")
+            Return False
         End If
 
         Return True
+    End Function
+
+    Function aprovado(ByVal Matricula As String, ByVal Examen As String) As Boolean
+        Dim resultado As String = ""
+
+        Dim d As DataTable = con.doQuery("SELECT d.Estado " _
+                                    & "FROM Documento d, Estudiante_Documento e, Estudiante f" _
+                                     & " WHERE e.")
+
+        If d.Rows.Count > 0 Then
+            resultado = d.Rows(0).Item(0).ToString
+        Else
+            resultado = ""
+        End If
+        If resultado = "Aprobado" Then
+            Return False
+        Else
+            Return True
+        End If
+        
+
     End Function
 
     Private Sub cbox_TipoExamen_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_TipoExamen.SelectedIndexChanged
