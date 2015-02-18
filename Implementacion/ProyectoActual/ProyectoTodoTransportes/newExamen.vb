@@ -131,18 +131,23 @@
         ElseIf CInt(sbox_Minutos.Text) <> 0 And cbox_TipoExamen.Text.Equals("Cambio Rueda") Then
             MsgBox("La hora debe ser exacta")
             Return False
+        ElseIf inhabilitado(cbox_funcionario.SelectedValue.ToString) And Not cbox_TipoExamen.Text.Equals("Examen Teórico") Then
+            MsgBox("El vehiculo del instructor asignado no está disponible")
+            Return False
         ElseIf aprovado(cbox_RegistroMatricula.SelectedValue.ToString, cbox_TipoExamen.SelectedValue.ToString) And Not (cbox_TipoExamen.Text.Equals("Examen Municipal") Or cbox_TipoExamen.Text.Equals("Examen Psicotécnico") Or cbox_TipoExamen.Text.Equals("Cambio Rueda")) Then
             MsgBox("Estudiante aprovado en " & cbox_TipoExamen.SelectedValue.ToString & ". No se puede realizar operacion")
             Return False
         ElseIf suficiente(cbox_RegistroMatricula.SelectedValue.ToString, cbox_TipoExamen.SelectedValue.ToString) And cbox_TipoExamen.Text.Equals("Examen Municipal") Then
             MsgBox("Examen Municipal hecho en mas de las ocasiones permitidas. No se puede realizar operacion")
             Return False
+        
         End If
 
         Return True
     End Function
 
     Function aprovado(ByVal Matricula As String, ByVal Examen As String) As Boolean
+        'esta función no ingresa un examen si el estudiante ya está aprobado en ese examen en particular
         Dim resultado As String = ""
 
         Dim d As DataTable = con.doQuery("SELECT d.Estado " _
@@ -162,6 +167,7 @@
     End Function
 
     Function suficiente(ByVal Matricula As String, ByVal Examen As String) As Boolean
+        'es para que solo se haga dos veces el examen municipal
         Dim oportunidad As Integer = 0
         Dim d As DataTable = con.doQuery("SELECT count(d.Estado) " _
                                     & "FROM Documento d, Estudiante_Documento e, Estudiante f" _
@@ -178,6 +184,25 @@
             Return False
         End If
         Return True
+    End Function
+
+    Function inhabilitado(ByVal Funcionario As String) As Boolean
+        'Esto sirve para que un instructor que no tiene su vehiculo disponible no pueda hacer examenes
+        Dim estado As String = ""
+        Dim d As DataTable = con.doQuery("SELECT d.estado " _
+                                    & "FROM auto_escuela d, instructor i, funcionario f" _
+                                     & " WHERE i.Auto = d.Matricula and f.idFUNCIONARIO=i.idINSTRUCTOR and f.idFUNCIONARIO='" & Funcionario & "'")
+
+        If d.Rows.Count > 0 Then
+            estado = d.Rows(0).Item(0).ToString
+        Else
+            estado = ""
+        End If
+        If estado = "Disponible" Or estado = "" Then
+            Return False
+        Else
+            Return True
+        End If
     End Function
 
     Private Sub cbox_TipoExamen_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_TipoExamen.SelectedIndexChanged
