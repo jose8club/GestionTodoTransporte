@@ -102,9 +102,75 @@
         If tbox_Nombre.Text.Trim.Equals("") Then
             STATUS.Text = "ERROR: Ingrese los datos."
             Return False
+        ElseIf disponible(cbox_Vehiculo.SelectedValue.ToString) And rad_Instructor.Checked Then
+            STATUS.Text = "ERROR: vehiculo no disponible. Ocupado por otro instructor."
+            Return False
+        ElseIf taller(cbox_Vehiculo.SelectedValue.ToString) And rad_Instructor.Checked Then
+            STATUS.Text = "ERROR: vehiculo no disponible. Se encuentra en taller en este momento."
+            Return False
+        ElseIf debaja(cbox_Vehiculo.SelectedValue.ToString) And rad_Instructor.Checked Then
+            STATUS.Text = "ERROR: vehiculo no disponible. Ha sido dado de baja."
+            Return False
         End If
 
         Return True
+    End Function
+
+    Function disponible(ByVal Matricula As String) As Boolean
+        'Impide que mas de un instructor ocupe el mismo vehiculo
+        Dim estado As String = ""
+        Dim d As DataTable = con.doQuery("SELECT idINSTRUCTOR " _
+                                    & "FROM instructor" _
+                                     & " WHERE Auto='" & Matricula & "'")
+
+        If d.Rows.Count > 0 Then
+            estado = d.Rows(0).Item(0).ToString
+        Else
+            estado = ""
+        End If
+        If estado = "" Then
+            Return False
+        Else
+            Return True
+        End If
+    End Function
+
+    Function taller(ByVal Matricula As String) As Boolean
+        'impide que autos que esten en taller sean asignados
+        Dim estado As String = ""
+        Dim d As DataTable = con.doQuery("SELECT Estado " _
+                                    & "FROM auto_escuela" _
+                                     & " WHERE Matricula='" & Matricula & "'")
+
+        If d.Rows.Count > 0 Then
+            estado = d.Rows(0).Item(0).ToString
+        Else
+            estado = ""
+        End If
+        If estado = "En Taller" Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+    Function debaja(ByVal Matricula As String) As Boolean
+        'impide que autos que esten en dados de baja sean asignados
+        Dim estado As String = ""
+        Dim d As DataTable = con.doQuery("SELECT Estado " _
+                                    & "FROM auto_escuela" _
+                                     & " WHERE Matricula='" & Matricula & "'")
+
+        If d.Rows.Count > 0 Then
+            estado = d.Rows(0).Item(0).ToString
+        Else
+            estado = ""
+        End If
+        If estado = "De Baja" Then
+            Return True
+        Else
+            Return False
+        End If
     End Function
 
     Sub reset()
