@@ -28,7 +28,7 @@ Public Class newFlota
         Else
             usuario = ""
         End If
-        If usuario <> ("Recepcion") Then
+        If usuario <> ("Desarrollador") Or usuario <> ("Administrador") Then
             tbox_mat1.Enabled = False
             tbox_mat2.Enabled = False
             tbox_mat3.Enabled = False
@@ -208,14 +208,20 @@ Public Class newFlota
                 Else
                     ID = 0
                 End If
-                'If ID <> -1 Then
-                '    Dim inst As DataTable = con.doQuery("UPDATE instructor SET Auto= '" & Matricula & "' WHERE idInstructor= '" & Instructor & "'")
-                '    If inst.Rows.Count > 0 Then
-                '        ID = -1
-                '    Else
-                '        ID = 0
-                '    End If
-                'End If
+                If ID <> -1 Then
+                    Dim d As DataTable = con.doQuery("SELECT idInstructor FROM Instructor WHERE Auto = '" & Matricula & "'")
+                    If d.Rows.Count > 0 Then
+                        ID = -1
+                    Else
+                        ID = 0
+                    End If
+                    'Dim inst As DataTable = con.doQuery("UPDATE instructor SET Auto= '" & Matricula & "' WHERE idInstructor= '" & Instructor & "'")
+                    'If inst.Rows.Count > 0 Then
+                    '    ID = -1
+                    'Else
+                    '    ID = 0
+                    'End If
+                End If
 
                 If ID <> -1 Then
                     con.commitTransaction()
