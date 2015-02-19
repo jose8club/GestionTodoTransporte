@@ -22,30 +22,6 @@ Public Class newFlota
     Private Sub newFlota_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         'esto para que solo usuario pueda ingresar
         loadCBOX("año")
-        comp = con.doQuery("SELECT Tipo FROM Usuario WHERE Nombre ='" & USER & "'")
-        If comp.Rows.Count > 0 Then
-            usuario = comp.Rows(0).Item(0).ToString
-        Else
-            usuario = ""
-        End If
-        If usuario <> ("Desarrollador") Or usuario <> ("Administrador") Then
-            tbox_mat1.Enabled = False
-            tbox_mat2.Enabled = False
-            tbox_mat3.Enabled = False
-            tbox_modelo.Enabled = False
-
-            cbox_estado.Enabled = False
-            cbox_estado2.Enabled = False
-            cbox_instructor.Enabled = False
-            cbox_instructor2.Enabled = False
-            cbox_matricula.Enabled = False
-
-            btn_agregar.Enabled = False
-            btn_guardar.Enabled = False
-            btn_resetear01.Enabled = False
-            btn_resetear02.Enabled = False
-
-        End If
         loadCBOX("Estado")
         loadCBOX("Instructor")
         loadCBOX("Matricula")
@@ -200,28 +176,58 @@ Public Class newFlota
             Dim Columnas() As String = {}
             Dim Parametros() As String = {}
 
+            Dim V As MsgBoxResult
+            Dim S As Integer = 0
+            Dim instAnt As String = ""
+            Dim matrem As String = ""
+            Dim matnull As String = "000000"
+
             Try
                 con.beginTransaction()
                 Dim modi As DataTable = con.doQuery("UPDATE auto_escuela SET Estado= '" & Estado & "' WHERE Matricula= '" & Matricula & "'")
                 If modi.Rows.Count > 0 Then
                     ID = -1
                 Else
+                    'MsgBox(modi.Rows.Count)
                     ID = 0
-                End If
-                If ID <> -1 Then
-                    Dim d As DataTable = con.doQuery("SELECT idInstructor FROM Instructor WHERE Auto = '" & Matricula & "'")
-                    If d.Rows.Count > 0 Then
-                        ID = -1
-                    Else
-                        ID = 0
+                    If ID <> -1 Then
+                        Dim d As DataTable = con.doQuery("SELECT idInstructor FROM Instructor WHERE Auto = '" & Matricula & "'")
+                        If d.Rows.Count > 0 Then
+                            ID = 0
+                            instAnt = d.Rows(0).Item(0).ToString
+                            'MsgBox("iNSTRUCTOR " & instAnt & ".")
+                            V = MsgBox("Ya posee un instructor asociado ¿Desea cambiar de instructor?", 4, "Confirmacion")
+                            'MsgBox(V)
+                            If V = MsgBoxResult.Yes Then
+                                Dim f As DataTable = con.doQuery("UPDATE instructor SET Auto= '" & matnull & "' WHERE idInstructor= '" & instAnt & "'")
+                                If f.Rows.Count > 0 Then
+                                    ID = -1
+                                Else
+                                    ID = 0
+                                    Dim inst As DataTable = con.doQuery("UPDATE instructor SET Auto= '" & Matricula & "' WHERE idInstructor= '" & Instructor & "'")
+                                    If inst.Rows.Count > 0 Then
+                                        ID = -1
+                                    Else
+                                        ID = 0
+                                    End If
+                                End If
+                            ElseIf V = MsgBoxResult.No Then
+                                ID = 0
+                            End If
+                            
+                        Else
+                            ID = 0
+                            Dim inst As DataTable = con.doQuery("UPDATE instructor SET Auto= '" & Matricula & "' WHERE idInstructor= '" & Instructor & "'")
+                            If inst.Rows.Count > 0 Then
+                                ID = -1
+                            Else
+                                ID = 0
+                            End If
+                        End If
+
                     End If
-                    'Dim inst As DataTable = con.doQuery("UPDATE instructor SET Auto= '" & Matricula & "' WHERE idInstructor= '" & Instructor & "'")
-                    'If inst.Rows.Count > 0 Then
-                    '    ID = -1
-                    'Else
-                    '    ID = 0
-                    'End If
                 End If
+                
 
                 If ID <> -1 Then
                     con.commitTransaction()

@@ -106,39 +106,51 @@
         If cbox_RegistroMatricula.Text.Trim = "" Then
             STATUS.Text = "ERROR: Ingrese el campo 'Registro de Matrícula'"
             STATUS.ForeColor = Color.Red
+            cbox_RegistroMatricula.Focus()
             Return False
         ElseIf cbox_TipoExamen.Text = "" Then
             MsgBox("Ingrese tipo de examen")
+            cbox_TipoExamen.Focus()
             Return False
         ElseIf cbox_funcionario.Text = "" Then
             MsgBox("Ingrese datos de funcionario")
+            cbox_funcionario.Focus()
             Return False
         ElseIf check_Certificado.Checked = False And cbox_TipoExamen.Text.Equals("Examen Visual") Then
             MsgBox("Debe de haber un certificado oftalmologico que almacenar")
+            check_Certificado.Focus()
             Return False
         ElseIf rbtn_Aprobado.Checked = False And rbtn_Reprobado.Checked = False And Not cbox_TipoExamen.Text.Equals("Cambio Rueda") Then
             MsgBox("Seleccione una opción de aprobación")
+            rbtn_Aprobado.Focus()
             Return False
         ElseIf tbox_Calificacion.Text.Trim.Equals("") And cbox_TipoExamen.SelectedValue.Equals("Examen Teórico") Then
             MsgBox("Ingrese Calificación")
+            tbox_Calificacion.Focus()
             Return False
         ElseIf tbox_Calificacion.Text.Trim.Equals("") And cbox_TipoExamen.SelectedValue.Equals("Examen Práctico") Then
             MsgBox("Ingrese Calificación")
+            tbox_Calificacion.Focus()
             Return False
         ElseIf CInt(sbox_Hora.Text) <> 10 And CInt(sbox_Hora.Text) <> 12 And CInt(sbox_Hora.Text) <> 17 And cbox_TipoExamen.Text.Equals("Cambio Rueda") Then
             MsgBox("La hora: " & sbox_Hora.Text & ":00 no es una hora dentro de las posibilidades de horarios de clases")
+            sbox_Hora.Focus()
             Return False
         ElseIf CInt(sbox_Minutos.Text) <> 0 And cbox_TipoExamen.Text.Equals("Cambio Rueda") Then
             MsgBox("La hora debe ser exacta")
+            sbox_Minutos.Focus()
             Return False
         ElseIf inhabilitado(cbox_funcionario.SelectedValue.ToString) And Not cbox_TipoExamen.Text.Equals("Examen Teórico") Then
             MsgBox("El vehiculo del instructor asignado no está disponible")
+            cbox_funcionario.Focus()
             Return False
         ElseIf aprovado(cbox_RegistroMatricula.SelectedValue.ToString, cbox_TipoExamen.SelectedValue.ToString) And Not (cbox_TipoExamen.Text.Equals("Examen Municipal") Or cbox_TipoExamen.Text.Equals("Examen Psicotécnico") Or cbox_TipoExamen.Text.Equals("Cambio Rueda")) Then
             MsgBox("Estudiante aprovado en " & cbox_TipoExamen.SelectedValue.ToString & ". No se puede realizar operacion")
+            cbox_RegistroMatricula.Focus()
             Return False
         ElseIf suficiente(cbox_RegistroMatricula.SelectedValue.ToString, cbox_TipoExamen.SelectedValue.ToString) And cbox_TipoExamen.Text.Equals("Examen Municipal") Then
             MsgBox("Examen Municipal hecho en mas de las ocasiones permitidas. No se puede realizar operacion")
+            cbox_RegistroMatricula.Focus()
             Return False
         
         End If

@@ -66,11 +66,11 @@ Public Class Usuarios
 
             If res <> -1 Then
                 con.commitTransaction()
-                STATUS.ForeColor = Color.Blue
                 STATUS.Text = "Usuario: '" & tbox_NombreUsuario.Text & "' fue agregado con éxito."
+                STATUS.ForeColor = Color.Blue
             Else
-                STATUS.ForeColor = Color.Red
                 STATUS.Text = "ERROR: El usuario no fue agregado a la base de datos."
+                STATUS.ForeColor = Color.Red
             End If
         End If
         
