@@ -135,6 +135,7 @@ Public Class Matricula
                                      Me.CodPagoTxBx.Text & "');" ')
         Me.LimpiarBtn.PerformClick()
         Me.QueryTb.Text = Query
+        con.doQuery(Query)
     End Sub
 
     Private Sub ProductoCbBx_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ProductoCbBx.SelectedIndexChanged
