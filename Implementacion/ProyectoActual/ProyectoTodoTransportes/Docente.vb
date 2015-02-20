@@ -46,6 +46,12 @@
                 Tipo = "I"
             End If
 
+            'Dim V As MsgBoxResult
+            Dim S As Integer = 0
+            Dim instAnt As String = ""
+            Dim matrem As String = ""
+            Dim matnull As String = "000000"
+
             Try
                 con.beginTransaction()
 

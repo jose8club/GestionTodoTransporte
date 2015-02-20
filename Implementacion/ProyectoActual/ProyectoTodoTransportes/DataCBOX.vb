@@ -61,7 +61,7 @@
     End Function
 
     Function Vehiculos() As DataTable
-        Dim Data As DataTable = con.doQuery("SELECT * FROM auto_escuela")
+        Dim Data As DataTable = con.doQuery("SELECT * FROM auto_escuela WHERE Matricula<>'000000'")
         Return Data
     End Function
 

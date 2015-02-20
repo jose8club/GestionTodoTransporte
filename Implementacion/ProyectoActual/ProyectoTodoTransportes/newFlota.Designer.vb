@@ -26,34 +26,36 @@ Partial Class newFlota
         Me.tbox_mat3 = New CustomTxtBox.Custom2()
         Me.tbox_mat2 = New CustomTxtBox.Custom2()
         Me.tbox_mat1 = New CustomTxtBox.Custom2()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.tbox_modelo = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.btn_resetear01 = New System.Windows.Forms.Button()
-        Me.btn_agregar = New System.Windows.Forms.Button()
         Me.cbox_instructor = New System.Windows.Forms.ComboBox()
         Me.cbox_estado = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lbl_pers = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.cbox_instructor2 = New System.Windows.Forms.ComboBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.btn_resetear02 = New System.Windows.Forms.Button()
-        Me.btn_guardar = New System.Windows.Forms.Button()
+        Me.lbl_instructor = New System.Windows.Forms.Label()
         Me.cbox_estado2 = New System.Windows.Forms.ComboBox()
         Me.cbox_matricula = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.cbox_anios = New System.Windows.Forms.ComboBox()
+        Me.lbl_fict = New System.Windows.Forms.Label()
+        Me.btn_resetear02 = New System.Windows.Forms.Button()
+        Me.btn_guardar = New System.Windows.Forms.Button()
+        Me.btn_retract = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.btn_resetear01 = New System.Windows.Forms.Button()
+        Me.btn_agregar = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btn_retract)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.tbox_mat3)
         Me.GroupBox1.Controls.Add(Me.tbox_mat2)
@@ -65,7 +67,7 @@ Partial Class newFlota
         Me.GroupBox1.Controls.Add(Me.btn_agregar)
         Me.GroupBox1.Controls.Add(Me.cbox_instructor)
         Me.GroupBox1.Controls.Add(Me.cbox_estado)
-        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.lbl_pers)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(27, 31)
@@ -102,16 +104,6 @@ Partial Class newFlota
         Me.tbox_mat1.TabIndex = 15
         Me.tbox_mat1.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.punto
-        Me.Label7.Location = New System.Drawing.Point(192, 37)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(11, 13)
-        Me.Label7.TabIndex = 13
-        Me.Label7.Text = "*"
-        '
         'tbox_modelo
         '
         Me.tbox_modelo.Location = New System.Drawing.Point(135, 86)
@@ -127,30 +119,6 @@ Partial Class newFlota
         Me.Label6.Size = New System.Drawing.Size(45, 13)
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "Modelo:"
-        '
-        'btn_resetear01
-        '
-        Me.btn_resetear01.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
-        Me.btn_resetear01.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_resetear01.Location = New System.Drawing.Point(419, 153)
-        Me.btn_resetear01.Name = "btn_resetear01"
-        Me.btn_resetear01.Size = New System.Drawing.Size(87, 23)
-        Me.btn_resetear01.TabIndex = 11
-        Me.btn_resetear01.Text = "Resetear"
-        Me.btn_resetear01.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_resetear01.UseVisualStyleBackColor = True
-        '
-        'btn_agregar
-        '
-        Me.btn_agregar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.ADD_BUTTON
-        Me.btn_agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_agregar.Location = New System.Drawing.Point(321, 153)
-        Me.btn_agregar.Name = "btn_agregar"
-        Me.btn_agregar.Size = New System.Drawing.Size(79, 23)
-        Me.btn_agregar.TabIndex = 10
-        Me.btn_agregar.Text = "Agregar"
-        Me.btn_agregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_agregar.UseVisualStyleBackColor = True
         '
         'cbox_instructor
         '
@@ -175,15 +143,15 @@ Partial Class newFlota
         Me.cbox_estado.Size = New System.Drawing.Size(206, 21)
         Me.cbox_estado.TabIndex = 7
         '
-        'Label3
+        'lbl_pers
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(24, 118)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(54, 13)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Instructor:"
-        Me.Label3.Visible = False
+        Me.lbl_pers.AutoSize = True
+        Me.lbl_pers.Location = New System.Drawing.Point(24, 118)
+        Me.lbl_pers.Name = "lbl_pers"
+        Me.lbl_pers.Size = New System.Drawing.Size(54, 13)
+        Me.lbl_pers.TabIndex = 2
+        Me.lbl_pers.Text = "Instructor:"
+        Me.lbl_pers.Visible = False
         '
         'Label2
         '
@@ -205,8 +173,8 @@ Partial Class newFlota
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.cbox_instructor2)
-        Me.GroupBox2.Controls.Add(Me.Label9)
+        Me.GroupBox2.Controls.Add(Me.lbl_fict)
+        Me.GroupBox2.Controls.Add(Me.lbl_instructor)
         Me.GroupBox2.Controls.Add(Me.btn_resetear02)
         Me.GroupBox2.Controls.Add(Me.btn_guardar)
         Me.GroupBox2.Controls.Add(Me.cbox_estado2)
@@ -220,49 +188,14 @@ Partial Class newFlota
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Gestión de Flota"
         '
-        'cbox_instructor2
+        'lbl_instructor
         '
-        Me.cbox_instructor2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cbox_instructor2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cbox_instructor2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple
-        Me.cbox_instructor2.FormattingEnabled = True
-        Me.cbox_instructor2.Location = New System.Drawing.Point(135, 96)
-        Me.cbox_instructor2.Name = "cbox_instructor2"
-        Me.cbox_instructor2.Size = New System.Drawing.Size(206, 21)
-        Me.cbox_instructor2.TabIndex = 14
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(24, 93)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(54, 13)
-        Me.Label9.TabIndex = 13
-        Me.Label9.Text = "Instructor:"
-        '
-        'btn_resetear02
-        '
-        Me.btn_resetear02.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
-        Me.btn_resetear02.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_resetear02.Location = New System.Drawing.Point(419, 132)
-        Me.btn_resetear02.Name = "btn_resetear02"
-        Me.btn_resetear02.Size = New System.Drawing.Size(87, 23)
-        Me.btn_resetear02.TabIndex = 16
-        Me.btn_resetear02.Text = "Resetear"
-        Me.btn_resetear02.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_resetear02.UseVisualStyleBackColor = True
-        '
-        'btn_guardar
-        '
-        Me.btn_guardar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.SAVE
-        Me.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_guardar.Location = New System.Drawing.Point(321, 132)
-        Me.btn_guardar.Name = "btn_guardar"
-        Me.btn_guardar.Size = New System.Drawing.Size(79, 23)
-        Me.btn_guardar.TabIndex = 15
-        Me.btn_guardar.Text = "Guardar"
-        Me.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_guardar.UseVisualStyleBackColor = True
+        Me.lbl_instructor.AutoSize = True
+        Me.lbl_instructor.Location = New System.Drawing.Point(441, 33)
+        Me.lbl_instructor.Name = "lbl_instructor"
+        Me.lbl_instructor.Size = New System.Drawing.Size(54, 13)
+        Me.lbl_instructor.TabIndex = 13
+        Me.lbl_instructor.Text = "Instructor:"
         '
         'cbox_estado2
         '
@@ -322,15 +255,95 @@ Partial Class newFlota
         Me.cbox_anios.Size = New System.Drawing.Size(136, 21)
         Me.cbox_anios.TabIndex = 3
         '
+        'lbl_fict
+        '
+        Me.lbl_fict.AutoSize = True
+        Me.lbl_fict.Location = New System.Drawing.Point(359, 33)
+        Me.lbl_fict.Name = "lbl_fict"
+        Me.lbl_fict.Size = New System.Drawing.Size(54, 13)
+        Me.lbl_fict.TabIndex = 17
+        Me.lbl_fict.Text = "Instructor:"
+        Me.lbl_fict.Visible = False
+        '
+        'btn_resetear02
+        '
+        Me.btn_resetear02.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
+        Me.btn_resetear02.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_resetear02.Location = New System.Drawing.Point(419, 115)
+        Me.btn_resetear02.Name = "btn_resetear02"
+        Me.btn_resetear02.Size = New System.Drawing.Size(87, 23)
+        Me.btn_resetear02.TabIndex = 16
+        Me.btn_resetear02.Text = "Resetear"
+        Me.btn_resetear02.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_resetear02.UseVisualStyleBackColor = True
+        '
+        'btn_guardar
+        '
+        Me.btn_guardar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.SAVE
+        Me.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_guardar.Location = New System.Drawing.Point(321, 115)
+        Me.btn_guardar.Name = "btn_guardar"
+        Me.btn_guardar.Size = New System.Drawing.Size(79, 23)
+        Me.btn_guardar.TabIndex = 15
+        Me.btn_guardar.Text = "Actualizar"
+        Me.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_guardar.UseVisualStyleBackColor = True
+        '
+        'btn_retract
+        '
+        Me.btn_retract.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_retract.Location = New System.Drawing.Point(362, 114)
+        Me.btn_retract.Name = "btn_retract"
+        Me.btn_retract.Size = New System.Drawing.Size(22, 22)
+        Me.btn_retract.TabIndex = 20
+        Me.btn_retract.Text = "X"
+        Me.btn_retract.UseVisualStyleBackColor = True
+        Me.btn_retract.Visible = False
+        '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.bandera
-        Me.Label8.Location = New System.Drawing.Point(268, 37)
+        Me.Label8.Location = New System.Drawing.Point(268, 33)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(10, 13)
         Me.Label8.TabIndex = 18
         Me.Label8.Text = "."
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.punto
+        Me.Label7.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.Label7.Location = New System.Drawing.Point(192, 33)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(11, 13)
+        Me.Label7.TabIndex = 13
+        Me.Label7.Text = "*"
+        '
+        'btn_resetear01
+        '
+        Me.btn_resetear01.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.DELETE_BUTTON
+        Me.btn_resetear01.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_resetear01.Location = New System.Drawing.Point(419, 153)
+        Me.btn_resetear01.Name = "btn_resetear01"
+        Me.btn_resetear01.Size = New System.Drawing.Size(87, 23)
+        Me.btn_resetear01.TabIndex = 11
+        Me.btn_resetear01.Text = "Resetear"
+        Me.btn_resetear01.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_resetear01.UseVisualStyleBackColor = True
+        '
+        'btn_agregar
+        '
+        Me.btn_agregar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.ADD_BUTTON
+        Me.btn_agregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_agregar.Location = New System.Drawing.Point(321, 153)
+        Me.btn_agregar.Name = "btn_agregar"
+        Me.btn_agregar.Size = New System.Drawing.Size(79, 23)
+        Me.btn_agregar.TabIndex = 10
+        Me.btn_agregar.Text = "Agregar"
+        Me.btn_agregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_agregar.UseVisualStyleBackColor = True
         '
         'newFlota
         '
@@ -358,7 +371,7 @@ Partial Class newFlota
     Friend WithEvents btn_agregar As System.Windows.Forms.Button
     Friend WithEvents cbox_instructor As System.Windows.Forms.ComboBox
     Friend WithEvents cbox_estado As System.Windows.Forms.ComboBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents lbl_pers As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents btn_resetear02 As System.Windows.Forms.Button
@@ -370,8 +383,7 @@ Partial Class newFlota
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents tbox_modelo As System.Windows.Forms.TextBox
-    Friend WithEvents cbox_instructor2 As System.Windows.Forms.ComboBox
-    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents lbl_instructor As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents cbox_anio As System.Windows.Forms.ComboBox
     Friend WithEvents tbox_mat3 As CustomTxtBox.Custom2
@@ -379,6 +391,8 @@ Partial Class newFlota
     Friend WithEvents tbox_mat1 As CustomTxtBox.Custom2
     Friend WithEvents cbox_anios As System.Windows.Forms.ComboBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents lbl_fict As System.Windows.Forms.Label
+    Friend WithEvents btn_retract As System.Windows.Forms.Button
     'Friend WithEvents tbox_mat2 As CustomTxtBox.Custom2
     'Friend WithEvents tbox_mat1 As CustomTxtBox.Custom2
     'Friend WithEvents tbox_mat3 As CustomTxtBox.Custom2

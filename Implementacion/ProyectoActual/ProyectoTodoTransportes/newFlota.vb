@@ -12,6 +12,7 @@ Public Class newFlota
     Dim comp As DataTable
     Dim usuario As String = ""
     Dim l As Expresion
+    Dim asignar As Boolean = False
     Sub New(ByVal usuario As String, ByVal conexion As Conexion, ByVal estado As ToolStripStatusLabel)
         con = conexion
         USER = usuario
@@ -38,7 +39,7 @@ Public Class newFlota
             cbox_estado2.ValueMember = "Estado"
             cbox_estado2.SelectedIndex = -1
         ElseIf s.Equals("Matricula") Then
-            cbox_matricula.DataSource = con.doQuery("SELECT Matricula FROM Auto_Escuela")
+            cbox_matricula.DataSource = con.doQuery("SELECT Matricula FROM Auto_Escuela WHERE Matricula<>'000000'")
             cbox_matricula.DisplayMember = "Matricula"
             cbox_matricula.ValueMember = "Matricula"
             cbox_matricula.SelectedIndex = -1
@@ -48,10 +49,7 @@ Public Class newFlota
             cbox_instructor.DisplayMember = "Nombre"
             cbox_instructor.ValueMember = "idFuncionario"
             cbox_instructor.SelectedIndex = -1
-            cbox_instructor2.DataSource = dc.Instructores
-            cbox_instructor2.DisplayMember = "Nombre"
-            cbox_instructor2.ValueMember = "idFuncionario"
-            cbox_instructor2.SelectedIndex = -1
+            
         ElseIf s.Equals("año") Then
             Dim año As DataTable = New DataTable
             año.Columns.Add("Nombre")
@@ -135,20 +133,6 @@ Public Class newFlota
             Return False
         End If
 
-        'Instructor
-        Dim int As DataTable = cbox_instructor2.DataSource
-        Dim inst As New List(Of String)(int.Rows.Count)
-        For Each row As DataRow In int.Rows
-            inst.Add(row(1))
-        Next
-
-        MsgBox(inst.Contains(cbox_instructor2.Text.Trim)) 'arroja el valor si contiene o no (borrar)
-
-        If Not inst.Contains(cbox_instructor2.Text.Trim) Then
-            MsgBox("ingrese instructor correcto")
-            Return False
-        End If
-
         If cbox_matricula.Text.Trim = "" Then
             MsgBox("Ingrese datos de matricula de auto")
             cbox_matricula.Focus()
@@ -157,10 +141,7 @@ Public Class newFlota
             MsgBox("Ingrese estado")
             cbox_estado2.Focus()
             Return False
-        ElseIf cbox_instructor2.Text = "" Then
-            MsgBox("Ingrese instructor")
-            cbox_instructor2.Focus()
-            Return False
+        
         End If
 
         Return True
@@ -174,17 +155,10 @@ Public Class newFlota
             cbox_matricula.Text = cbox_matricula.Text.Trim
             Dim Matricula As String = cbox_matricula.SelectedValue
             Dim Estado As String = cbox_estado2.SelectedValue
-            Dim Instructor As String = cbox_instructor2.SelectedValue
 
             Dim ID As Integer = 0
             Dim Columnas() As String = {}
             Dim Parametros() As String = {}
-
-            Dim V As MsgBoxResult
-            Dim S As Integer = 0
-            Dim instAnt As String = ""
-            Dim matrem As String = ""
-            Dim matnull As String = "000000"
 
             Try
                 con.beginTransaction()
@@ -192,46 +166,9 @@ Public Class newFlota
                 If modi.Rows.Count > 0 Then
                     ID = -1
                 Else
-                    'MsgBox(modi.Rows.Count)
                     ID = 0
-                    If ID <> -1 Then
-                        Dim d As DataTable = con.doQuery("SELECT idInstructor FROM Instructor WHERE Auto = '" & Matricula & "'")
-                        If d.Rows.Count > 0 Then
-                            ID = 0
-                            instAnt = d.Rows(0).Item(0).ToString
-                            'MsgBox("iNSTRUCTOR " & instAnt & ".")
-                            V = MsgBox("Ya posee un instructor asociado ¿Desea cambiar de instructor?", 4, "Confirmacion")
-                            'MsgBox(V)
-                            If V = MsgBoxResult.Yes Then
-                                Dim f As DataTable = con.doQuery("UPDATE instructor SET Auto= '" & matnull & "' WHERE idInstructor= '" & instAnt & "'")
-                                If f.Rows.Count > 0 Then
-                                    ID = -1
-                                Else
-                                    ID = 0
-                                    Dim inst As DataTable = con.doQuery("UPDATE instructor SET Auto= '" & Matricula & "' WHERE idInstructor= '" & Instructor & "'")
-                                    If inst.Rows.Count > 0 Then
-                                        ID = -1
-                                    Else
-                                        ID = 0
-                                    End If
-                                End If
-                            ElseIf V = MsgBoxResult.No Then
-                                ID = 0
-                            End If
-                            
-                        Else
-                            ID = 0
-                            Dim inst As DataTable = con.doQuery("UPDATE instructor SET Auto= '" & Matricula & "' WHERE idInstructor= '" & Instructor & "'")
-                            If inst.Rows.Count > 0 Then
-                                ID = -1
-                            Else
-                                ID = 0
-                            End If
-                        End If
-
-                    End If
                 End If
-                
+
                 If ID <> -1 Then
                     con.commitTransaction()
                     MsgBox("Auto: " & Matricula & ", Estado: " & Estado & ".")
@@ -250,62 +187,113 @@ Public Class newFlota
     Private Sub btn_agregar_Click(sender As System.Object, e As System.EventArgs) Handles btn_agregar.Click
         Dim Matricula As String = ""
         l = New Expresion
+        Dim V As MsgBoxResult
+        Dim ID As Integer = 0
 
-        Try
-            If cbox_anios.SelectedValue.Equals("Pre 2007") Then
-                l.Validando("expletrauno", tbox_mat1)
-                l.Validando("expnumdos", tbox_mat2)
-                l.Validando("expnumuno", tbox_mat3)
-
-            ElseIf cbox_anios.SelectedValue.Equals("Post 2007") Then
-                l.Validando("expletrados", tbox_mat1)
-                l.Validando("expletrados", tbox_mat2)
-                l.Validando("expnumdos", tbox_mat3)
-            End If
-            If validar1() And (tbox_mat1.ForeColor <> Color.Red Or tbox_mat2.ForeColor <> Color.Red Or tbox_mat3.ForeColor <> Color.Red) Then
+        If asignar = False Then
+            'COMIENZO DE LA FUNCION, SI FALLA ELIMINA IF Y SE VULEVE DESDE AQUI
+            Try
                 If cbox_anios.SelectedValue.Equals("Pre 2007") Then
-                    Matricula = UCase(tbox_mat1.Text) & (tbox_mat2.Text) & (tbox_mat3.Text)
+                    l.Validando("expletrauno", tbox_mat1)
+                    l.Validando("expnumdos", tbox_mat2)
+                    l.Validando("expnumuno", tbox_mat3)
 
                 ElseIf cbox_anios.SelectedValue.Equals("Post 2007") Then
-                    Matricula = UCase(tbox_mat1.Text) & UCase(tbox_mat2.Text) & (tbox_mat3.Text)
-
+                    l.Validando("expletrados", tbox_mat1)
+                    l.Validando("expletrados", tbox_mat2)
+                    l.Validando("expnumdos", tbox_mat3)
                 End If
-                Dim Modelo As String = tbox_modelo.Text
+                If validar1() And (tbox_mat1.ForeColor <> Color.Red Or tbox_mat2.ForeColor <> Color.Red Or tbox_mat3.ForeColor <> Color.Red) Then
+                    If cbox_anios.SelectedValue.Equals("Pre 2007") Then
+                        Matricula = UCase(tbox_mat1.Text) & (tbox_mat2.Text) & (tbox_mat3.Text)
 
-                Dim Estado As String = cbox_estado.SelectedValue
+                    ElseIf cbox_anios.SelectedValue.Equals("Post 2007") Then
+                        Matricula = UCase(tbox_mat1.Text) & UCase(tbox_mat2.Text) & (tbox_mat3.Text)
 
-
-                Dim ID As Integer = 0
-                Dim Columnas() As String = {}
-                Dim Parametros() As String = {}
-                Try
-                    con.beginTransaction()
-                    Columnas = {"Matricula", "Modelo", "Estado"}
-                    Parametros = {Matricula, Modelo, Estado}
-                    ID = con.doInsert("auto_escuela", Columnas, Parametros)
-
-                    If ID <> -1 Then
-                        con.commitTransaction()
-                        STATUS.Text = "Operación realizada con éxito."
-                        STATUS.ForeColor = Color.Blue
-                    Else
-                        STATUS.Text = "Hubo un error al realizar la operación."
-                        STATUS.ForeColor = Color.Red
                     End If
-                    tbox_mat1.Text = ""
-                    tbox_mat2.Text = ""
-                    tbox_mat3.Text = ""
-                    tbox_modelo.Text = ""
-                Catch ex As Exception
-                    MsgBox(ex.Message.ToString)
-                End Try
+                    Dim Modelo As String = tbox_modelo.Text
+
+                    Dim Estado As String = cbox_estado.SelectedValue
+
+                    'Dim ID As Integer = 0
+                    Dim Columnas() As String = {}
+                    Dim Parametros() As String = {}
+
+                    Try
+                        con.beginTransaction()
+                        Columnas = {"Matricula", "Modelo", "Estado"}
+                        Parametros = {Matricula, Modelo, Estado}
+                        'Insertar auto_escuela
+                        ID = insertar(Columnas, Parametros)
+                        'ID = con.doInsert("auto_escuela", Columnas, Parametros)
+                        If ID <> -1 Then
+                            V = MsgBox("Desea agregar instructor ahora o no", 4, "Confirmacion")
+                            If V = MsgBoxResult.Yes Then
+                                lbl_pers.Visible = True
+                                cbox_instructor.Visible = True
+                                btn_retract.Visible = True
+                                asignar = True
+                                btn_agregar.Text = "Asignar"
+
+                            ElseIf V = MsgBoxResult.No Then
+                                ID = 0
+                                If ID <> -1 Then
+                                    con.commitTransaction()
+                                    STATUS.Text = "Operación realizada con éxito."
+                                    STATUS.ForeColor = Color.Blue
+                                Else
+                                    STATUS.Text = "Hubo un error al realizar la operación."
+                                    STATUS.ForeColor = Color.Red
+                                End If
+                                tbox_mat1.Text = ""
+                                tbox_mat2.Text = ""
+                                tbox_mat3.Text = ""
+                                tbox_modelo.Text = ""
+                            End If
+                        End If
+
+                        
+                    Catch ex As Exception
+                        MsgBox(ex.Message.ToString)
+                    End Try
+                End If
+            Catch ex As Exception
+
+            End Try
+        ElseIf asignar = True Then
+            
+            If cbox_anios.SelectedValue.Equals("Pre 2007") Then
+                Matricula = UCase(tbox_mat1.Text) & (tbox_mat2.Text) & (tbox_mat3.Text)
+
+            ElseIf cbox_anios.SelectedValue.Equals("Post 2007") Then
+                Matricula = UCase(tbox_mat1.Text) & UCase(tbox_mat2.Text) & (tbox_mat3.Text)
+
             End If
-        Catch ex As Exception
+            Dim Instructor As String = cbox_instructor.SelectedValue.ToString
 
-        End Try
-
-
-
+            Dim inst As DataTable = con.doQuery("UPDATE instructor SET Auto= '" & Matricula & "' WHERE idInstructor= '" & Instructor & "'")
+            If inst.Rows.Count > 0 Then
+                ID = -1
+            Else
+                ID = 0
+            End If
+            If ID <> -1 Then
+                con.commitTransaction()
+                STATUS.Text = "Operación realizada con éxito."
+                STATUS.ForeColor = Color.Blue
+            Else
+                STATUS.Text = "Hubo un error al realizar la operación."
+                STATUS.ForeColor = Color.Red
+            End If
+            tbox_mat1.Text = ""
+            tbox_mat2.Text = ""
+            tbox_mat3.Text = ""
+            tbox_modelo.Text = ""
+            cbox_instructor.Visible = False
+            lbl_pers.Visible = False
+            btn_retract.Visible = False
+        End If
+        
     End Sub
 
     Private Sub btn_resetear01_Click(sender As System.Object, e As System.EventArgs) Handles btn_resetear01.Click
@@ -314,6 +302,9 @@ Public Class newFlota
         tbox_mat3.Text = ""
         cbox_estado.Text = ""
         tbox_modelo.Text = ""
+        cbox_instructor.Visible = False
+        lbl_pers.Visible = False
+        btn_retract.Visible = False
     End Sub
 
 
@@ -342,6 +333,32 @@ Public Class newFlota
     Private Sub btn_resetear02_Click(sender As System.Object, e As System.EventArgs) Handles btn_resetear02.Click
         cbox_matricula.Text = ""
         cbox_estado2.Text = ""
-        cbox_instructor2.Text = ""
+
+    End Sub
+
+    
+    Private Sub cbox_matricula_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cbox_matricula.SelectedIndexChanged
+        Dim label As DataTable = con.doQuery("SELECT f.Nombre " _
+                                        & "FROM instructor i, docente d, funcionario f" _
+                                         & " WHERE i.idINSTRUCTOR = d.idDOCENTE and d.idDOCENTE = f.idFUNCIONARIO and i.Auto ='" & cbox_matricula.Text & "'")
+
+        If label.Rows.Count > 0 Then
+            lbl_instructor.Text = label.Rows(0).Item(0).ToString
+            lbl_fict.Visible = True
+        Else
+            lbl_instructor.Text = ""
+            lbl_fict.Visible = False
+        End If
+    End Sub
+
+    Function insertar(ByVal Columnas() As String, ByVal Parametros() As String) As Integer
+        Dim ID As Integer = 0
+        ID = con.doInsert("auto_escuela", Columnas, Parametros)
+        Return ID
+    End Function
+    
+    Private Sub btn_retract_Click(sender As System.Object, e As System.EventArgs) Handles btn_retract.Click
+        asignar = False
+
     End Sub
 End Class
