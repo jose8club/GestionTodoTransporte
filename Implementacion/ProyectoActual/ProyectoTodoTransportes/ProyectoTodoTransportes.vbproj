@@ -174,6 +174,12 @@
     <Compile Include="Encuesta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ResumenAlumno.Designer.vb">
+      <DependentUpon>ResumenAlumno.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ResumenAlumno.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ResumenCurso.Designer.vb">
       <DependentUpon>ResumenCurso.vb</DependentUpon>
     </Compile>
@@ -298,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Encuesta.resx">
       <DependentUpon>Encuesta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResumenAlumno.resx">
+      <DependentUpon>ResumenAlumno.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ResumenCurso.resx">
       <DependentUpon>ResumenCurso.vb</DependentUpon>

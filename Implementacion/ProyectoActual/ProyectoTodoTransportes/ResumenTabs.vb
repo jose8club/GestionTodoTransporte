@@ -27,7 +27,10 @@
             TabControl1.TabPages(1).Controls.Add(Form)
             Form.Show()
         ElseIf n.Equals("2") Then
-
+            Form = New ResumenAlumno(USER, con, STATUS)
+            Form.TopLevel = False
+            TabControl1.TabPages(2).Controls.Add(Form)
+            Form.Show()
         End If
     End Sub
 
