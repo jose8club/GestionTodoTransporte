@@ -26,7 +26,6 @@ Partial Class newFlota
         Me.tbox_mat3 = New CustomTxtBox.Custom2()
         Me.tbox_mat2 = New CustomTxtBox.Custom2()
         Me.tbox_mat1 = New CustomTxtBox.Custom2()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.tbox_modelo = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -48,16 +47,17 @@ Partial Class newFlota
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.cbox_anios = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.tbox_mat3)
         Me.GroupBox1.Controls.Add(Me.tbox_mat2)
         Me.GroupBox1.Controls.Add(Me.tbox_mat1)
-        Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.tbox_modelo)
         Me.GroupBox1.Controls.Add(Me.Label6)
@@ -102,23 +102,15 @@ Partial Class newFlota
         Me.tbox_mat1.TabIndex = 15
         Me.tbox_mat1.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(272, 33)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(10, 13)
-        Me.Label8.TabIndex = 14
-        Me.Label8.Text = "."
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(195, 33)
+        Me.Label7.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.punto
+        Me.Label7.Location = New System.Drawing.Point(192, 37)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(10, 13)
+        Me.Label7.Size = New System.Drawing.Size(11, 13)
         Me.Label7.TabIndex = 13
-        Me.Label7.Text = "."
+        Me.Label7.Text = "*"
         '
         'tbox_modelo
         '
@@ -330,6 +322,16 @@ Partial Class newFlota
         Me.cbox_anios.Size = New System.Drawing.Size(136, 21)
         Me.cbox_anios.TabIndex = 3
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.bandera
+        Me.Label8.Location = New System.Drawing.Point(268, 37)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(10, 13)
+        Me.Label8.TabIndex = 18
+        Me.Label8.Text = "."
+        '
         'newFlota
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -366,7 +368,6 @@ Partial Class newFlota
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents tbox_modelo As System.Windows.Forms.TextBox
     Friend WithEvents cbox_instructor2 As System.Windows.Forms.ComboBox
@@ -377,6 +378,7 @@ Partial Class newFlota
     Friend WithEvents tbox_mat2 As CustomTxtBox.Custom2
     Friend WithEvents tbox_mat1 As CustomTxtBox.Custom2
     Friend WithEvents cbox_anios As System.Windows.Forms.ComboBox
+    Friend WithEvents Label8 As System.Windows.Forms.Label
     'Friend WithEvents tbox_mat2 As CustomTxtBox.Custom2
     'Friend WithEvents tbox_mat1 As CustomTxtBox.Custom2
     'Friend WithEvents tbox_mat3 As CustomTxtBox.Custom2

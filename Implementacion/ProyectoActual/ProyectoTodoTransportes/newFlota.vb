@@ -87,9 +87,11 @@ Public Class newFlota
 
         If cbox_estado.Text = "" Then
             MsgBox("Ingrese estado")
+            cbox_estado.Focus()
             Return False
         ElseIf tbox_modelo.Text = "" Then
             MsgBox("Ingrese modelo")
+            tbox_modelo.Focus()
             Return False
         ElseIf tbox_mat1.Text = "" Or tbox_mat2.Text = "" Or tbox_mat3.Text = "" Then
             MsgBox("Ingrese matricula")
@@ -149,15 +151,17 @@ Public Class newFlota
 
         If cbox_matricula.Text.Trim = "" Then
             MsgBox("Ingrese datos de matricula de auto")
+            cbox_matricula.Focus()
             Return False
         ElseIf cbox_estado2.Text = "" Then
             MsgBox("Ingrese estado")
+            cbox_estado2.Focus()
             Return False
         ElseIf cbox_instructor2.Text = "" Then
             MsgBox("Ingrese instructor")
+            cbox_instructor2.Focus()
             Return False
         End If
-
 
         Return True
     End Function
@@ -228,7 +232,6 @@ Public Class newFlota
                     End If
                 End If
                 
-
                 If ID <> -1 Then
                     con.commitTransaction()
                     MsgBox("Auto: " & Matricula & ", Estado: " & Estado & ".")
@@ -334,5 +337,11 @@ Public Class newFlota
             tbox_mat3.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
         End If
 
+    End Sub
+
+    Private Sub btn_resetear02_Click(sender As System.Object, e As System.EventArgs) Handles btn_resetear02.Click
+        cbox_matricula.Text = ""
+        cbox_estado2.Text = ""
+        cbox_instructor2.Text = ""
     End Sub
 End Class
