@@ -36,13 +36,13 @@ Partial Class newFlota
         Me.btn_agregar = New System.Windows.Forms.Button()
         Me.cbox_instructor = New System.Windows.Forms.ComboBox()
         Me.cbox_estado = New System.Windows.Forms.ComboBox()
-        Me.lbl_pers = New System.Windows.Forms.Label()
+        Me.lbl_encInstAgregar = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.lbl_fict = New System.Windows.Forms.Label()
+        Me.lbl_encInstActualizar = New System.Windows.Forms.Label()
         Me.lbl_instructor = New System.Windows.Forms.Label()
-        Me.btn_guardar = New System.Windows.Forms.Button()
+        Me.btn_actualizar = New System.Windows.Forms.Button()
         Me.cbox_estado2 = New System.Windows.Forms.ComboBox()
         Me.cbox_matricula = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -67,7 +67,7 @@ Partial Class newFlota
         Me.GroupBox1.Controls.Add(Me.btn_agregar)
         Me.GroupBox1.Controls.Add(Me.cbox_instructor)
         Me.GroupBox1.Controls.Add(Me.cbox_estado)
-        Me.GroupBox1.Controls.Add(Me.lbl_pers)
+        Me.GroupBox1.Controls.Add(Me.lbl_encInstAgregar)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(27, 12)
@@ -205,15 +205,15 @@ Partial Class newFlota
         Me.cbox_estado.Size = New System.Drawing.Size(206, 21)
         Me.cbox_estado.TabIndex = 7
         '
-        'lbl_pers
+        'lbl_encInstAgregar
         '
-        Me.lbl_pers.AutoSize = True
-        Me.lbl_pers.Location = New System.Drawing.Point(24, 146)
-        Me.lbl_pers.Name = "lbl_pers"
-        Me.lbl_pers.Size = New System.Drawing.Size(54, 13)
-        Me.lbl_pers.TabIndex = 2
-        Me.lbl_pers.Text = "Instructor:"
-        Me.lbl_pers.Visible = False
+        Me.lbl_encInstAgregar.AutoSize = True
+        Me.lbl_encInstAgregar.Location = New System.Drawing.Point(24, 146)
+        Me.lbl_encInstAgregar.Name = "lbl_encInstAgregar"
+        Me.lbl_encInstAgregar.Size = New System.Drawing.Size(54, 13)
+        Me.lbl_encInstAgregar.TabIndex = 2
+        Me.lbl_encInstAgregar.Text = "Instructor:"
+        Me.lbl_encInstAgregar.Visible = False
         '
         'Label2
         '
@@ -235,9 +235,9 @@ Partial Class newFlota
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.lbl_fict)
+        Me.GroupBox2.Controls.Add(Me.lbl_encInstActualizar)
         Me.GroupBox2.Controls.Add(Me.lbl_instructor)
-        Me.GroupBox2.Controls.Add(Me.btn_guardar)
+        Me.GroupBox2.Controls.Add(Me.btn_actualizar)
         Me.GroupBox2.Controls.Add(Me.cbox_estado2)
         Me.GroupBox2.Controls.Add(Me.cbox_matricula)
         Me.GroupBox2.Controls.Add(Me.Label4)
@@ -249,15 +249,15 @@ Partial Class newFlota
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Gestión de Flota"
         '
-        'lbl_fict
+        'lbl_encInstActualizar
         '
-        Me.lbl_fict.AutoSize = True
-        Me.lbl_fict.Location = New System.Drawing.Point(359, 33)
-        Me.lbl_fict.Name = "lbl_fict"
-        Me.lbl_fict.Size = New System.Drawing.Size(54, 13)
-        Me.lbl_fict.TabIndex = 17
-        Me.lbl_fict.Text = "Instructor:"
-        Me.lbl_fict.Visible = False
+        Me.lbl_encInstActualizar.AutoSize = True
+        Me.lbl_encInstActualizar.Location = New System.Drawing.Point(359, 33)
+        Me.lbl_encInstActualizar.Name = "lbl_encInstActualizar"
+        Me.lbl_encInstActualizar.Size = New System.Drawing.Size(54, 13)
+        Me.lbl_encInstActualizar.TabIndex = 17
+        Me.lbl_encInstActualizar.Text = "Instructor:"
+        Me.lbl_encInstActualizar.Visible = False
         '
         'lbl_instructor
         '
@@ -268,17 +268,17 @@ Partial Class newFlota
         Me.lbl_instructor.TabIndex = 13
         Me.lbl_instructor.Text = "Instructor:"
         '
-        'btn_guardar
+        'btn_actualizar
         '
-        Me.btn_guardar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.SAVE
-        Me.btn_guardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btn_guardar.Location = New System.Drawing.Point(395, 84)
-        Me.btn_guardar.Name = "btn_guardar"
-        Me.btn_guardar.Size = New System.Drawing.Size(79, 23)
-        Me.btn_guardar.TabIndex = 15
-        Me.btn_guardar.Text = "Actualizar"
-        Me.btn_guardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.btn_guardar.UseVisualStyleBackColor = True
+        Me.btn_actualizar.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.SAVE
+        Me.btn_actualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btn_actualizar.Location = New System.Drawing.Point(395, 84)
+        Me.btn_actualizar.Name = "btn_actualizar"
+        Me.btn_actualizar.Size = New System.Drawing.Size(79, 23)
+        Me.btn_actualizar.TabIndex = 15
+        Me.btn_actualizar.Text = "Actualizar"
+        Me.btn_actualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btn_actualizar.UseVisualStyleBackColor = True
         '
         'cbox_estado2
         '
@@ -355,11 +355,11 @@ Partial Class newFlota
     Friend WithEvents btn_agregar As System.Windows.Forms.Button
     Friend WithEvents cbox_instructor As System.Windows.Forms.ComboBox
     Friend WithEvents cbox_estado As System.Windows.Forms.ComboBox
-    Friend WithEvents lbl_pers As System.Windows.Forms.Label
+    Friend WithEvents lbl_encInstAgregar As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents btn_resetear02 As System.Windows.Forms.Button
-    Friend WithEvents btn_guardar As System.Windows.Forms.Button
+    Friend WithEvents btn_actualizar As System.Windows.Forms.Button
     Friend WithEvents cbox_estado2 As System.Windows.Forms.ComboBox
     Friend WithEvents cbox_matricula As System.Windows.Forms.ComboBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
@@ -375,7 +375,7 @@ Partial Class newFlota
     Friend WithEvents tbox_mat1 As CustomTxtBox.Custom2
     Friend WithEvents cbox_anios As System.Windows.Forms.ComboBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents lbl_fict As System.Windows.Forms.Label
+    Friend WithEvents lbl_encInstActualizar As System.Windows.Forms.Label
     Friend WithEvents btn_retract As System.Windows.Forms.Button
     'Friend WithEvents tbox_mat2 As CustomTxtBox.Custom2
     'Friend WithEvents tbox_mat1 As CustomTxtBox.Custom2

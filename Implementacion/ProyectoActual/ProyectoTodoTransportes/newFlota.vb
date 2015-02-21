@@ -66,7 +66,8 @@ Public Class newFlota
 
 #Region "VALIDACION DE ENTRADA"
 
-    Function validar1() As Boolean
+    Function validarAgregar() As Boolean
+        'Valida el primer formulario: agregar nuevo vehiculo
         STATUS.Text = ""
         STATUS.ForeColor = System.Drawing.SystemColors.ControlText
 
@@ -77,7 +78,6 @@ Public Class newFlota
             est.Add(row(0))
         Next
 
-        MsgBox(est.Contains(cbox_estado.Text.Trim)) 'arroja el valor si contiene o no (borrar)
 
         If Not est.Contains(cbox_estado.Text.Trim) Then
             'Si el combo box del estado del vehiculo esta vacio
@@ -111,7 +111,8 @@ Public Class newFlota
         Return True
     End Function
 
-    Function validar2() As Boolean
+    Function validarActualizar() As Boolean
+        'Valida el segundo formulario: gestion de flota
         STATUS.Text = ""
         STATUS.ForeColor = System.Drawing.SystemColors.ControlText
 
@@ -122,7 +123,6 @@ Public Class newFlota
             lista.Add(Row(0))
         Next
 
-        MsgBox(lista.Contains(cbox_matricula.Text.Trim)) 'arroja el valor si contiene o no (borrar)
 
         If Not lista.Contains(cbox_matricula.Text.Trim) Then
             'Si el combo box de la patente del vehiculo esta vacio
@@ -139,7 +139,14 @@ Public Class newFlota
             est.Add(row(0))
         Next
 
-        MsgBox(est.Contains(cbox_estado2.Text.Trim)) 'arroja el valor si contiene o no (borrar)
+        'se debe ver el estado actual del vehiculo
+        Dim estadoActual As String = ""
+        Dim modi As DataTable = con.doQuery("SELECT Estado FROM auto_escuela WHERE Matricula='" & cbox_matricula.Text & "'")
+        If modi.Rows.Count > 0 Then
+            estadoActual = modi.Rows(0).Item(0).ToString
+        Else
+            estadoActual = ""
+        End If
 
         If Not est.Contains(cbox_estado2.Text.Trim) Then
             'Si el combo box de estado de vehiculo esta vacio
@@ -161,7 +168,11 @@ Public Class newFlota
             MsgBox("Ingrese estado", MsgBoxStyle.Exclamation, "Atención")
             cbox_estado2.Focus()
             Return False
-
+        ElseIf cbox_estado2.Text.Equals(estadoActual) Then
+            'Si el estado actual es igual al que se quiere cambiar se debe impedir
+            MsgBox("Ingrese un estado diferente al actual", MsgBoxStyle.Exclamation, "Atención")
+            cbox_estado2.Focus()
+            Return False
         End If
 
         Return True
@@ -170,12 +181,12 @@ Public Class newFlota
 #End Region
 
 
-    Private Sub btn_guardar_Click(sender As System.Object, e As System.EventArgs) Handles btn_guardar.Click
+    Private Sub btn_actualizar_Click(sender As System.Object, e As System.EventArgs) Handles btn_actualizar.Click
         'boton que cambia el estado de un vehiculo segun su matricula
         'también muestra al instructor al que fue asignado ese vehiculo
-        If validar2() Then
+        If validarActualizar() Then
             cbox_matricula.Text = cbox_matricula.Text.Trim
-            Dim Matricula As String = cbox_matricula.SelectedValue
+            Dim Patente As String = cbox_matricula.SelectedValue
             Dim Estado As String = cbox_estado2.SelectedValue
 
             Dim ID As Integer = 0
@@ -185,7 +196,7 @@ Public Class newFlota
             Try
                 con.beginTransaction()
                 'proceso de cambio de estado de vehiculo
-                Dim modi As DataTable = con.doQuery("UPDATE auto_escuela SET Estado= '" & Estado & "' WHERE Matricula= '" & Matricula & "'")
+                Dim modi As DataTable = con.doQuery("UPDATE auto_escuela SET Estado= '" & Estado & "' WHERE Matricula= '" & Patente & "'")
                 If modi.Rows.Count > 0 Then
                     ID = -1
                 Else
@@ -195,10 +206,10 @@ Public Class newFlota
                 If ID <> -1 Then
                     'Commit a la modificacion
                     con.commitTransaction()
-                    MsgBox("Auto: " & Matricula & ", Estado: " & Estado & ".")
+                    MsgBox("Auto: " & Patente & ", Estado: " & Estado & ".")
                     STATUS.Text = "Operación realizada con éxito."
                     STATUS.ForeColor = Color.Blue
-                    reset02()
+                    resetActualizar()
 
                 Else
                     STATUS.Text = "Hubo un error al realizar la operación."
@@ -213,13 +224,13 @@ Public Class newFlota
 
     Private Sub btn_agregar_Click(sender As System.Object, e As System.EventArgs) Handles btn_agregar.Click
         'Se agrega el nuevo auto cuya cada una de las partes de la patente tiene dos letras
-        Dim Matricula As String = ""
+        Dim Patente As String = ""
         l = New Expresion
         'llama a la clase Expresion de Expresion.vb
         Dim V As MsgBoxResult
         Dim ID As Integer = 0
         'Si asignar = false entonces significa que aun no se ha asignado un instructor asociado a un vehiculo
-        If asignar = False Then
+        If Not asignar Then
             Try
                 If cbox_anios.SelectedValue.Equals("Pre 2007") Then
                     'Si escoge el estandar de patentes del año Pre 2007 entonces la expresion regular pondrá en rojo
@@ -243,13 +254,13 @@ Public Class newFlota
                 '2) expletrados: su expresion regular niega las vocales y las letras m,n,ñ,q en ambas letras
                 '3) expnumuno: su expresion regular acepta numeros del 0 al 9 en ambas letras
                 '4) expnumdos: su expresion regular acepta numeros del 1 al 9 en la primera letra y del 0 al 9 en la segunda letra
-                If validar1() And (tbox_mat1.ForeColor <> Color.Red Or tbox_mat2.ForeColor <> Color.Red Or tbox_mat3.ForeColor <> Color.Red) Then
+                If validarAgregar() And (tbox_mat1.ForeColor <> Color.Red Or tbox_mat2.ForeColor <> Color.Red Or tbox_mat3.ForeColor <> Color.Red) Then
                     'cuando esta bien escrita cada una de las tres partes son unidas en una sola patente llamada matricula
                     If cbox_anios.SelectedValue.Equals("Pre 2007") Then
-                        Matricula = UCase(tbox_mat1.Text) & (tbox_mat2.Text) & (tbox_mat3.Text)
+                        Patente = UCase(tbox_mat1.Text) & (tbox_mat2.Text) & (tbox_mat3.Text)
 
                     ElseIf cbox_anios.SelectedValue.Equals("Post 2007") Then
-                        Matricula = UCase(tbox_mat1.Text) & UCase(tbox_mat2.Text) & (tbox_mat3.Text)
+                        Patente = UCase(tbox_mat1.Text) & UCase(tbox_mat2.Text) & (tbox_mat3.Text)
 
                     End If
                     Dim Modelo As String = tbox_modelo.Text
@@ -259,13 +270,13 @@ Public Class newFlota
                     Try
                         con.beginTransaction()
                         Columnas = {"Matricula", "Modelo", "Estado"}
-                        Parametros = {Matricula, Modelo, Estado}
+                        Parametros = {Patente, Modelo, Estado}
                         ID = con.doInsert("auto_escuela", Columnas, Parametros)
                         If ID <> -1 Then
                             V = MsgBox("Desea agregar instructor ahora o no", 4, "Confirmacion")
                             If V = MsgBoxResult.Yes Then
                                 'Si acepta agregar un nuevo instructor entonces hace visible el agregar un instructor
-                                lbl_pers.Visible = True
+                                lbl_encInstAgregar.Visible = True
                                 cbox_instructor.Visible = True
                                 btn_retract.Visible = True  'boton de retroceso que se activa cuando uno cambia de opinion sobre agregar instructor
                                 asignar = True
@@ -284,18 +295,18 @@ Public Class newFlota
             Catch ex As Exception
 
             End Try
-        ElseIf asignar = True Then
+        ElseIf asignar Then
             'Si se acepta asignar a un instructor al ser asignar = True lo actualiza
             If cbox_anios.SelectedValue.Equals("Pre 2007") Then
-                Matricula = UCase(tbox_mat1.Text) & (tbox_mat2.Text) & (tbox_mat3.Text)
+                Patente = UCase(tbox_mat1.Text) & (tbox_mat2.Text) & (tbox_mat3.Text)
 
             ElseIf cbox_anios.SelectedValue.Equals("Post 2007") Then
-                Matricula = UCase(tbox_mat1.Text) & UCase(tbox_mat2.Text) & (tbox_mat3.Text)
+                Patente = UCase(tbox_mat1.Text) & UCase(tbox_mat2.Text) & (tbox_mat3.Text)
 
             End If
             Dim Instructor As String = cbox_instructor.SelectedValue.ToString
 
-            Dim inst As DataTable = con.doQuery("UPDATE instructor SET Auto= '" & Matricula & "' WHERE idInstructor= '" & Instructor & "'")
+            Dim inst As DataTable = con.doQuery("UPDATE instructor SET Auto= '" & Patente & "' WHERE idInstructor= '" & Instructor & "'")
             If inst.Rows.Count > 0 Then
                 ID = -1
             Else
@@ -309,7 +320,7 @@ Public Class newFlota
                 STATUS.Text = "Hubo un error al realizar la operación."
                 STATUS.ForeColor = Color.Red
             End If
-            reset01()
+            resetAgregar()
         End If
 
     End Sub
@@ -347,10 +358,10 @@ Public Class newFlota
 
         If label.Rows.Count > 0 Then
             lbl_instructor.Text = label.Rows(0).Item(0).ToString
-            lbl_fict.Visible = True
+            lbl_encInstActualizar.Visible = True
         Else
             lbl_instructor.Text = ""
-            lbl_fict.Visible = False
+            lbl_encInstActualizar.Visible = False
         End If
     End Sub
 
@@ -366,7 +377,7 @@ Public Class newFlota
             STATUS.Text = "Hubo un error al realizar la operación."
             STATUS.ForeColor = Color.Red
         End If
-        reset01()
+        resetAgregar()
     End Sub
 
     Private Sub btn_retract_Click(sender As System.Object, e As System.EventArgs) Handles btn_retract.Click
@@ -377,7 +388,7 @@ Public Class newFlota
         modularizar(ID)
     End Sub
 
-    Private Sub reset01()
+    Private Sub resetAgregar()
         'La subrutina de reseteo de la seccion de agregar vehiculo 
         tbox_mat1.Text = ""
         tbox_mat2.Text = ""
@@ -385,22 +396,22 @@ Public Class newFlota
         cbox_estado.Text = ""
         tbox_modelo.Text = ""
         cbox_instructor.Text = ""
-        lbl_pers.Visible = False
+        lbl_encInstAgregar.Visible = False
         cbox_instructor.Visible = False
         btn_retract.Visible = False
     End Sub
 
-    Private Sub reset02()
+    Private Sub resetActualizar()
         'La subrutina de reseteo de la seccion gestion de flota: cambio de estado de vehiculo
         cbox_matricula.Text = ""
         cbox_estado2.Text = ""
-        lbl_fict.Visible = ""
+        lbl_encInstActualizar.Visible = False
         lbl_instructor.Text = ""
     End Sub
 
     Private Sub btn_resetear02_Click(sender As System.Object, e As System.EventArgs) Handles btn_resetear02.Click
         'El boton de resetear limpia todo el formulario llamando simultaneamente a las dos rutinas
-        reset01()
-        reset02()
+        resetAgregar()
+        resetActualizar()
     End Sub
 End Class
