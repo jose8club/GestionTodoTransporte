@@ -24,9 +24,14 @@ Partial Class Matricula
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.DatosPersonalesGbx = New System.Windows.Forms.GroupBox()
+        Me.NombreCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
+        Me.EmailCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
         Me.EmailLbl = New System.Windows.Forms.Label()
         Me.ClienteCbBx = New System.Windows.Forms.ComboBox()
         Me.ClienteLbl = New System.Windows.Forms.Label()
+        Me.DVCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
+        Me.RutCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
+        Me.TelCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
         Me.TelefonoLbl = New System.Windows.Forms.Label()
         Me.FNacDTiPckr = New System.Windows.Forms.DateTimePicker()
         Me.FNacLbl = New System.Windows.Forms.Label()
@@ -74,11 +79,6 @@ Partial Class Matricula
         Me.NRegLbl = New System.Windows.Forms.Label()
         Me.LimpiarBtn = New System.Windows.Forms.Button()
         Me.NRegCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
-        Me.NombreCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
-        Me.EmailCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
-        Me.DVCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
-        Me.RutCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
-        Me.TelCTxBx = New ProyectoTodoTransportes.CustomTextBoxClass(Me.components)
         Me.QueryTb = New System.Windows.Forms.TextBox()
         Me.DatosPersonalesGbx.SuspendLayout()
         Me.DatosCursoGBx.SuspendLayout()
@@ -111,6 +111,24 @@ Partial Class Matricula
         Me.DatosPersonalesGbx.TabStop = False
         Me.DatosPersonalesGbx.Text = "Datos Personales"
         '
+        'NombreCTxBx
+        '
+        Me.NombreCTxBx.Location = New System.Drawing.Point(125, 27)
+        Me.NombreCTxBx.MaxLength = 255
+        Me.NombreCTxBx.Name = "NombreCTxBx"
+        Me.NombreCTxBx.Size = New System.Drawing.Size(277, 20)
+        Me.NombreCTxBx.TabIndex = 0
+        Me.NombreCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.ALPHA
+        '
+        'EmailCTxBx
+        '
+        Me.EmailCTxBx.Location = New System.Drawing.Point(124, 131)
+        Me.EmailCTxBx.MaxLength = 255
+        Me.EmailCTxBx.Name = "EmailCTxBx"
+        Me.EmailCTxBx.Size = New System.Drawing.Size(278, 20)
+        Me.EmailCTxBx.TabIndex = 5
+        Me.EmailCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.TEXT
+        '
         'EmailLbl
         '
         Me.EmailLbl.AutoSize = True
@@ -136,6 +154,33 @@ Partial Class Matricula
         Me.ClienteLbl.Size = New System.Drawing.Size(106, 13)
         Me.ClienteLbl.TabIndex = 13
         Me.ClienteLbl.Text = "Franquicia Tributaria:"
+        '
+        'DVCTxBx
+        '
+        Me.DVCTxBx.Location = New System.Drawing.Point(247, 53)
+        Me.DVCTxBx.MaxLength = 1
+        Me.DVCTxBx.Name = "DVCTxBx"
+        Me.DVCTxBx.Size = New System.Drawing.Size(20, 20)
+        Me.DVCTxBx.TabIndex = 2
+        Me.DVCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.ALPHA_NUMERIC
+        '
+        'RutCTxBx
+        '
+        Me.RutCTxBx.Location = New System.Drawing.Point(124, 53)
+        Me.RutCTxBx.MaxLength = 9
+        Me.RutCTxBx.Name = "RutCTxBx"
+        Me.RutCTxBx.Size = New System.Drawing.Size(100, 20)
+        Me.RutCTxBx.TabIndex = 1
+        Me.RutCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.NUMERIC
+        '
+        'TelCTxBx
+        '
+        Me.TelCTxBx.Location = New System.Drawing.Point(124, 105)
+        Me.TelCTxBx.MaxLength = 15
+        Me.TelCTxBx.Name = "TelCTxBx"
+        Me.TelCTxBx.Size = New System.Drawing.Size(100, 20)
+        Me.TelCTxBx.TabIndex = 4
+        Me.TelCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.NUMERIC
         '
         'TelefonoLbl
         '
@@ -391,6 +436,7 @@ Partial Class Matricula
         '
         'CodPagoTxBx
         '
+        Me.CodPagoTxBx.Enabled = False
         Me.CodPagoTxBx.Location = New System.Drawing.Point(128, 183)
         Me.CodPagoTxBx.MaxLength = 6
         Me.CodPagoTxBx.Name = "CodPagoTxBx"
@@ -612,51 +658,6 @@ Partial Class Matricula
         Me.NRegCTxBx.Size = New System.Drawing.Size(100, 20)
         Me.NRegCTxBx.TabIndex = 0
         Me.NRegCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.ALPHA_NUMERIC
-        '
-        'NombreCTxBx
-        '
-        Me.NombreCTxBx.Location = New System.Drawing.Point(125, 27)
-        Me.NombreCTxBx.MaxLength = 255
-        Me.NombreCTxBx.Name = "NombreCTxBx"
-        Me.NombreCTxBx.Size = New System.Drawing.Size(277, 20)
-        Me.NombreCTxBx.TabIndex = 0
-        Me.NombreCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.ALPHA
-        '
-        'EmailCTxBx
-        '
-        Me.EmailCTxBx.Location = New System.Drawing.Point(124, 131)
-        Me.EmailCTxBx.MaxLength = 255
-        Me.EmailCTxBx.Name = "EmailCTxBx"
-        Me.EmailCTxBx.Size = New System.Drawing.Size(278, 20)
-        Me.EmailCTxBx.TabIndex = 5
-        Me.EmailCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.TEXT
-        '
-        'DVCTxBx
-        '
-        Me.DVCTxBx.Location = New System.Drawing.Point(247, 53)
-        Me.DVCTxBx.MaxLength = 1
-        Me.DVCTxBx.Name = "DVCTxBx"
-        Me.DVCTxBx.Size = New System.Drawing.Size(20, 20)
-        Me.DVCTxBx.TabIndex = 2
-        Me.DVCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.ALPHA_NUMERIC
-        '
-        'RutCTxBx
-        '
-        Me.RutCTxBx.Location = New System.Drawing.Point(124, 53)
-        Me.RutCTxBx.MaxLength = 9
-        Me.RutCTxBx.Name = "RutCTxBx"
-        Me.RutCTxBx.Size = New System.Drawing.Size(100, 20)
-        Me.RutCTxBx.TabIndex = 1
-        Me.RutCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.NUMERIC
-        '
-        'TelCTxBx
-        '
-        Me.TelCTxBx.Location = New System.Drawing.Point(124, 105)
-        Me.TelCTxBx.MaxLength = 15
-        Me.TelCTxBx.Name = "TelCTxBx"
-        Me.TelCTxBx.Size = New System.Drawing.Size(100, 20)
-        Me.TelCTxBx.TabIndex = 4
-        Me.TelCTxBx.Tipo = ProyectoTodoTransportes.CustomTextBoxClass.TipoClase.NUMERIC
         '
         'QueryTb
         '

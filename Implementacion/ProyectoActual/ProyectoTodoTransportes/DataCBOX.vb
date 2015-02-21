@@ -57,7 +57,8 @@
 
     Function CursosDeProducto(ByVal Producto As String) As DataTable
         Dim Data As DataTable = con.doQuery("SELECT Codigo FROM Curso " _
-                                            & "WHERE Producto = '" & Producto & "'")
+                                            & "WHERE Producto = '" & Producto & "' AND" _
+                                            & " FechaTermino >= DATE(NOW())")
         Return Data
     End Function
 
