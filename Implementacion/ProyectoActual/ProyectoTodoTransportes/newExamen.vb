@@ -67,6 +67,7 @@
     End Sub
 
     Function validar() As Boolean
+        'validar la opcion de ingresar un examen
         STATUS.Text = ""
         STATUS.ForeColor = System.Drawing.SystemColors.ControlText
 
@@ -77,10 +78,9 @@
             lista.Add(Row(1))
         Next
 
-        MsgBox(lista.Contains(cbox_funcionario.Text.Trim)) 'arroja el valor si contiene o no (borrar)
-
         If Not lista.Contains(cbox_funcionario.Text.Trim) Then
-            MsgBox("Ingrese funcionario correcto")
+            'verifica si se ingresaron los funcionarios correctos si se ingresan manualmente
+            MsgBox("Ingrese funcionario correcto", MsgBoxStyle.Exclamation, "Atención")
             Return False
         End If
 
@@ -91,68 +91,85 @@
             est.Add(row(0))
         Next
 
-        MsgBox(est.Contains(cbox_RegistroMatricula.Text.Trim)) 'arroja el valor si contiene o no (borrar)
-
         If Not est.Contains(cbox_RegistroMatricula.Text.Trim) Then
-            MsgBox("ingrese estudiante correcto")
+            'verifica si se ingresaron los codigos de matricula correctos si se ingresan manualmente
+            MsgBox("ingrese estudiante correcto", MsgBoxStyle.Exclamation, "Atención")
             Return False
         End If
 
-
-        'ATENTO A ESTE RETURN
-        'Return False
-        'ATENTO ^^^^^(lo hice para probar el validador de arriba e ignorar los demás)
-
         If cbox_RegistroMatricula.Text.Trim = "" Then
+            'No deja ingresar examen si el campo de matricula esta vacio
             STATUS.Text = "ERROR: Ingrese el campo 'Registro de Matrícula'"
             STATUS.ForeColor = Color.Red
             cbox_RegistroMatricula.Focus()
             Return False
         ElseIf cbox_TipoExamen.Text = "" Then
-            MsgBox("Ingrese tipo de examen")
+            'No deja ingresar examen si el campo de tipo de examen esta vacio
+            MsgBox("Ingrese tipo de examen", MsgBoxStyle.Exclamation, "Atención")
             cbox_TipoExamen.Focus()
             Return False
         ElseIf cbox_funcionario.Text = "" Then
-            MsgBox("Ingrese datos de funcionario")
+            'No deja ingresar examen si el campo de funcionario esta vacio
+            MsgBox("Ingrese datos de funcionario", MsgBoxStyle.Exclamation, "Atención")
             cbox_funcionario.Focus()
             Return False
         ElseIf check_Certificado.Checked = False And cbox_TipoExamen.Text.Equals("Examen Visual") Then
-            MsgBox("Debe de haber un certificado oftalmologico que almacenar")
+            'No deja ingresar examen visual si el campo de ceritifcado no está seleccionado
+            MsgBox("Debe de haber un certificado oftalmologico que almacenar", MsgBoxStyle.Exclamation, "Atención")
             check_Certificado.Focus()
             Return False
         ElseIf rbtn_Aprobado.Checked = False And rbtn_Reprobado.Checked = False And Not cbox_TipoExamen.Text.Equals("Cambio Rueda") Then
-            MsgBox("Seleccione una opción de aprobación")
+            'No deja ingresar examen si ambos campos de seleccion no están seleccionados
+            'debe estar por lo menos uno seleccionado
+            MsgBox("Seleccione una opción de aprobación", MsgBoxStyle.Exclamation, "Atención")
             rbtn_Aprobado.Focus()
             Return False
         ElseIf tbox_Calificacion.Text.Trim.Equals("") And cbox_TipoExamen.SelectedValue.Equals("Examen Teórico") Then
-            MsgBox("Ingrese Calificación")
+            'La calificacion debe de estar llena en los examenes teoricos
+            MsgBox("Ingrese Calificación", MsgBoxStyle.Exclamation, "Atención")
             tbox_Calificacion.Focus()
             Return False
         ElseIf tbox_Calificacion.Text.Trim.Equals("") And cbox_TipoExamen.SelectedValue.Equals("Examen Práctico") Then
-            MsgBox("Ingrese Calificación")
+            'La calificacion debe de estar llena en los examenes practicos
+            MsgBox("Ingrese Calificación", MsgBoxStyle.Exclamation, "Atención")
             tbox_Calificacion.Focus()
             Return False
         ElseIf CInt(sbox_Hora.Text) <> 10 And CInt(sbox_Hora.Text) <> 12 And CInt(sbox_Hora.Text) <> 17 And cbox_TipoExamen.Text.Equals("Cambio Rueda") Then
-            MsgBox("La hora: " & sbox_Hora.Text & ":00 no es una hora dentro de las posibilidades de horarios de clases")
+            'se debe poner horas fijas en las clases cambio rueda: 10:00, 12:00, 17:00
+            MsgBox("La hora: " & sbox_Hora.Text & ":00 no es una hora dentro de las posibilidades de horarios de clases", MsgBoxStyle.Exclamation, "Atención")
             sbox_Hora.Focus()
             Return False
         ElseIf CInt(sbox_Minutos.Text) <> 0 And cbox_TipoExamen.Text.Equals("Cambio Rueda") Then
-            MsgBox("La hora debe ser exacta")
+            'La hora debe de ser exacta
+            MsgBox("La hora debe ser exacta", MsgBoxStyle.Exclamation, "Atención")
             sbox_Minutos.Focus()
             Return False
         ElseIf inhabilitado(cbox_funcionario.SelectedValue.ToString) And Not cbox_TipoExamen.Text.Equals("Examen Teórico") Then
-            MsgBox("El vehiculo del instructor asignado no está disponible")
+            'El auto debe estar "Disponible" para todas las evaluaciones que involucren instructores 
+            MsgBox("El vehiculo del instructor asignado no está disponible", MsgBoxStyle.Exclamation, "Atención")
             cbox_funcionario.Focus()
             Return False
         ElseIf aprovado(cbox_RegistroMatricula.SelectedValue.ToString, cbox_TipoExamen.SelectedValue.ToString) And Not (cbox_TipoExamen.Text.Equals("Examen Municipal") Or cbox_TipoExamen.Text.Equals("Examen Psicotécnico") Or cbox_TipoExamen.Text.Equals("Cambio Rueda")) Then
-            MsgBox("Estudiante aprovado en " & cbox_TipoExamen.SelectedValue.ToString & ". No se puede realizar operacion")
+            'Si el estudiante fue ya aprobado entonces no vuelve a dar el examen
+            MsgBox("Estudiante aprovado en " & cbox_TipoExamen.SelectedValue.ToString & ". No se puede realizar operacion", MsgBoxStyle.Exclamation, "Atención")
             cbox_RegistroMatricula.Focus()
             Return False
         ElseIf suficiente(cbox_RegistroMatricula.SelectedValue.ToString, cbox_TipoExamen.SelectedValue.ToString) And cbox_TipoExamen.Text.Equals("Examen Municipal") Then
-            MsgBox("Examen Municipal hecho en mas de las ocasiones permitidas. No se puede realizar operacion")
+            'Solo se puede dar el examen municipal dos veces
+            MsgBox("Examen Municipal hecho en mas de las ocasiones permitidas. No se puede realizar operacion", MsgBoxStyle.Exclamation, "Atención")
             cbox_RegistroMatricula.Focus()
             Return False
         
+        ElseIf CDbl(tbox_Calificacion.Text) > 4.0 And (cbox_TipoExamen.SelectedValue.Equals("Examen Teórico") Or cbox_TipoExamen.SelectedValue.Equals("Examen Práctico")) And rbtn_Reprobado.Checked Then
+            'la calificacion no debe ser mayor a 4 si la opcion aprobada no esta puesta
+            MsgBox("La calificación no es valida, no es reprobada", MsgBoxStyle.Exclamation, "Atención")
+            tbox_Calificacion.Focus()
+            Return False
+        ElseIf CDbl(tbox_Calificacion.Text) <= 4.0 And (cbox_TipoExamen.SelectedValue.Equals("Examen Teórico") Or cbox_TipoExamen.SelectedValue.Equals("Examen Práctico")) And rbtn_Aprobado.Checked Then
+            'la calificacion no debe ser menor a 4 si la opcion reprobada no esta puesta
+            MsgBox("La calificación no es valida, no es aprovada", MsgBoxStyle.Exclamation, "Atención")
+            tbox_Calificacion.Focus()
+            Return False
         End If
 
         Return True
@@ -218,6 +235,7 @@
     End Function
 
     Private Sub cbox_TipoExamen_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_TipoExamen.SelectedIndexChanged
+        'representa los campos que deben tener cada tipo de examen
         cbox_RegistroMatricula.Text = ""
         cbox_funcionario.Text = ""
         tbox_Calificacion.Text = ""
@@ -285,7 +303,8 @@
             Dim Fecha As String = Format(date_Fecha.Value, "yyyy-MM-dd")
             Dim Estado As String = ""
             Dim Comentario As String = tbox_Comentario.Text
-            Dim Calificacion As String = tbox_Calificacion.Text
+            Dim Calificacion As String = CDec(tbox_Calificacion.Text)
+            
             'Dim Certificado As Boolean = check_Certificado.Checked
             Dim Funcionario As String = cbox_funcionario.SelectedValue
             Dim Horario As String = ""
@@ -303,8 +322,7 @@
 
             If rbtn_Aprobado.Checked Then Estado = "Aprobado" Else Estado = "Reprobado"
 
-            MsgBox("Estado: " & Estado.ToString & ", Certificado: " & 1 & ", Funcionario: " & Funcionario & _
-                   "Horario: " & Horario)
+            
             Try
                 con.beginTransaction()
 
@@ -392,10 +410,12 @@
                     con.commitTransaction()
                     STATUS.Text = "Operación realizada con éxito."
                     STATUS.ForeColor = Color.Blue
+
                 Else
                     STATUS.Text = "Hubo un error al realizar la operación."
                     STATUS.ForeColor = Color.Red
                 End If
+                resetexamen()
 
             Catch ex As Exception
                 MsgBox(ex.Message.ToString)
@@ -405,6 +425,11 @@
     End Sub
 
     Private Sub btn_reset_Click(sender As System.Object, e As System.EventArgs) Handles btn_reset.Click
+        resetexamen()
+    End Sub
+
+    Public Sub resetexamen()
+        'funcion de resteo
         STATUS.ForeColor = Color.Black
         date_Fecha.Value = Now
         sbox_Hora.Value = "0"
