@@ -3,6 +3,7 @@
     Dim USER As String = ""
     Dim STATUS As ToolStripStatusLabel
     Dim dc As DataCBOX
+    Dim V As MsgBoxResult
 
     Sub New(ByVal usuario As String, ByVal conexion As Conexion, ByVal estado As ToolStripStatusLabel)
         con = conexion
@@ -48,9 +49,7 @@
 
             'Dim V As MsgBoxResult
             Dim S As Integer = 0
-            Dim instAnt As String = ""
-            Dim matrem As String = ""
-            Dim matnull As String = "000000"
+            Dim Vehiculonull As String = "000000"
 
             Try
                 con.beginTransaction()
@@ -71,9 +70,17 @@
                     Parametros = {ID}
                     ID = con.doInsert("Profesor", Columnas, Parametros)
                 ElseIf Tipo.Equals("I") And ID <> -1 Then
-                    Columnas = {"idInstructor", "Auto"}
-                    Parametros = {ID, Vehiculo}
-                    ID = con.doInsert("Instructor", Columnas, Parametros)
+                    disponible(Vehiculo)
+                    If V = MsgBoxResult.Yes Then
+                        Columnas = {"idInstructor", "Auto"}
+                        Parametros = {ID, Vehiculo}
+                        ID = con.doInsert("Instructor", Columnas, Parametros)
+                    ElseIf V = MsgBoxResult.No Then
+                        Columnas = {"idInstructor", "Auto"}
+                        Parametros = {ID, Vehiculonull}
+                        ID = con.doInsert("Instructor", Columnas, Parametros)
+                    End If
+                    
                 End If
 
                 If ID <> -1 Then
@@ -122,12 +129,12 @@
         Return True
     End Function
 
-    Function disponible(ByVal Matricula As String) As Boolean
+    Function disponible(ByVal Vehiculo As String) As Boolean
         'Impide que mas de un instructor ocupe el mismo vehiculo
         Dim estado As String = ""
         Dim d As DataTable = con.doQuery("SELECT idINSTRUCTOR " _
                                     & "FROM instructor" _
-                                     & " WHERE Auto='" & Matricula & "'")
+                                     & " WHERE Auto='" & Vehiculo & "'")
 
         If d.Rows.Count > 0 Then
             estado = d.Rows(0).Item(0).ToString
