@@ -22,31 +22,31 @@ Partial Class ResumenAlumno
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.list_Alumno = New System.Windows.Forms.DataGridView()
+        Me.tbox_search = New System.Windows.Forms.TextBox()
         Me.lbl_Nombre = New System.Windows.Forms.Label()
         Me.lbl_Rut = New System.Windows.Forms.Label()
         Me.lbl_Curso = New System.Windows.Forms.Label()
         Me.lbl_HTeoria = New System.Windows.Forms.Label()
         Me.lbl_HPractica = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.list_Alumno, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'DataGridView1
+        'list_Alumno
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 80)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(268, 217)
-        Me.DataGridView1.TabIndex = 0
+        Me.list_Alumno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.list_Alumno.Location = New System.Drawing.Point(12, 80)
+        Me.list_Alumno.Name = "list_Alumno"
+        Me.list_Alumno.Size = New System.Drawing.Size(268, 217)
+        Me.list_Alumno.TabIndex = 0
         '
-        'TextBox1
+        'tbox_search
         '
-        Me.TextBox1.Location = New System.Drawing.Point(12, 41)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(268, 20)
-        Me.TextBox1.TabIndex = 1
+        Me.tbox_search.Location = New System.Drawing.Point(12, 41)
+        Me.tbox_search.Name = "tbox_search"
+        Me.tbox_search.Size = New System.Drawing.Size(268, 20)
+        Me.tbox_search.TabIndex = 1
         '
         'lbl_Nombre
         '
@@ -119,18 +119,18 @@ Partial Class ResumenAlumno
         Me.Controls.Add(Me.lbl_Curso)
         Me.Controls.Add(Me.lbl_Rut)
         Me.Controls.Add(Me.lbl_Nombre)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.tbox_search)
+        Me.Controls.Add(Me.list_Alumno)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ResumenAlumno"
         Me.Text = "ResumenAlumno"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.list_Alumno, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents list_Alumno As System.Windows.Forms.DataGridView
+    Friend WithEvents tbox_search As System.Windows.Forms.TextBox
     Friend WithEvents lbl_Nombre As System.Windows.Forms.Label
     Friend WithEvents lbl_Rut As System.Windows.Forms.Label
     Friend WithEvents lbl_Curso As System.Windows.Forms.Label
