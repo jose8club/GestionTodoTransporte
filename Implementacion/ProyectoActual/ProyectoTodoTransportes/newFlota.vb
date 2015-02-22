@@ -281,30 +281,39 @@ Public Class newFlota
                     Dim Columnas() As String = {}
                     Dim Parametros() As String = {}
 
-                    Try
-                        con.beginTransaction()
-                        Columnas = {"Matricula", "Modelo", "Estado"}
-                        Parametros = {Patente, Modelo, Estado}
-                        ID = con.doInsert("auto_escuela", Columnas, Parametros)
-                        If ID <> -1 Then
-                            V = MsgBox("Desea agregar instructor ahora o no", 4, "Confirmacion")
-                            If V = MsgBoxResult.Yes Then
-                                'Si acepta agregar un nuevo instructor entonces hace visible el agregar un instructor
-                                lbl_encInstAgregar.Visible = True
-                                cbox_instructor.Visible = True
-                                btn_retract.Visible = True  'boton de retroceso que se activa cuando uno cambia de opinion sobre agregar instructor
-                                asignar = True
-                                btn_agregar.Text = "Asignar" 'cambia de nombre el boton de agregar a asignar
+                    If patenteunica(Patente) Then
+                        'Ingresa la patente si no está registrada
+                        Try
+                            con.beginTransaction()
+                            Columnas = {"Matricula", "Modelo", "Estado"}
+                            Parametros = {Patente, Modelo, Estado}
+                            ID = con.doInsert("auto_escuela", Columnas, Parametros)
+                            If ID <> -1 Then
+                                V = MsgBox("Desea agregar instructor ahora o no", 4, "Confirmacion")
+                                If V = MsgBoxResult.Yes Then
+                                    'Si acepta agregar un nuevo instructor entonces hace visible el agregar un instructor
+                                    lbl_encInstAgregar.Visible = True
+                                    cbox_instructor.Visible = True
+                                    btn_retract.Visible = True  'boton de retroceso que se activa cuando uno cambia de opinion sobre agregar instructor
+                                    asignar = True
+                                    btn_agregar.Text = "Asignar" 'cambia de nombre el boton de agregar a asignar
 
-                            ElseIf V = MsgBoxResult.No Then
-                                ID = 0
-                                modularizar(ID) 'llama a la funcion modularizar que hace commit solo al nuevo vehiculo ingresado
+                                ElseIf V = MsgBoxResult.No Then
+                                    ID = 0
+                                    modularizar(ID) 'llama a la funcion modularizar que hace commit solo al nuevo vehiculo ingresado
 
+                                End If
                             End If
-                        End If
-                    Catch ex As Exception
-                        MsgBox(ex.Message.ToString)
-                    End Try
+                        Catch ex As Exception
+                            MsgBox(ex.Message.ToString)
+                        End Try
+                    ElseIf Not patenteunica(Patente) Then
+                        'si no esta registrada retorna para reescribir la patente
+                        MsgBox("Ingrese un estado diferente al actual", MsgBoxStyle.Critical, "Atención")
+                        tbox_mat1.Focus()
+                    End If
+
+                    
                 End If
             Catch ex As Exception
 
@@ -393,6 +402,27 @@ Public Class newFlota
         End If
         resetAgregar()
     End Sub
+
+    Function patenteunica(ByVal Patente) As Boolean
+        'No se puede ingresar dos patentes unicas porque estas son PPU (Placa Patente Unica)
+        Dim cant As Integer = 0
+        Dim label As DataTable = con.doQuery("SELECT Count(Matricula) " _
+                                        & "FROM auto_escuela" _
+                                         & " WHERE Matricula ='" & Patente & "'")
+
+        If label.Rows.Count > 0 Then
+            cant = CInt(label.Rows(0).Item(0).ToString)
+        Else
+            cant = 0
+        End If
+
+        If cant = 0 Then
+            Return True
+        Else
+            Return False
+        End If
+
+    End Function
 
     Private Sub btn_retract_Click(sender As System.Object, e As System.EventArgs) Handles btn_retract.Click
         'El boton retractar [X] se encarga de que cuando una persona escoga ingresar un auto mas un instructor
