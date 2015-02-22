@@ -104,8 +104,21 @@ Public Class newFlota
             'entrega un mensaje que dice que debe llenarlo
             MsgBox("Ingrese matricula", MsgBoxStyle.Exclamation, "Atención")
             Return False
-
-
+            'ElseIf (Asc(tbox_mat1.Text) >= 65 And Asc(tbox_mat1.Text) <= 90) And tbox_mat1.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA Then
+            '    'Si se escribe mayuscula primer cuadro
+            '    'entrega un mensaje que dice que debe llenarlo en minuscula
+            '    MsgBox("Ingrese matricula 01 letra minuscula", MsgBoxStyle.Exclamation, "Atención")
+            '    Return False
+            'ElseIf Asc(tbox_mat2.Text) >= 65 And Asc(tbox_mat2.Text) <= 90 And tbox_mat2.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA Then
+            '    'Si se escribe mayusculas segundo cuadro
+            '    'entrega un mensaje que dice que debe llenarlo en minuscula
+            '    MsgBox("Ingrese matricula 02 letra minuscula", MsgBoxStyle.Exclamation, "Atención")
+            '    Return False
+            'ElseIf Asc(tbox_mat3.Text) >= 65 And Asc(tbox_mat3.Text) <= 90 And tbox_mat3.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA Then
+            '    'Si se escribe mayusculas tercer cuadro
+            '    'entrega un mensaje que dice que debe llenarlo en minuscula
+            '    MsgBox("Ingrese matricula 03 letra minuscula", MsgBoxStyle.Exclamation, "Atención")
+            '    Return False
         End If
 
         Return True
@@ -267,6 +280,7 @@ Public Class newFlota
                     Dim Estado As String = cbox_estado.SelectedValue
                     Dim Columnas() As String = {}
                     Dim Parametros() As String = {}
+
                     Try
                         con.beginTransaction()
                         Columnas = {"Matricula", "Modelo", "Estado"}
@@ -414,4 +428,7 @@ Public Class newFlota
         resetAgregar()
         resetActualizar()
     End Sub
+
+    
+    
 End Class
