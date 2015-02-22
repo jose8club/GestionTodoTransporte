@@ -94,12 +94,21 @@
     <Compile Include="Bienvenido.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CustomTextBoxClass.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DataCBOX.vb" />
     <Compile Include="Expresion.vb" />
     <Compile Include="Horarios.Designer.vb">
       <DependentUpon>Horarios.vb</DependentUpon>
     </Compile>
     <Compile Include="Horarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Matricula.Designer.vb">
+      <DependentUpon>Matricula.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Matricula.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
@@ -271,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Horarios.resx">
       <DependentUpon>Horarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Matricula.resx">
+      <DependentUpon>Matricula.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewAsistencia.resx">
       <DependentUpon>NewAsistencia.vb</DependentUpon>

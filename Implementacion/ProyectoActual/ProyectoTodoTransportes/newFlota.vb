@@ -50,7 +50,7 @@ Public Class newFlota
             cbox_instructor.DisplayMember = "Nombre"
             cbox_instructor.ValueMember = "idFuncionario"
             cbox_instructor.SelectedIndex = -1
-            
+
         ElseIf s.Equals("año") Then
             Dim año As DataTable = New DataTable
             año.Columns.Add("Nombre")
@@ -428,7 +428,4 @@ Public Class newFlota
         resetAgregar()
         resetActualizar()
     End Sub
-
-    
-    
 End Class

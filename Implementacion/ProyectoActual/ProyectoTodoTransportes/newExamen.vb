@@ -13,7 +13,7 @@
     End Sub
 
     Private Sub newExamen_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        
+
         loadCBOX("Examenes")
         loadCBOX("RegistroMatricula")
         loadCBOX("Funcionario")
@@ -62,7 +62,7 @@
                 cbox_funcionario.ValueMember = "idFuncionario"
                 cbox_funcionario.SelectedIndex = -1
             End If
-            
+
         End If
     End Sub
 
@@ -313,7 +313,7 @@
             Dim Estado As String = ""
             Dim Comentario As String = tbox_Comentario.Text
             Dim Calificacion As String = (tbox_Calificacion.Text)
-            
+
             'Dim Certificado As Boolean = check_Certificado.Checked
             Dim Funcionario As String = cbox_funcionario.SelectedValue
             Dim Horario As String = ""
@@ -331,7 +331,7 @@
 
             If rbtn_Aprobado.Checked Then Estado = "Aprobado" Else Estado = "Reprobado"
 
-            
+
             Try
                 con.beginTransaction()
                 'ingresar documento
