@@ -120,7 +120,7 @@
             Return False
         ElseIf rbtn_Aprobado.Checked = False And rbtn_Reprobado.Checked = False And Not cbox_TipoExamen.Text.Equals("Cambio Rueda") Then
             'No deja ingresar examen si ambos campos de seleccion no están seleccionados
-            'debe estar por lo menos uno seleccionado
+            'debe estar por lo menos uno seleccionado excepto en cambio de rueda
             MsgBox("Seleccione una opción de aprobación", MsgBoxStyle.Exclamation, "Atención")
             rbtn_Aprobado.Focus()
             Return False
@@ -159,17 +159,24 @@
             MsgBox("Examen Municipal hecho en mas de las ocasiones permitidas. No se puede realizar operacion", MsgBoxStyle.Exclamation, "Atención")
             cbox_RegistroMatricula.Focus()
             Return False
-        
-        ElseIf CDbl(tbox_Calificacion.Text) > 4.0 And (cbox_TipoExamen.SelectedValue.Equals("Examen Teórico") Or cbox_TipoExamen.SelectedValue.Equals("Examen Práctico")) And rbtn_Reprobado.Checked Then
-            'la calificacion no debe ser mayor a 4 si la opcion aprobada no esta puesta
-            MsgBox("La calificación no es valida, no es reprobada", MsgBoxStyle.Exclamation, "Atención")
-            tbox_Calificacion.Focus()
-            Return False
-        ElseIf CDbl(tbox_Calificacion.Text) <= 4.0 And (cbox_TipoExamen.SelectedValue.Equals("Examen Teórico") Or cbox_TipoExamen.SelectedValue.Equals("Examen Práctico")) And rbtn_Aprobado.Checked Then
-            'la calificacion no debe ser menor a 4 si la opcion reprobada no esta puesta
-            MsgBox("La calificación no es valida, no es aprovada", MsgBoxStyle.Exclamation, "Atención")
-            tbox_Calificacion.Focus()
-            Return False
+        ElseIf (cbox_TipoExamen.SelectedValue.Equals("Examen Teórico") Or cbox_TipoExamen.SelectedValue.Equals("Examen Práctico")) Then
+            If CDbl(tbox_Calificacion.Text) > 70 Then
+                'la calificacion no debe ser mayor a 7 no es una nota valida
+                MsgBox("La calificación no es valida, supera la nota maxima permitida", MsgBoxStyle.Exclamation, "Atención")
+                tbox_Calificacion.Focus()
+                Return False
+            ElseIf CDbl(tbox_Calificacion.Text) > 40 And rbtn_Reprobado.Checked Then
+                'la calificacion no debe ser mayor a 4 si la opcion aprobada no esta puesta
+                MsgBox("La calificación no es valida, no es una nota reprobada", MsgBoxStyle.Exclamation, "Atención")
+                tbox_Calificacion.Focus()
+                Return False
+            ElseIf CDbl(tbox_Calificacion.Text) <= 40 And rbtn_Aprobado.Checked Then
+                'la calificacion no debe ser menor a 4 si la opcion reprobada no esta puesta
+                MsgBox("La calificación no es valida, no es un nota aprovada", MsgBoxStyle.Exclamation, "Atención")
+                tbox_Calificacion.Focus()
+                Return False
+
+            End If
         End If
 
         Return True
@@ -236,6 +243,8 @@
 
     Private Sub cbox_TipoExamen_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_TipoExamen.SelectedIndexChanged
         'representa los campos que deben tener cada tipo de examen
+        STATUS.ForeColor = Color.Black
+        STATUS.Text = "Usuario " & USER & ""
         cbox_RegistroMatricula.Text = ""
         cbox_funcionario.Text = ""
         tbox_Calificacion.Text = ""
@@ -303,7 +312,7 @@
             Dim Fecha As String = Format(date_Fecha.Value, "yyyy-MM-dd")
             Dim Estado As String = ""
             Dim Comentario As String = tbox_Comentario.Text
-            Dim Calificacion As String = CDec(tbox_Calificacion.Text)
+            Dim Calificacion As String = (tbox_Calificacion.Text)
             
             'Dim Certificado As Boolean = check_Certificado.Checked
             Dim Funcionario As String = cbox_funcionario.SelectedValue
@@ -325,14 +334,14 @@
             
             Try
                 con.beginTransaction()
-
+                'ingresar documento
                 Columnas = {"Tipo", "Funcionario", "Fecha", "Estado"}
                 Parametros = {Tipo, Funcionario, Fecha, Estado}
                 ID = con.doInsert("Documento", Columnas, Parametros)
                 Dim AUX As Integer = ID
 
                 If cbox_TipoExamen.SelectedValue.Equals("Examen Teórico") Then
-                    'insert
+                    'ingresar nuevo examen teorico
                     If ID <> -1 Then
                         Columnas = {"Documento", "Calificacion"}
                         Parametros = {AUX, Calificacion}
@@ -345,7 +354,7 @@
                     End If
 
                 ElseIf cbox_TipoExamen.SelectedValue.Equals("Examen Práctico") Then
-                    'insert
+                    'ingresar nuevo examen practico
                     If ID <> -1 Then
                         Columnas = {"Documento", "Calificacion"}
                         Parametros = {AUX, Calificacion}
@@ -357,7 +366,7 @@
                         End If
                     End If
                 ElseIf cbox_TipoExamen.SelectedValue.Equals("Examen Municipal") Then
-                    'insert
+                    'ingresar nuevo examen municipal
                     If ID <> -1 Then
                         Columnas = {"Documento", "Comentario"}
                         Parametros = {AUX, Comentario}
@@ -369,7 +378,7 @@
                         End If
                     End If
                 ElseIf cbox_TipoExamen.SelectedValue.Equals("Examen Visual") Then
-                    'insert
+                    'ingresar nuevo examen visual
                     If ID <> -1 Then
                         Columnas = {"Documento", "Certificado"}
                         Parametros = {AUX, 1}
@@ -381,7 +390,7 @@
                         End If
                     End If
                 ElseIf cbox_TipoExamen.SelectedValue.Equals("Examen Psicotécnico") Then
-                    'insert
+                    'ingresar nuevo examen psicotecnico
                     If ID <> -1 Then
                         Columnas = {"Documento"}
                         Parametros = {AUX}
@@ -393,7 +402,7 @@
                         End If
                     End If
                 ElseIf cbox_TipoExamen.SelectedValue.Equals("Cambio Rueda") Then
-
+                    'ingresar nueva clase cambio rueda
                     If ID <> -1 Then
                         Columnas = {"Documento", "Horario"}
                         Parametros = {AUX, Horario}
@@ -408,6 +417,7 @@
 
                 If ID <> -1 Then
                     con.commitTransaction()
+                    MsgBox("Estudiante: " & lbl_NombreEstudiante.Text & ", Examen: " & cbox_TipoExamen.Text & ", Estado: " & Estado & ".", MsgBoxStyle.Information, "Resultados")
                     STATUS.Text = "Operación realizada con éxito."
                     STATUS.ForeColor = Color.Blue
 
@@ -425,12 +435,13 @@
     End Sub
 
     Private Sub btn_reset_Click(sender As System.Object, e As System.EventArgs) Handles btn_reset.Click
+        'llama a funcion de reseteo
         resetexamen()
     End Sub
 
     Public Sub resetexamen()
         'funcion de resteo
-        STATUS.ForeColor = Color.Black
+
         date_Fecha.Value = Now
         sbox_Hora.Value = "0"
         sbox_Minutos.Value = "0"
@@ -442,7 +453,7 @@
         cbox_funcionario.Text = ""
         rbtn_Aprobado.Checked = False
         rbtn_Reprobado.Checked = False
-        STATUS.Text = "Usuario " & USER & ""
+
     End Sub
 
 End Class
