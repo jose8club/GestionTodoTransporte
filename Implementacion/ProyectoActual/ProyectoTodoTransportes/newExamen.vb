@@ -207,14 +207,14 @@
         Dim oportunidad As Integer = 0
         Dim d As DataTable = con.doQuery("SELECT count(d.Estado) " _
                                     & "FROM Documento d, Estudiante_Documento e, Estudiante f" _
-                                     & " WHERE d.idDOCUMENTO=e.Documento and e.Estudiante=f.idESTUDIANTE and f.idESTUDIANTE= '" & Matricula & "' and d.Tipo = '" & Examen & "'")
+                                     & " WHERE d.Estado='Reprobado' and d.idDOCUMENTO=e.Documento and e.Estudiante=f.idESTUDIANTE and f.idESTUDIANTE= '" & Matricula & "' and d.Tipo = '" & Examen & "'")
 
         If d.Rows.Count > 0 Then
             oportunidad = CInt(d.Rows(0).Item(0).ToString)
         Else
             oportunidad = 0
         End If
-        If oportunidad > 2 Then
+        If oportunidad >= 2 Then
             Return True
         Else
             Return False
