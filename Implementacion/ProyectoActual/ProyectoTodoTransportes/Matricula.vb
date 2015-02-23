@@ -160,7 +160,8 @@ Public Class Matricula
             'Me.LimpiarBtn.PerformClick()
             Me.QueryTb.Text = Query
             con.doQuery(Query)
-            Dim res As String = con.selectWhereQuery("1", "MATRICULA", "Codigo = " & Me.NRegCTxBx.Text)
+            Dim res As String = con.selectWhereQuery("1", "MATRICULA", "Codigo = '" & Me.NRegCTxBx.Text & "'")
+            'Dim res As String = con.selectWhereQuery("1", "MATRICULA", "Codigo = " & Me.NRegCTxBx.Text)
             If res.Trim.Equals("") Then
                 STATUS.Text = "ERROR: Hubo un error al agregar la matrícula, por favor intente más tarde."
                 STATUS.ForeColor = Color.Red
