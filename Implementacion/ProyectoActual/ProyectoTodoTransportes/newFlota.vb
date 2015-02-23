@@ -309,7 +309,7 @@ Public Class newFlota
                         End Try
                     ElseIf Not patenteunica(Patente) Then
                         'si no esta registrada retorna para reescribir la patente
-                        MsgBox("Ingrese un estado diferente al actual", MsgBoxStyle.Critical, "Atención")
+                        MsgBox("La patente que ha ingresado ya existe en el sistema. Por favor ingrese una nueva", MsgBoxStyle.Critical, "Atención")
                         tbox_mat1.Focus()
                     End If
 
