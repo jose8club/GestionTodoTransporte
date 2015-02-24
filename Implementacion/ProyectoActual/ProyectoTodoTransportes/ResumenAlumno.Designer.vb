@@ -30,14 +30,28 @@ Partial Class ResumenAlumno
         Me.lbl_HTeoria = New System.Windows.Forms.Label()
         Me.lbl_HPractica = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.lbl_fono = New System.Windows.Forms.Label()
+        Me.lbl_tipo = New System.Windows.Forms.Label()
         CType(Me.list_Alumno, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'list_Alumno
         '
+        Me.list_Alumno.AllowUserToAddRows = False
+        Me.list_Alumno.AllowUserToDeleteRows = False
+        Me.list_Alumno.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.list_Alumno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.list_Alumno.ColumnHeadersVisible = False
         Me.list_Alumno.Location = New System.Drawing.Point(12, 80)
+        Me.list_Alumno.MultiSelect = False
         Me.list_Alumno.Name = "list_Alumno"
+        Me.list_Alumno.ReadOnly = True
+        Me.list_Alumno.RowHeadersVisible = False
+        Me.list_Alumno.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.list_Alumno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.list_Alumno.ShowCellErrors = False
+        Me.list_Alumno.ShowEditingIcon = False
+        Me.list_Alumno.ShowRowErrors = False
         Me.list_Alumno.Size = New System.Drawing.Size(268, 217)
         Me.list_Alumno.TabIndex = 0
         '
@@ -71,7 +85,7 @@ Partial Class ResumenAlumno
         'lbl_Curso
         '
         Me.lbl_Curso.AutoSize = True
-        Me.lbl_Curso.Location = New System.Drawing.Point(325, 125)
+        Me.lbl_Curso.Location = New System.Drawing.Point(325, 170)
         Me.lbl_Curso.Name = "lbl_Curso"
         Me.lbl_Curso.Size = New System.Drawing.Size(37, 13)
         Me.lbl_Curso.TabIndex = 4
@@ -81,7 +95,7 @@ Partial Class ResumenAlumno
         'lbl_HTeoria
         '
         Me.lbl_HTeoria.AutoSize = True
-        Me.lbl_HTeoria.Location = New System.Drawing.Point(351, 151)
+        Me.lbl_HTeoria.Location = New System.Drawing.Point(351, 196)
         Me.lbl_HTeoria.Name = "lbl_HTeoria"
         Me.lbl_HTeoria.Size = New System.Drawing.Size(79, 13)
         Me.lbl_HTeoria.TabIndex = 5
@@ -91,7 +105,7 @@ Partial Class ResumenAlumno
         'lbl_HPractica
         '
         Me.lbl_HPractica.AutoSize = True
-        Me.lbl_HPractica.Location = New System.Drawing.Point(351, 174)
+        Me.lbl_HPractica.Location = New System.Drawing.Point(351, 219)
         Me.lbl_HPractica.Name = "lbl_HPractica"
         Me.lbl_HPractica.Size = New System.Drawing.Size(86, 13)
         Me.lbl_HPractica.TabIndex = 6
@@ -101,18 +115,40 @@ Partial Class ResumenAlumno
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(325, 197)
+        Me.Label1.Location = New System.Drawing.Point(334, 312)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(37, 13)
         Me.Label1.TabIndex = 7
         Me.Label1.Tag = ""
         Me.Label1.Text = "Curso:"
         '
+        'lbl_fono
+        '
+        Me.lbl_fono.AutoSize = True
+        Me.lbl_fono.Location = New System.Drawing.Point(325, 125)
+        Me.lbl_fono.Name = "lbl_fono"
+        Me.lbl_fono.Size = New System.Drawing.Size(88, 13)
+        Me.lbl_fono.TabIndex = 8
+        Me.lbl_fono.Tag = ""
+        Me.lbl_fono.Text = "Teléfono / Email:"
+        '
+        'lbl_tipo
+        '
+        Me.lbl_tipo.AutoSize = True
+        Me.lbl_tipo.Location = New System.Drawing.Point(325, 148)
+        Me.lbl_tipo.Name = "lbl_tipo"
+        Me.lbl_tipo.Size = New System.Drawing.Size(66, 13)
+        Me.lbl_tipo.TabIndex = 9
+        Me.lbl_tipo.Tag = ""
+        Me.lbl_tipo.Text = "Tipo Cliente:"
+        '
         'ResumenAlumno
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(700, 450)
+        Me.Controls.Add(Me.lbl_tipo)
+        Me.Controls.Add(Me.lbl_fono)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lbl_HPractica)
         Me.Controls.Add(Me.lbl_HTeoria)
@@ -137,4 +173,6 @@ Partial Class ResumenAlumno
     Friend WithEvents lbl_HTeoria As System.Windows.Forms.Label
     Friend WithEvents lbl_HPractica As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lbl_fono As System.Windows.Forms.Label
+    Friend WithEvents lbl_tipo As System.Windows.Forms.Label
 End Class
