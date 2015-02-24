@@ -421,7 +421,8 @@ Public Class newFlota
         'cambie de idea y solo ingrese el nuevo vehiculo
         asignar = False
         Dim ID As Integer = 0
-        modularizar(ID)
+        'modularizar(ID)
+        resetAgregar()
     End Sub
 
     Private Sub resetAgregar()
