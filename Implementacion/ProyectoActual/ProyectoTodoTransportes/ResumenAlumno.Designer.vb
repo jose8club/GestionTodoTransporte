@@ -29,7 +29,7 @@ Partial Class ResumenAlumno
         Me.lbl_Curso = New System.Windows.Forms.Label()
         Me.lbl_HTeoria = New System.Windows.Forms.Label()
         Me.lbl_HPractica = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lbl_codigo = New System.Windows.Forms.Label()
         Me.lbl_fono = New System.Windows.Forms.Label()
         Me.lbl_tipo = New System.Windows.Forms.Label()
         CType(Me.list_Alumno, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -112,15 +112,15 @@ Partial Class ResumenAlumno
         Me.lbl_HPractica.Tag = ""
         Me.lbl_HPractica.Text = "Horario Práctica:"
         '
-        'Label1
+        'lbl_codigo
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(334, 312)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(37, 13)
-        Me.Label1.TabIndex = 7
-        Me.Label1.Tag = ""
-        Me.Label1.Text = "Curso:"
+        Me.lbl_codigo.AutoSize = True
+        Me.lbl_codigo.Location = New System.Drawing.Point(325, 44)
+        Me.lbl_codigo.Name = "lbl_codigo"
+        Me.lbl_codigo.Size = New System.Drawing.Size(91, 13)
+        Me.lbl_codigo.TabIndex = 7
+        Me.lbl_codigo.Tag = ""
+        Me.lbl_codigo.Text = "Codigo Matrícula:"
         '
         'lbl_fono
         '
@@ -149,7 +149,7 @@ Partial Class ResumenAlumno
         Me.ClientSize = New System.Drawing.Size(700, 450)
         Me.Controls.Add(Me.lbl_tipo)
         Me.Controls.Add(Me.lbl_fono)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lbl_codigo)
         Me.Controls.Add(Me.lbl_HPractica)
         Me.Controls.Add(Me.lbl_HTeoria)
         Me.Controls.Add(Me.lbl_Curso)
@@ -172,7 +172,7 @@ Partial Class ResumenAlumno
     Friend WithEvents lbl_Curso As System.Windows.Forms.Label
     Friend WithEvents lbl_HTeoria As System.Windows.Forms.Label
     Friend WithEvents lbl_HPractica As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lbl_codigo As System.Windows.Forms.Label
     Friend WithEvents lbl_fono As System.Windows.Forms.Label
     Friend WithEvents lbl_tipo As System.Windows.Forms.Label
 End Class

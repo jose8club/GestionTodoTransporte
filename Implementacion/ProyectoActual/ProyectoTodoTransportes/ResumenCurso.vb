@@ -70,6 +70,11 @@
             aux = con.doQuery("SELECT f.Nombre FROM Teoria t, Practica p, Clase c, Funcionario f WHERE c.Curso = '" & list_Curso.SelectedValue & "' AND ((c.idCLASE = t.Clase AND t.Profesor = f.idFuncionario) OR (c.idCLASE = p.Clase AND p.Instructor = f.idFuncionario)) GROUP BY f.Nombre")
             list_Profesores.DataSource = aux
             list_Profesores.DisplayMember = "Nombre"
+
+            aux = con.doQuery("SELECT c.Nombre FROM Cliente c, Compra co, Matricula m WHERE m.Curso = '" & list_Curso.SelectedValue & "' AND c.idCliente = co.Cliente AND co.idCompra = m.CodigoCompra")
+            list_Alumnos.DataSource = aux
+            list_Alumnos.DisplayMember = "Nombre"
+
         Catch ex As Exception
 
         End Try
