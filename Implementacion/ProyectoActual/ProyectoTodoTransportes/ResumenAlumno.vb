@@ -40,11 +40,18 @@
             lbl_fono.Text = "Teléfono / Email:          " & datatable.Rows(0).Item(0).ToString & " / " & datatable.Rows(0).Item(1).ToString
             lbl_tipo.Text = "Tipo Cliente:                  " & datatable.Rows(0).Item(2).ToString
 
-            datatable = con.doQuery("SELECT * FROM Cliente c, Compra co WHERE c.Rut = '" & list_Alumno.CurrentRow.Cells(0).Value.ToString & "' AND c.idCliente = co.Cliente")
-            lbl_Curso.Text = "Curso:            "
+            datatable = con.doQuery("SELECT m.Curso, co.Producto, m.HoraTeoria, m.HoraPractica FROM Cliente c, Compra co, Matricula m  WHERE c.Rut = '" & list_Alumno.CurrentRow.Cells(0).Value.ToString & "' AND c.idCliente = co.Cliente ANd co.idCompra = m.CodigoCompra")
+            lbl_Curso.Text = "Curso:                            " & datatable.Rows(0).Item(0).ToString & "   -  (" & datatable.Rows(0).Item(1).ToString & ")"
+            lbl_HTeoria.Text = "Horario Teoría:     " & datatable.Rows(0).Item(2).ToString
+            lbl_HPractica.Text = "Horario Teoría:     " & datatable.Rows(0).Item(3).ToString
+
         Else
             lbl_Nombre.Text = "Nombre:"
             lbl_Rut.Text = "Rut:"
+            lbl_fono.Text = "Teléfono / Email:"
+            lbl_tipo.Text = "Tipo Cliente:"
+            lbl_Curso.Text = "Curso:"
+
         End If
 
     End Sub
