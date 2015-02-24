@@ -269,17 +269,39 @@
     Function reqmunicipal(ByVal Matricula As String) As Boolean
         'se verifica que los examenes teorico, practico y visual ya se han aprobado ya
         '1) Verificar el examen teorico
-        Dim aprobado As Integer = 0
+        Dim aprobadoteo As Integer = 0
         Dim d As DataTable = con.doQuery("SELECT count(d.estado) " _
                                     & "FROM documento d,  estudiante_documento ed" _
-                                     & " WHERE d.estado='Aprobado' and d.idDOCUMENTO=ed.Documento and d.Tipo='Examen Teorico' and ed.Estudiante='" & Matricula & "'")
+                                     & " WHERE d.estado='Aprobado' and d.idDOCUMENTO=ed.Documento and d.Tipo='Examen Teórico' and ed.Estudiante='" & Matricula & "'")
 
         If d.Rows.Count > 0 Then
-            aprobado = CInt(d.Rows(0).Item(0).ToString)
+            aprobadoteo = CInt(d.Rows(0).Item(0).ToString)
         Else
-            aprobado = 0
+            aprobadoteo = 0
         End If
-        If aprobado > 0 Then
+        '2) Verificar el examen practico
+        Dim aprobadopract As Integer = 0
+        Dim e As DataTable = con.doQuery("SELECT count(d.estado) " _
+                                    & "FROM documento d,  estudiante_documento ed" _
+                                     & " WHERE d.estado='Aprobado' and d.idDOCUMENTO=ed.Documento and d.Tipo='Examen Práctico' and ed.Estudiante='" & Matricula & "'")
+
+        If e.Rows.Count > 0 Then
+            aprobadopract = CInt(e.Rows(0).Item(0).ToString)
+        Else
+            aprobadopract = 0
+        End If
+        '2) Verificar el examen visual
+        Dim aprobadovisual As Integer = 0
+        Dim f As DataTable = con.doQuery("SELECT count(d.estado) " _
+                                    & "FROM documento d,  estudiante_documento ed" _
+                                     & " WHERE d.estado='Aprobado' and d.idDOCUMENTO=ed.Documento and d.Tipo='Examen Visual' and ed.Estudiante='" & Matricula & "'")
+
+        If f.Rows.Count > 0 Then
+            aprobadovisual = CInt(f.Rows(0).Item(0).ToString)
+        Else
+            aprobadovisual = 0
+        End If
+        If aprobadoteo > 0 And aprobadopract > 0 And aprobadovisual > 0 Then
             Return False
         Else
             Return True
