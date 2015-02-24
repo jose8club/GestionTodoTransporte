@@ -39,7 +39,7 @@ Partial Class ResumenTabs
         Me.TabControl1.Location = New System.Drawing.Point(12, 12)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(736, 376)
+        Me.TabControl1.Size = New System.Drawing.Size(732, 448)
         Me.TabControl1.TabIndex = 0
         '
         'TabPage1
@@ -48,7 +48,7 @@ Partial Class ResumenTabs
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(728, 350)
+        Me.TabPage1.Size = New System.Drawing.Size(763, 422)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Docentes"
         '
@@ -66,7 +66,7 @@ Partial Class ResumenTabs
         '
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(728, 350)
+        Me.TabPage3.Size = New System.Drawing.Size(724, 422)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Alumnos"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -84,7 +84,7 @@ Partial Class ResumenTabs
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(760, 400)
+        Me.ClientSize = New System.Drawing.Size(795, 472)
         Me.Controls.Add(Me.TabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "ResumenTabs"
