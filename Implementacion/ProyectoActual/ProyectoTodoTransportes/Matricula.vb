@@ -161,7 +161,6 @@ Public Class Matricula
             Me.QueryTb.Text = Query
             con.doQuery(Query)
             Dim res As String = con.selectWhereQuery("1", "MATRICULA", "Codigo = '" & Me.NRegCTxBx.Text & "'")
-            'Dim res As String = con.selectWhereQuery("1", "MATRICULA", "Codigo = " & Me.NRegCTxBx.Text)
             If res.Trim.Equals("") Then
                 STATUS.Text = "ERROR: Hubo un error al agregar la matrícula, por favor intente más tarde."
                 STATUS.ForeColor = Color.Red
@@ -197,6 +196,7 @@ Public Class Matricula
         End If
         Me.ValorTxtLbl.Text = "$" & MontoAPagar
         Me.APagarTxtLbl.Text = "$" & MontoAPagar
+        Me.DctoSpinBx.Enabled = True
     End Sub
 
     Private Sub PagoRealizChBx_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles PagoRealizChBx.CheckedChanged
@@ -204,9 +204,11 @@ Public Class Matricula
     End Sub
 
     Private Sub DctoSpinBx_ValueChanged(sender As System.Object, e As System.EventArgs) Handles DctoSpinBx.ValueChanged
+        'MsgBox(Me.ValorTxtLbl.Text.Substring(1))
         Dim MtoO As Integer = Convert.ToInt32(Me.ValorTxtLbl.Text.Substring(1))
         Dim Dcto As Integer = Me.DctoSpinBx.Value
         Dim MtoAPa As Integer = MtoO - ((MtoO * Dcto) / 100)
         Me.APagarTxtLbl.Text = MtoAPa
     End Sub
+
 End Class

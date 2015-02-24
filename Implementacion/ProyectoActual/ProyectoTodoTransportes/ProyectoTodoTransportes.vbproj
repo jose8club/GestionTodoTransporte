@@ -255,12 +255,6 @@
     <Compile Include="RegistrarCliente.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegistrarMatricula.Designer.vb">
-      <DependentUpon>RegistrarMatricula.vb</DependentUpon>
-    </Compile>
-    <Compile Include="RegistrarMatricula.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Vehiculos.Designer.vb">
       <DependentUpon>Vehiculos.vb</DependentUpon>
     </Compile>
@@ -352,9 +346,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RegistrarCliente.resx">
       <DependentUpon>RegistrarCliente.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RegistrarMatricula.resx">
-      <DependentUpon>RegistrarMatricula.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vehiculos.resx">
       <DependentUpon>Vehiculos.vb</DependentUpon>
