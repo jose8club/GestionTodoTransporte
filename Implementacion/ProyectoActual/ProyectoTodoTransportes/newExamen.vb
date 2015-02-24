@@ -267,7 +267,23 @@
     End Function
 
     Function reqmunicipal(ByVal Matricula As String) As Boolean
-        'se verifica que los examenes teorico, practico y municipal 
+        'se verifica que los examenes teorico, practico y visual ya se han aprobado ya
+        '1) Verificar el examen teorico
+        Dim aprobado As Integer = 0
+        Dim d As DataTable = con.doQuery("SELECT count(d.estado) " _
+                                    & "FROM documento d,  estudiante_documento ed" _
+                                     & " WHERE d.estado='Aprobado' and d.idDOCUMENTO=ed.Documento and d.Tipo='Examen Teorico' and ed.Estudiante='" & Matricula & "'")
+
+        If d.Rows.Count > 0 Then
+            aprobado = CInt(d.Rows(0).Item(0).ToString)
+        Else
+            aprobado = 0
+        End If
+        If aprobado > 0 Then
+            Return False
+        Else
+            Return True
+        End If
         Return True
     End Function
 
