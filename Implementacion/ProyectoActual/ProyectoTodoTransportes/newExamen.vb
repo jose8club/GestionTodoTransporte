@@ -151,13 +151,17 @@
             Return False
         ElseIf aprovado(cbox_RegistroMatricula.SelectedValue.ToString, cbox_TipoExamen.SelectedValue.ToString) And Not (cbox_TipoExamen.Text.Equals("Examen Municipal") Or cbox_TipoExamen.Text.Equals("Examen Psicotécnico") Or cbox_TipoExamen.Text.Equals("Cambio Rueda")) Then
             'Si el estudiante fue ya aprobado entonces no vuelve a dar el examen
-            MsgBox("Estudiante aprovado en " & cbox_TipoExamen.SelectedValue.ToString & ". No se puede realizar operacion", MsgBoxStyle.Exclamation, "Atención")
+            MsgBox("Estudiante aprobado en " & cbox_TipoExamen.SelectedValue.ToString & ". No se puede realizar operacion", MsgBoxStyle.Exclamation, "Atención")
             cbox_RegistroMatricula.Focus()
             Return False
         ElseIf suficiente(cbox_RegistroMatricula.SelectedValue.ToString, cbox_TipoExamen.SelectedValue.ToString) And cbox_TipoExamen.Text.Equals("Examen Municipal") Then
             'Solo se puede dar el examen municipal dos veces
             MsgBox("Examen Municipal hecho en mas de las ocasiones permitidas. No se puede realizar operacion", MsgBoxStyle.Exclamation, "Atención")
             cbox_RegistroMatricula.Focus()
+            Return False
+        ElseIf reqpractico(cbox_RegistroMatricula.SelectedValue.ToString) And cbox_TipoExamen.SelectedValue.Equals("Examen Práctico") Then
+            MsgBox("El estudiante no está aprobado en el examen teorico, por lo que no puede dar el examen práctico", MsgBoxStyle.Exclamation, "Atención")
+            tbox_Calificacion.Focus()
             Return False
         ElseIf (cbox_TipoExamen.SelectedValue.Equals("Examen Teórico") Or cbox_TipoExamen.SelectedValue.Equals("Examen Práctico")) Then
             If CDbl(tbox_Calificacion.Text) > 70 Then
@@ -235,6 +239,26 @@
             estado = ""
         End If
         If estado = "Disponible" Or estado = "" Then
+            Return False
+        Else
+            Return True
+        End If
+    End Function
+
+    Function reqpractico(ByVal Matricula As String) As Boolean
+        'Esto sirve para que un que un estudiante que no haya aprobado el examen teorico
+        'no pueda dar el examen practico
+        Dim aprobado As String = ""
+        Dim d As DataTable = con.doQuery("SELECT count(d.estado)" _
+                                    & "FROM documento d,  estudiante_documento ed" _
+                                     & " WHERE d.estado='Aprobado' and d.idDOCUMENTO=ed.Documento and d.Tipo='Examen Teorico' and and ed.Estudiante='" & Matricula & "'")
+
+        If d.Rows.Count > 0 Then
+            aprobado = CInt(d.Rows(0).Item(0).ToString)
+        Else
+            aprobado = 0
+        End If
+        If aprobado > 0 Then
             Return False
         Else
             Return True
