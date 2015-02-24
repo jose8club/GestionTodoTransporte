@@ -365,8 +365,8 @@ Public Class newFlota
         'Cada vez que cambia la matricula de un automovil cambia el label 'Instructor'
         'al nombre del instructor al cual está asignado el vehiculo personalmente
         Dim label As DataTable = con.doQuery("SELECT f.Nombre " _
-                                        & "FROM instructor i, docente d, funcionario f" _
-                                         & " WHERE i.idINSTRUCTOR = d.idDOCENTE and d.idDOCENTE = f.idFUNCIONARIO and i.Auto ='" & cbox_matricula.Text & "'")
+                                        & "FROM funcionario f, docente d, instructor i" _
+                                         & " WHERE f.idFUNCIONARIO = d.idDOCENTE and d.idDOCENTE=i.idINSTRUCTOR and i.Auto ='" & cbox_matricula.Text & "'")
 
         If label.Rows.Count > 0 Then
             lbl_instructor.Text = label.Rows(0).Item(0).ToString
