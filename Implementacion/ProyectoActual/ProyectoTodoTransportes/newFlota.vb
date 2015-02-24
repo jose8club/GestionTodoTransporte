@@ -380,7 +380,7 @@ Public Class newFlota
     Private Sub modularizar(ByVal ID As Integer)
         'Dado que el boton retractar y el boton "no" del msgbox realizan la misma funcionalidad
         'se modulariza en esta subrutina el commit final que asegurará que el auto se ingresará correctamente
-        btn_agregar.Text = "Agregar"
+
         If ID <> -1 Then
             STATUS.Text = "Operación realizada con éxito."
             STATUS.ForeColor = Color.Blue
@@ -390,8 +390,9 @@ Public Class newFlota
             STATUS.ForeColor = Color.Red
             con.rollbackTransaction()
         End If
-
-        resetAgregar()
+        If Not asignar Then
+            resetAgregar()
+        End If
     End Sub
 
     Function patenteunica(ByVal Patente) As Boolean
@@ -434,6 +435,7 @@ Public Class newFlota
         lbl_encInstAgregar.Visible = False
         cbox_instructor.Visible = False
         btn_retract.Visible = False
+        btn_agregar.Text = "Agregar"
     End Sub
 
     Private Sub resetActualizar()
