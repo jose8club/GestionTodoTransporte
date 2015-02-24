@@ -41,7 +41,9 @@ Public Class Conexion
 
     Function doInsert(ByVal Tabla As String, ByVal Columnas() As String, ByVal Parametros() As String) As Integer
 
-        'Realiza cualquier insert y retorna la PK (Si es autoincrementable)
+        'Realiza cualquier insert y retorna la PK si es que es autoincrementable
+        'Si no es autoincrementable o si ocurre algún error, retorna -1.
+
         Dim r As Integer = -1
 
         Using comando As New MySqlCommand()
@@ -82,7 +84,34 @@ Public Class Conexion
         Return r
     End Function
 
-    
+    Function doUpdate(ByVal Tabla As String, ByVal Columnas() As String, ByVal Parametros() As String, ByVal Condicion As String) As Integer
+        'Realiza Updates y retorna 0 en caso de éxito y -1 en caso de error
+
+        Dim ret As Integer = 0
+        Dim SQLQuery As String = "UPDATE " & Tabla & " SET"
+        For Each par As String() In Columnas.Zip(Parametros, Function(a, b) {a, b}).ToArray()
+            SQLQuery = SQLQuery & " " & par(0) & "='" & par(1) & "',"
+        Next
+        SQLQuery = SQLQuery.TrimEnd(",")
+        SQLQuery = SQLQuery & " " & Condicion
+
+        Using comando As New MySqlCommand()
+            comando.Connection = conn
+            comando.CommandText = SQLQuery
+
+            Try
+                comando.ExecuteNonQuery()
+            Catch ex As Exception
+                MsgBox(ex.Message.ToString)
+                ret = -1
+            End Try
+
+        End Using
+
+        Return ret
+
+    End Function
+
 
     Sub beginTransaction()
         transaccion = conn.BeginTransaction

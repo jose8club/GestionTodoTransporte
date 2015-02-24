@@ -236,13 +236,13 @@ Public Class newFlota
     End Sub
 
     Private Sub btn_agregar_Click(sender As System.Object, e As System.EventArgs) Handles btn_agregar.Click
-        'Se agrega el nuevo auto cuya cada una de las partes de la patente tiene dos letras
+        'Se agrega el nuevo auto donde cada una de las partes de la patente tiene dos letras
         Dim Patente As String = ""
         l = New Expresion
         'llama a la clase Expresion de Expresion.vb
         Dim V As MsgBoxResult
         Dim ID As Integer = 0
-        'Si asignar = false entonces significa que aun no se ha asignado un instructor asociado a un vehiculo
+        'Si asignar = False entonces significa que aun no se ha asignado un instructor asociado a un vehiculo
         If Not asignar Then
             Try
                 If cbox_anios.SelectedValue.Equals("Pre 2007") Then
@@ -269,13 +269,8 @@ Public Class newFlota
                 '4) expnumdos: su expresion regular acepta numeros del 1 al 9 en la primera letra y del 0 al 9 en la segunda letra
                 If validarAgregar() And (tbox_mat1.ForeColor <> Color.Red Or tbox_mat2.ForeColor <> Color.Red Or tbox_mat3.ForeColor <> Color.Red) Then
                     'cuando esta bien escrita cada una de las tres partes son unidas en una sola patente llamada matricula
-                    If cbox_anios.SelectedValue.Equals("Pre 2007") Then
-                        Patente = UCase(tbox_mat1.Text) & (tbox_mat2.Text) & (tbox_mat3.Text)
+                    Patente = UCase(tbox_mat1.Text) & UCase(tbox_mat2.Text) & (tbox_mat3.Text)
 
-                    ElseIf cbox_anios.SelectedValue.Equals("Post 2007") Then
-                        Patente = UCase(tbox_mat1.Text) & UCase(tbox_mat2.Text) & (tbox_mat3.Text)
-
-                    End If
                     Dim Modelo As String = tbox_modelo.Text
                     Dim Estado As String = cbox_estado.SelectedValue
                     Dim Columnas() As String = {}
@@ -289,7 +284,7 @@ Public Class newFlota
                             Parametros = {Patente, Modelo, Estado}
                             ID = con.doInsert("auto_escuela", Columnas, Parametros)
                             If ID <> -1 Then
-                                V = MsgBox("Desea agregar instructor ahora o no", 4, "Confirmacion")
+                                V = MsgBox("¿Desea asignar el auto a un instructor ahora?", 4, "Asignar auto")
                                 If V = MsgBoxResult.Yes Then
                                     'Si acepta agregar un nuevo instructor entonces hace visible el agregar un instructor
                                     lbl_encInstAgregar.Visible = True
@@ -299,47 +294,41 @@ Public Class newFlota
                                     btn_agregar.Text = "Asignar" 'cambia de nombre el boton de agregar a asignar
 
                                 ElseIf V = MsgBoxResult.No Then
-                                    ID = 0
-                                    modularizar(ID) 'llama a la funcion modularizar que hace commit solo al nuevo vehiculo ingresado
-
+                                    'ID = 0
                                 End If
+                                modularizar(ID) 'llama a la funcion modularizar que hace commit solo al nuevo vehiculo ingresado
                             End If
+
                         Catch ex As Exception
                             MsgBox(ex.Message.ToString)
                         End Try
-                    ElseIf Not patenteunica(Patente) Then
-                        'si no esta registrada retorna para reescribir la patente
+                    Else
+                        'si ya esta registrada retorna para reescribir la patente
                         MsgBox("La patente que ha ingresado ya existe en el sistema. Por favor ingrese una nueva", MsgBoxStyle.Critical, "Atención")
                         tbox_mat1.Focus()
                     End If
 
-                    
+                Else
+                    'No pasa nada
                 End If
             Catch ex As Exception
-
+                'No pasa nada
             End Try
-        ElseIf asignar Then
+
+        Else
             'Si se acepta asignar a un instructor al ser asignar = True lo actualiza
-            If cbox_anios.SelectedValue.Equals("Pre 2007") Then
-                Patente = UCase(tbox_mat1.Text) & (tbox_mat2.Text) & (tbox_mat3.Text)
+            Patente = UCase(tbox_mat1.Text) & UCase(tbox_mat2.Text) & (tbox_mat3.Text)
 
-            ElseIf cbox_anios.SelectedValue.Equals("Post 2007") Then
-                Patente = UCase(tbox_mat1.Text) & UCase(tbox_mat2.Text) & (tbox_mat3.Text)
-
-            End If
             Dim Instructor As String = cbox_instructor.SelectedValue.ToString
-
-            Dim inst As DataTable = con.doQuery("UPDATE instructor SET Auto= '" & Patente & "' WHERE idInstructor= '" & Instructor & "'")
-            If inst.Rows.Count > 0 Then
-                ID = -1
-            Else
-                ID = 0
-            End If
+            con.beginTransaction()
+            ID = con.doUpdate("instructor", {"Auto"}, {Patente}, "WHERE idInstructor= '" & Instructor & "'")
+            
             If ID <> -1 Then
                 con.commitTransaction()
                 STATUS.Text = "Operación realizada con éxito."
                 STATUS.ForeColor = Color.Blue
             Else
+                con.rollbackTransaction()
                 STATUS.Text = "Hubo un error al realizar la operación."
                 STATUS.ForeColor = Color.Red
             End If
@@ -393,13 +382,15 @@ Public Class newFlota
         'se modulariza en esta subrutina el commit final que asegurará que el auto se ingresará correctamente
         btn_agregar.Text = "Agregar"
         If ID <> -1 Then
-            con.commitTransaction()
             STATUS.Text = "Operación realizada con éxito."
             STATUS.ForeColor = Color.Blue
+            con.commitTransaction()
         Else
             STATUS.Text = "Hubo un error al realizar la operación."
             STATUS.ForeColor = Color.Red
+            con.rollbackTransaction()
         End If
+
         resetAgregar()
     End Sub
 
