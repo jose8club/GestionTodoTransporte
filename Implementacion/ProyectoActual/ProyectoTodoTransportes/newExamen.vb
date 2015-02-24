@@ -160,6 +160,7 @@
             cbox_RegistroMatricula.Focus()
             Return False
         ElseIf reqpractico(cbox_RegistroMatricula.SelectedValue.ToString) And cbox_TipoExamen.SelectedValue.Equals("Examen Práctico") Then
+            'si aun no ha aprobado el examen teorico no puede dar el examen practico
             MsgBox("El estudiante no está aprobado en el examen teorico, por lo que no puede dar el examen práctico", MsgBoxStyle.Exclamation, "Atención")
             tbox_Calificacion.Focus()
             Return False
@@ -248,10 +249,10 @@
     Function reqpractico(ByVal Matricula As String) As Boolean
         'Esto sirve para que un que un estudiante que no haya aprobado el examen teorico
         'no pueda dar el examen practico
-        Dim aprobado As String = ""
-        Dim d As DataTable = con.doQuery("SELECT count(d.estado)" _
+        Dim aprobado As Integer = 0
+        Dim d As DataTable = con.doQuery("SELECT count(d.estado) " _
                                     & "FROM documento d,  estudiante_documento ed" _
-                                     & " WHERE d.estado='Aprobado' and d.idDOCUMENTO=ed.Documento and d.Tipo='Examen Teorico' and and ed.Estudiante='" & Matricula & "'")
+                                     & " WHERE d.estado='Aprobado' and d.idDOCUMENTO=ed.Documento and d.Tipo='Examen Teorico' and ed.Estudiante='" & Matricula & "'")
 
         If d.Rows.Count > 0 Then
             aprobado = CInt(d.Rows(0).Item(0).ToString)
@@ -263,6 +264,11 @@
         Else
             Return True
         End If
+    End Function
+
+    Function reqmunicipal(ByVal Matricula As String) As Boolean
+        'se verifica que los examenes teorico, practico y municipal 
+        Return True
     End Function
 
     Private Sub cbox_TipoExamen_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbox_TipoExamen.SelectedIndexChanged
