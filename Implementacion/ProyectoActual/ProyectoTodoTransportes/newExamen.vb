@@ -154,6 +154,11 @@
             MsgBox("Estudiante aprobado en " & cbox_TipoExamen.SelectedValue.ToString & ". No se puede realizar operacion", MsgBoxStyle.Exclamation, "Atención")
             cbox_RegistroMatricula.Focus()
             Return False
+        ElseIf reqmunicipal(cbox_RegistroMatricula.SelectedValue.ToString) And cbox_TipoExamen.SelectedValue.Equals("Examen Municipal") Then
+            'si aun no ha aprobado el examen teorico el practico y el visual no puede dar el municipal
+            MsgBox("El estudiante no está aprobado en los examenes requeridos para dar esta prueba", MsgBoxStyle.Exclamation, "Atención")
+            tbox_Calificacion.Focus()
+            Return False
         ElseIf suficiente(cbox_RegistroMatricula.SelectedValue.ToString, cbox_TipoExamen.SelectedValue.ToString) And cbox_TipoExamen.Text.Equals("Examen Municipal") Then
             'Solo se puede dar el examen municipal dos veces
             MsgBox("Examen Municipal hecho en mas de las ocasiones permitidas. No se puede realizar operacion", MsgBoxStyle.Exclamation, "Atención")
@@ -164,6 +169,7 @@
             MsgBox("El estudiante no está aprobado en el examen teorico, por lo que no puede dar el examen práctico", MsgBoxStyle.Exclamation, "Atención")
             tbox_Calificacion.Focus()
             Return False
+        
         ElseIf (cbox_TipoExamen.SelectedValue.Equals("Examen Teórico") Or cbox_TipoExamen.SelectedValue.Equals("Examen Práctico")) Then
             If CDbl(tbox_Calificacion.Text) > 70 Then
                 'la calificacion no debe ser mayor a 7 no es una nota valida
