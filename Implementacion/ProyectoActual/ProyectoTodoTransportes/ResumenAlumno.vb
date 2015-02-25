@@ -158,7 +158,7 @@
                     End If
                 End If
 
-                datatable = con.doQuery("SELECT FotosCarnet, CertNotarial, CertEstudios FROM estudiante WHERE idEstudiante = " & CodigoMatricula)
+                datatable = con.doQuery("SELECT FotosCarnet, CertNotarial, CertEstudios FROM estudiante WHERE idEstudiante = '" & CodigoMatricula & "'")
                 If datatable.Rows(0).Item(0) = True Then
                     Label7.Text = "Si"
                 Else
