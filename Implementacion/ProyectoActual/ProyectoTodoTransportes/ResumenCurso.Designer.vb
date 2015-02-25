@@ -147,7 +147,7 @@ Partial Class ResumenCurso
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(678, 368)
+        Me.ClientSize = New System.Drawing.Size(698, 456)
         Me.Controls.Add(Me.lbl_Alumnos)
         Me.Controls.Add(Me.list_Alumnos)
         Me.Controls.Add(Me.lbl_Profesores)

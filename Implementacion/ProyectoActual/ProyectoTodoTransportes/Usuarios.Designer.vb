@@ -71,7 +71,7 @@ Partial Class Usuarios
         '
         'btn_Guardar
         '
-        Me.btn_Guardar.Location = New System.Drawing.Point(371, 183)
+        Me.btn_Guardar.Location = New System.Drawing.Point(371, 113)
         Me.btn_Guardar.Name = "btn_Guardar"
         Me.btn_Guardar.Size = New System.Drawing.Size(75, 23)
         Me.btn_Guardar.TabIndex = 4
@@ -116,7 +116,7 @@ Partial Class Usuarios
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(459, 217)
+        Me.ClientSize = New System.Drawing.Size(698, 456)
         Me.Controls.Add(Me.btn_Guardar)
         Me.Controls.Add(Me.lbl_Funcionario)
         Me.Controls.Add(Me.lbl_TipoUsuario)

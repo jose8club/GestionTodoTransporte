@@ -85,7 +85,7 @@ Partial Class Vehiculos
         '
         'btn_Guardar
         '
-        Me.btn_Guardar.Location = New System.Drawing.Point(340, 145)
+        Me.btn_Guardar.Location = New System.Drawing.Point(342, 93)
         Me.btn_Guardar.Name = "btn_Guardar"
         Me.btn_Guardar.Size = New System.Drawing.Size(75, 23)
         Me.btn_Guardar.TabIndex = 3
@@ -96,7 +96,7 @@ Partial Class Vehiculos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(449, 268)
+        Me.ClientSize = New System.Drawing.Size(698, 456)
         Me.Controls.Add(Me.btn_Guardar)
         Me.Controls.Add(Me.lbl_Estado)
         Me.Controls.Add(Me.lbl_Modelo)

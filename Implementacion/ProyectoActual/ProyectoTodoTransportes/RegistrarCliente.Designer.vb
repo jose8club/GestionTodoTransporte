@@ -201,7 +201,7 @@ Partial Class RegistrarCliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(760, 400)
+        Me.ClientSize = New System.Drawing.Size(760, 456)
         Me.Controls.Add(Me.cbox_TipoAtencion)
         Me.Controls.Add(Me.lbl_TipoAtencion)
         Me.Controls.Add(Me.tbox_CodigoCurso)

@@ -260,7 +260,7 @@ Partial Class Asistencia
         Me.ClientSize = New System.Drawing.Size(751, 405)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.grp_asistencia)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
         Me.Name = "Asistencia"
         Me.Text = "Asistencia"

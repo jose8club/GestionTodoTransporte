@@ -27,9 +27,6 @@ Partial Class newFlota
         Me.cbox_anios = New System.Windows.Forms.ComboBox()
         Me.btn_retract = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.tbox_mat3 = New CustomTxtBox.Custom2()
-        Me.tbox_mat2 = New CustomTxtBox.Custom2()
-        Me.tbox_mat1 = New CustomTxtBox.Custom2()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.tbox_modelo = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -48,6 +45,9 @@ Partial Class newFlota
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.btn_resetear02 = New System.Windows.Forms.Button()
+        Me.tbox_mat3 = New CustomTxtBox.Custom2()
+        Me.tbox_mat2 = New CustomTxtBox.Custom2()
+        Me.tbox_mat1 = New CustomTxtBox.Custom2()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -115,33 +115,6 @@ Partial Class newFlota
         Me.Label8.Size = New System.Drawing.Size(10, 13)
         Me.Label8.TabIndex = 18
         Me.Label8.Text = "."
-        '
-        'tbox_mat3
-        '
-        Me.tbox_mat3.Location = New System.Drawing.Point(228, 58)
-        Me.tbox_mat3.MaxLength = 2
-        Me.tbox_mat3.Name = "tbox_mat3"
-        Me.tbox_mat3.Size = New System.Drawing.Size(26, 20)
-        Me.tbox_mat3.TabIndex = 3
-        Me.tbox_mat3.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
-        '
-        'tbox_mat2
-        '
-        Me.tbox_mat2.Location = New System.Drawing.Point(180, 58)
-        Me.tbox_mat2.MaxLength = 2
-        Me.tbox_mat2.Name = "tbox_mat2"
-        Me.tbox_mat2.Size = New System.Drawing.Size(26, 20)
-        Me.tbox_mat2.TabIndex = 2
-        Me.tbox_mat2.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
-        '
-        'tbox_mat1
-        '
-        Me.tbox_mat1.Location = New System.Drawing.Point(135, 58)
-        Me.tbox_mat1.MaxLength = 2
-        Me.tbox_mat1.Name = "tbox_mat1"
-        Me.tbox_mat1.Size = New System.Drawing.Size(26, 20)
-        Me.tbox_mat1.TabIndex = 1
-        Me.tbox_mat1.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
         '
         'Label7
         '
@@ -332,11 +305,38 @@ Partial Class newFlota
         Me.btn_resetear02.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_resetear02.UseVisualStyleBackColor = True
         '
+        'tbox_mat3
+        '
+        Me.tbox_mat3.Location = New System.Drawing.Point(228, 58)
+        Me.tbox_mat3.MaxLength = 2
+        Me.tbox_mat3.Name = "tbox_mat3"
+        Me.tbox_mat3.Size = New System.Drawing.Size(26, 20)
+        Me.tbox_mat3.TabIndex = 3
+        Me.tbox_mat3.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
+        '
+        'tbox_mat2
+        '
+        Me.tbox_mat2.Location = New System.Drawing.Point(180, 58)
+        Me.tbox_mat2.MaxLength = 2
+        Me.tbox_mat2.Name = "tbox_mat2"
+        Me.tbox_mat2.Size = New System.Drawing.Size(26, 20)
+        Me.tbox_mat2.TabIndex = 2
+        Me.tbox_mat2.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
+        '
+        'tbox_mat1
+        '
+        Me.tbox_mat1.Location = New System.Drawing.Point(135, 58)
+        Me.tbox_mat1.MaxLength = 2
+        Me.tbox_mat1.Name = "tbox_mat1"
+        Me.tbox_mat1.Size = New System.Drawing.Size(26, 20)
+        Me.tbox_mat1.TabIndex = 1
+        Me.tbox_mat1.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
+        '
         'newFlota
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(837, 417)
+        Me.ClientSize = New System.Drawing.Size(837, 456)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btn_resetear02)

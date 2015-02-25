@@ -257,7 +257,7 @@ Partial Class newExamen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(760, 400)
+        Me.ClientSize = New System.Drawing.Size(760, 456)
         Me.Controls.Add(Me.btn_reset)
         Me.Controls.Add(Me.sbox_Minutos)
         Me.Controls.Add(Me.sbox_Hora)

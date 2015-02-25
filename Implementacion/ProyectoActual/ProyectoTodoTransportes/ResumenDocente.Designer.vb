@@ -116,7 +116,7 @@ Partial Class ResumenDocente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(676, 292)
+        Me.ClientSize = New System.Drawing.Size(698, 456)
         Me.Controls.Add(Me.lbl_tipo)
         Me.Controls.Add(Me.lbl_patente)
         Me.Controls.Add(Me.Label1)

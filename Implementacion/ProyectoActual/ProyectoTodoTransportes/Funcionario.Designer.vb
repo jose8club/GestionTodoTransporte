@@ -64,7 +64,7 @@ Partial Class Funcionario
         'btn_Guardar
         '
         Me.btn_Guardar.Enabled = False
-        Me.btn_Guardar.Location = New System.Drawing.Point(366, 161)
+        Me.btn_Guardar.Location = New System.Drawing.Point(366, 78)
         Me.btn_Guardar.Name = "btn_Guardar"
         Me.btn_Guardar.Size = New System.Drawing.Size(75, 23)
         Me.btn_Guardar.TabIndex = 10
@@ -75,12 +75,13 @@ Partial Class Funcionario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(463, 196)
+        Me.ClientSize = New System.Drawing.Size(682, 417)
         Me.Controls.Add(Me.btn_Guardar)
         Me.Controls.Add(Me.lbl_Contrasena)
         Me.Controls.Add(Me.lbl_NombreUsuario)
         Me.Controls.Add(Me.tbox_Tipo)
         Me.Controls.Add(Me.tbox_NombreFuncionario)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Funcionario"
         Me.Text = "Funcionario"
         Me.ResumeLayout(False)
