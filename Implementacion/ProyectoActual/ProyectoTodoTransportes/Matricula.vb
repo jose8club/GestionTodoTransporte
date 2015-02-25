@@ -205,10 +205,15 @@ Public Class Matricula
 
     Private Sub DctoSpinBx_ValueChanged(sender As System.Object, e As System.EventArgs) Handles DctoSpinBx.ValueChanged
         'MsgBox(Me.ValorTxtLbl.Text.Substring(1))
-        Dim MtoO As Integer = Convert.ToInt32(Me.ValorTxtLbl.Text.Substring(1))
-        Dim Dcto As Integer = Me.DctoSpinBx.Value
-        Dim MtoAPa As Integer = MtoO - ((MtoO * Dcto) / 100)
-        Me.APagarTxtLbl.Text = MtoAPa
+        Try
+            Dim MtoO As Integer = Convert.ToInt32(Me.ValorTxtLbl.Text.Substring(1))
+            Dim Dcto As Integer = Me.DctoSpinBx.Value
+            Dim MtoAPa As Integer = MtoO - ((MtoO * Dcto) / 100)
+            Me.APagarTxtLbl.Text = MtoAPa
+        Catch ex As Exception
+            MsgBox(Me.ValorTxtLbl.Text.Substring(1))
+        End Try
+        
     End Sub
 
 End Class
