@@ -119,9 +119,9 @@ Public Class Matricula
         Me.FotocopiaLicenciaChBx.Checked = False
         Me.CertEstudiosChBx.Checked = False
         Me.CertNotarialChBx.Checked = False
-        Me.ValorTxtLbl.Text = "$$$$"
+        Me.ValorTxtLbl.Text = ""
         Me.DctoSpinBx.Value = 0
-        Me.APagarTxtLbl.Text = "$$$$"
+        Me.APagarTxtLbl.Text = ""
         Me.DocPagoCbBx.Text = ""
         Me.MedioPagoChBx.Text = ""
         Me.PagoRealizChBx.Enabled = False
@@ -205,15 +205,16 @@ Public Class Matricula
 
     Private Sub DctoSpinBx_ValueChanged(sender As System.Object, e As System.EventArgs) Handles DctoSpinBx.ValueChanged
         'MsgBox(Me.ValorTxtLbl.Text.Substring(1))
-        Try
-            Dim MtoO As Integer = Convert.ToInt32(Me.ValorTxtLbl.Text.Substring(1))
-            Dim Dcto As Integer = Me.DctoSpinBx.Value
-            Dim MtoAPa As Integer = MtoO - ((MtoO * Dcto) / 100)
-            Me.APagarTxtLbl.Text = MtoAPa
-        Catch ex As Exception
-            MsgBox(Me.ValorTxtLbl.Text.Substring(1))
-        End Try
-        
+        If Me.ValorTxtLbl.Text.Length <> 0 Then
+            Try
+                Dim MtoO As Integer = Convert.ToInt32(Me.ValorTxtLbl.Text.Substring(1))
+                Dim Dcto As Integer = Me.DctoSpinBx.Value
+                Dim MtoAPa As Integer = MtoO - ((MtoO * Dcto) / 100)
+                Me.APagarTxtLbl.Text = MtoAPa
+            Catch ex As Exception
+                MsgBox(Me.ValorTxtLbl.Text.Substring(1))
+            End Try
+        End If
     End Sub
 
 End Class
