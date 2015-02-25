@@ -93,7 +93,7 @@ Partial Class newFlota
         Me.cbox_anios.Location = New System.Drawing.Point(135, 28)
         Me.cbox_anios.Name = "cbox_anios"
         Me.cbox_anios.Size = New System.Drawing.Size(136, 21)
-        Me.cbox_anios.TabIndex = 3
+        Me.cbox_anios.TabIndex = 0
         '
         'btn_retract
         '
@@ -110,7 +110,7 @@ Partial Class newFlota
         '
         Me.Label8.AutoSize = True
         Me.Label8.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.bandera
-        Me.Label8.Location = New System.Drawing.Point(268, 61)
+        Me.Label8.Location = New System.Drawing.Point(211, 61)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(10, 13)
         Me.Label8.TabIndex = 18
@@ -118,20 +118,20 @@ Partial Class newFlota
         '
         'tbox_mat3
         '
-        Me.tbox_mat3.Location = New System.Drawing.Point(288, 58)
+        Me.tbox_mat3.Location = New System.Drawing.Point(228, 58)
         Me.tbox_mat3.MaxLength = 2
         Me.tbox_mat3.Name = "tbox_mat3"
-        Me.tbox_mat3.Size = New System.Drawing.Size(51, 20)
-        Me.tbox_mat3.TabIndex = 17
+        Me.tbox_mat3.Size = New System.Drawing.Size(26, 20)
+        Me.tbox_mat3.TabIndex = 3
         Me.tbox_mat3.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
         '
         'tbox_mat2
         '
-        Me.tbox_mat2.Location = New System.Drawing.Point(211, 58)
+        Me.tbox_mat2.Location = New System.Drawing.Point(180, 58)
         Me.tbox_mat2.MaxLength = 2
         Me.tbox_mat2.Name = "tbox_mat2"
-        Me.tbox_mat2.Size = New System.Drawing.Size(51, 20)
-        Me.tbox_mat2.TabIndex = 16
+        Me.tbox_mat2.Size = New System.Drawing.Size(26, 20)
+        Me.tbox_mat2.TabIndex = 2
         Me.tbox_mat2.Tipo = CustomTxtBox.Custom2.Tipologia.NUMERO
         '
         'tbox_mat1
@@ -139,8 +139,8 @@ Partial Class newFlota
         Me.tbox_mat1.Location = New System.Drawing.Point(135, 58)
         Me.tbox_mat1.MaxLength = 2
         Me.tbox_mat1.Name = "tbox_mat1"
-        Me.tbox_mat1.Size = New System.Drawing.Size(51, 20)
-        Me.tbox_mat1.TabIndex = 15
+        Me.tbox_mat1.Size = New System.Drawing.Size(26, 20)
+        Me.tbox_mat1.TabIndex = 1
         Me.tbox_mat1.Tipo = CustomTxtBox.Custom2.Tipologia.LETRA
         '
         'Label7
@@ -148,7 +148,7 @@ Partial Class newFlota
         Me.Label7.AutoSize = True
         Me.Label7.Image = Global.ProyectoTodoTransportes.My.Resources.Resources.punto
         Me.Label7.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Label7.Location = New System.Drawing.Point(192, 61)
+        Me.Label7.Location = New System.Drawing.Point(165, 63)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(11, 13)
         Me.Label7.TabIndex = 13
@@ -159,7 +159,7 @@ Partial Class newFlota
         Me.tbox_modelo.Location = New System.Drawing.Point(135, 114)
         Me.tbox_modelo.Name = "tbox_modelo"
         Me.tbox_modelo.Size = New System.Drawing.Size(206, 20)
-        Me.tbox_modelo.TabIndex = 8
+        Me.tbox_modelo.TabIndex = 5
         '
         'Label6
         '
@@ -177,7 +177,7 @@ Partial Class newFlota
         Me.btn_agregar.Location = New System.Drawing.Point(395, 177)
         Me.btn_agregar.Name = "btn_agregar"
         Me.btn_agregar.Size = New System.Drawing.Size(79, 23)
-        Me.btn_agregar.TabIndex = 10
+        Me.btn_agregar.TabIndex = 7
         Me.btn_agregar.Text = "Agregar"
         Me.btn_agregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_agregar.UseVisualStyleBackColor = True
@@ -191,7 +191,7 @@ Partial Class newFlota
         Me.cbox_instructor.Location = New System.Drawing.Point(135, 144)
         Me.cbox_instructor.Name = "cbox_instructor"
         Me.cbox_instructor.Size = New System.Drawing.Size(206, 21)
-        Me.cbox_instructor.TabIndex = 9
+        Me.cbox_instructor.TabIndex = 6
         Me.cbox_instructor.Visible = False
         '
         'cbox_estado
@@ -203,7 +203,7 @@ Partial Class newFlota
         Me.cbox_estado.Location = New System.Drawing.Point(135, 87)
         Me.cbox_estado.Name = "cbox_estado"
         Me.cbox_estado.Size = New System.Drawing.Size(206, 21)
-        Me.cbox_estado.TabIndex = 7
+        Me.cbox_estado.TabIndex = 4
         '
         'lbl_encInstAgregar
         '
@@ -275,7 +275,7 @@ Partial Class newFlota
         Me.btn_actualizar.Location = New System.Drawing.Point(395, 84)
         Me.btn_actualizar.Name = "btn_actualizar"
         Me.btn_actualizar.Size = New System.Drawing.Size(79, 23)
-        Me.btn_actualizar.TabIndex = 15
+        Me.btn_actualizar.TabIndex = 2
         Me.btn_actualizar.Text = "Actualizar"
         Me.btn_actualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_actualizar.UseVisualStyleBackColor = True
@@ -289,7 +289,7 @@ Partial Class newFlota
         Me.cbox_estado2.Location = New System.Drawing.Point(135, 60)
         Me.cbox_estado2.Name = "cbox_estado2"
         Me.cbox_estado2.Size = New System.Drawing.Size(206, 21)
-        Me.cbox_estado2.TabIndex = 13
+        Me.cbox_estado2.TabIndex = 1
         '
         'cbox_matricula
         '
@@ -300,7 +300,7 @@ Partial Class newFlota
         Me.cbox_matricula.Location = New System.Drawing.Point(135, 33)
         Me.cbox_matricula.Name = "cbox_matricula"
         Me.cbox_matricula.Size = New System.Drawing.Size(206, 21)
-        Me.cbox_matricula.TabIndex = 12
+        Me.cbox_matricula.TabIndex = 0
         '
         'Label4
         '
@@ -327,7 +327,7 @@ Partial Class newFlota
         Me.btn_resetear02.Location = New System.Drawing.Point(571, 354)
         Me.btn_resetear02.Name = "btn_resetear02"
         Me.btn_resetear02.Size = New System.Drawing.Size(87, 33)
-        Me.btn_resetear02.TabIndex = 16
+        Me.btn_resetear02.TabIndex = 2
         Me.btn_resetear02.Text = "Resetear"
         Me.btn_resetear02.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btn_resetear02.UseVisualStyleBackColor = True
