@@ -158,8 +158,24 @@
                     End If
                 End If
 
+                datatable = con.doQuery("SELECT FotosCarnet, CertNotarial, CertEstudios FROM estudiante WHERE idEstudiante = " & CodigoMatricula)
+                If datatable.Rows(0).Item(0) = True Then
+                    Label7.Text = "Si"
+                Else
+                    Label7.Text = "No"
+                End If
 
+                If datatable.Rows(0).Item(1) = True Then
+                    Label8.Text = "Si"
+                Else
+                    Label8.Text = "No"
+                End If
 
+                If datatable.Rows(0).Item(2) = True Then
+                    Label9.Text = "Si"
+                Else
+                    Label9.Text = "No"
+                End If
             Else
                 lbl_Nombre.Text = "Nombre:"
                 lbl_Rut.Text = "Rut:"
