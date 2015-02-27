@@ -100,33 +100,49 @@ Public Class Matricula
 #End Region
 
     Private Sub LimpiarBtn_Click(sender As System.Object, e As System.EventArgs) Handles LimpiarBtn.Click
+        'Se reinician todos los controles a su estado inicial
+        'primero se vacían los campos de textos
         Me.NRegCTxBx.Text = ""
         Me.NombreCTxBx.Text = ""
         Me.RutCTxBx.Text = ""
         Me.DVCTxBx.Text = ""
-        Me.FNacDTiPckr.Value = Date.Today
         Me.TelCTxBx.Text = ""
         Me.EmailCTxBx.Text = ""
-        Me.ClienteCbBx.Text = ""
-        Me.ProductoCbBx.Text = ""
-        Me.CursoCbBx.Text = ""
-        Me.HraPracticaCbBx.Text = ""
-        Me.HraTeoriaCbBx.Text = ""
-        Me.LuViRaBtn.Checked = True
+        Me.CuposTxtLbl.Text = ""
+        Me.ValorTxtLbl.Text = ""
+        Me.APagarTxtLbl.Text = ""
+        'Luego se reestablece el campo de fecha a la actual
+        Me.FNacDTiPckr.Value = Date.Today
+        'Después se deseleccionan los checkbox
         Me.LuSaRaBtn.Checked = False
         Me.FotosChBx.Checked = False
         Me.FotocopiaCIChBx.Checked = False
         Me.FotocopiaLicenciaChBx.Checked = False
         Me.CertEstudiosChBx.Checked = False
         Me.CertNotarialChBx.Checked = False
-        Me.ValorTxtLbl.Text = ""
+        'Se vacían los combobox secundarios
+        Me.CursoCbBx.Items.Clear()
+        Me.HraPracticaCbBx.Items.Clear()
+        Me.HraTeoriaCbBx.Items.Clear()
+        'Luego se reestablece el valor del spinBox y algunos comboBox
         Me.DctoSpinBx.Value = 0
-        Me.APagarTxtLbl.Text = ""
-        Me.DocPagoCbBx.Text = ""
-        Me.MedioPagoChBx.Text = ""
-        Me.PagoRealizChBx.Enabled = False
-        Me.CodPagoTxBx.Text = ""
+        Me.DocPagoCbBx.SelectedIndex = 0
+        Me.MedioPagoChBx.SelectedIndex = 0
 
+        'Después la desabilitación
+        Me.CursoCbBx.Enabled = False
+        Me.HraTeoriaCbBx.Enabled = False
+        Me.HraPracticaCbBx.Enabled = False
+        Me.DctoSpinBx.Enabled = False
+        Me.MedioPagoChBx.Enabled = False
+        Me.PagoRealizChBx.Enabled = False
+        Me.CodPagoTxBx.Enabled = False
+
+        'Terminando, Se establecen los valores predeterminados necesarios
+        Me.ClienteCbBx.SelectedIndex = 0
+        Me.LuViRaBtn.Checked = True
+        Me.ProductoCbBx.SelectedIndex = 0
+        
         Me.NRegCTxBx.Focus()
     End Sub
 
@@ -217,4 +233,7 @@ Public Class Matricula
         End If
     End Sub
 
+    Private Sub LuViRaBtn_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles LuViRaBtn.CheckedChanged
+
+    End Sub
 End Class

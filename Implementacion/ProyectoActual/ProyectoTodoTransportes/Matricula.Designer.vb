@@ -42,13 +42,13 @@ Partial Class Matricula
         Me.APagarLbl = New System.Windows.Forms.Label()
         Me.ValorLbl = New System.Windows.Forms.Label()
         Me.DatosCursoGBx = New System.Windows.Forms.GroupBox()
+        Me.DiasGBx = New System.Windows.Forms.GroupBox()
+        Me.LuSaRaBtn = New System.Windows.Forms.RadioButton()
+        Me.LuViRaBtn = New System.Windows.Forms.RadioButton()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CuposTxtLbl = New System.Windows.Forms.Label()
         Me.CuposLbl = New System.Windows.Forms.Label()
         Me.Label = New System.Windows.Forms.Label()
-        Me.DiasGBx = New System.Windows.Forms.GroupBox()
-        Me.LuSaRaBtn = New System.Windows.Forms.RadioButton()
-        Me.LuViRaBtn = New System.Windows.Forms.RadioButton()
         Me.HraPracticaCbBx = New System.Windows.Forms.ComboBox()
         Me.HraPractica = New System.Windows.Forms.Label()
         Me.HraTeoriaCbBx = New System.Windows.Forms.ComboBox()
@@ -168,6 +168,7 @@ Partial Class Matricula
         '
         Me.PagoRealizChBx.AutoSize = True
         Me.PagoRealizChBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.PagoRealizChBx.Enabled = False
         Me.PagoRealizChBx.Location = New System.Drawing.Point(6, 160)
         Me.PagoRealizChBx.Name = "PagoRealizChBx"
         Me.PagoRealizChBx.Size = New System.Drawing.Size(189, 17)
@@ -177,6 +178,7 @@ Partial Class Matricula
         '
         'MedioPagoChBx
         '
+        Me.MedioPagoChBx.Enabled = False
         Me.MedioPagoChBx.FormattingEnabled = True
         Me.MedioPagoChBx.Location = New System.Drawing.Point(128, 134)
         Me.MedioPagoChBx.Name = "MedioPagoChBx"
@@ -188,6 +190,7 @@ Partial Class Matricula
         Me.DocPagoCbBx.AutoCompleteCustomSource.AddRange(New String() {"Boleta", "Factura"})
         Me.DocPagoCbBx.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.DocPagoCbBx.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
+        Me.DocPagoCbBx.Enabled = False
         Me.DocPagoCbBx.FormattingEnabled = True
         Me.DocPagoCbBx.Items.AddRange(New Object() {"Boleta", "Factura"})
         Me.DocPagoCbBx.Location = New System.Drawing.Point(128, 105)
@@ -198,9 +201,10 @@ Partial Class Matricula
         'APagarTxtLbl
         '
         Me.APagarTxtLbl.AutoSize = True
-        Me.APagarTxtLbl.Location = New System.Drawing.Point(155, 84)
+        Me.APagarTxtLbl.Location = New System.Drawing.Point(165, 82)
+        Me.APagarTxtLbl.MinimumSize = New System.Drawing.Size(13, 13)
         Me.APagarTxtLbl.Name = "APagarTxtLbl"
-        Me.APagarTxtLbl.Size = New System.Drawing.Size(0, 13)
+        Me.APagarTxtLbl.Size = New System.Drawing.Size(13, 13)
         Me.APagarTxtLbl.TabIndex = 9
         '
         'Label25
@@ -223,9 +227,10 @@ Partial Class Matricula
         'ValorTxtLbl
         '
         Me.ValorTxtLbl.AutoSize = True
-        Me.ValorTxtLbl.Location = New System.Drawing.Point(163, 30)
+        Me.ValorTxtLbl.Location = New System.Drawing.Point(165, 30)
+        Me.ValorTxtLbl.MinimumSize = New System.Drawing.Size(13, 13)
         Me.ValorTxtLbl.Name = "ValorTxtLbl"
-        Me.ValorTxtLbl.Size = New System.Drawing.Size(0, 13)
+        Me.ValorTxtLbl.Size = New System.Drawing.Size(13, 13)
         Me.ValorTxtLbl.TabIndex = 6
         '
         'DctoLbl
@@ -275,11 +280,11 @@ Partial Class Matricula
         '
         'DatosCursoGBx
         '
+        Me.DatosCursoGBx.Controls.Add(Me.DiasGBx)
         Me.DatosCursoGBx.Controls.Add(Me.Label1)
         Me.DatosCursoGBx.Controls.Add(Me.CuposTxtLbl)
         Me.DatosCursoGBx.Controls.Add(Me.CuposLbl)
         Me.DatosCursoGBx.Controls.Add(Me.Label)
-        Me.DatosCursoGBx.Controls.Add(Me.DiasGBx)
         Me.DatosCursoGBx.Controls.Add(Me.HraPracticaCbBx)
         Me.DatosCursoGBx.Controls.Add(Me.HraPractica)
         Me.DatosCursoGBx.Controls.Add(Me.HraTeoriaCbBx)
@@ -295,51 +300,15 @@ Partial Class Matricula
         Me.DatosCursoGBx.TabStop = False
         Me.DatosCursoGBx.Text = "Datos del Curso"
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(218, 57)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(26, 13)
-        Me.Label1.TabIndex = 29
-        Me.Label1.Text = "Hrs."
-        '
-        'CuposTxtLbl
-        '
-        Me.CuposTxtLbl.AutoSize = True
-        Me.CuposTxtLbl.Location = New System.Drawing.Point(370, 30)
-        Me.CuposTxtLbl.Name = "CuposTxtLbl"
-        Me.CuposTxtLbl.Size = New System.Drawing.Size(23, 13)
-        Me.CuposTxtLbl.TabIndex = 28
-        Me.CuposTxtLbl.Text = "NN"
-        '
-        'CuposLbl
-        '
-        Me.CuposLbl.AutoSize = True
-        Me.CuposLbl.Location = New System.Drawing.Point(329, 30)
-        Me.CuposLbl.Name = "CuposLbl"
-        Me.CuposLbl.Size = New System.Drawing.Size(40, 13)
-        Me.CuposLbl.TabIndex = 27
-        Me.CuposLbl.Text = "Cupos:"
-        '
-        'Label
-        '
-        Me.Label.AutoSize = True
-        Me.Label.Location = New System.Drawing.Point(218, 84)
-        Me.Label.Name = "Label"
-        Me.Label.Size = New System.Drawing.Size(26, 13)
-        Me.Label.TabIndex = 26
-        Me.Label.Text = "Hrs."
-        '
         'DiasGBx
         '
         Me.DiasGBx.Controls.Add(Me.LuSaRaBtn)
         Me.DiasGBx.Controls.Add(Me.LuViRaBtn)
         Me.DiasGBx.Enabled = False
-        Me.DiasGBx.Location = New System.Drawing.Point(9, 108)
+        Me.DiasGBx.Location = New System.Drawing.Point(9, 22)
         Me.DiasGBx.Name = "DiasGBx"
         Me.DiasGBx.Size = New System.Drawing.Size(393, 51)
-        Me.DiasGBx.TabIndex = 4
+        Me.DiasGBx.TabIndex = 30
         Me.DiasGBx.TabStop = False
         Me.DiasGBx.Text = "Días"
         '
@@ -365,6 +334,42 @@ Partial Class Matricula
         Me.LuViRaBtn.Text = "Lunes  - Viernes"
         Me.LuViRaBtn.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(223, 117)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(26, 13)
+        Me.Label1.TabIndex = 29
+        Me.Label1.Text = "Hrs."
+        '
+        'CuposTxtLbl
+        '
+        Me.CuposTxtLbl.AutoSize = True
+        Me.CuposTxtLbl.Location = New System.Drawing.Point(385, 90)
+        Me.CuposTxtLbl.MinimumSize = New System.Drawing.Size(13, 13)
+        Me.CuposTxtLbl.Name = "CuposTxtLbl"
+        Me.CuposTxtLbl.Size = New System.Drawing.Size(13, 13)
+        Me.CuposTxtLbl.TabIndex = 28
+        '
+        'CuposLbl
+        '
+        Me.CuposLbl.AutoSize = True
+        Me.CuposLbl.Location = New System.Drawing.Point(339, 90)
+        Me.CuposLbl.Name = "CuposLbl"
+        Me.CuposLbl.Size = New System.Drawing.Size(40, 13)
+        Me.CuposLbl.TabIndex = 27
+        Me.CuposLbl.Text = "Cupos:"
+        '
+        'Label
+        '
+        Me.Label.AutoSize = True
+        Me.Label.Location = New System.Drawing.Point(223, 144)
+        Me.Label.Name = "Label"
+        Me.Label.Size = New System.Drawing.Size(26, 13)
+        Me.Label.TabIndex = 26
+        Me.Label.Text = "Hrs."
+        '
         'HraPracticaCbBx
         '
         Me.HraPracticaCbBx.AutoCompleteCustomSource.AddRange(New String() {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado"})
@@ -373,7 +378,7 @@ Partial Class Matricula
         Me.HraPracticaCbBx.Enabled = False
         Me.HraPracticaCbBx.FormattingEnabled = True
         Me.HraPracticaCbBx.Items.AddRange(New Object() {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sábado"})
-        Me.HraPracticaCbBx.Location = New System.Drawing.Point(124, 81)
+        Me.HraPracticaCbBx.Location = New System.Drawing.Point(129, 141)
         Me.HraPracticaCbBx.Name = "HraPracticaCbBx"
         Me.HraPracticaCbBx.Size = New System.Drawing.Size(88, 21)
         Me.HraPracticaCbBx.TabIndex = 3
@@ -381,7 +386,7 @@ Partial Class Matricula
         'HraPractica
         '
         Me.HraPractica.AutoSize = True
-        Me.HraPractica.Location = New System.Drawing.Point(6, 84)
+        Me.HraPractica.Location = New System.Drawing.Point(11, 144)
         Me.HraPractica.Name = "HraPractica"
         Me.HraPractica.Size = New System.Drawing.Size(86, 13)
         Me.HraPractica.TabIndex = 21
@@ -391,7 +396,7 @@ Partial Class Matricula
         '
         Me.HraTeoriaCbBx.Enabled = False
         Me.HraTeoriaCbBx.FormattingEnabled = True
-        Me.HraTeoriaCbBx.Location = New System.Drawing.Point(124, 54)
+        Me.HraTeoriaCbBx.Location = New System.Drawing.Point(129, 114)
         Me.HraTeoriaCbBx.Name = "HraTeoriaCbBx"
         Me.HraTeoriaCbBx.Size = New System.Drawing.Size(88, 21)
         Me.HraTeoriaCbBx.TabIndex = 2
@@ -399,7 +404,7 @@ Partial Class Matricula
         'HraTeoria
         '
         Me.HraTeoria.AutoSize = True
-        Me.HraTeoria.Location = New System.Drawing.Point(6, 57)
+        Me.HraTeoria.Location = New System.Drawing.Point(11, 117)
         Me.HraTeoria.Name = "HraTeoria"
         Me.HraTeoria.Size = New System.Drawing.Size(79, 13)
         Me.HraTeoria.TabIndex = 19
@@ -409,7 +414,7 @@ Partial Class Matricula
         '
         Me.CursoCbBx.Enabled = False
         Me.CursoCbBx.FormattingEnabled = True
-        Me.CursoCbBx.Location = New System.Drawing.Point(261, 27)
+        Me.CursoCbBx.Location = New System.Drawing.Point(266, 87)
         Me.CursoCbBx.Name = "CursoCbBx"
         Me.CursoCbBx.Size = New System.Drawing.Size(62, 21)
         Me.CursoCbBx.TabIndex = 1
@@ -417,7 +422,7 @@ Partial Class Matricula
         'CursoLbl
         '
         Me.CursoLbl.AutoSize = True
-        Me.CursoLbl.Location = New System.Drawing.Point(218, 30)
+        Me.CursoLbl.Location = New System.Drawing.Point(223, 90)
         Me.CursoLbl.Name = "CursoLbl"
         Me.CursoLbl.Size = New System.Drawing.Size(37, 13)
         Me.CursoLbl.TabIndex = 17
@@ -426,7 +431,7 @@ Partial Class Matricula
         'ProductoCbBx
         '
         Me.ProductoCbBx.FormattingEnabled = True
-        Me.ProductoCbBx.Location = New System.Drawing.Point(124, 27)
+        Me.ProductoCbBx.Location = New System.Drawing.Point(129, 87)
         Me.ProductoCbBx.Name = "ProductoCbBx"
         Me.ProductoCbBx.Size = New System.Drawing.Size(88, 21)
         Me.ProductoCbBx.TabIndex = 0
@@ -434,7 +439,7 @@ Partial Class Matricula
         'ProductoLbl
         '
         Me.ProductoLbl.AutoSize = True
-        Me.ProductoLbl.Location = New System.Drawing.Point(6, 30)
+        Me.ProductoLbl.Location = New System.Drawing.Point(11, 90)
         Me.ProductoLbl.Name = "ProductoLbl"
         Me.ProductoLbl.Size = New System.Drawing.Size(50, 13)
         Me.ProductoLbl.TabIndex = 15
@@ -469,11 +474,11 @@ Partial Class Matricula
         '
         Me.CertNotarialChBx.AutoSize = True
         Me.CertNotarialChBx.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.CertNotarialChBx.Location = New System.Drawing.Point(6, 120)
+        Me.CertNotarialChBx.Location = New System.Drawing.Point(11, 120)
         Me.CertNotarialChBx.Name = "CertNotarialChBx"
-        Me.CertNotarialChBx.Size = New System.Drawing.Size(190, 17)
+        Me.CertNotarialChBx.Size = New System.Drawing.Size(184, 17)
         Me.CertNotarialChBx.TabIndex = 4
-        Me.CertNotarialChBx.Text = "Certificado Notarial:                        "
+        Me.CertNotarialChBx.Text = "Certificado Notarial:                      "
         Me.CertNotarialChBx.UseVisualStyleBackColor = True
         '
         'CertEstudiosChBx
@@ -722,9 +727,6 @@ Partial Class Matricula
     Friend WithEvents CuposTxtLbl As System.Windows.Forms.Label
     Friend WithEvents CuposLbl As System.Windows.Forms.Label
     Friend WithEvents Label As System.Windows.Forms.Label
-    Friend WithEvents DiasGBx As System.Windows.Forms.GroupBox
-    Friend WithEvents LuSaRaBtn As System.Windows.Forms.RadioButton
-    Friend WithEvents LuViRaBtn As System.Windows.Forms.RadioButton
     Friend WithEvents HraPracticaCbBx As System.Windows.Forms.ComboBox
     Friend WithEvents HraPractica As System.Windows.Forms.Label
     Friend WithEvents HraTeoriaCbBx As System.Windows.Forms.ComboBox
@@ -754,4 +756,7 @@ Partial Class Matricula
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents RutLbl As System.Windows.Forms.Label
     Friend WithEvents NombreLbl As System.Windows.Forms.Label
+    Friend WithEvents DiasGBx As System.Windows.Forms.GroupBox
+    Friend WithEvents LuSaRaBtn As System.Windows.Forms.RadioButton
+    Friend WithEvents LuViRaBtn As System.Windows.Forms.RadioButton
 End Class
