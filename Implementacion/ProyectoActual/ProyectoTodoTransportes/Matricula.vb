@@ -170,7 +170,8 @@ Public Class Matricula
                                          Me.LuViRaBtn.Enabled.ToString.ToLower() & "," & _
                                          Me.FotosChBx.Checked.ToString.ToLower() & "," & _
                                          Me.CertEstudiosChBx.Checked.ToString.ToLower() & "," & _
-                                         Me.CertNotarialChBx.Checked.ToString.ToLower() & ",'" & _
+                                         Me.CertNotarialChBx.Checked.ToString.ToLower() & "," & _
+                                         Me.FotocopiaCIChBx.Checked.ToString.ToLower() & ", '" & _
                                          Me.DctoSpinBx.Value.ToString & "','" & _
                                          Me.DocPagoCbBx.Text & "','" & _
                                          Me.MedioPagoChBx.Text & "'," & _
