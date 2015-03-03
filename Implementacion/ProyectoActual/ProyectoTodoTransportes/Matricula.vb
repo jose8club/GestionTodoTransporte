@@ -20,6 +20,7 @@ Public Class Matricula
         loadCBOX("FranqTributaria")
         loadCBOX("Producto")
         loadCBOX("MedioPago")
+        Me.LimpiarBtn.PerformClick()
     End Sub
 
 #Region "METODOS"
@@ -41,7 +42,7 @@ Public Class Matricula
             CursoCbBx.DataSource = dc.CursosDeProducto(ProductoCbBx.Text)
             CursoCbBx.DisplayMember = "Codigo"
             CursoCbBx.ValueMember = "Codigo"
-            CursoCbBx.SelectedItem = -1
+            CursoCbBx.SelectedItem = 0
             HraTeoriaCbBx.Enabled = True
             HraPracticaCbBx.Enabled = True
             DiasGBx.Enabled = True
@@ -90,6 +91,9 @@ Public Class Matricula
         ElseIf ((Date.Now - Me.FNacDTiPckr.Value).TotalDays / 365) < 17 Then
             STATUS.Text = "ERROR: El cliente no puede ser menor de 17 años."
             Me.FNacDTiPckr.Focus()
+        ElseIf Me.CuposTxtLbl.Equals("0") Then
+            STATUS.Text = "ERROR: No hay cupos."
+            Me.CursoCbBx.Focus()
         Else
             Return True
         End If
@@ -114,16 +118,16 @@ Public Class Matricula
         'Luego se reestablece el campo de fecha a la actual
         Me.FNacDTiPckr.Value = Date.Today
         'Después se deseleccionan los checkbox
-        Me.LuSaRaBtn.Checked = False
+        Me.LuSaRaBtn.Checked = True
         Me.FotosChBx.Checked = False
         Me.FotocopiaCIChBx.Checked = False
         Me.FotocopiaLicenciaChBx.Checked = False
         Me.CertEstudiosChBx.Checked = False
         Me.CertNotarialChBx.Checked = False
         'Se vacían los combobox secundarios
-        Me.CursoCbBx.Items.Clear()
-        Me.HraPracticaCbBx.Items.Clear()
-        Me.HraTeoriaCbBx.Items.Clear()
+        'Me.CursoCbBx.DataSource = DBNull.Value
+        'Me.HraPracticaCbBx.DataSource = DBNull.Value
+        'Me.HraTeoriaCbBx.DataSource = DBNull.Value
         'Luego se reestablece el valor del spinBox y algunos comboBox
         Me.DctoSpinBx.Value = 0
         Me.DocPagoCbBx.SelectedIndex = 0
@@ -140,7 +144,6 @@ Public Class Matricula
 
         'Terminando, Se establecen los valores predeterminados necesarios
         Me.ClienteCbBx.SelectedIndex = 0
-        Me.LuViRaBtn.Checked = True
         Me.ProductoCbBx.SelectedIndex = 0
         
         Me.NRegCTxBx.Focus()
@@ -192,7 +195,7 @@ Public Class Matricula
 
     Private Sub ProductoCbBx_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ProductoCbBx.SelectedIndexChanged
         loadCBOX("CursosXProductos")
-        CursoCbBx.Enabled = True
+        Me.CursoCbBx.Enabled = True
     End Sub
 
     Private Sub CursoCbBx_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles CursoCbBx.SelectedIndexChanged
@@ -204,7 +207,6 @@ Public Class Matricula
         End If
         loadCBOX("HTeoriaXCurso")
         loadCBOX("HPracticaXCurso")
-        LuViRaBtn.PerformClick()
         If dc.MontoAPagar(Me.ClienteCbBx.SelectedValue.ToString, ProductoCbBx.SelectedValue.ToString).Rows.Count > 0 Then
             MontoAPagar = CInt(dc.MontoAPagar(Me.ClienteCbBx.SelectedValue.ToString, ProductoCbBx.SelectedValue.ToString).Rows(0).Item(0).ToString())
         Else
@@ -213,6 +215,9 @@ Public Class Matricula
         Me.ValorTxtLbl.Text = "$" & MontoAPagar
         Me.APagarTxtLbl.Text = "$" & MontoAPagar
         Me.DctoSpinBx.Enabled = True
+        Me.DocPagoCbBx.Enabled = True
+        Me.MedioPagoChBx.Enabled = True
+        Me.PagoRealizChBx.Enabled = True
     End Sub
 
     Private Sub PagoRealizChBx_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles PagoRealizChBx.CheckedChanged
@@ -233,7 +238,19 @@ Public Class Matricula
         End If
     End Sub
 
-    Private Sub LuViRaBtn_CheckedChanged(sender As System.Object, e As System.EventArgs) Handles LuViRaBtn.CheckedChanged
 
+    Private Sub ClienteCbBx_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ClienteCbBx.SelectedIndexChanged
+        Try
+            If dc.MontoAPagar(Me.ClienteCbBx.SelectedValue.ToString, ProductoCbBx.SelectedValue.ToString).Rows.Count > 0 Then
+                MontoAPagar = CInt(dc.MontoAPagar(Me.ClienteCbBx.SelectedValue.ToString, ProductoCbBx.SelectedValue.ToString).Rows(0).Item(0).ToString())
+            Else
+                MontoAPagar = 0
+            End If
+            Me.ValorTxtLbl.Text = "$" & MontoAPagar
+            Me.APagarTxtLbl.Text = "$" & MontoAPagar
+        Catch ex As Exception
+
+        End Try
+        
     End Sub
 End Class

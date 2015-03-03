@@ -1,1 +1,252 @@
- 
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProyectoTodoTransportes.Asistencia" Collapsed="true">
+    <Position X="12" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQCBAEAECBAAAAFgADGAQQjAAAwAYGIMGABAEAAQAA=</HashCode>
+      <FileName>Asistencia.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.Asistencias" Collapsed="true">
+    <Position X="11" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQCBAEAUCBAAAEBgACCAQYjAACwAIGAMCABEAAAQEA=</HashCode>
+      <FileName>Asistencias.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.Bienvenido" Collapsed="true">
+    <Position X="1.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAADAAIAACAAGAAQADAAAAAEAAAEpAAIAAAAg=</HashCode>
+      <FileName>Bienvenido.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.Conexion" Collapsed="true">
+    <Position X="3.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEEDEAGYAAEQgAARJYBJAAgAMESERCIAIBBoAASCAgA=</HashCode>
+      <FileName>Conexion.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.Curso" Collapsed="true">
+    <Position X="12" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iAAgBApGEGhJBIhAgJKQIVQHAEAJAMMACACMEMVgGEE=</HashCode>
+      <FileName>Curso.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.CustomTextBoxClass" Collapsed="true">
+    <Position X="3.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>CustomTextBoxClass.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.DataCBOX" Collapsed="true">
+    <Position X="5.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAQAAAAQgAAAEQAAgAQAAAgIQiAQVAABACQAAAAQ=</HashCode>
+      <FileName>DataCBOX.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.Docente" Collapsed="true">
+    <Position X="10.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAIIEACgACABAAQKjARATBAAACEUAAAAIAECUAAA=</HashCode>
+      <FileName>Docente.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.DocenteTabs" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAQCAAACAAQACAIAAAEEAAAAAABAAAAA=</HashCode>
+      <FileName>DocenteTabs.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.Encuesta" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAECAAAwAAAACDETgCBAAAAEEAgAgAAAAAAAA=</HashCode>
+      <FileName>Encuesta.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.Expresion" Collapsed="true">
+    <Position X="10.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACYAAAAAAAEAAAAAAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Expresion.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.Funcionario" Collapsed="true">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAggAAAACAAAAAAAAGAAQACBAAAAAACAAAIAEAAAAA=</HashCode>
+      <FileName>Funcionario.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.Horarios" Collapsed="true">
+    <Position X="12" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAAAQECBAAEAAAACAAQACAAAAAEGAAAAAAIAAAAA=</HashCode>
+      <FileName>Horarios.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.Matricula" Collapsed="true">
+    <Position X="1.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAhCAMJHiAGIQAAQFOAYxADBICDnNEWBCQg6cBBc0E=</HashCode>
+      <FileName>Matricula.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.NewAsistencia" Collapsed="true">
+    <Position X="8.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEJAECoAABACAACAAQgDgAEAAMEIAAABAGAAAAA=</HashCode>
+      <FileName>NewAsistencia.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.newExamen" Collapsed="true">
+    <Position X="10.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACRAAoAEGAIAAABQACAiQQDgAAAGMEIACQICUBEQQA=</HashCode>
+      <FileName>newExamen.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.newFlota" Collapsed="true">
+    <Position X="9.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAggQAMLlCAQAgAIgAKAAQACIAAQIcUBBAAAQQMFABM=</HashCode>
+      <FileName>newFlota.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.Principal" Collapsed="true">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAACAAEQAAEACBQSASAAQAAAEBAAAAACBAAAA=</HashCode>
+      <FileName>Principal.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.Prueba" Collapsed="true">
+    <Position X="14.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAACAAAAAAAACAAQgCAAAQQEEIAAAAAAAAAAA=</HashCode>
+      <FileName>Prueba.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.RegistrarCliente" Collapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABQEIMEACAeAAAAAQCAARATRAABiMEoAAwIAGAAAAQ=</HashCode>
+      <FileName>RegistrarCliente.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.resAsistencia" Collapsed="true">
+    <Position X="8.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAACAAEcCAAAAABAACAAQACAAAAIcEYAAAAEAAAQEA=</HashCode>
+      <FileName>resAsistencia.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.resCalificaciones" Collapsed="true">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAECAAAAAAQACBAQgCAAAAIcE4AAAAAAAAQEA=</HashCode>
+      <FileName>resCalificaciones.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.resClientePot" Collapsed="true">
+    <Position X="8.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAgAECAAAAAAAAiAAQACIAAAIcEIAAAAAAAAAAA=</HashCode>
+      <FileName>resClientePot.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.resGeneral" Collapsed="true">
+    <Position X="12.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAECAAABAAQACBAQACAAAAIcEoAAAAAAAAQEA=</HashCode>
+      <FileName>resGeneral.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.ResumenAlumno" Collapsed="true">
+    <Position X="14.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEKAAAIAELAAACAwAACAEQACAAAQeFMABBAAEAQAEkE=</HashCode>
+      <FileName>ResumenAlumno.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.ResumenCurso" Collapsed="true">
+    <Position X="9.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAUBAAIQEDAAAAQQEAKwAQACUAAQIlkEAAABAAAACAA=</HashCode>
+      <FileName>ResumenCurso.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.ResumenDocente" Collapsed="true">
+    <Position X="8.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAIGEDAAAAAAAACBgQAGAgAQQFEAAQA4AAgAAAA=</HashCode>
+      <FileName>ResumenDocente.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.ResumenTabs" Collapsed="true">
+    <Position X="10.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAABCAAAQAAAACAAQACBAAAAEEAAAAAAAJAAAA=</HashCode>
+      <FileName>ResumenTabs.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.tab_Config" Collapsed="true">
+    <Position X="11" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAQAAAACAASACBAAAAEEAAAAAIAAAAAA=</HashCode>
+      <FileName>tab_Config.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.Usuarios" Collapsed="true">
+    <Position X="12.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAoAACAAAAAAAASCAQADBACAAEFAAEAIAEAAAAI=</HashCode>
+      <FileName>Usuarios.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.Vehiculos" Collapsed="true">
+    <Position X="14.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAEACAAAgAAEAGAAQADBAAAAEEAAAAIAEABAEA=</HashCode>
+      <FileName>Vehiculos.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.My.MyApplication" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProyectoTodoTransportes.My.MySettings" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAABAAIAAABAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Module Name="ProyectoTodoTransportes.Herramientas" Collapsed="true">
+    <Position X="1.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAgAAAAAIQACAAAAAIIAAgAAAAACA=</HashCode>
+      <FileName>Herramientas.vb</FileName>
+    </TypeIdentifier>
+  </Module>
+  <Module Name="ProyectoTodoTransportes.My.MySettingsProperty" Collapsed="true">
+    <Position X="3.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Module>
+  <Module Name="ProyectoTodoTransportes.My.Resources.Resources" Collapsed="true">
+    <Position X="6" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAgAAQQAAAAAQAIABEAAAIQEAEgECAQAAAAAABIA=</HashCode>
+    </TypeIdentifier>
+  </Module>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
